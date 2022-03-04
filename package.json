@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/frontend-park-mail-ru/2022_1_VVT-i-2.0#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "mustache": "^4.2.0"
   }
 }

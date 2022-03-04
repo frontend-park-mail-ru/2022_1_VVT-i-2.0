@@ -1,7 +1,7 @@
-import * as pages from './pages/index.js';
+import * as pages from './pages/import.js';
 
 const MENU = {
-  index: pages.indexPage,
+  index: pages.mainPage,
   login: pages.loginPage,
   register: pages.registerPage
 };
@@ -21,4 +21,4 @@ ROOT.addEventListener('click', (e) => {
   }
 });
 
-pages.indexPage(ROOT);
+pages.mainPage(ROOT);
