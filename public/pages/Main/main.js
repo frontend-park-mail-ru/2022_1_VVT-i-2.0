@@ -8,13 +8,33 @@ const mainPage = (root) => {
 
     const main = document.createElement('main');
 
-    main.innerHTML = UIKIT.mainLink();
+    main.innerHTML = UIKIT.mainLink('Рестораны');
 
-    const restIcon = document.createElement('div');
-    restIcon.innerHTML = components.restIcon(imgPath, 'Шоколадница', '20-35 мин', '550₽', 4.8);
-    restIcon.classList.add('rest_icon');
+    const container = document.createElement('div');
 
-    main.appendChild(restIcon);
+    const restaurants = [
+        { imgPath, restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8 },
+        { imgPath, restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8 },
+        { imgPath, restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8 },
+        { imgPath, restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8 },
+        { imgPath, restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8 },
+        { imgPath, restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8 },
+        { imgPath, restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8 },
+        { imgPath, restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8 },
+        { imgPath, restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8 },
+        { imgPath, restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8 },
+        { imgPath, restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8 },
+        { imgPath, restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8 },
+    ];
+
+    container.innerHTML = restaurants.reduce((str, { imgPath, restName, timeToDeliver, price, rating }) => {
+        return str + components.restIcon(imgPath, restName, timeToDeliver, price, rating);
+    }, '');
+
+    container.id = 'container';
+
+    main.appendChild(container);
+
     root.appendChild(main);
 };
 

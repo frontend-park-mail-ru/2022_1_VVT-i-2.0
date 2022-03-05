@@ -6,20 +6,19 @@ header {
 }
 
 header > div {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex: 1 1 auto;
+    cursor: pointer;
 }
 
 header > #search {
-    flex: 5 1 auto;
+    flex: 30 1 auto;
     border-left: 1px solid #b9b9b9;
     border-right: 1px solid #b9b9b9;
 }
 
-header > div > * {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    /*-webkit-transform: translate(-50%, -50%);*/
-    transform: translate(-50%, -50%);
+header > div > a {
+    margin-left: 10px;
 }

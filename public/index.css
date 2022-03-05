@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 @import 'ui-kit/import.css';
 @import 'components/import.css';
 
@@ -10,4 +12,14 @@ main {
   margin-top: 34px;
   margin-left: 120px;
   margin-right: 170px;
+}
+
+#container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#container > .rest_icon {
+  margin-bottom: 50px;
 }

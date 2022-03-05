@@ -21,7 +21,6 @@
     top: 0;
     bottom: 44px;
 
-    font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 21px;
@@ -57,10 +56,15 @@
 }
 
 .parameters {
-    font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
     line-height: 16px;
     margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.parameters > span.rating {
+    margin-left: 5px;
 }
