@@ -1,38 +1,10 @@
+@import 'ui-kit/import.css';
+@import 'components/import.css';
+
 body {
-  margin: 0px;
+  margin: 0;
   font-family: 'Roboto', sans-serif;
 }
-
-/* -----HEADER----- */
-
-header {
-  border-bottom: 1px solid #b9b9b9;
-  height: 68px;
-  display: flex;
-  margin: auto;
-  font-weight: bold;
-}
-
-header > div {
-  position: relative;
-  flex: 1 1 auto;
-}
-
-header > #search {
-  flex: 5 1 auto;
-  border-left: 1px solid #b9b9b9;
-  border-right: 1px solid #b9b9b9;
-}
-
-header > div > * {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-/* -----END OF HEADER----- */
 
 main {
   margin-top: 34px;
