@@ -1,9 +1,10 @@
 import header from './Header/header.js';
-import restIcon from "./RestIcon/rest-icon.js";
+import loginForm from './LoginForm/login-form.js';
+import restIcons from "./RestIcons/rest-icons.js";
 
 export default {
     header,
-    // loginForm,
+    loginForm,
     // registerForm,
-    restIcon,
+    restIcons,
 };
