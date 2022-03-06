@@ -1,5 +1,5 @@
 import components from '../../components/import.js';
-import UIKIT from "../../ui-kit/import";
+import UIKIT from '../../ui-kit/import.js';
 
 const registerPage = (root) => {
     const properties = [
