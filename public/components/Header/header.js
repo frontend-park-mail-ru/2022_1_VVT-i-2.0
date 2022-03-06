@@ -10,7 +10,7 @@ const header = () => {
             <div data-section="login">
                 <img src="icons/profile.svg" data-section="login">
                 <a data-section="login">Войти</a>
-            </>
+            </div>
         </header>
     `;
 };
