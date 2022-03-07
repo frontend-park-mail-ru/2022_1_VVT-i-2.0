@@ -1,27 +1,27 @@
 .input-block div.title {
-  margin-bottom: 4px;
+    margin-bottom: 4px;
 }
 
 .input-block input {
-  all: unset;
-  height: 30px;
-  width: 300px;
-  border: none;
-  border-bottom: 2px solid #DEDEDE;
-  color: #DEDEDE;
+    all: unset;
+    height: 30px;
+    width: 300px;
+    border: none;
+    border-bottom: 2px solid #DEDEDE;
+    color: #DEDEDE;
 }
 
 .input-block input:focus-visible {
-  border: none;
-  border-bottom: 2px solid #212121;
-  color: #212121;
+    border: none;
+    border-bottom: 2px solid #212121;
+    color: #212121;
 }
 
 .input-block input.error {
-  border-bottom: 2px solid #FF3985;
+    border-bottom: 2px solid #FF3985;
 }
 
 .input-block div.error {
-  color: #FF3985;
-  margin-top: 2px;
+    color: #FF3985;
+    margin-top: 2px;
 }

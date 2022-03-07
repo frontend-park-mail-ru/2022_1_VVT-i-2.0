@@ -1,12 +1,12 @@
 .button {
-  min-height: 45px;
-  min-width: 300px;
-  border: none;
-  border-radius: 14px;
-  font-weight: bold;
+    min-height: 45px;
+    min-width: 300px;
+    border: none;
+    border-radius: 14px;
+    font-weight: bold;
 }
 
 .button:hover {
-  cursor: pointer;
-  opacity: 0.5;
+    cursor: pointer;
+    opacity: 0.5;
 }
