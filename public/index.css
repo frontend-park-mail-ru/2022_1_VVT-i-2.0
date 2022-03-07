@@ -4,48 +4,48 @@
 @import 'components/import.css';
 
 body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 main {
-  margin-top: 68px;
-  padding-top: 1%;
-  padding-left: 8%;
-  padding-right: 8%;
+    margin-top: 68px;
+    padding-top: 1%;
+    padding-left: 8%;
+    padding-right: 8%;
 }
 
 main.hidden {
-  opacity: 0.7;
-  pointer-events: none;
+    opacity: 0.7;
+    pointer-events: none;
 }
 
 #container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 #container > .rest_icon {
-  margin-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 #modal.shown {
-  display:flex;
-  position: fixed;
-  top: 68px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(33, 33, 33, 0.7);
+    display: flex;
+    position: fixed;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 33, 33, 0.7);
 }
 
 #modal.shown > * {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-  border: none;
-  border-radius: 14px;
-  background: #ffffff;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border: none;
+    border-radius: 14px;
+    background: #ffffff;
 }

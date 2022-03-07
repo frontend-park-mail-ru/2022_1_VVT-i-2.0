@@ -4,7 +4,7 @@ const button = (title, color, href) => {
             {{title}}
         </button>
     `;
-    return Mustache.render(template, { title, color, href });
+    return Mustache.render(template, {title, color, href});
 };
 
 export default button;

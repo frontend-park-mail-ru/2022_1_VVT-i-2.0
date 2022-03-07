@@ -3,7 +3,7 @@ import * as pages from './pages/import.js';
 const MENU = {
     main: pages.mainPage,
     login: pages.loginPage,
-    register: pages.registerPage
+    register: pages.registerPage,
 };
 
 const MODAL_PAGES = [
@@ -15,7 +15,7 @@ const ROOT = document.getElementById('root');
 const MODAL = document.getElementById('modal');
 
 const handler = (e) => {
-    const { section } = e.target.dataset;
+    const {section} = e.target.dataset;
     if (section) {
         if (MODAL_PAGES.includes(section)) {
             MODAL.classList.add('shown');

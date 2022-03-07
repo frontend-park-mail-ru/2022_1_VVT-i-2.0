@@ -1,26 +1,26 @@
 #login-form {
-  position: relative;
+    position: relative;
 }
 
 #login-form > h2 {
-  margin-top: 0px;
-  margin-bottom: 32px;
+    margin-top: 0px;
+    margin-bottom: 32px;
 }
 
 #login-form > img {
-  position: absolute;
-  height: 30px;
-  width: 30px;
-  top: 15px;
-  right: 15px;
-  cursor: pointer;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
 }
 
 #login-form .property {
-  margin-bottom: 44px;
+    margin-bottom: 44px;
 }
 
 #login-form #login-button {
-  margin-top: 3px;
-  margin-bottom: 19px;
+    margin-top: 3px;
+    margin-bottom: 19px;
 }

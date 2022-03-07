@@ -24,7 +24,7 @@ const metaInf = (restName, timeToDeliver, price, rating) => {
             </div>
         </div>
     `;
-    return Mustache.render(template, { restName, timeToDeliver, price, rating });
+    return Mustache.render(template, {restName, timeToDeliver, price, rating});
 };
 
 export default metaInf;
