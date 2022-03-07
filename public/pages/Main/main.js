@@ -1,4 +1,6 @@
+import * as api from '../../api/api.js';
 import components from '../../components/import.js';
+import * as events from '../../events/events.js';
 import UIKIT from '../../ui-kit/import.js';
 
 const mainPage = (app) => {
@@ -19,7 +21,20 @@ const mainPage = (app) => {
         {imgPath, restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8},
     ];
 
-    app.root.innerHTML = components.header();
+    // api.getRestaurants().then((res) => {
+    //     events.removeListeners(app);
+
+    //     app.root.innerHTML = components.header(res.auth);
+
+    //     const main = document.createElement('main');
+    //     main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons(res.restaurants);
+
+    //     app.root.appendChild(main);
+
+    //     events.addListeners(app);
+    // });
+
+    app.root.innerHTML = components.header(false);
 
     const main = document.createElement('main');
     main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons(restaurants);
