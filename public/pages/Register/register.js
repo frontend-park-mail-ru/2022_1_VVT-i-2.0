@@ -1,6 +1,6 @@
 import components from '../../components/import.js';
 
-const registerPage = (root, modal) => {
+const registerPage = (app) => {
     const properties = [
         {title: 'Телефон', placeholder: '+7(xxx)xxx-xx-xx'},
         {title: 'Имя', placeholder: 'Сергей_где_бэк?'},
@@ -8,7 +8,7 @@ const registerPage = (root, modal) => {
         {title: 'Повторите пароль', placeholder: '**********'},
     ];
 
-    modal.innerHTML = components.registerForm(properties);
+    app.modal.innerHTML = components.registerForm(properties);
 };
 
 export default registerPage;

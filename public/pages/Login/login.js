@@ -1,12 +1,12 @@
 import components from '../../components/import.js';
 
-const loginPage = (root, modal) => {
+const loginPage = (app) => {
     const properties = [
-        {title: 'Телефон', placeholder: '+7(xxx)xxx-xx-xx'},
-        {title: 'Пароль', placeholder: '**********'},
+        {title: 'Телефон', placeholder: '+7(xxx)xxx-xx-xx', id: 'loginPhone'},
+        {title: 'Пароль', placeholder: '**********', id: 'loginPassword'},
     ];
 
-    modal.innerHTML = components.loginForm(properties);
+    app.modal.innerHTML = components.loginForm(properties);
 };
 
 export default loginPage;

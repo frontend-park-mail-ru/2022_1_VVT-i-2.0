@@ -8,13 +8,13 @@
     width: 300px;
     border: none;
     border-bottom: 2px solid #DEDEDE;
-    color: #DEDEDE;
+    color: #212121;
+    font-weight: bold;
 }
 
 .input-block input:focus-visible {
     border: none;
     border-bottom: 2px solid #212121;
-    color: #212121;
 }
 
 .input-block input.error {

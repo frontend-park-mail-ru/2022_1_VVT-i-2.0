@@ -1,34 +1,41 @@
-import * as pages from './pages/import.js';
+import MENU from './pages/import.js';
+import EVENTS from './events/events.js';
 
-const MENU = {
-    main: pages.mainPage,
-    login: pages.loginPage,
-    register: pages.registerPage,
+const APP = {
+    root: document.getElementById('root'),
+    modal: document.getElementById('modal')
 };
-
-const MODAL_PAGES = [
-    'login',
-    'register'
-];
-
-const ROOT = document.getElementById('root');
-const MODAL = document.getElementById('modal');
 
 const handler = (e) => {
     const {section} = e.target.dataset;
-    if (section) {
-        if (MODAL_PAGES.includes(section)) {
-            MODAL.classList.add('shown');
-            root.lastChild.classList.add('hidden');
-        } else {
-            MODAL.classList.remove('shown');
-            MODAL.innerHTML = '';
-        }
-        MENU[section](ROOT, MODAL);
+    if (!section) {
+        return;
     }
+
+    // Remove all event listeners
+    Object.entries(EVENTS).forEach(([name, {type, listener}]) => {
+        document.getElementById(name)?.removeEventListener(type, (e) => listener(APP, e));
+    });
+
+    const page = MENU[section];
+
+    if (page.isModal) {
+        APP.modal.classList.add('shown');
+        APP.root.lastChild.classList.add('hidden');
+    } else {
+        MODAL.classList.remove('shown');
+        APP.modal.innerHTML = '';
+        APP.root.lastChild.classList.remove('hidden');
+    }
+
+    page.draw(APP);
+
+    // Add all event listeners
+    Object.entries(EVENTS).forEach(([name, {type, listener}]) => {
+        document.getElementById(name)?.addEventListener(type, (e) => listener(APP, e));
+    });
 };
 
-ROOT.addEventListener('click', handler);
-MODAL.addEventListener('click', handler);
+Object.entries(APP).forEach(([name, node]) => node.addEventListener('click', handler));
 
-pages.mainPage(ROOT, MODAL);
+MENU.main.draw(APP);
