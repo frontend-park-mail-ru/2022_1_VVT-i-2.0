@@ -1,16 +1,19 @@
 #login-form {
-  margin: auto;
-  width: 300px;
-  height: 367px;
-  border: none;
-  border-radius: 14px;
-  padding: 30px;
-  background: #ffffff;
+  position: relative;
 }
 
 #login-form > h2 {
   margin-top: 0px;
   margin-bottom: 32px;
+}
+
+#login-form > img {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
 }
 
 #login-form .property {

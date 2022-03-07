@@ -6,14 +6,20 @@ const MENU = {
     register: pages.registerPage
 };
 
+const MODAL_PAGES = [
+    'login',
+    'register'
+];
+
 const ROOT = document.getElementById('root');
 const MODAL = document.getElementById('modal');
 
 const handler = (e) => {
     const { section } = e.target.dataset;
     if (section) {
-        if (section === 'login' || section === 'register') {
+        if (MODAL_PAGES.includes(section)) {
             MODAL.classList.add('shown');
+            root.lastChild.classList.add('hidden');
         } else {
             MODAL.classList.remove('shown');
             MODAL.innerHTML = '';

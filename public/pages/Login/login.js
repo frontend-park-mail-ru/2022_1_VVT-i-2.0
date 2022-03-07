@@ -3,11 +3,9 @@ import UIKIT from '../../ui-kit/import.js';
 
 const loginPage = (root, modal) => {
   const properties = [
-    { property: 'Телефон', defaultValueProperty: 'Введите телефон' },
-    { property: 'Пароль', defaultValueInput: '**********' },
+    { title: 'Телефон', placeholder: '+7(xxx)xxx-xx-xx' },
+    { title: 'Пароль', placeholder: '**********' },
   ];
-
-  root.lastChild.classList.add('hidden');
 
   modal.innerHTML = components.loginForm(properties);
 };

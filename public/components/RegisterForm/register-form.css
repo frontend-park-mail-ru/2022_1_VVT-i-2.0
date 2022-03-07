@@ -1,0 +1,26 @@
+#register-form {
+  position: relative;
+}
+
+#register-form > h2 {
+  margin-top: 0px;
+  margin-bottom: 35px;
+}
+
+#register-form > img {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+#register-form .property {
+  margin-bottom: 26px;
+}
+
+#register-form #register-button {
+  margin-top: 37px;
+  margin-bottom: 19px;
+}

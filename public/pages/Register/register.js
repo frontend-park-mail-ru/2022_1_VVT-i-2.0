@@ -3,13 +3,11 @@ import UIKIT from '../../ui-kit/import.js';
 
 const registerPage = (root, modal) => {
     const properties = [
-        {property: "Телефон", defaultValueProperty: "Введите телефон"},
-        {property: "Имя", defaultValueInput: "Введите имя"},
-        {property: "Пароль", defaultValueInput: "**********"},
-        {property: "Повторите пароль", defaultValueInput: "**********"},
+        { title: 'Телефон', placeholder: '+7(xxx)xxx-xx-xx' },
+        { title: 'Имя', placeholder: 'Сергей_где_бэк?' },
+        { title: 'Пароль', placeholder: '**********' },
+        { title: 'Повторите пароль', placeholder: '**********' },
     ];
-
-    root.lastChild.classList.add('hidden');
 
     modal.innerHTML = components.registerForm(properties);
 };

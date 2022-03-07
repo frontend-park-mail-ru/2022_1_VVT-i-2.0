@@ -39,3 +39,13 @@ main.hidden {
   height: 100%;
   background-color: rgba(33, 33, 33, 0.7);
 }
+
+#modal.shown > * {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border: none;
+  border-radius: 14px;
+  background: #ffffff;
+}
