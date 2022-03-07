@@ -5,3 +5,8 @@
   border-radius: 14px;
   font-weight: bold;
 }
+
+.button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}

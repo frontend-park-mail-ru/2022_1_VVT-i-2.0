@@ -1,7 +1,7 @@
 import components from '../../components/import.js';
 import UIKIT from '../../ui-kit/import.js';
 
-const registerPage = (root) => {
+const registerPage = (root, modal) => {
     const properties = [
         {property: "Телефон", defaultValueProperty: "Введите телефон"},
         {property: "Имя", defaultValueInput: "Введите имя"},
@@ -9,15 +9,9 @@ const registerPage = (root) => {
         {property: "Повторите пароль", defaultValueInput: "**********"},
     ];
 
-    const html = components.header();
+    root.lastChild.classList.add('hidden');
 
-    root.innerHTML = html;
-
-    const main = document.createElement('main');
-    main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons(restaurants);
-    main.innerHTML = components.registerForm(properties);
-
-    root.appendChild(main);
+    modal.innerHTML = components.registerForm(properties);
 };
 
 export default registerPage;

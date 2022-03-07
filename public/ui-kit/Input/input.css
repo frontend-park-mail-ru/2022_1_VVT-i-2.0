@@ -5,6 +5,7 @@
 .input-block input {
   all: unset;
   height: 30px;
+  width: 300px;
   border: none;
   border-bottom: 2px solid #DEDEDE;
   color: #DEDEDE;

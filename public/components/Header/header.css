@@ -1,8 +1,14 @@
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #ffffff;
     border-bottom: 1px solid #b9b9b9;
     height: 68px;
+    width: 100%;
     display: flex;
     font-weight: bold;
+    z-index: 1;
 }
 
 header > div {

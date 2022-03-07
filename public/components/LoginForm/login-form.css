@@ -1,0 +1,23 @@
+#login-form {
+  margin: auto;
+  width: 300px;
+  height: 367px;
+  border: none;
+  border-radius: 14px;
+  padding: 30px;
+  background: #ffffff;
+}
+
+#login-form > h2 {
+  margin-top: 0px;
+  margin-bottom: 32px;
+}
+
+#login-form .property {
+  margin-bottom: 44px;
+}
+
+#login-form #login-button {
+  margin-top: 3px;
+  margin-bottom: 19px;
+}
