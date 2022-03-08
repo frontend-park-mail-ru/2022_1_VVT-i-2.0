@@ -4,6 +4,23 @@ export const Regex = {
     password: new RegExp('^[A-Za-zА-Яа-я0-9]{8,}$'),
 };
 
+export const ErrorMsg = {
+    errorPhoneNumber: 'Формат телефона: +7(988)888-88-88',
+    errorName: 'Длина > 1 символа(без спецсимволов)',
+    errorPassword: 'Длина > 7 символов(без спецсимволов)',
+    errorPasswordCMP: 'Пароли не совпадают',
+};
+
+export function isAvailableForSend(statusForm) {
+    Object.entries(statusForm).forEach(([input, status]) => {
+        if (!status) {
+            return false;
+        }
+    });
+
+    return true;
+}
+
 export function numberAutocomplete(e) {
     if (e.target.value.length < 3) {
         e.target.value = '+7(';
@@ -24,16 +41,17 @@ export function nameAutocomplete(e) {
         .join('');
 }
 
-export function getVisibleError(childList) {
+function getVisibleError(childList, error) {
     for (let childNode of childList) {
         childNode.classList.add('error');
         if (childNode.classList.contains('hidden')) {
+            childNode.innerText = error;
             childNode.classList.remove('hidden');
         }
     }
 }
 
-export function removeVisibleError(childList) {
+function removeVisibleError(childList) {
     for (let childNode of childList) {
         if (childNode.classList.contains('error')) {
             childNode.classList.remove('error');
@@ -43,19 +61,44 @@ export function removeVisibleError(childList) {
     childList[1].classList.add('hidden');
 }
 
-export function inputDataManager(e, elemID, regularExpression) {
+function setFormStatus(statusForm, elemID, status) {
+    switch (elemID) {
+        case 'loginPhone':
+            statusForm.isValidPhone = status;
+            break;
+        case 'loginPassword':
+            statusForm.isValidPassword = status;
+            break;
+        case 'registerPhone':
+            statusForm.isValidPhone = status;
+            break;
+        case 'registerName':
+            statusForm.isValidName = status;
+            break;
+        case 'registerPassword':
+            statusForm.isValidPassword = status;
+            break;
+        case 'registerRepeatPassword':
+            statusForm.isValidRepeatPassword = status;
+            break;
+    }
+}
+
+export function inputDataManager(e, elemID, statusForm, regularExpression, errorMsg) {
     const elem = document.getElementById(elemID);
     const childList = elem.querySelectorAll('div > input, div');
 
     if (e.target.value !== '' && !regularExpression.exec(e.target.value)) {
-        getVisibleError(childList);
+        setFormStatus(statusForm, elemID, false);
+        getVisibleError(childList, errorMsg);
         return;
     }
 
+    setFormStatus(statusForm, elemID, true);
     removeVisibleError(childList);
 }
 
-export function passwordController(e, regularExpression) {
+export function passwordController(e, statusRegisterForm, regularExpression) {
     const pass1 = document.getElementById('registerPassword');
     const pass2 = document.getElementById('registerRepeatPassword');
 
@@ -65,17 +108,24 @@ export function passwordController(e, regularExpression) {
     const childList1 = pass1.querySelectorAll('div > input, div');
     const childList2 = pass2.querySelectorAll('div > input, div');
 
-    if (!regularExpression.exec(passVal1)) {
-        getVisibleError(childList1);
+    if (passVal1 === '' || !regularExpression.exec(passVal1)) {
+        setFormStatus(statusRegisterForm, 'registerPassword', false);
+        getVisibleError(childList1, ErrorMsg.errorPassword);
         return;
-    } else {
+    } else if (e.target.parentElement.getAttribute('id') === 'registerPassword') {
+        setFormStatus(statusRegisterForm, 'registerPassword', true);
         removeVisibleError(childList1);
+        return;
     }
 
-    if (passVal1 !== passVal2 || !regularExpression.exec(passVal2)) {
-        getVisibleError(childList2);
+    if (passVal2 !== '' && passVal1 !== '' && passVal1 !== passVal2) {
+        setFormStatus(statusRegisterForm, 'registerRepeatPassword', false);
+        getVisibleError(childList2, ErrorMsg.errorPasswordCMP);
         return;
     }
+
+    setFormStatus(statusRegisterForm, 'registerPassword', true);
+    setFormStatus(statusRegisterForm, 'registerRepeatPassword', true);
 
     removeVisibleError(childList1);
     removeVisibleError(childList2);
