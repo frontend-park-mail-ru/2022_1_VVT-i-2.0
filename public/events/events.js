@@ -1,12 +1,17 @@
 import * as api from '../api/api.js';
 import * as VALIDATION from './validation.js';
 
-/*
-*
-* МОЖНО СОЗДАТЬ ОБЬЕКТ ДЛЯ СОХРАНЕНИЯ СТАТУСА ПОЛЕЙ,
-* И ПРИ ОТПРАВКЕ ПРОВЕРКА ТОЛЬКО ПОЛЕЙ ЭТОГО ОБЬЕКТА
-*
-* */
+const statusLoginForm = {
+    isValidPhone: false,
+    isValidPassword: false,
+};
+
+const statusRegisterForm = {
+    isValidPhone: false,
+    isValidName: false,
+    isValidPassword: false,
+    isValidRepeatPassword: false,
+};
 
 const EVENTS = {
     closeImg: [
@@ -24,15 +29,27 @@ const EVENTS = {
             type: 'input',
             listener(app, e) {
                 VALIDATION.numberAutocomplete(e);
-                VALIDATION.inputDataManager(e, 'loginPhone', VALIDATION.Regex.phoneNumber);
+            }
+        },
+        {
+            type: 'change',
+            listener(app, e) {
+                VALIDATION.inputDataManager(
+                    e, 'loginPhone', statusLoginForm,
+                    VALIDATION.Regex.phoneNumber, VALIDATION.ErrorMsg.errorPhoneNumber
+                );
+
             }
         }
     ],
     loginPassword: [
         {
-            type: 'input',
+            type: 'change',
             listener(app, e) {
-                VALIDATION.inputDataManager(e, 'loginPassword', VALIDATION.Regex.password);
+                VALIDATION.inputDataManager(
+                    e, 'loginPassword', statusLoginForm,
+                    VALIDATION.Regex.password, VALIDATION.ErrorMsg.errorPassword
+                );
             }
         }
     ],
@@ -40,11 +57,15 @@ const EVENTS = {
         {
             type: 'click',
             listener(app, e) {
+                if (!VALIDATION.isAvailableForSend(statusLoginForm)) {
+                    return;
+                }
+
                 const phone = document.getElementById('loginPhone').value;
                 const password = document.getElementById('loginPassword').value;
 
                 api
-                    .login({ phone, password })
+                    .login({phone, password})
                     .then((res) => {
                         console.log(res.data);
                     });
@@ -56,7 +77,15 @@ const EVENTS = {
             type: 'input',
             listener(app, e) {
                 VALIDATION.numberAutocomplete(e);
-                VALIDATION.inputDataManager(e, 'registerPhone', VALIDATION.Regex.phoneNumber);
+            }
+        },
+        {
+            type: 'change',
+            listener(app, e) {
+                VALIDATION.inputDataManager(
+                    e, 'registerPhone', statusRegisterForm,
+                    VALIDATION.Regex.phoneNumber, VALIDATION.ErrorMsg.errorPhoneNumber
+                );
             }
         }
     ],
@@ -65,23 +94,34 @@ const EVENTS = {
             type: 'input',
             listener(app, e) {
                 VALIDATION.nameAutocomplete(e);
-                VALIDATION.inputDataManager(e, 'registerName', VALIDATION.Regex.name);
+            }
+        },
+        {
+            type: 'change',
+            listener(app, e) {
+                VALIDATION.inputDataManager(
+                    e, 'registerName', statusRegisterForm,
+                    VALIDATION.Regex.name, VALIDATION.ErrorMsg.errorName);
             }
         }
     ],
     registerPassword: [
         {
-            type: 'input',
+            type: 'change',
             listener(app, e) {
-                VALIDATION.passwordController(e, VALIDATION.Regex.password);
+                VALIDATION.passwordController(
+                    e, statusRegisterForm, VALIDATION.Regex.password
+                );
             }
         }
     ],
     registerRepeatPassword: [
         {
-            type: 'input',
+            type: 'change',
             listener(app, e) {
-                VALIDATION.passwordController(e, VALIDATION.Regex.password);
+                VALIDATION.passwordController(
+                    e, statusRegisterForm, VALIDATION.Regex.password
+                );
             }
         }
     ],
@@ -89,17 +129,17 @@ const EVENTS = {
         {
             type: 'click',
             listener(app, e) {
+                if (!VALIDATION.isAvailableForSend(statusRegisterForm)) {
+                    return;
+                }
+
                 const phone = document.getElementById('registerPhone').value;
                 const name = document.getElementById('registerName').value;
                 const password = document.getElementById('registerPassword').value;
                 const repeatPassword = document.getElementById('registerRepeatPassword').value;
 
-                if (password !== repeatPassword) {
-                    return;
-                }
-
                 api
-                    .register({ phone, name, password })
+                    .register({phone, name, password})
                     .then((res) => {
                         console.log(res);
                     });
