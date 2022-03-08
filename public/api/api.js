@@ -28,6 +28,6 @@ export const login = (user) => {
     return request('/login', {method: METHODS.POST, body: user});
 }
 
-export const logout = (user) => {
-    return request('/logout', {method: METHODS.DELETE, body: user});
+export const logout = () => {
+    return request('/logout', {method: METHODS.POST});
 }

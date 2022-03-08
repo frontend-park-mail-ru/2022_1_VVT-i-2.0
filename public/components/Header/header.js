@@ -8,9 +8,9 @@ const header = (auth = false) => {
             <div id="search">
             </div>
             {{#auth}}
-                <div data-section="profile">
-                    <img src="icons/profile.svg" data-section="profile">
-                    <a data-section="profile">Профиль</a>
+                <div id="logoutButton">
+                    <img src="icons/profile.svg">
+                    <a>Выйти</a>
                 </div>
             {{/auth}}
             {{^auth}}

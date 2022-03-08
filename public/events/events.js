@@ -158,6 +158,24 @@ const EVENTS = {
             }
         }
     ],
+    logoutButton: [
+        {
+            type: 'click',
+            listener(app, e) {
+                api
+                    .logout()
+                    .then((res) => {
+                        if (res.status !== 200) {
+                            alert('Ошибка!');
+                            return;
+                        }
+
+                        const event = new CustomEvent('render-page', { detail: { section: 'main' } })
+                        document.dispatchEvent(event);
+                    });
+            }
+        }
+    ]
 };
 
 export const addListeners = (app) => {
