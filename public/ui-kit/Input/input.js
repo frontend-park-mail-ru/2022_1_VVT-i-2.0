@@ -1,16 +1,15 @@
-const input = (title, placeholder, id, error = false) => {
+const input = (title, type, placeholder, id, error = false) => {
     const template = `
         <div class="input-block">
-            <div class="title">{{ title }}</div>
-            <input
-                {{#id}} id={{id}} {{/id}}
-                placeholder={{placeholder}}
-                {{#error}} class="error" {{/error}}
-            >
-            {{#error}}<div class="error">Ошибка</div>{{/error}}
+            <div class="title">{{title}}</div>
+            <div {{#id}} id={{id}} {{/id}}>
+                <input placeholder="{{placeholder}}" type="{{type}}">
+                <div class="hidden">Невалидные данные</div>
+            </div>
         </div>
     `;
-    return Mustache.render(template, {title, placeholder, id, error});
+
+    return Mustache.render(template, {title, type, placeholder, id, error});
 };
 
 export default input;
