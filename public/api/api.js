@@ -1,6 +1,6 @@
 const METHODS = {GET: 'GET', POST: 'POST', PUT: 'PUT', DELETE: 'DELETE'};
 
-const BASE_URI = 'localhost:8080';
+const BASE_URI = 'http://localhost:8080';
 
 const DEFAULT_OPTIONS = {
     method: METHODS.GET,
