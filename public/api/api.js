@@ -29,5 +29,5 @@ export const login = (user) => {
 }
 
 export const logout = () => {
-    return request('/logout', {method: METHODS.POST});
+    return request('/auth/logout', {method: METHODS.POST});
 }
