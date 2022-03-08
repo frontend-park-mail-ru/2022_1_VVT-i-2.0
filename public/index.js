@@ -1,49 +1,39 @@
+import * as events from './events/events.js';
 import MENU from './pages/import.js';
-import EVENTS from './events/events.js';
 
 const APP = {
     root: document.getElementById('root'),
     modal: document.getElementById('modal')
 };
 
-const handler = (e) => {
-    const {section} = e.target.dataset;
+const renderPage = (section) => {
     if (!section) {
         return;
     }
 
-    // Remove all event listeners
-    Object.entries(EVENTS).forEach(([name, events]) => {
-        const node = document.getElementById(name);
-        if (!node) {
-            return;
-        }
-        events.forEach(({type, listener}) => node.removeEventListener(type, (e) => listener(APP, e)));
-    });
+    events.removeListeners(APP);
 
     const page = MENU[section];
 
     if (page.isModal) {
         APP.modal.classList.add('shown');
-        APP.root.lastChild.classList.add('hidden');
+        // APP.root.lastChild.classList.add('hidden');
     } else {
-        MODAL.classList.remove('shown');
+        APP.modal.classList.remove('shown');
         APP.modal.innerHTML = '';
-        APP.root.lastChild.classList.remove('hidden');
+        // APP.root.lastChild.classList.remove('hidden');
     }
 
-    page.draw(APP);
+    page.render(APP);
 
-    // Add all event listeners
-    Object.entries(EVENTS).forEach(([name, events]) => {
-        const node = document.getElementById(name);
-        if (!node) {
-            return;
-        }
-        events.forEach(({type, listener}) => node.addEventListener(type, (e) => listener(APP, e)));
-    });
+    events.addListeners(APP);
 };
 
-Object.entries(APP).forEach(([name, node]) => node.addEventListener('click', handler));
+Object
+    .entries(APP)
+    .forEach(([name, node]) => node.addEventListener('click', (e) => renderPage(e.target.dataset.section)));
 
-MENU.main.draw(APP);
+// Added custom event listener to be able to render any page from any place from code
+document.addEventListener('render-page', (e) => renderPage(e.detail.section));
+
+MENU.main.render(APP);

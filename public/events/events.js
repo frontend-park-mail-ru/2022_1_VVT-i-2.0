@@ -67,7 +67,13 @@ const EVENTS = {
                 api
                     .login({phone, password})
                     .then((res) => {
-                        console.log(res.data);
+                        if (res.status === 403) {
+                            alert('Данные не валидны');
+                            return;
+                        }
+
+                        const event = new CustomEvent('render-page', { detail: { section: 'main' } })
+                        document.dispatchEvent(event);
                     });
             }
         }
@@ -141,11 +147,35 @@ const EVENTS = {
                 api
                     .register({phone, name, password})
                     .then((res) => {
-                        console.log(res);
+                        if (res.status === 403) {
+                            alert('Данные не валидны');
+                            return;
+                        }
+
+                        const event = new CustomEvent('render-page', { detail: { section: 'main' } })
+                        document.dispatchEvent(event);
                     });
             }
         }
     ],
 };
 
-export default EVENTS;
+export const addListeners = (app) => {
+    Object.entries(EVENTS).forEach(([name, events]) => {
+        const node = document.getElementById(name);
+        if (!node) {
+            return;
+        }
+        events.forEach(({type, listener}) => node.addEventListener(type, (e) => listener(app, e)));
+    });
+}
+
+export const removeListeners = (app) => {
+    Object.entries(EVENTS).forEach(([name, events]) => {
+        const node = document.getElementById(name);
+        if (!node) {
+            return;
+        }
+        events.forEach(({type, listener}) => node.removeEventListener(type, (e) => listener(app, e)));
+    });
+};
