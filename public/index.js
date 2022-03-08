@@ -13,8 +13,12 @@ const handler = (e) => {
     }
 
     // Remove all event listeners
-    Object.entries(EVENTS).forEach(([name, {type, listener}]) => {
-        document.getElementById(name)?.removeEventListener(type, (e) => listener(APP, e));
+    Object.entries(EVENTS).forEach(([name, events]) => {
+        const node = document.getElementById(name);
+        if (!node) {
+            return;
+        }
+        events.forEach(({type, listener}) => node.removeEventListener(type, (e) => listener(APP, e)));
     });
 
     const page = MENU[section];
@@ -31,8 +35,12 @@ const handler = (e) => {
     page.draw(APP);
 
     // Add all event listeners
-    Object.entries(EVENTS).forEach(([name, {type, listener}]) => {
-        document.getElementById(name)?.addEventListener(type, (e) => listener(APP, e));
+    Object.entries(EVENTS).forEach(([name, events]) => {
+        const node = document.getElementById(name);
+        if (!node) {
+            return;
+        }
+        events.forEach(({type, listener}) => node.addEventListener(type, (e) => listener(APP, e)));
     });
 };
 
