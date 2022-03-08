@@ -18,7 +18,7 @@ const loginForm = (properties) => {
     return Mustache.render(template, {
         properties: properties,
         input() {
-            return UIKIT.input(this.title, this.placeholder, this.id);
+            return UIKIT.input(this.title, this.type, this.placeholder, this.id);
         },
         login() {
             return UIKIT.button('Войти', COLORS.primary, null, 'loginButton');

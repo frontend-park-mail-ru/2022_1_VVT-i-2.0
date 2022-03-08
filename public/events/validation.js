@@ -6,7 +6,7 @@ export const Regex = {
 
 export function numberAutocomplete(e) {
     if (e.target.value.length < 3) {
-        e.target.value += '+7(';
+        e.target.value = '+7(';
     }
     if (e.target.value.length === 6) {
         e.target.value += ')';
@@ -18,11 +18,10 @@ export function numberAutocomplete(e) {
 }
 
 export function nameAutocomplete(e) {
-    let len = e.target.value.length;
-    if (len > 1) {
-        e.target.value[len - 1].toLowerCase();
-    }
-    e.target.value[0] = e.target.value[0].toUpperCase();
+    e.target.value = e.target.value
+        .split('')
+        .map((c, i) => i === 0 ? c.toUpperCase() : c.toLowerCase())
+        .join('');
 }
 
 export function getVisibleError(childList) {
@@ -48,7 +47,7 @@ export function inputDataManager(e, elemID, regularExpression) {
     const elem = document.getElementById(elemID);
     const childList = elem.querySelectorAll('div > input, div');
 
-    if (!regularExpression.exec(e.target.value)) {
+    if (e.target.value !== '' && !regularExpression.exec(e.target.value)) {
         getVisibleError(childList);
         return;
     }
@@ -60,12 +59,24 @@ export function passwordController(e, regularExpression) {
     const pass1 = document.getElementById('registerPassword');
     const pass2 = document.getElementById('registerRepeatPassword');
 
-    const childList = pass2.querySelectorAll('div > input, div');
+    const passVal1 = pass1.children[0].value;
+    const passVal2 = pass2.children[0].value;
 
-    if (pass1.value !== pass2.value || !regularExpression.exec(e.target.value)) {
-        getVisibleError(childList);
+    const childList1 = pass1.querySelectorAll('div > input, div');
+    const childList2 = pass2.querySelectorAll('div > input, div');
+
+    if (!regularExpression.exec(passVal1)) {
+        getVisibleError(childList1);
+        return;
+    } else {
+        removeVisibleError(childList1);
+    }
+
+    if (passVal1 !== passVal2 || !regularExpression.exec(passVal2)) {
+        getVisibleError(childList2);
         return;
     }
 
-    removeVisibleError(childList);
+    removeVisibleError(childList1);
+    removeVisibleError(childList2);
 }

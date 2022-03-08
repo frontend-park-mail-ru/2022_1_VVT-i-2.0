@@ -1,5 +1,5 @@
 import * as api from '../api/api.js';
-import * as VALIDATION from '../events/validation.js';
+import * as VALIDATION from './validation.js';
 
 /*
 *
@@ -20,7 +20,7 @@ const EVENTS = {
     loginPhone: {
         type: 'input',
         listener(app, e) {
-            VALIDATION.nameAutocomplete(e);
+            VALIDATION.numberAutocomplete(e);
             VALIDATION.inputDataManager(e, 'loginPhone', VALIDATION.Regex.phoneNumber);
         }
     },
