@@ -67,6 +67,11 @@ const EVENTS = {
                 api
                     .login({phone, password})
                     .then((res) => {
+                        if (res.status === 403) {
+                            alert('Данные не валидны');
+                            return;
+                        }
+
                         const event = new CustomEvent('render-page', { detail: { section: 'main' } })
                         document.dispatchEvent(event);
                     });
@@ -142,6 +147,11 @@ const EVENTS = {
                 api
                     .register({phone, name, password})
                     .then((res) => {
+                        if (res.status === 403) {
+                            alert('Данные не валидны');
+                            return;
+                        }
+
                         const event = new CustomEvent('render-page', { detail: { section: 'main' } })
                         document.dispatchEvent(event);
                     });

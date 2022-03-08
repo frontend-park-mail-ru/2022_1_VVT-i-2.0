@@ -21,18 +21,21 @@ const mainPage = (app) => {
         {imgPath, restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8},
     ];
 
-    // api.getRestaurants().then((res) => {
-    //     events.removeListeners(app);
+    api
+        .getRestaurants()
+        .then((res) => res.json())
+        .then((res) => {
+            events.removeListeners(app);
 
-    //     app.root.innerHTML = components.header(res.auth);
+            app.root.innerHTML = components.header(res.auth);
 
-    //     const main = document.createElement('main');
-    //     main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons(res.restaurants);
+            const main = document.createElement('main');
+            main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons(res.restaurants);
 
-    //     app.root.appendChild(main);
+            app.root.appendChild(main);
 
-    //     events.addListeners(app);
-    // });
+            events.addListeners(app);
+        });
 
     app.root.innerHTML = components.header(false);
 
