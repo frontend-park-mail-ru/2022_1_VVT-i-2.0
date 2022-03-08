@@ -67,7 +67,7 @@ const EVENTS = {
                 api
                     .login({phone, password})
                     .then((res) => {
-                        if (res.status === 403) {
+                        if (res.status !== 200) {
                             alert('Данные не валидны');
                             return;
                         }
@@ -147,7 +147,7 @@ const EVENTS = {
                 api
                     .register({phone, name, password})
                     .then((res) => {
-                        if (res.status === 403) {
+                        if (res.status !== 200) {
                             alert('Данные не валидны');
                             return;
                         }
