@@ -11,7 +11,7 @@ const request = (url, options = DEFAULT_OPTIONS) => {
     if (options.body) {
         options.body = JSON.stringify(options.body);
     }
-    return fetch(BASE_URI + '/api/v1' + url, options);
+    return fetch(BASE_URI + url, options);
 }
 
 export const getRestaurants = () => {

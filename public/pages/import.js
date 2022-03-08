@@ -4,15 +4,15 @@ import registerPage from './Register/register.js';
 
 const MENU = {
     main: {
-        draw: mainPage,
+        render: mainPage,
         isModal: false
     },
     login: {
-        draw: loginPage,
+        render: loginPage,
         isModal: true
     },
     register: {
-        draw: registerPage,
+        render: registerPage,
         isModal: true
     }
 };

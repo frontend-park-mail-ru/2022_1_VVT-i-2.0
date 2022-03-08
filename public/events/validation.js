@@ -12,13 +12,7 @@ export const ErrorMsg = {
 };
 
 export function isAvailableForSend(statusForm) {
-    Object.entries(statusForm).forEach(([input, status]) => {
-        if (!status) {
-            return false;
-        }
-    });
-
-    return true;
+    return Object.entries(statusForm).every(([input, status]) => status);
 }
 
 export function numberAutocomplete(e) {

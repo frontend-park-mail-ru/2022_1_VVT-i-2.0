@@ -15,22 +15,12 @@ main {
     padding-right: 8%;
 }
 
-main.hidden {
+/* main.hidden {
     opacity: 0.7;
     pointer-events: none;
-}
+} */
 
-#container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-#container > .rest_icon {
-    margin-bottom: 50px;
-}
-
-#modal.shown {
+#modal {
     display: flex;
     position: fixed;
     top: 68px;
