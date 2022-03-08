@@ -18,7 +18,7 @@ const registerForm = (properties) => {
     return Mustache.render(template, {
         properties: properties,
         input() {
-            return UIKIT.input(this.title, this.placeholder);
+            return UIKIT.input(this.title, this.placeholder, this.error);
         },
         register() {
             return UIKIT.button('Регистрация', COLORS.primary, null, 'registerButton');
