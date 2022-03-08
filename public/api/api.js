@@ -4,10 +4,12 @@ const BASE_URI = 'http://localhost:8080';
 
 const DEFAULT_OPTIONS = {
     method: METHODS.GET,
-    headers: {'Content-Type': 'application/json'}
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include'
 };
 
 const request = (url, options = DEFAULT_OPTIONS) => {
+    options.credentials = 'include';
     if (options.body) {
         options.body = JSON.stringify(options.body);
     }
