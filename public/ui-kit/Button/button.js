@@ -1,3 +1,11 @@
+/**
+ * @function Создает html-строку для создания ui-kit компонента button через шаблонатор Mustache.
+ * @param {string} title - название кнопки.
+ * @param {string} color - цвет кнопки.
+ * @param {string} href - значение поля data-section.
+ * @param {string} id - id кнопки.
+ * @return {string} HTML строка для отрисовки ui-kit компонента button.
+ */
 const button = (title, color, href, id) => {
     const template = `
         <button

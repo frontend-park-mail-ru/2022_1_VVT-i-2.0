@@ -1,3 +1,11 @@
+/**
+ * @function Создает html-строку для создания ui-kit компонента metaInf формы через шаблонатор Mustache.
+ * @param {string} restName - название поля input.
+ * @param {string} timeToDeliver - значение атрибута type тега <input>.
+ * @param {string} price - значение атрибута placeholder тега <input>.
+ * @param {string} rating - рейтинг ресторана.
+ * @return {string} HTML строка для отрисовки ui-kit компонента metaInf.
+ */
 const metaInf = (restName, timeToDeliver, price, rating) => {
     const template = `
         <div class="rest_meta_information_block">

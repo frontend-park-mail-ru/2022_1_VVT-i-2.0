@@ -6,6 +6,11 @@ const APP = {
     modal: document.getElementById('modal')
 };
 
+/**
+ * @function Рендерит страницу по входящему section. Если section нет, рендер не производится.
+ * @param {string} section - метаинформация, прописанная в атрибуте data-section тега.
+ *      Атрибут data-section имеется только у pages(main, login, register).
+ */
 const renderPage = (section) => {
     if (!section) {
         return;
@@ -17,11 +22,9 @@ const renderPage = (section) => {
 
     if (page.isModal) {
         APP.modal.classList.add('shown');
-        // APP.root.lastChild.classList.add('hidden');
     } else {
         APP.modal.classList.remove('shown');
         APP.modal.innerHTML = '';
-        // APP.root.lastChild.classList.remove('hidden');
     }
 
     page.render(APP);
@@ -33,7 +36,6 @@ Object
     .entries(APP)
     .forEach(([name, node]) => node.addEventListener('click', (e) => renderPage(e.target.dataset.section)));
 
-// Added custom event listener to be able to render any page from any place from code
 document.addEventListener('render-page', (e) => renderPage(e.detail.section));
 
 MENU.main.render(APP);
