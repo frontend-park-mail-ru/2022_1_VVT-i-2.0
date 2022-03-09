@@ -11,7 +11,8 @@ const DEFAULT_OPTIONS = {
 const request = (url, options = DEFAULT_OPTIONS) => {
     options.credentials = 'include';
     if (options.body) {
-        headers['Content-Type'] = 'application/json';
+        Object.assign(options, { headers: { 'Content-Type': 'application/json'}
+        });
         options.body = JSON.stringify(options.body);
     }
     return fetch(BASE_URI + '/api/v1' + url, options);
