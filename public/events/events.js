@@ -17,6 +17,12 @@ const EVENTS = {
     closeImg: [
         {
             type: 'click',
+
+            /**
+             * @function Закрывает форму при нажатии на значок 'x'.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
             listener(app, e) {
                 app.modal.classList.remove('shown');
                 app.modal.innerHTML = '';
@@ -27,12 +33,23 @@ const EVENTS = {
     loginPhone: [
         {
             type: 'input',
+            /**
+             * @function Осуществляет форматирование и автодополнение телефона
+             *      в форме авторизации.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
             listener(app, e) {
                 VALIDATION.numberAutocomplete(e);
             }
         },
         {
             type: 'change',
+            /**
+             * @function Осуществляет проверку телефона на валидность в форме авторизации.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
             listener(app, e) {
                 VALIDATION.inputDataManager(
                     e, 'loginPhone', statusLoginForm,
@@ -45,6 +62,11 @@ const EVENTS = {
     loginPassword: [
         {
             type: 'change',
+            /**
+             * @function Осуществляет проверку пароля на валидность в форме авторизации.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
             listener(app, e) {
                 VALIDATION.inputDataManager(
                     e, 'loginPassword', statusLoginForm,
@@ -56,6 +78,12 @@ const EVENTS = {
     loginButton: [
         {
             type: 'click',
+            /**
+             * @function Осуществляет проверку статуса формы авторизации. Если все поля формы валидны
+             *      производится отправка формы на сервер.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
             listener(app, e) {
                 if (!VALIDATION.isAvailableForSend(statusLoginForm)) {
                     return;
@@ -81,12 +109,23 @@ const EVENTS = {
     registerPhone: [
         {
             type: 'input',
+            /**
+             * @function Осуществляет форматирование и автодополнение
+             *      телефона в форме регистрации.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
             listener(app, e) {
                 VALIDATION.numberAutocomplete(e);
             }
         },
         {
             type: 'change',
+            /**
+             * @function Осуществляет проверку телефона на валидность в форме регистрации.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
             listener(app, e) {
                 VALIDATION.inputDataManager(
                     e, 'registerPhone', statusRegisterForm,
@@ -98,12 +137,22 @@ const EVENTS = {
     registerName: [
         {
             type: 'input',
+            /**
+             * @function При каждом введении символа осуществляет форматирование введенного имени.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
             listener(app, e) {
                 VALIDATION.nameAutocomplete(e);
             }
         },
         {
             type: 'change',
+            /**
+             * @function Осуществляет проверку имени пользователя на валидность.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
             listener(app, e) {
                 VALIDATION.inputDataManager(
                     e, 'registerName', statusRegisterForm,
@@ -114,6 +163,12 @@ const EVENTS = {
     registerPassword: [
         {
             type: 'change',
+            /**
+             * @function Осуществляет проверку пароля на валидность
+             *      и проверку идентичности введенных паролей.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
             listener(app, e) {
                 VALIDATION.passwordController(
                     e, statusRegisterForm, VALIDATION.Regex.password
@@ -124,6 +179,12 @@ const EVENTS = {
     registerRepeatPassword: [
         {
             type: 'change',
+            /**
+             * @function Осуществляет проверку пароля на валидность
+             *      и проверку идентичности введенных паролей.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
             listener(app, e) {
                 VALIDATION.passwordController(
                     e, statusRegisterForm, VALIDATION.Regex.password
@@ -134,6 +195,12 @@ const EVENTS = {
     registerButton: [
         {
             type: 'click',
+            /**
+             * @function Осуществляет проверку статуса формы регистрации. Если все поля формы валидны
+             *      производится отправка формы на сервер.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
             listener(app, e) {
                 if (!VALIDATION.isAvailableForSend(statusRegisterForm)) {
                     return;
@@ -160,6 +227,11 @@ const EVENTS = {
     logoutButton: [
         {
             type: 'click',
+            /**
+             * @function Осуществляет отправку запроса на ввыход пользователя из учетной записи.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
             listener(app, e) {
                 api
                     .logout()
@@ -177,6 +249,10 @@ const EVENTS = {
     ]
 };
 
+/**
+ * @function Добавляет листенеры.
+ * @param {Object} app - Объект приложения.
+ */
 export const addListeners = (app) => {
     Object.entries(EVENTS).forEach(([name, events]) => {
         const node = document.getElementById(name);
@@ -187,6 +263,10 @@ export const addListeners = (app) => {
     });
 }
 
+/**
+ * @function Удаляет все листенеры.
+ * @param {Object} app - Объект приложения.
+ */
 export const removeListeners = (app) => {
     Object.entries(EVENTS).forEach(([name, events]) => {
         const node = document.getElementById(name);

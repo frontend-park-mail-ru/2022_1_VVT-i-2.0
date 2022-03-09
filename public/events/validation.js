@@ -110,7 +110,7 @@ function setFormStatus(statusForm, elemID, status) {
  *      в случае валидных - скрывает ошибку.
  * @param {Event} e - Событие.
  * @param {string} elemID - ID поля формы.
- * @param {boolean} statusForm - Статус полей формы.
+ * @param {Object} statusForm - Статус полей формы.
  * @param {RegExp} regularExpression - Регулярное выражение для данных поля на валидность.
  * @param {string} errorMsg - Текст ошибки.
  */
