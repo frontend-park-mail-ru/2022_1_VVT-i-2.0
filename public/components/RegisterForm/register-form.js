@@ -1,7 +1,12 @@
 import UIKIT from '../../ui-kit/import.js';
 import COLORS from '../../utils/colors.js';
 
-
+/**
+ * @function Создает html-строку для создания компонента формы регистрации
+ *      registerForm через шаблонатор Mustache.
+ * @param {Object} properties - Объект, содержащий аттрибуты тегов для отрисовки формы.
+ * @return {string} HTML строка для отрисовки компонента registerForm.
+ */
 const registerForm = (properties) => {
     const template = `
         <div id="register-form">

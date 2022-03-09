@@ -1,5 +1,11 @@
 import UIKIT from '../../ui-kit/import.js';
 
+/**
+ * @function Создает html-строку для создания компонента формы ресторана
+ *      restIcon через шаблонатор Mustache.
+ * @param {Object} restaurants - Объект, содержащий данные, полученные с сервера.
+ * @return {string} HTML строка для отрисовки компонента registerForm.
+ */
 const restIcons = (restaurants) => {
     const template = `
         <div id="container">
