@@ -1,0 +1,31 @@
+.input-block div.title {
+    margin-bottom: 4px;
+}
+
+.input-block input {
+    all: unset;
+    height: 30px;
+    width: 300px;
+    border: none;
+    border-bottom: 2px solid #DEDEDE;
+    color: #212121;
+    font-weight: bold;
+}
+
+.input-block input:focus-visible {
+    border: none;
+    border-bottom: 2px solid #212121;
+}
+
+.input-block input.error {
+    border-bottom: 2px solid #FF3985;
+}
+
+.input-block div.error {
+    color: #FF3985;
+    margin-top: 2px;
+}
+
+.hidden {
+    visibility: hidden;
+}

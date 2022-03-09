@@ -1,0 +1,29 @@
+#container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#container > .rest_icon {
+    margin-bottom: 70px;
+}
+
+.rest_icon {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    align-content: center;
+
+    width: 460px;
+    height: 370px;
+
+    background: #FFFFFF;
+    border-radius: 14px;
+    filter: drop-shadow(0px 0px 12px rgba(26, 26, 26, 0.25));
+}
+
+.rest_icon:hover {
+    filter: drop-shadow(0px 4px 4px rgba(26, 26, 26, 0.25));
+    cursor: pointer;
+}

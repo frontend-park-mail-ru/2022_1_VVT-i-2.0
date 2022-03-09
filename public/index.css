@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+@import 'ui-kit/import.css';
+@import 'components/import.css';
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    margin-top: 68px;
+    padding-top: 1%;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+/* main.hidden {
+    opacity: 0.7;
+    pointer-events: none;
+} */
+
+#modal.shown {
+    display: flex;
+    position: fixed;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 33, 33, 0.7);
+}
+
+#modal > * {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border: none;
+    border-radius: 14px;
+    background: #ffffff;
+}
