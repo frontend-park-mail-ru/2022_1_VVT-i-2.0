@@ -61,8 +61,8 @@ const EVENTS = {
                     return;
                 }
 
-                const phone = document.getElementById('loginPhone').value;
-                const password = document.getElementById('loginPassword').value;
+                const phone = document.getElementById('loginPhone').children[0].value;
+                const password = document.getElementById('loginPassword').children[0].value;
 
                 api
                     .login({phone, password})
@@ -139,10 +139,9 @@ const EVENTS = {
                     return;
                 }
 
-                const phone = document.getElementById('registerPhone').value;
-                const name = document.getElementById('registerName').value;
-                const password = document.getElementById('registerPassword').value;
-                const repeatPassword = document.getElementById('registerRepeatPassword').value;
+                const phone = document.getElementById('registerPhone').children[0].value;
+                const name = document.getElementById('registerName').children[0].value;
+                const password = document.getElementById('registerPassword').children[0].value;
 
                 api
                     .register({phone, name, password})
