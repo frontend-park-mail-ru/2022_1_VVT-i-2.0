@@ -8,6 +8,12 @@ const DEFAULT_OPTIONS = {
     credentials: 'include'
 };
 
+/**
+ * @function Осуществляет отправку запроса.
+ * @param {string} url - URL запроса.
+ * @param {Object} options - Опции отправки запроса.
+ * @return {Promise} - возвращает Promise на отправку запроса.
+ */
 const request = (url, options = DEFAULT_OPTIONS) => {
     options.credentials = 'include';
     if (options.body) {
@@ -18,18 +24,34 @@ const request = (url, options = DEFAULT_OPTIONS) => {
     return fetch(BASE_URI + '/api/v1' + url, options);
 }
 
+/**
+ * @function Осуществляет отправку запроса на получение ресторанов.
+ * @return {Promise} - возвращает Promise на отправку запроса.
+ */
 export const getRestaurants = () => {
     return request('/restaurants');
 }
 
+/**
+ * @function Осуществляет отправку запроса на регистрацию пользователя.
+ * @return {Promise} - возвращает Promise на отправку запроса.
+ */
 export const register = (user) => {
     return request('/register', {method: METHODS.POST, body: user});
 }
 
+/**
+ * @function Осуществляет отправку запроса на авторизацтю пользователя.
+ * @return {Promise} - возвращает Promise на отправку запроса.
+ */
 export const login = (user) => {
     return request('/login', {method: METHODS.POST, body: user});
 }
 
+/**
+ * @function Осуществляет отправку запроса на выход пользователя из учетной записи.
+ * @return {Promise} - возвращает Promise на отправку запроса.
+ */
 export const logout = () => {
     return request('/auth/logout', {method: METHODS.POST});
 }
