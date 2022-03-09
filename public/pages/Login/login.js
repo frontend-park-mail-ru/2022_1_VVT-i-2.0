@@ -1,8 +1,8 @@
 import components from '../../components/import.js';
 
 /**
- * @function Записывает в
- * @param {Object} app - метаинформация, прописанная в атрибуте data-section тега.
+ * @function Рендерит страницу по входящему объекту приложения.
+ * @param {Object} app - Объект приложения.
  */
 const loginPage = (app) => {
     const properties = [

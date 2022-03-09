@@ -1,6 +1,7 @@
 import UIKIT from '../../ui-kit/import.js';
 import COLORS from '../../utils/colors.js';
 
+
 const registerForm = (properties) => {
     const template = `
         <div id="register-form">

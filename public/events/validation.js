@@ -11,6 +11,11 @@ export const ErrorMsg = {
     errorPasswordCMP: 'Пароли не совпадают',
 };
 
+/**
+ * @function Проверяет все ли данные в форме находятся в валидном состоянии для отправки на сервер.
+ * @param {Object} statusForm - Объект, хранящий статусы инпутов страницы.
+ * @return {boolean} - Результат проверки на валидность.
+ */
 export function isAvailableForSend(statusForm) {
     return Object.entries(statusForm).every(([input, status]) => status);
 }
@@ -28,6 +33,12 @@ export function numberAutocomplete(e) {
     }
 }
 
+/**
+ * @function По событию e, вызывает автоматическое форматирование имени пользователя
+ *      под нужный шаблон. Имя должно начинаться с заглавной буквы, остальные символы
+ *      должны быть строчного типа.
+ * @param {Event} e - Объект события, по которому вызывается функция.
+ */
 export function nameAutocomplete(e) {
     e.target.value = e.target.value
         .split('')
@@ -35,6 +46,12 @@ export function nameAutocomplete(e) {
         .join('');
 }
 
+/**
+ * @function Визуализирует ошибку. Применяет стили ошибки (поле для ввода
+ *      выделяет красным цветом и снизу выводит текст ошибки
+ * @param {NodeListOf<Element>} childList - Список элементов для применения стилей.
+ * @param {string} error - Текст ошибки.
+ */
 function getVisibleError(childList, error) {
     for (let childNode of childList) {
         childNode.classList.add('error');
@@ -45,6 +62,10 @@ function getVisibleError(childList, error) {
     }
 }
 
+/**
+ * @function Скрывает ошибку.
+ * @param {NodeListOf<Element>} childList - Список элементов для применения стилей.
+ */
 function removeVisibleError(childList) {
     for (let childNode of childList) {
         if (childNode.classList.contains('error')) {
@@ -55,6 +76,12 @@ function removeVisibleError(childList) {
     childList[1].classList.add('hidden');
 }
 
+/**
+ * @function Меняет статус текущего поля после окончания ввода.
+ * @param {Object} statusForm - Список статусов полей формы.
+ * @param {string} elemID - ID поля формы.
+ * @param {boolean} status - Статус поля формы (корректны данные или нет).
+ */
 function setFormStatus(statusForm, elemID, status) {
     switch (elemID) {
         case 'loginPhone':
@@ -78,6 +105,15 @@ function setFormStatus(statusForm, elemID, status) {
     }
 }
 
+/**
+ * @function Меняет статусы полей в форме. В случае невалидных данных отображает ошибку,
+ *      в случае валидных - скрывает ошибку.
+ * @param {Event} e - Событие.
+ * @param {string} elemID - ID поля формы.
+ * @param {boolean} statusForm - Статус полей формы.
+ * @param {RegExp} regularExpression - Регулярное выражение для данных поля на валидность.
+ * @param {string} errorMsg - Текст ошибки.
+ */
 export function inputDataManager(e, elemID, statusForm, regularExpression, errorMsg) {
     const elem = document.getElementById(elemID);
     const childList = elem.querySelectorAll('div > input, div');
@@ -92,6 +128,12 @@ export function inputDataManager(e, elemID, statusForm, regularExpression, error
     removeVisibleError(childList);
 }
 
+/**
+ * @function Проверяет на валидность и сверяет пароли.
+ * @param {Event} e - Событие.
+ * @param {Object} statusRegisterForm - Статусы полей формы.
+ * @param {boolean} regularExpression - Регулярное выражение для проверки паролей на валидность.
+ */
 export function passwordController(e, statusRegisterForm, regularExpression) {
     const pass1 = document.getElementById('registerPassword');
     const pass2 = document.getElementById('registerRepeatPassword');
