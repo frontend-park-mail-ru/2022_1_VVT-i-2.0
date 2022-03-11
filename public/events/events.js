@@ -32,6 +32,40 @@ const EVENTS = {
     ],
     loginPhone: [
         {
+            type: 'mouseup',
+            /**
+             * @function Осуществляет при первой активации поля ввода номера
+             *      создание шаблона номера '+7(', установка курсора в конец строки.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
+            listener(app, e) {
+                if (e.target.value === '') {
+                    e.target.value = VALIDATION.phoneBeginString;
+                    VALIDATION.setCursorPosition(e, e.target.value.length);
+                }
+            }
+        },
+        {
+            type: 'keyup',
+            /**
+             * @function Осуществляет при первой активации поля ввода номера
+             *      создание шаблона номера '+7('.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
+            listener(app, e) {
+                if (e.keyCode === VALIDATION.Keypad.backspace ||
+                    e.keyCode === VALIDATION.Keypad.delete) {
+                    let currPos = VALIDATION.getCursorPosition(e.target);
+                    if (VALIDATION.numberServiceSymbols.includes(e.target.value[currPos - 1])) {
+                        e.target.value = e.target.value.slice(0, currPos - 1) +
+                            e.target.value.slice(currPos, e.target.value.length);
+                    }
+                }
+            }
+        },
+        {
             type: 'input',
             /**
              * @function Осуществляет форматирование и автодополнение телефона
@@ -107,6 +141,18 @@ const EVENTS = {
         }
     ],
     registerPhone: [
+        {
+            type: 'mousedown',
+            /**
+             * @function Осуществляет при первой активации поля ввода номера
+             *      создание шаблона номера '+7('.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
+            listener(app, e) {
+                e.target.value = VALIDATION.phoneBeginString;
+            }
+        },
         {
             type: 'input',
             /**

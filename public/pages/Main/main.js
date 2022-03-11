@@ -14,10 +14,10 @@ const mainPage = (app) => {
         .then((res) => {
             events.removeListeners(app);
 
-            app.root.innerHTML = components.header(res.auth);
+            app.root.innerHTML = components.header(false);
 
             const main = document.createElement('main');
-            main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons(res.restaurants);
+            main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons({});
 
             app.root.appendChild(main);
 

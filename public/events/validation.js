@@ -1,7 +1,7 @@
 export const Regex = {
     phoneNumber: new RegExp('^[+]{1}7\[(]{1}[0-9]{3}[)]{1}[0-9]{3}-[0-9]{2}-[0-9]{2}$'),
-    name: new RegExp('^[A-ZА-Я]{1}[a-zа-я]{1,}$'),
-    password: new RegExp('^[A-Za-zА-Яа-я0-9]{8,}$'),
+    name: new RegExp('^[A-ZА-Я]{1}[a-zа-я]{2,25}$'),
+    password: new RegExp('^[A-Za-zА-Яа-я0-9]{8,50}$'),
 };
 
 export const ErrorMsg = {
@@ -10,6 +10,13 @@ export const ErrorMsg = {
     errorPassword: 'Длина > 7 символов(без спецсимволов)',
     errorPasswordCMP: 'Пароли не совпадают',
 };
+
+export const phoneBeginString = '+7(';
+export const Keypad = {
+    delete: 46,
+    backspace: 8,
+};
+export const numberServiceSymbols = ['(', '-', ')'];
 
 /**
  * @function Проверяет все ли данные в форме находятся в валидном состоянии для отправки на сервер.
@@ -20,15 +27,46 @@ export function isAvailableForSend(statusForm) {
     return Object.entries(statusForm).every(([input, status]) => status);
 }
 
-export function numberAutocomplete(e) {
-    if (e.target.value.length < 3) {
-        e.target.value = '+7(';
+/**
+ * @function Определяет и возвращает положение курсора.
+ * @param {Object} ctrl - Объект, хранящий статусы инпутов страницы.
+ * @return {int} - Позиция курсора в строке.
+ */
+export function getCursorPosition( ctrl ) {
+    let CaretPos = 0;
+    if ( document.selection ) {
+        ctrl.focus ();
+        let Sel = document.selection.createRange();
+        Sel.moveStart ('character', -ctrl.value.length);
+        CaretPos = Sel.text.length;
+    } else if ( ctrl.selectionStart || ctrl.selectionStart === '0' ) {
+        CaretPos = ctrl.selectionStart;
     }
+    return CaretPos;
+}
+
+/**
+ * @function По указанной позиции position устанавливает курсор.
+ * @param {Event} e - Событие.
+ * @param {Object} position - Требуемая позиция курсора в поле input.
+ */
+export function setCursorPosition(e, position) {
+    e.target.focus();
+    e.target.setSelectionRange(e.target.value.length, position);
+}
+
+/**
+ * @function Дополняет и форматирует номер телефона.
+ * @param {Event} e - Событие.
+ */
+export function numberAutocomplete(e) {
+    const formatPositions = [10, 13];
+
     if (e.target.value.length === 6) {
         e.target.value += ')';
     }
-    if (e.target.value.length === 10 ||
-        e.target.value.length === 13) {
+
+    if (formatPositions.includes(e.target.value.length)) {
         e.target.value += '-';
     }
 }
