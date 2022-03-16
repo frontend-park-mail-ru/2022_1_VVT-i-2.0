@@ -4,19 +4,46 @@ export const Regex = {
     password: new RegExp('^[A-Za-zА-Яа-я0-9]{8,50}$'),
 };
 
+const DELETE_KEY = 46;
+const BACKSPACE_KEY = 8;
+
 export const ErrorMsg = {
     errorPhoneNumber: 'Формат телефона: +7(988)888-88-88',
-    errorName: 'Длина > 1 символа(без спецсимволов)',
-    errorPassword: 'Длина > 7 символов(без спецсимволов)',
+    errorName: 'Длина не менее 3 символов',
+    errorPassword: 'Длина не менее 8 символов',
     errorPasswordCMP: 'Пароли не совпадают',
 };
 
-export const phoneBeginString = '+7(';
 export const Keypad = {
-    delete: 46,
-    backspace: 8,
+    deleteSymbols: [DELETE_KEY, BACKSPACE_KEY],
 };
+
 export const numberServiceSymbols = ['(', '-', ')'];
+
+export const NumberPhoneFormat = {
+    phoneBeginString: '+7(',
+    formatters: [
+        {symbol: '(', formatPositions: [2]},
+        {symbol: ')', formatPositions: [6]},
+        {symbol: '-', formatPositions: [10, 13]},
+    ],
+    /**
+     * @function Осуществляет проверку на наличие нужного служебного
+     *      символа на нужной позиции (данные хранятся в массиве formatters). В случае
+     *      отсуствия - добавляет на нужную позицию с переносом остальных символов.
+     * @param {Event} e - Объект, хранящий статусы инпутов страницы.
+     */
+    format(e) {
+        this.formatters.forEach((obj) => {
+            obj.formatPositions.forEach((num) => {
+                if (e.target.value.length === num + 1 && e.target.value[num] !== this.symbol &&
+                    !numberServiceSymbols.includes(e.target.value[e.target.value.length - 1])) {
+                    e.target.value = e.target.value.slice(0, num) + obj.symbol + e.target.value.slice(num, num + 1);
+                }
+            });
+        });
+    }
+};
 
 /**
  * @function Проверяет все ли данные в форме находятся в валидном состоянии для отправки на сервер.
@@ -32,14 +59,14 @@ export function isAvailableForSend(statusForm) {
  * @param {Object} ctrl - Объект, хранящий статусы инпутов страницы.
  * @return {int} - Позиция курсора в строке.
  */
-export function getCursorPosition( ctrl ) {
+export function getCursorPosition(ctrl) {
     let CaretPos = 0;
-    if ( document.selection ) {
-        ctrl.focus ();
+    if (document.selection) {
+        ctrl.focus();
         let Sel = document.selection.createRange();
-        Sel.moveStart ('character', -ctrl.value.length);
+        Sel.moveStart('character', -ctrl.value.length);
         CaretPos = Sel.text.length;
-    } else if ( ctrl.selectionStart || ctrl.selectionStart === '0' ) {
+    } else if (ctrl.selectionStart || ctrl.selectionStart === '0') {
         CaretPos = ctrl.selectionStart;
     }
     return CaretPos;
@@ -56,19 +83,21 @@ export function setCursorPosition(e, position) {
 }
 
 /**
- * @function Дополняет и форматирует номер телефона.
+ * @function Дополняет и форматирует номер телефона. В случае получения невалидных символов
+ *      производится удаление их из поля ввода.
  * @param {Event} e - Событие.
  */
 export function numberAutocomplete(e) {
-    const formatPositions = [10, 13];
+    const val = e.target.value[e.target.value.length - 1];
+    const currPos = getCursorPosition(e.target);
 
-    if (e.target.value.length === 6) {
-        e.target.value += ')';
+    if (!(val >= '0' && val <= '9' || numberServiceSymbols.includes(val))) {
+        e.target.value = e.target.value.slice(0, currPos - 1) +
+            e.target.value.slice(currPos, e.target.value.length);
+        return;
     }
 
-    if (formatPositions.includes(e.target.value.length)) {
-        e.target.value += '-';
-    }
+    NumberPhoneFormat.format(e);
 }
 
 /**

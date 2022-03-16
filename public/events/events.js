@@ -13,6 +13,135 @@ const statusRegisterForm = {
     isValidRepeatPassword: false,
 };
 
+function getPhoneFieldEvents(formName) {
+    return [
+        {
+            type: 'mouseup',
+            /**
+             * @function Осуществляет при активации пустого поля ввода номера
+             *      создание шаблона номера '+7(' и устанавливает курсор в конец строки.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
+            listener(app, e) {
+                if (e.target.value === '') {
+                    e.target.value = VALIDATION.NumberPhoneFormat.phoneBeginString;
+                    VALIDATION.setCursorPosition(e, e.target.value.length);
+                }
+            }
+        },
+        {
+            type: 'keyup',
+            /**
+             * @function Проверяет: если код нажатой клавиши совпадает с кодом backspace или
+             *      delete, то производит удаление символа перед курсором.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
+            listener(app, e) {
+                if (VALIDATION.Keypad.deleteSymbols.includes(e.keyCode)) {
+                    let currPos = VALIDATION.getCursorPosition(e.target);
+                    if (VALIDATION.numberServiceSymbols.includes(e.target.value[currPos - 1])) {
+                        e.target.value = e.target.value.slice(0, currPos - 1) +
+                            e.target.value.slice(currPos, e.target.value.length);
+                    }
+                }
+            }
+        },
+        {
+            type: 'input',
+            /**
+             * @function При введении символа, осуществляет добавление служебных символов
+             *      для соответствия требуемому шаблону.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
+            listener(app, e) {
+                VALIDATION.numberAutocomplete(e);
+            }
+        },
+        {
+            type: 'change',
+            /**
+             * @function Осуществляет проверку телефона на валидность в форме авторизации.
+             *      А также производит запись статуса в statusForm данной страницы. statusForm
+             *      предназначен для быстрой проверки формы на валидность перед отправкой.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
+            listener(app, e) {
+                VALIDATION.inputDataManager(
+                    e, formName, statusLoginForm,
+                    VALIDATION.Regex.phoneNumber, VALIDATION.ErrorMsg.errorPhoneNumber
+                );
+            }
+        }
+    ];
+}
+
+const passwordFieldEvents = [
+    {
+        type: 'change',
+        /**
+         * @function Осуществляет проверку пароля на валидность в форме авторизации.
+         *      А также производит запись статуса в statusForm данной страницы. statusForm
+         *      предназначен для быстрой проверки формы на валидность перед отправкой.
+         * @param {Object} app - Объект приложения.
+         * @param {Event} e - Событие.
+         */
+        listener(app, e) {
+            VALIDATION.inputDataManager(
+                e, 'loginPassword', statusLoginForm,
+                VALIDATION.Regex.password, VALIDATION.ErrorMsg.errorPassword
+            );
+        }
+    }
+];
+
+const doublePasswordFieldEvents = [
+    {
+        type: 'change',
+        /**
+         * @function Осуществляет проверку пароля на валидность
+         *      и проверку идентичности введенных паролей.
+         * @param {Object} app - Объект приложения.
+         * @param {Event} e - Событие.
+         */
+        listener(app, e) {
+            VALIDATION.passwordController(
+                e, statusRegisterForm, VALIDATION.Regex.password
+            );
+        }
+    }
+];
+
+const nameFieldEvents = [
+    {
+        type: 'input',
+        /**
+         * @function При каждом введении символа осуществляет форматирование введенного имени.
+         * @param {Object} app - Объект приложения.
+         * @param {Event} e - Событие.
+         */
+        listener(app, e) {
+            VALIDATION.nameAutocomplete(e);
+        }
+    },
+    {
+        type: 'change',
+        /**
+         * @function Осуществляет проверку имени пользователя на валидность.
+         * @param {Object} app - Объект приложения.
+         * @param {Event} e - Событие.
+         */
+        listener(app, e) {
+            VALIDATION.inputDataManager(
+                e, 'registerName', statusRegisterForm,
+                VALIDATION.Regex.name, VALIDATION.ErrorMsg.errorName);
+        }
+    }
+];
+
 const EVENTS = {
     closeImg: [
         {
@@ -30,91 +159,15 @@ const EVENTS = {
             }
         }
     ],
-    loginPhone: [
-        {
-            type: 'mouseup',
-            /**
-             * @function Осуществляет при первой активации поля ввода номера
-             *      создание шаблона номера '+7(', установка курсора в конец строки.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                if (e.target.value === '') {
-                    e.target.value = VALIDATION.phoneBeginString;
-                    VALIDATION.setCursorPosition(e, e.target.value.length);
-                }
-            }
-        },
-        {
-            type: 'keyup',
-            /**
-             * @function Осуществляет при первой активации поля ввода номера
-             *      создание шаблона номера '+7('.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                if (e.keyCode === VALIDATION.Keypad.backspace ||
-                    e.keyCode === VALIDATION.Keypad.delete) {
-                    let currPos = VALIDATION.getCursorPosition(e.target);
-                    if (VALIDATION.numberServiceSymbols.includes(e.target.value[currPos - 1])) {
-                        e.target.value = e.target.value.slice(0, currPos - 1) +
-                            e.target.value.slice(currPos, e.target.value.length);
-                    }
-                }
-            }
-        },
-        {
-            type: 'input',
-            /**
-             * @function Осуществляет форматирование и автодополнение телефона
-             *      в форме авторизации.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                VALIDATION.numberAutocomplete(e);
-            }
-        },
-        {
-            type: 'change',
-            /**
-             * @function Осуществляет проверку телефона на валидность в форме авторизации.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                VALIDATION.inputDataManager(
-                    e, 'loginPhone', statusLoginForm,
-                    VALIDATION.Regex.phoneNumber, VALIDATION.ErrorMsg.errorPhoneNumber
-                );
-
-            }
-        }
-    ],
-    loginPassword: [
-        {
-            type: 'change',
-            /**
-             * @function Осуществляет проверку пароля на валидность в форме авторизации.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                VALIDATION.inputDataManager(
-                    e, 'loginPassword', statusLoginForm,
-                    VALIDATION.Regex.password, VALIDATION.ErrorMsg.errorPassword
-                );
-            }
-        }
-    ],
+    loginPhone: getPhoneFieldEvents('loginForm'),
+    loginPassword: passwordFieldEvents,
     loginButton: [
         {
             type: 'click',
             /**
-             * @function Осуществляет проверку статуса формы авторизации. Если все поля формы валидны
-             *      производится отправка формы на сервер.
+             * @function Осуществляет проверку статуса формы авторизации (данные о статусах хранятся
+             *      в объекте statusLoginForm). Если все поля формы валидны,
+             *      то производится отправка данных формы на сервер.
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
@@ -134,116 +187,23 @@ const EVENTS = {
                             return;
                         }
 
-                        const event = new CustomEvent('render-page', { detail: { section: 'main' } })
+                        const event = new CustomEvent('render-page', {detail: {section: 'main'}})
                         document.dispatchEvent(event);
                     });
             }
         }
     ],
-    registerPhone: [
-        {
-            type: 'mousedown',
-            /**
-             * @function Осуществляет при первой активации поля ввода номера
-             *      создание шаблона номера '+7('.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                e.target.value = VALIDATION.phoneBeginString;
-            }
-        },
-        {
-            type: 'input',
-            /**
-             * @function Осуществляет форматирование и автодополнение
-             *      телефона в форме регистрации.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                VALIDATION.numberAutocomplete(e);
-            }
-        },
-        {
-            type: 'change',
-            /**
-             * @function Осуществляет проверку телефона на валидность в форме регистрации.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                VALIDATION.inputDataManager(
-                    e, 'registerPhone', statusRegisterForm,
-                    VALIDATION.Regex.phoneNumber, VALIDATION.ErrorMsg.errorPhoneNumber
-                );
-            }
-        }
-    ],
-    registerName: [
-        {
-            type: 'input',
-            /**
-             * @function При каждом введении символа осуществляет форматирование введенного имени.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                VALIDATION.nameAutocomplete(e);
-            }
-        },
-        {
-            type: 'change',
-            /**
-             * @function Осуществляет проверку имени пользователя на валидность.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                VALIDATION.inputDataManager(
-                    e, 'registerName', statusRegisterForm,
-                    VALIDATION.Regex.name, VALIDATION.ErrorMsg.errorName);
-            }
-        }
-    ],
-    registerPassword: [
-        {
-            type: 'change',
-            /**
-             * @function Осуществляет проверку пароля на валидность
-             *      и проверку идентичности введенных паролей.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                VALIDATION.passwordController(
-                    e, statusRegisterForm, VALIDATION.Regex.password
-                );
-            }
-        }
-    ],
-    registerRepeatPassword: [
-        {
-            type: 'change',
-            /**
-             * @function Осуществляет проверку пароля на валидность
-             *      и проверку идентичности введенных паролей.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                VALIDATION.passwordController(
-                    e, statusRegisterForm, VALIDATION.Regex.password
-                );
-            }
-        }
-    ],
+    registerPhone: getPhoneFieldEvents('registerForm'),
+    registerName: nameFieldEvents,
+    registerPassword: doublePasswordFieldEvents,
+    registerRepeatPassword: doublePasswordFieldEvents,
     registerButton: [
         {
             type: 'click',
             /**
-             * @function Осуществляет проверку статуса формы регистрации. Если все поля формы валидны
-             *      производится отправка формы на сервер.
+             * @function Осуществляет проверку статуса формы авторизации (данные о статусах хранятся
+             *      в объекте statusRegisterForm). Если все поля формы валидны,
+             *      то производится отправка данных формы на сервер.
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
@@ -264,7 +224,7 @@ const EVENTS = {
                             return;
                         }
 
-                        const event = new CustomEvent('render-page', { detail: { section: 'main' } })
+                        const event = new CustomEvent('render-page', {detail: {section: 'main'}})
                         document.dispatchEvent(event);
                     });
             }
@@ -287,7 +247,7 @@ const EVENTS = {
                             return;
                         }
 
-                        const event = new CustomEvent('render-page', { detail: { section: 'main' } })
+                        const event = new CustomEvent('render-page', {detail: {section: 'main'}})
                         document.dispatchEvent(event);
                     });
             }
