@@ -172,6 +172,29 @@ function setFormStatus(statusForm, elemID, status) {
     }
 }
 
+function IsPasswordNotEqual(val1, val2) {
+    return val1 !== '' && val2 !== '' && val1 !== val2;
+}
+
+function getElemParameters(elemID) {
+    const input = document.getElementById(elemID);
+
+    return {
+        value: input.children[0].value,
+        childList: input.querySelectorAll('div > input, div'),
+    };
+}
+
+function showError(statusForm, elemID, input, error) {
+    setFormStatus(statusForm, elemID, false);
+    getVisibleError(input.childList, error);
+}
+
+function hideError(statusForm, elemID, input) {
+    setFormStatus(statusForm, elemID, true);
+    removeVisibleError(input.childList);
+}
+
 /**
  * @function Меняет статусы полей в форме. В случае невалидных данных отображает ошибку,
  *      в случае валидных - скрывает ошибку.
@@ -182,17 +205,39 @@ function setFormStatus(statusForm, elemID, status) {
  * @param {string} errorMsg - Текст ошибки.
  */
 export function inputDataManager(e, elemID, statusForm, regularExpression, errorMsg) {
-    const elem = document.getElementById(elemID);
-    const childList = elem.querySelectorAll('div > input, div');
+    const elem = getElemParameters(elemID);
 
     if (e.target.value !== '' && !regularExpression.exec(e.target.value)) {
-        setFormStatus(statusForm, elemID, false);
-        getVisibleError(childList, errorMsg);
+        showError(statusForm, elemID, elem, errorMsg);
         return;
     }
 
-    setFormStatus(statusForm, elemID, true);
-    removeVisibleError(childList);
+    hideError(statusForm, elemID, elem);
+}
+
+function checkPasswordFormat(statusForm, elemID, passwordField) {
+    if (passwordField.value === '') {
+        setFormStatus(statusForm, elemID, false);
+        return false;
+    }
+
+    if (!Regex.password.exec(passwordField.value)) {
+        showError(statusForm, elemID,
+            passwordField, ErrorMsg.errorPassword);
+        return false;
+    }
+
+    hideError(statusForm, elemID, passwordField);
+
+    return true;
+}
+
+function setSuccessStatus(statusRegisterForm, firstInput, secondInput) {
+    setFormStatus(statusRegisterForm, 'registerPassword', true);
+    setFormStatus(statusRegisterForm, 'registerRepeatPassword', true);
+
+    removeVisibleError(firstInput.childList);
+    removeVisibleError(secondInput.childList);
 }
 
 /**
@@ -202,34 +247,34 @@ export function inputDataManager(e, elemID, statusForm, regularExpression, error
  * @param {boolean} regularExpression - Регулярное выражение для проверки паролей на валидность.
  */
 export function passwordController(e, statusRegisterForm, regularExpression) {
-    const pass1 = document.getElementById('registerPassword');
-    const pass2 = document.getElementById('registerRepeatPassword');
+    const firstInput = getElemParameters('registerPassword');
+    const secondInput = getElemParameters('registerRepeatPassword');
 
-    const passVal1 = pass1.children[0].value;
-    const passVal2 = pass2.children[0].value;
+    // if (firstInput.value === '' || !regularExpression.exec(firstInput.value)) {
+    //     showError(statusRegisterForm, 'registerPassword',
+    //         firstInput, ErrorMsg.errorPassword);
+    //     // setFormStatus(statusRegisterForm, 'registerPassword', false);
+    //     // getVisibleError(firstInput.childList, ErrorMsg.errorPassword);
+    //     return;
+    // } else if (e.target.parentElement.getAttribute('id') === 'registerPassword') {
+    //     hideError(statusRegisterForm, 'registerPassword', firstInput);
+    //     // setFormStatus(statusRegisterForm, 'registerPassword', true);
+    //     // removeVisibleError(firstInput.childList);
+    //     return;
+    // }
 
-    const childList1 = pass1.querySelectorAll('div > input, div');
-    const childList2 = pass2.querySelectorAll('div > input, div');
-
-    if (passVal1 === '' || !regularExpression.exec(passVal1)) {
-        setFormStatus(statusRegisterForm, 'registerPassword', false);
-        getVisibleError(childList1, ErrorMsg.errorPassword);
-        return;
-    } else if (e.target.parentElement.getAttribute('id') === 'registerPassword') {
-        setFormStatus(statusRegisterForm, 'registerPassword', true);
-        removeVisibleError(childList1);
-        return;
-    }
-
-    if (passVal2 !== '' && passVal1 !== '' && passVal1 !== passVal2) {
-        setFormStatus(statusRegisterForm, 'registerRepeatPassword', false);
-        getVisibleError(childList2, ErrorMsg.errorPasswordCMP);
+    if (!(checkPasswordFormat(statusRegisterForm, 'registerPassword', firstInput) &&
+        checkPasswordFormat(statusRegisterForm, 'registerRepeatPassword', secondInput))) {
         return;
     }
 
-    setFormStatus(statusRegisterForm, 'registerPassword', true);
-    setFormStatus(statusRegisterForm, 'registerRepeatPassword', true);
+    if (IsPasswordNotEqual(firstInput.value, secondInput.value)) {
+        showError(statusRegisterForm, 'registerRepeatPassword',
+            secondInput, ErrorMsg.errorPasswordCMP);
+        // setFormStatus(statusRegisterForm, 'registerRepeatPassword', false);
+        // getVisibleError(secondInput.childList, ErrorMsg.errorPasswordCMP);
+        return;
+    }
 
-    removeVisibleError(childList1);
-    removeVisibleError(childList2);
+    setSuccessStatus(statusRegisterForm, firstInput, secondInput);
 }

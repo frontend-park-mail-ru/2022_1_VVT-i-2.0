@@ -79,42 +79,6 @@ function getPhoneFieldEvents(formName) {
     ];
 }
 
-const passwordFieldEvents = [
-    {
-        type: 'change',
-        /**
-         * @function Осуществляет проверку пароля на валидность в форме авторизации.
-         *      А также производит запись статуса в statusForm данной страницы. statusForm
-         *      предназначен для быстрой проверки формы на валидность перед отправкой.
-         * @param {Object} app - Объект приложения.
-         * @param {Event} e - Событие.
-         */
-        listener(app, e) {
-            VALIDATION.inputDataManager(
-                e, 'loginPassword', statusLoginForm,
-                VALIDATION.Regex.password, VALIDATION.ErrorMsg.errorPassword
-            );
-        }
-    }
-];
-
-const doublePasswordFieldEvents = [
-    {
-        type: 'change',
-        /**
-         * @function Осуществляет проверку пароля на валидность
-         *      и проверку идентичности введенных паролей.
-         * @param {Object} app - Объект приложения.
-         * @param {Event} e - Событие.
-         */
-        listener(app, e) {
-            VALIDATION.passwordController(
-                e, statusRegisterForm, VALIDATION.Regex.password
-            );
-        }
-    }
-];
-
 const nameFieldEvents = [
     {
         type: 'input',
@@ -142,6 +106,43 @@ const nameFieldEvents = [
     }
 ];
 
+const singlePasswordFieldEvents = [
+    {
+        type: 'change',
+        /**
+         * @function Осуществляет проверку пароля на валидность в форме авторизации.
+         *      А также производит запись статуса в statusForm данной страницы.
+         *      statusForm редназначен для быстрой проверки формы на валидность перед отправкой.
+         * @param {Object} app - Объект приложения.
+         * @param {Event} e - Событие.
+         */
+        listener(app, e) {
+            VALIDATION.inputDataManager(
+                e, 'loginPassword', statusLoginForm,
+                VALIDATION.Regex.password, VALIDATION.ErrorMsg.errorPassword
+            );
+        }
+    }
+];
+
+const doublePasswordFieldEvents = [
+    {
+        type: 'change',
+        /**
+         * @function Осуществляет проверку паролей на валидность и идентичность в форме авторизации.
+         *      А также производит запись статуса в statusForm данной страницы.
+         *      statusForm редназначен для быстрой проверки формы на валидность перед отправкой.
+         * @param {Object} app - Объект приложения.
+         * @param {Event} e - Событие.
+         */
+        listener(app, e) {
+            VALIDATION.passwordController(
+                e, statusRegisterForm, VALIDATION.Regex.password
+            );
+        }
+    }
+];
+
 const EVENTS = {
     closeImg: [
         {
@@ -159,8 +160,8 @@ const EVENTS = {
             }
         }
     ],
-    loginPhone: getPhoneFieldEvents('loginForm'),
-    loginPassword: passwordFieldEvents,
+    loginPhone: getPhoneFieldEvents('loginPhone'),
+    loginPassword: singlePasswordFieldEvents,
     loginButton: [
         {
             type: 'click',
@@ -193,7 +194,7 @@ const EVENTS = {
             }
         }
     ],
-    registerPhone: getPhoneFieldEvents('registerForm'),
+    registerPhone: getPhoneFieldEvents('registerPhone'),
     registerName: nameFieldEvents,
     registerPassword: doublePasswordFieldEvents,
     registerRepeatPassword: doublePasswordFieldEvents,
