@@ -1,147 +1,6 @@
 import * as api from '../api/api.js';
-import * as VALIDATION from './validation.js';
-
-const statusLoginForm = {
-    isValidPhone: false,
-    isValidPassword: false,
-};
-
-const statusRegisterForm = {
-    isValidPhone: false,
-    isValidName: false,
-    isValidPassword: false,
-    isValidRepeatPassword: false,
-};
-
-function getPhoneFieldEvents(formName) {
-    return [
-        {
-            type: 'mouseup',
-            /**
-             * @function Осуществляет при активации пустого поля ввода номера
-             *      создание шаблона номера '+7(' и устанавливает курсор в конец строки.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                if (e.target.value === '') {
-                    e.target.value = VALIDATION.NumberPhoneFormat.phoneBeginString;
-                    VALIDATION.setCursorPosition(e, e.target.value.length);
-                }
-            }
-        },
-        {
-            type: 'keyup',
-            /**
-             * @function Проверяет: если код нажатой клавиши совпадает с кодом backspace или
-             *      delete, то производит удаление символа перед курсором.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                if (VALIDATION.Keypad.deleteSymbols.includes(e.keyCode)) {
-                    let currPos = VALIDATION.getCursorPosition(e.target);
-                    if (VALIDATION.numberServiceSymbols.includes(e.target.value[currPos - 1])) {
-                        e.target.value = e.target.value.slice(0, currPos - 1) +
-                            e.target.value.slice(currPos, e.target.value.length);
-                    }
-                }
-            }
-        },
-        {
-            type: 'input',
-            /**
-             * @function При введении символа, осуществляет добавление служебных символов
-             *      для соответствия требуемому шаблону.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                VALIDATION.numberAutocomplete(e);
-            }
-        },
-        {
-            type: 'change',
-            /**
-             * @function Осуществляет проверку телефона на валидность в форме авторизации.
-             *      А также производит запись статуса в statusForm данной страницы. statusForm
-             *      предназначен для быстрой проверки формы на валидность перед отправкой.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener(app, e) {
-                VALIDATION.inputDataManager(
-                    e, formName, statusLoginForm,
-                    VALIDATION.Regex.phoneNumber, VALIDATION.ErrorMsg.errorPhoneNumber
-                );
-            }
-        }
-    ];
-}
-
-const nameFieldEvents = [
-    {
-        type: 'input',
-        /**
-         * @function При каждом введении символа осуществляет форматирование введенного имени.
-         * @param {Object} app - Объект приложения.
-         * @param {Event} e - Событие.
-         */
-        listener(app, e) {
-            VALIDATION.nameAutocomplete(e);
-        }
-    },
-    {
-        type: 'change',
-        /**
-         * @function Осуществляет проверку имени пользователя на валидность.
-         * @param {Object} app - Объект приложения.
-         * @param {Event} e - Событие.
-         */
-        listener(app, e) {
-            VALIDATION.inputDataManager(
-                e, 'registerName', statusRegisterForm,
-                VALIDATION.Regex.name, VALIDATION.ErrorMsg.errorName);
-        }
-    }
-];
-
-const singlePasswordFieldEvents = [
-    {
-        type: 'change',
-        /**
-         * @function Осуществляет проверку пароля на валидность в форме авторизации.
-         *      А также производит запись статуса в statusForm данной страницы.
-         *      statusForm редназначен для быстрой проверки формы на валидность перед отправкой.
-         * @param {Object} app - Объект приложения.
-         * @param {Event} e - Событие.
-         */
-        listener(app, e) {
-            VALIDATION.inputDataManager(
-                e, 'loginPassword', statusLoginForm,
-                VALIDATION.Regex.password, VALIDATION.ErrorMsg.errorPassword
-            );
-        }
-    }
-];
-
-const doublePasswordFieldEvents = [
-    {
-        type: 'change',
-        /**
-         * @function Осуществляет проверку паролей на валидность и идентичность в форме авторизации.
-         *      А также производит запись статуса в statusForm данной страницы.
-         *      statusForm редназначен для быстрой проверки формы на валидность перед отправкой.
-         * @param {Object} app - Объект приложения.
-         * @param {Event} e - Событие.
-         */
-        listener(app, e) {
-            VALIDATION.passwordController(
-                e, statusRegisterForm, VALIDATION.Regex.password
-            );
-        }
-    }
-];
+import {Event} from "./entity/import.js";
+import * as FORM from './common/status-form.js';
 
 const EVENTS = {
     closeImg: [
@@ -160,8 +19,8 @@ const EVENTS = {
             }
         }
     ],
-    loginPhone: getPhoneFieldEvents('loginPhone'),
-    loginPassword: singlePasswordFieldEvents,
+    loginPhone: Event.getPhoneFieldEvents('loginPhone'),
+    loginPassword: Event.singlePasswordFieldEvents,
     loginButton: [
         {
             type: 'click',
@@ -173,7 +32,7 @@ const EVENTS = {
              * @param {Event} e - Событие.
              */
             listener(app, e) {
-                if (!VALIDATION.isAvailableForSend(statusLoginForm)) {
+                if (!FORM.isAvailableForSend(FORM.statusLoginForm)) {
                     return;
                 }
 
@@ -194,10 +53,10 @@ const EVENTS = {
             }
         }
     ],
-    registerPhone: getPhoneFieldEvents('registerPhone'),
-    registerName: nameFieldEvents,
-    registerPassword: doublePasswordFieldEvents,
-    registerRepeatPassword: doublePasswordFieldEvents,
+    registerPhone: Event.getPhoneFieldEvents('registerPhone'),
+    registerName: Event.nameFieldEvents,
+    registerPassword: Event.doublePasswordFieldEvents,
+    registerRepeatPassword: Event.doublePasswordFieldEvents,
     registerButton: [
         {
             type: 'click',
@@ -209,7 +68,7 @@ const EVENTS = {
              * @param {Event} e - Событие.
              */
             listener(app, e) {
-                if (!VALIDATION.isAvailableForSend(statusRegisterForm)) {
+                if (!FORM.isAvailableForSend(FORM.statusRegisterForm)) {
                     return;
                 }
 
