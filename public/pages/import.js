@@ -1,6 +1,10 @@
 import mainPage from './Main/main.js';
 import loginPage from './Login/login.js';
 import registerPage from './Register/register.js';
+import profilePreviewPage from './ProfilePreview/profile-preview.js';
+import profilePage from './Profile/profile.js';
+import shoppingCartPage from './ShoppingCart/shopping-cart.js';
+import orderingPage from './Ordering/ordering.js';
 
 const MENU = {
     main: {
@@ -14,6 +18,22 @@ const MENU = {
     register: {
         render: registerPage,
         isModal: true
+    },
+    profilePreview: {
+        render: profilePreviewPage,
+        isModal: true
+    },
+    profile: {
+        render: profilePage,
+        isModal: false
+    },
+    shoppingCart: {
+        order: shoppingCartPage,
+        isModal: true
+    },
+    ordering: {
+        order: orderingPage,
+        isModal: false
     }
 };
 
