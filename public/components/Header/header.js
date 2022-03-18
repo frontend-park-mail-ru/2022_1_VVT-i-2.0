@@ -1,5 +1,5 @@
 const header = (auth = false) => {
-    const template =  `
+    const template = `
         <header>
             <div data-section="main">
                 <img src="icons/delivery_icon.svg" data-section="main">
