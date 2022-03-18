@@ -22,7 +22,10 @@ const request = (url, options = DEFAULT_OPTIONS) => {
         });
         options.body = JSON.stringify(options.body);
     }
-    return fetch(BASE_URI + '/api/v1' + url, options);
+    return fetch(BASE_URI + '/api/v1' + url, options)
+        .catch(() => {
+            alert('Ошибка сети!');
+        });
 }
 
 /**
