@@ -3,7 +3,7 @@ import COLORS from '../../utils/colors.js';
 
 /**
  * @function Создает html-строку для создания компонента формы авторизации
- *      loginForm через шаблонатор Mustache.
+ *      profilePreview через шаблонатор Mustache.
  * @param {Object} properties - Объект, содержащий аттрибуты тегов для отрисовки формы.
  * @return {string} HTML строка для отрисовки компонента registerForm.
  */
@@ -23,13 +23,13 @@ const loginForm = (properties) => {
     `;
     return Mustache.render(template, {
         properties: properties,
-        input() {
+        input () {
             return UIKIT.input(this.title, this.type, this.placeholder, this.id);
         },
-        login() {
+        login () {
             return UIKIT.button('Войти', COLORS.primary, null, 'loginButton');
         },
-        register() {
+        register () {
             return UIKIT.button('Регистрация', COLORS.grey, 'register');
         }
     });

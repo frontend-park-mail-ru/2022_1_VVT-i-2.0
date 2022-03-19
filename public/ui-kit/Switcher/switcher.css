@@ -1,0 +1,22 @@
+#mail-notification {
+    display: flex;
+    flex-direction: row;
+    background: #777373;
+    height: 29px;
+    max-width: 55px;
+    border-radius: 25px;
+    align-items: center;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-inline-end: 2px;
+    padding-inline-start: 2px;
+    justify-content: flex-end; /*flex-end*/
+    cursor: pointer;
+}
+
+#moving-ball {
+    background: #FFFFFF;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}

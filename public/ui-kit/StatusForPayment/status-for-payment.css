@@ -1,0 +1,30 @@
+.error-pay {
+    width: 321px;
+    height: 62px;
+
+    display: flex;
+    flex-direction: row;
+
+    background: rgba(255, 0, 0, 0.15);
+    border-radius: 0 10px 10px 0;
+}
+
+.red {
+    background: #EE1212;
+    width: 4px;
+}
+
+.text-notification {
+    width: 299px;
+    height: 57px;
+    left: 22px;
+    top: 3px;
+
+    font-size: 13px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+
+    color: #000000;
+}
