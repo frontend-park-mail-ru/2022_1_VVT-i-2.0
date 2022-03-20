@@ -3,6 +3,8 @@ import loginForm from './LoginForm/login-form.js';
 import registerForm from './RegisterForm/register-form.js';
 import restIcons from './RestIcons/rest-icons.js';
 import profilePreview from './ProfilePreview/profile-preview.js';
+import orderPoint from './OrderPoint/order-point.js';
+import paymentChoice from './PaymentChoice/payment-choice.js';
 
 export default {
     header,
@@ -10,4 +12,6 @@ export default {
     registerForm,
     restIcons,
     profilePreview,
+    orderPoint,
+    paymentChoice,
 };

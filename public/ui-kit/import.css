@@ -3,5 +3,7 @@
 @import url('Input/input.css');
 @import url('MainLink/main-link.css');
 @import url('MetaInformation/meta-information.css');
+@import url('AddRemoveButton/add-remove-button.css');
 @import url('Switcher/switcher.css');
 @import url('PaymentNotification/payment-notification.css');
+@import url('ButtonPay/button-pay.css');
