@@ -1,16 +1,27 @@
-.error-pay {
+.notification {
     width: 321px;
     height: 62px;
 
     display: flex;
     flex-direction: row;
-
-    background: rgba(255, 0, 0, 0.15);
     border-radius: 0 10px 10px 0;
 }
 
-.red {
+.not-free-delivery {
+    background: rgba(255, 0, 0, 0.15);
+}
+
+.not-free-delivery > div:first-child {
     background: #EE1212;
+    width: 4px;
+}
+
+.free-delivery {
+    background: rgba(23, 177, 10, 0.19);
+}
+
+.free-delivery > div:first-child {
+    background: #17D685;
     width: 4px;
 }
 
