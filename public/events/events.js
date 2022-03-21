@@ -1,6 +1,7 @@
 import * as api from '../api/api.js';
-import {Event} from "./entity/import.js";
+import { Event } from './entity/import.js';
 import * as FORM from './common/status-form.js';
+import { hideEmptyInputs, showEmptyInputs } from './common/status-form.js';
 
 const EVENTS = {
     closeImg: [
@@ -12,7 +13,7 @@ const EVENTS = {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener(app, e) {
+            listener (app, e) {
                 app.modal.classList.remove('shown');
                 app.modal.innerHTML = '';
                 app.root.lastChild.classList.remove('hidden');
@@ -31,8 +32,10 @@ const EVENTS = {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener(app, e) {
+            listener (app, e) {
                 if (!FORM.isAvailableForSend(FORM.statusLoginForm)) {
+                    showEmptyInputs(FORM.statusLoginForm, FORM.loginFormInputs);
+                    setTimeout(hideEmptyInputs, 400, FORM.statusLoginForm, FORM.loginFormInputs);
                     return;
                 }
 
@@ -40,14 +43,17 @@ const EVENTS = {
                 const password = document.getElementById('loginPassword').children[0].value;
 
                 api
-                    .login({phone, password})
+                    .login({
+                        phone,
+                        password
+                    })
                     .then((res) => {
                         if (res.status !== 200) {
                             alert('Данные не валидны');
                             return;
                         }
 
-                        const event = new CustomEvent('render-page', {detail: {section: 'main'}})
+                        const event = new CustomEvent('render-page', { detail: { section: 'main' } });
                         document.dispatchEvent(event);
                     });
             }
@@ -67,8 +73,10 @@ const EVENTS = {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener(app, e) {
+            listener (app, e) {
                 if (!FORM.isAvailableForSend(FORM.statusRegisterForm)) {
+                    showEmptyInputs(FORM.statusRegisterForm, FORM.registerFormInputs);
+                    setTimeout(hideEmptyInputs, 400, FORM.statusRegisterForm, FORM.registerFormInputs);
                     return;
                 }
 
@@ -77,14 +85,18 @@ const EVENTS = {
                 const password = document.getElementById('registerPassword').children[0].value;
 
                 api
-                    .register({phone, name, password})
+                    .register({
+                        phone,
+                        name,
+                        password
+                    })
                     .then((res) => {
                         if (res.status !== 200) {
                             alert('Данные не валидны');
                             return;
                         }
 
-                        const event = new CustomEvent('render-page', {detail: {section: 'main'}})
+                        const event = new CustomEvent('render-page', { detail: { section: 'main' } });
                         document.dispatchEvent(event);
                     });
             }
@@ -98,7 +110,7 @@ const EVENTS = {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener(app, e) {
+            listener (app, e) {
                 api
                     .logout()
                     .then((res) => {
@@ -107,7 +119,7 @@ const EVENTS = {
                             return;
                         }
 
-                        const event = new CustomEvent('render-page', {detail: {section: 'main'}})
+                        const event = new CustomEvent('render-page', { detail: { section: 'main' } });
                         document.dispatchEvent(event);
                     });
             }
@@ -125,9 +137,12 @@ export const addListeners = (app) => {
         if (!node) {
             return;
         }
-        events.forEach(({type, listener}) => node.addEventListener(type, (e) => listener(app, e)));
+        events.forEach(({
+            type,
+            listener
+        }) => node.addEventListener(type, (e) => listener(app, e)));
     });
-}
+};
 
 /**
  * @function Удаляет все листенеры.
@@ -139,6 +154,9 @@ export const removeListeners = (app) => {
         if (!node) {
             return;
         }
-        events.forEach(({type, listener}) => node.removeEventListener(type, (e) => listener(app, e)));
+        events.forEach(({
+            type,
+            listener
+        }) => node.removeEventListener(type, (e) => listener(app, e)));
     });
 };

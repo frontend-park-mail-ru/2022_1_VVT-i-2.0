@@ -1,3 +1,8 @@
+import { ErrorMsg } from './config.js';
+
+export const loginFormInputs = ['loginPhone', 'loginPassword'];
+export const registerFormInputs = ['registerPhone', 'registerName', 'registerPassword', 'registerRepeatPassword'];
+
 export const statusLoginForm = {
     isValidPhone: false,
     isValidPassword: false,
@@ -10,7 +15,7 @@ export const statusRegisterForm = {
     isValidRepeatPassword: false,
 };
 
-export function getElemParameters(elemID) {
+export function getElemParameters (elemID) {
     const input = document.getElementById(elemID);
 
     return {
@@ -19,13 +24,43 @@ export function getElemParameters(elemID) {
     };
 }
 
+function IsInputOnEmpty (elemID) {
+    const input = document.getElementById(elemID);
+    return input.children[0].value === '';
+}
+
+function getEmptyInputs (formInputs) {
+    let emptyInputs = [];
+    formInputs.forEach((elemID) => {
+        if (IsInputOnEmpty(elemID)) {
+            emptyInputs.push(elemID);
+        }
+    });
+
+    return emptyInputs;
+}
+
+export function showEmptyInputs (statusForm, formInputs) {
+    const emptyInputs = getEmptyInputs(formInputs);
+    emptyInputs.forEach((elemID) => {
+        showError(statusForm, elemID, getElemParameters(elemID), ErrorMsg.errorEmptyInput);
+    });
+}
+
+export function hideEmptyInputs (statusForm, formInputs) {
+    const emptyInputs = getEmptyInputs(formInputs);
+    emptyInputs.forEach((elemID) => {
+        removeVisibleError(getElemParameters(elemID).childList);
+    });
+}
+
 /**
  * @function Меняет статус текущего поля после окончания ввода.
  * @param {Object} statusForm - Список статусов полей формы.
  * @param {string} elemID - ID поля формы.
  * @param {boolean} status - Статус поля формы (корректны данные или нет).
  */
-export function setFormStatus(statusForm, elemID, status) {
+export function setFormStatus (statusForm, elemID, status) {
     switch (elemID) {
         case 'loginPhone':
             statusForm.isValidPhone = status;
@@ -54,7 +89,7 @@ export function setFormStatus(statusForm, elemID, status) {
  * @param {NodeListOf<Element>} childList - Список элементов для применения стилей.
  * @param {string} error - Текст ошибки.
  */
-export function getVisibleError(childList, error) {
+function getVisibleError (childList, error) {
     for (let childNode of childList) {
         childNode.classList.add('error');
         if (childNode.classList.contains('hidden')) {
@@ -68,7 +103,7 @@ export function getVisibleError(childList, error) {
  * @function Скрывает ошибку.
  * @param {NodeListOf<Element>} childList - Список элементов для применения стилей.
  */
-export function removeVisibleError(childList) {
+export function removeVisibleError (childList) {
     for (let childNode of childList) {
         if (childNode.classList.contains('error')) {
             childNode.classList.remove('error');
@@ -83,16 +118,16 @@ export function removeVisibleError(childList) {
  * @param {Object} statusForm - Объект, хранящий статусы инпутов страницы.
  * @return {boolean} - Результат проверки на валидность.
  */
-export function isAvailableForSend(statusForm) {
+export function isAvailableForSend (statusForm) {
     return Object.entries(statusForm).every(([input, status]) => status);
 }
 
-export function showError(statusForm, elemID, input, error) {
+export function showError (statusForm, elemID, input, error) {
     setFormStatus(statusForm, elemID, false);
     getVisibleError(input.childList, error);
 }
 
-export function hideError(statusForm, elemID, input) {
+export function hideError (statusForm, elemID, input) {
     setFormStatus(statusForm, elemID, true);
     removeVisibleError(input.childList);
 }
@@ -106,14 +141,13 @@ export function hideError(statusForm, elemID, input) {
  * @param {RegExp} regularExpression - Регулярное выражение для данных поля на валидность.
  * @param {string} errorMsg - Текст ошибки.
  */
-export function inputDataManager(e, elemID, statusForm, regularExpression, errorMsg) {
+export function inputDataManager (e, elemID, statusForm, regularExpression, errorMsg) {
     const elem = getElemParameters(elemID);
 
-    if (e.target.value !== '' && !regularExpression.exec(e.target.value)) {
+    if (e.target.value !== '' && !regularExpression.test(e.target.value)) {
         showError(statusForm, elemID, elem, errorMsg);
         return;
     }
 
     hideError(statusForm, elemID, elem);
 }
-
