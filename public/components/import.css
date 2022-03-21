@@ -2,3 +2,7 @@
 @import url('LoginForm/login-form.css');
 @import url('RegisterForm/register-form.css');
 @import url('RestIcons/rest-icons.css');
+@import url('ProfilePreview/profile-preview.css');
+@import url('OrderPoint/order-point.css');
+@import url('PaymentChoice/payment-choice.css');
+@import url('ShoppingCart/shopping-cart.css');

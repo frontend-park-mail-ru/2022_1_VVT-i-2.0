@@ -1,0 +1,54 @@
+.order-point {
+    display: inline-flex;
+    max-width: 322px;
+
+    background: #FFFFFF;
+    border: 1px solid #DEDEDE;
+
+    border-radius: 10px;
+    padding: 10px 5px 10px 15px;
+}
+
+.order-point > div:first-child {
+    width: 13%;
+}
+
+.dish-img {
+    height: 28px;
+    width: 28px;
+    margin-top: 2px;
+}
+
+.order-point > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    width: 87%;
+}
+
+.dish-info {
+    display: inline-flex;
+}
+
+.dish-info > div:nth-child(1) {
+    width: 80%;
+}
+
+.dish-info > div:nth-child(2) {
+    text-align: right;
+    width: 20%;
+}
+
+.ingredients {
+    display: inline-flex;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    color: #DEDEDE;
+}
+
+.edit-quantity {
+    display: inline-flex;
+}
+
+.number-current-point {
+    margin: auto 20px;
+}

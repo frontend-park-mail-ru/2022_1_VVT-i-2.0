@@ -9,8 +9,8 @@ const header = (auth = false) => {
             </div>
             {{#auth}}
                 <div id="logoutButton">
-                    <img src="icons/profile.svg">
-                    <a>Выйти</a>
+                    <img src="icons/profile.svg" data-section="profile">
+                    <a>Профиль</a>
                 </div>
             {{/auth}}
             {{^auth}}
@@ -21,7 +21,7 @@ const header = (auth = false) => {
             {{/auth}}
         </header>
     `;
-    return Mustache.render(template, {auth});
+    return Mustache.render(template, { auth });
 };
 
 export default header;

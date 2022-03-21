@@ -3,7 +3,7 @@
 }
 
 #register-form > h2 {
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 35px;
 }
 
@@ -28,4 +28,8 @@
 #register-form #register-button {
     margin-top: 37px;
     margin-bottom: 19px;
+}
+
+div#register-form input {
+    width: 300px;
 }

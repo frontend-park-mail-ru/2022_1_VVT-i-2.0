@@ -1,0 +1,17 @@
+#profile-preview-block {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 5px;
+    max-width: 322px;
+    height: 100%; /*в странице профиля изменить этот стиль*/
+}
+
+.profile-preview-point {
+    -webkit-filter: grayscale(0%);
+    filter: none;
+    margin: 20px;
+    color: #BEB6AE;
+    cursor: pointer;
+}

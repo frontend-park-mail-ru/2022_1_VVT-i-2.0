@@ -1,0 +1,27 @@
+#button-pay {
+    max-width: 516px;
+    max-height: 63px;
+    background: #000000;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#button-pay > div {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: inline-flex;
+}
+
+#button-pay > div > img {
+    margin-top: 3px;
+}
+
+#payment-sep {
+    margin: auto 5px;
+    background: #BEB6AE;
+    width: 2px;
+    height: 32px;
+}

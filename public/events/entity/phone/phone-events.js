@@ -3,7 +3,7 @@ import * as CURSOR from '../../common/cursor.js';
 import * as CONFIG from '../../common/config.js';
 import * as FORM from '../../common/status-form.js';
 
-export function getPhoneFieldEvents(formName) {
+export function getPhoneFieldEvents (formName) {
     return [
         {
             type: 'mouseup',
@@ -13,11 +13,15 @@ export function getPhoneFieldEvents(formName) {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener(app, e) {
+            listener (app, e) {
                 if (e.target.value === '') {
                     e.target.value = VALIDATION.NumberPhoneFormat.phoneBeginString;
                     CURSOR.setCursorPosition(e, e.target.value.length);
                 }
+                FORM.inputDataManager(
+                    e, formName, FORM.statusLoginForm,
+                    CONFIG.Regex.phoneNumber, CONFIG.ErrorMsg.errorPhoneNumber
+                );
             }
         },
         {
@@ -28,7 +32,7 @@ export function getPhoneFieldEvents(formName) {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener(app, e) {
+            listener (app, e) {
                 if (CONFIG.Keypad.deleteSymbols.includes(e.keyCode)) {
                     let currPos = CURSOR.getCursorPosition(e.target);
                     if (VALIDATION.numberServiceSymbols.includes(e.target.value[currPos - 1])) {
@@ -46,7 +50,7 @@ export function getPhoneFieldEvents(formName) {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener(app, e) {
+            listener (app, e) {
                 VALIDATION.numberAutocomplete(e);
             }
         },
@@ -59,7 +63,7 @@ export function getPhoneFieldEvents(formName) {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener(app, e) {
+            listener (app, e) {
                 FORM.inputDataManager(
                     e, formName, FORM.statusLoginForm,
                     CONFIG.Regex.phoneNumber, CONFIG.ErrorMsg.errorPhoneNumber
