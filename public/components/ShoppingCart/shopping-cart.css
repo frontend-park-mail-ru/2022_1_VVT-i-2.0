@@ -6,6 +6,8 @@
     background: #FFFFFF;
     border: 1px solid #DEDEDE;
     box-sizing: border-box;
+    margin-right: 0;
+    margin-left: auto;
 }
 
 #info-about-rest {

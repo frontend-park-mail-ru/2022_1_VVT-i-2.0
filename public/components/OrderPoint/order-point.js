@@ -1,22 +1,22 @@
 import UIKIT from '../../ui-kit/import.js';
 
-const orderPoint = (imgPath, dishName, additives, count, price) => {
+const orderPoint = (properties) => {
     const template = `
         <div class="order-point">
             <div>
-                <img class="dish-img" src="{{imgPath}}" alt="">
+                <img class="dish-img" src="{{properties.imgPath}}" alt="">
             </div>
             <div>
                 <div class="dish-info">
-                    <div>{{dishName}}</div>
-                    <div>{{price}}</div>
+                    <div>{{properties.dishName}}</div>
+                    <div>{{properties.price}}</div>
                 </div>
                 <div class="ingredients">
-                    {{additives}}
+                    {{properties.additives}}
                 </div>
                 <div class="edit-quantity">
                     {{&addButton}}
-                    <div class="number-current-point">{{count}}</div>
+                    <div class="number-current-point">{{properties.count}}</div>
                     {{&removeButton}}
                 </div>
             </div>
@@ -24,13 +24,7 @@ const orderPoint = (imgPath, dishName, additives, count, price) => {
     `;
 
     return Mustache.render(template, {
-        properties: {
-            imgPath,
-            dishName,
-            additives,
-            count,
-            price
-        },
+        properties: properties,
         addButton () {
             return UIKIT.addRemoveButton('addPoint');
         },

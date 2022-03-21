@@ -7,7 +7,7 @@ const profilePreview = (profilePreviewPoints) => {
         <div id="profile-preview-block">
             {{#profilePreviewPoints}}
                 <div class="profile-preview-point">
-                    {{menuPoint}}
+                    {{.}}
                 </div>
             {{/profilePreviewPoints}}
         </div>

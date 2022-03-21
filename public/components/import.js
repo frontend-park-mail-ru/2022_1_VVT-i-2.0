@@ -5,6 +5,7 @@ import restIcons from './RestIcons/rest-icons.js';
 import profilePreview from './ProfilePreview/profile-preview.js';
 import orderPoint from './OrderPoint/order-point.js';
 import paymentChoice from './PaymentChoice/payment-choice.js';
+import shoppingCart from './ShoppingCart/shopping-cart.js';
 
 export default {
     header,
@@ -14,4 +15,5 @@ export default {
     profilePreview,
     orderPoint,
     paymentChoice,
+    shoppingCart,
 };
