@@ -24,6 +24,13 @@ const orderPoint = (imgPath, dishName, additives, count, price) => {
     `;
 
     return Mustache.render(template, {
+        properties: {
+            imgPath,
+            dishName,
+            additives,
+            count,
+            price
+        },
         addButton () {
             return UIKIT.addRemoveButton('addPoint');
         },
