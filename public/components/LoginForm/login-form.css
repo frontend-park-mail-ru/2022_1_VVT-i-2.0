@@ -29,3 +29,7 @@
     margin-top: 3px;
     margin-bottom: 19px;
 }
+
+div#login-form input {
+    width: 300px;
+}

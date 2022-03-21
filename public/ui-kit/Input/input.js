@@ -18,7 +18,13 @@ const input = (title, type, placeholder, id, error = 'Ошибка') => {
         </div>
     `;
 
-    return Mustache.render(template, {title, type, placeholder, id, error});
+    return Mustache.render(template, {
+        title,
+        type,
+        placeholder,
+        id,
+        error
+    });
 };
 
 export default input;
