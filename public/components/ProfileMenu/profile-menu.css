@@ -1,0 +1,11 @@
+.profile-menu-point {
+    -webkit-filter: grayscale(0%);
+    filter: none;
+    margin: 20px;
+    color: #BEB6AE;
+    cursor: pointer;
+}
+
+.profile-menu-point:hover {
+    color: black;
+}

@@ -124,6 +124,15 @@ const EVENTS = {
                     });
             }
         }
+    ],
+    profile: [
+        {
+            type: 'click',
+            listener (app, e) {
+                const event = new CustomEvent('render-page', { detail: { section: 'profile' } });
+                document.dispatchEvent(event);
+            }
+        }
     ]
 };
 

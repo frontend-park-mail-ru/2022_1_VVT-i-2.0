@@ -1,15 +1,8 @@
 import components from '../../components/import.js';
-
-const profilePreviewApp = [
-    'Личные данные',
-    //  'Адреса доставки',
-    //  'Мои заказы',
-    //  'Мои скидки'
-    'Выход'
-];
+import { profileMenu } from '../Profile/profile.js';
 
 const profilePreviewPage = (app) => {
-    app.modal.innerHTML = components.profilePreview(profilePreviewApp);
+    app.modal.innerHTML = components.profilePreviewForm(profileMenu);
 };
 
 export default profilePreviewPage;
