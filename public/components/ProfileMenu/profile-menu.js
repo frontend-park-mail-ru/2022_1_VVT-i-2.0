@@ -2,17 +2,15 @@
  * @function Создает html-строку для создания ui-kit компонента metaInf формы через шаблонатор Mustache.
  * @return {string} HTML строка для отрисовки ui-kit компонента metaInf.
  */
-const profilePreview = (profilePreviewPoints) => {
+const profileMenu = (profilePreviewPoints) => {
     const template = `
-        <div id="profile-preview-block">
-            {{#profilePreviewPoints}}
-                <div class="profile-preview-point">
-                    {{.}}
-                </div>
-            {{/profilePreviewPoints}}
-        </div>
+        {{#profilePreviewPoints}}
+            <div class="profile-menu-point">
+                {{.}}
+            </div>
+        {{/profilePreviewPoints}}
     `;
     return Mustache.render(template, { profilePreviewPoints });
 };
 
-export default profilePreview;
+export default profileMenu;

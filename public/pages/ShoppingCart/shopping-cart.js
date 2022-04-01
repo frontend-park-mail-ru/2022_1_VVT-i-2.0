@@ -5,36 +5,30 @@ import components from '../../components/import.js';
  * @param {Object} app - Объект приложения.
  */
 const shoppingCart = (app) => {
+    let restName = 'McDonalds';
+
     const properties = [
-        // {
-        //     title: 'Телефон',
-        //     width: 300,
-        //     placeholder: '+7(',
-        //     id: 'registerPhone'
-        // },
-        // {
-        //     title: 'Имя',
-        //     width: 300,
-        //     placeholder: 'Сергей',
-        //     id: 'registerName'
-        // },
-        // {
-        //     title: 'Пароль',
-        //     width: 300,
-        //     type: 'password',
-        //     placeholder: 'Введите пароль',
-        //     id: 'registerPassword'
-        // },
-        // {
-        //     title: 'Повторите пароль',
-        //     width: 300,
-        //     type: 'password',
-        //     placeholder: 'Введите пароль',
-        //     id: 'registerRepeatPassword'
-        // },
+        {
+            imgPath: '../cons/404.svg',
+            dishName: 'Бургер по-восточному',
+            count: 3,
+            price: 269,
+        },
+        {
+            imgPath: '../cons/404.svg',
+            dishName: 'Бургер по-восточному',
+            count: 3,
+            price: 269,
+        },
+        {
+            imgPath: '../cons/404.svg',
+            dishName: 'Бургер по-восточному',
+            count: 3,
+            price: 269,
+        },
     ];
 
-    app.modal.innerHTML = components.shoppingCart(properties);
+    app.modal.innerHTML = components.shoppingCart(restName, properties);
 };
 
 export default shoppingCart;

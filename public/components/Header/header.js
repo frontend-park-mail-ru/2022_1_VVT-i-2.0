@@ -8,7 +8,7 @@ const header = (auth = false) => {
             <div id="search">
             </div>
             {{#auth}}
-                <div id="logoutButton">
+                <div id="profile">
                     <img src="icons/profile.svg" data-section="profile">
                     <a>Профиль</a>
                 </div>
