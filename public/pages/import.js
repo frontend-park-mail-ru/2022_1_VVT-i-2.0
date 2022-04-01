@@ -2,9 +2,10 @@ import mainPage from './Main/main.js';
 import loginPage from './Login/login.js';
 import registerPage from './Register/register.js';
 import profilePreviewPage from './ProfilePreview/profile-preview.js';
+import profilePage from './Profile/profile.js';
+import productsPage from './Products/products.js';
 import shoppingCartPage from './ShoppingCart/shopping-cart.js';
 import orderingPage from './Ordering/ordering.js';
-import profilePage from './Profile/profile.js';
 
 const MENU = {
     main: {
@@ -25,6 +26,10 @@ const MENU = {
     },
     profile: {
         render: profilePage,
+        isModal: false
+    },
+    products: {
+        render: productsPage,
         isModal: false
     },
     shoppingCart: {

@@ -13,7 +13,7 @@ const profilePreviewForm = (profilePreviewPoints) => {
     return Mustache.render(template, {
         profilePreviewPoints: profilePreviewPoints,
         menu () {
-            components.profileMenu(profilePreviewPoints);
+            return components.profileMenu(profilePreviewPoints);
         }
     });
 };

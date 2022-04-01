@@ -1,0 +1,14 @@
+.back-button {
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  cursor: pointer;
+  width: 200px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.back-button img {
+  margin-right: 10px;
+}
