@@ -6,7 +6,6 @@ import profilePage from './Profile/profile.js';
 import productsPage from './Products/products.js';
 import shoppingCartPage from './ShoppingCart/shopping-cart.js';
 import orderingPage from './Ordering/ordering.js';
-import profilePage from './Profile/profile.js';
 
 const MENU = {
     main: {

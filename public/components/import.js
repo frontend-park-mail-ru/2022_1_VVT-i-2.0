@@ -5,7 +5,6 @@ import restIcons from './RestIcons/rest-icons.js';
 import profileMenu from './ProfileMenu/profile-menu.js';
 import profilePreviewForm from './ProfilePreviewForm/profile-preview-form.js';
 import productsIcons from './ProductsIcons/products-icons.js';
-import profilePreview from './ProfilePreview/profile-preview.js';
 import orderPoint from './OrderPoint/order-point.js';
 import paymentChoice from './PaymentChoice/payment-choice.js';
 import shoppingCart from './ShoppingCart/shopping-cart.js';
@@ -18,7 +17,6 @@ export default {
     profileMenu,
     profilePreviewForm,
     productsIcons,
-    profilePreview,
     orderPoint,
     paymentChoice,
     shoppingCart,
