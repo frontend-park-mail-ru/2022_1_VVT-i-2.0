@@ -31,7 +31,7 @@ const profilePage = (app) => {
         },
     ];
 
-    app.root.innerHTML = components.header(false);
+    app.root.innerHTML = components.header(true);
 
     const main = document.createElement('main');
     main.innerHTML = components.personInfoForm(properties);
