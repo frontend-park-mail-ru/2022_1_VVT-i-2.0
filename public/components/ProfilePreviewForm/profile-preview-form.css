@@ -4,6 +4,9 @@
     border: 1px solid #DEDEDE;
     box-sizing: border-box;
     border-radius: 5px;
-    max-width: 322px;
+    width: 322px;
     height: 100%; /*в странице профиля изменить этот стиль*/
+    position: absolute;
+    right: 0;
+    top: 68px;
 }

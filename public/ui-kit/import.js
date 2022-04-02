@@ -5,6 +5,7 @@ import metaInformation from './MetaInformation/meta-information.js';
 import productMetaInformation from './ProductMetaInformation/product-meta-information.js';
 import addRemoveButton from './AddRemoveButton/add-remove-button.js';
 import backButton from './BackButton/back-button.js';
+import profileMenu from './ProfileMenu/profile-menu.js';
 import switcher from './Switcher/switcher.js';
 import paymentNotification from './PaymentNotification/payment-notification.js';
 import buttonPay from './ButtonPay/button-pay.js';
@@ -17,6 +18,7 @@ export default {
     productMetaInformation,
     addRemoveButton,
     backButton,
+    profileMenu,
     switcher,
     paymentNotification,
     buttonPay
