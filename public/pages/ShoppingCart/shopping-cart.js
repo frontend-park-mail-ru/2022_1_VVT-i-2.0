@@ -4,29 +4,26 @@ import components from '../../components/import.js';
  * @function Рендерит страницу по входящему объекту приложения.
  * @param {Object} app - Объект приложения.
  */
-const shoppingCartPage = (app) => {
-    let restName = 'McDonalds';
+const shoppingCart = (app) => {
+    const restName = 'McDonalds';
 
     const properties = [
         {
-            imgPath: 'icons/Image.png',
+            imgPath: 'icons/404.svg',
             dishName: 'Бургер по-восточному',
-            additives: 'Без котлеты',
-            dishCount: 3,
+            count: 3,
             price: 269,
         },
         {
-            imgPath: 'icons/Image.png',
+            imgPath: 'icons/404.svg',
             dishName: 'Бургер по-восточному',
-            additives: 'Без котлеты',
-            dishCount: 3,
+            count: 3,
             price: 269,
         },
         {
-            imgPath: 'icons/Image.png',
+            imgPath: 'icons/404.svg',
             dishName: 'Бургер по-восточному',
-            additives: 'Без котлеты',
-            dishCount: 3,
+            count: 3,
             price: 269,
         },
     ];

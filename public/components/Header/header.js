@@ -21,6 +21,7 @@ const header = (auth = false) => {
             {{/auth}}
         </header>
     `;
+
     return Mustache.render(template, { auth });
 };
 

@@ -9,12 +9,12 @@ const paymentNotification = (textNotification, freeDelivery) => {
         <div class="notification {{statusNotification}}">
             <div></div>
             <div class="text-notification">
-                Закажите ещё на 380₽ для бесплатной доставки
+                {{textNotification}}
             </div>
         </div>
     `;
 
-    return Mustache.render(template, textNotification);
+    return Mustache.render(template, { textNotification, statusNotification });
 };
 
 export default paymentNotification;

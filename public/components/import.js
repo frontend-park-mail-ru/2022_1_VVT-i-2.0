@@ -7,6 +7,7 @@ import personInfoForm from './PersonInfoForm/person-info-form.js';
 import productsIcons from './ProductsIcons/products-icons.js';
 import paymentChoice from './PaymentChoice/payment-choice.js';
 import shoppingCart from './ShoppingCart/shopping-cart.js';
+import ordering from './Ordering/ordering.js';
 
 export default {
     header,
@@ -18,4 +19,5 @@ export default {
     productsIcons,
     paymentChoice,
     shoppingCart,
+    ordering
 };

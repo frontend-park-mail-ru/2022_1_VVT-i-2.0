@@ -10,6 +10,7 @@ import switcher from './Switcher/switcher.js';
 import orderPoint from './OrderPoint/order-point.js';
 import paymentNotification from './PaymentNotification/payment-notification.js';
 import buttonPay from './ButtonPay/button-pay.js';
+import title from './Title/title.js';
 
 export default {
     button,
@@ -23,5 +24,6 @@ export default {
     switcher,
     orderPoint,
     paymentNotification,
-    buttonPay
+    buttonPay,
+    title
 };

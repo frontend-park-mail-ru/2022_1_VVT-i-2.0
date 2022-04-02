@@ -7,7 +7,36 @@ import COLORS from '../../utils/colors.js';
  * @param {Object} properties - Объект, содержащий аттрибуты тегов для отрисовки формы.
  * @return {string} HTML строка для отрисовки компонента registerForm.
  */
-const registerForm = (properties) => {
+const registerForm = () => {
+    const properties = [
+        {
+            title: 'Телефон',
+            width: 300,
+            placeholder: '+7(',
+            id: 'registerPhone'
+        },
+        {
+            title: 'Имя',
+            width: 300,
+            placeholder: 'Сергей',
+            id: 'registerName'
+        },
+        {
+            title: 'Пароль',
+            width: 300,
+            type: 'password',
+            placeholder: 'Введите пароль',
+            id: 'registerPassword'
+        },
+        {
+            title: 'Повторите пароль',
+            width: 300,
+            type: 'password',
+            placeholder: 'Введите пароль',
+            id: 'registerRepeatPassword'
+        },
+    ];
+
     const template = `
         <div id="register-form">
             <img id="closeImg" src="icons/close.svg">
@@ -21,6 +50,7 @@ const registerForm = (properties) => {
             {{&login}}
         </div>
     `;
+
     return Mustache.render(template, {
         properties: properties,
         input() {

@@ -41,7 +41,7 @@ const MENU = {
         position: 'modal-right',
     },
     ordering: {
-        order: orderingPage,
+        render: orderingPage,
         isModal: false
     }
 };

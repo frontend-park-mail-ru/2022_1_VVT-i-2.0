@@ -1,0 +1,82 @@
+#ordering {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-right: 25%;
+}
+
+#ordering-and-nav-block {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+#ordering-and-nav-block > div:first-child {
+  background: #FFFFFF;
+  border: 1px solid #DEDEDE;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 30px 64px 40px 64px;
+}
+
+#ordering-and-nav-block #header {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+#ordering-and-nav-block #comment {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#ordering-and-nav-block #comment-block {
+  height: 65px;
+  width: 516px;
+  border: none;
+  border-radius: 6px;
+  background: #DEDEDE;
+  resize: none;
+  color: #beb6ae;
+  margin-bottom: 30px;
+}
+
+#ordering-and-nav-block #order-header {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+#ordering-and-nav-block > div:last-child {
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+}
+
+#ordering-and-nav-block .notify {
+  display: flex;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#ordering-and-nav-block .notify > div:last-child {
+  margin-left: auto;
+}
+
+#ordering-and-nav-block #order-payment-notify {
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#ordering-and-nav-block #order-result {
+  display: flex;
+  font-weight: bold;
+  margin-top: 30px;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#ordering-and-nav-block #order-result > div:last-child {
+  margin-left: auto;
+}
