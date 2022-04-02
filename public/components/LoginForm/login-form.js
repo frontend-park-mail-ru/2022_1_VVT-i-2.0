@@ -3,7 +3,7 @@ import COLORS from '../../utils/colors.js';
 
 /**
  * @function Создает html-строку для создания компонента формы авторизации
- *      profileMenu через шаблонатор Mustache.
+ *      profileMenuPoint через шаблонатор Mustache.
  * @param {Object} properties - Объект, содержащий аттрибуты тегов для отрисовки формы.
  * @return {string} HTML строка для отрисовки компонента registerForm.
  */

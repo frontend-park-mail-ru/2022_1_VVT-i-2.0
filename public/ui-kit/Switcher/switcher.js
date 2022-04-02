@@ -2,7 +2,7 @@ const switcher = () => {
     return `
         <div id="mail-notification">
             <div id="moving-ball"></div>
-        </div>;
+        </div>
     `;
 
 };

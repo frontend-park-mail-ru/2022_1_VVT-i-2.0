@@ -38,6 +38,6 @@ Object
 
 document.addEventListener('render-page', (e) => renderPage(e.detail.section));
 
-MENU.main.render(APP);
+MENU.profile.render(APP);
 
 events.addListeners(APP);
