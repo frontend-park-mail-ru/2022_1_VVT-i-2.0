@@ -6,6 +6,12 @@ const APP = {
     modal: document.getElementById('modal')
 };
 
+const setModalPagePosition = (page) => {
+    if (page.position) {
+        APP.modal.classList.add(page.position);
+    }
+}
+
 /**
  * @function Рендерит страницу по входящему section. Если section нет, рендер не производится.
  * @param {string} section - метаинформация, прописанная в атрибуте data-section тега.
@@ -22,8 +28,10 @@ const renderPage = (section) => {
 
     if (page.isModal) {
         APP.modal.classList.add('shown');
+        setModalPagePosition(page);
     } else {
-        APP.modal.classList.remove('shown');
+        APP.modal.classList.remove(...APP.modal.classList);
+        // APP.modal.classList.remove('shown');
         APP.modal.innerHTML = '';
     }
 
@@ -38,6 +46,6 @@ Object
 
 document.addEventListener('render-page', (e) => renderPage(e.detail.section));
 
-MENU.shoppingCart.render(APP);
+MENU.login.render(APP);
 
 events.addListeners(APP);
