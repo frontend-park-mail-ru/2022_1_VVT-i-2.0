@@ -25,12 +25,33 @@ main {
     background-color: rgba(33, 33, 33, 0.7);
 }
 
-#modal > * {
+/*#modal > * {*/
+/*    margin: auto;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    padding: 30px;*/
+/*    border: none;*/
+/*    border-radius: 14px;*/
+/*    background: #ffffff;*/
+/*}*/
+
+#modal .modal-center > * {
     margin: auto;
     display: flex;
     flex-direction: column;
     padding: 30px;
     border: none;
     border-radius: 14px;
+    background: #ffffff;
+}
+
+div#modal.modal-right > * {
+    display: flex;
+    border: none;
+    height: 1024px;
+    flex-direction: column;
+    margin-right: 0;
+    margin-left: auto;
+    margin-top: 68px;
     background: #ffffff;
 }

@@ -1,5 +1,5 @@
-import OrderPoint from '../OrderPoint/order-point.js';
-import button from '../../ui-kit/Button/button.js';
+import UIKIT from '../../ui-kit/import.js';
+import COLORS from '../../utils/colors.js';
 
 const shoppingCart = (restName, orderPoints) => {
     const template = `
@@ -10,17 +10,19 @@ const shoppingCart = (restName, orderPoints) => {
             {{#orderPoints}}
                 {{&drawOrderPoint}}
             {{/orderPoints}}
-            {{&drawButton}}
+            <div id="ordering">
+                {{&buttonOrder}}
+            </div>
         </div>
     `;
     return Mustache.render(template, {
         restName,
         orderPoints: orderPoints,
         drawOrderPoint () {
-            return OrderPoint('../cons/404.svg', 'бургер сочный молочный', 'без котлеты', 3, '256 Р');
+            return UIKIT.orderPoint(this.imgPath, this.dishName, this.additives, this.dishCount, this.price);
         },
-        drawButton () {
-            return button('Заказать ' + this.price + ' ₽', '#17D685', '', 'orderButton');
+        buttonOrder () {
+            return UIKIT.button('Заказать 330 ₽', COLORS.primary, '', 'orderButton');
         }
     });
 };

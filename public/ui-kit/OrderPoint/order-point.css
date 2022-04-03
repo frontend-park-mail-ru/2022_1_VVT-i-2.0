@@ -1,6 +1,7 @@
 .order-point {
+    margin: 5px auto;
     display: inline-flex;
-    max-width: 322px;
+    width: 292px;
 
     background: #FFFFFF;
     border: 1px solid #DEDEDE;
@@ -30,12 +31,12 @@
 }
 
 .dish-info > div:nth-child(1) {
-    width: 80%;
+    width: 70%;
 }
 
 .dish-info > div:nth-child(2) {
     text-align: right;
-    width: 20%;
+    width: 30%;
 }
 
 .ingredients {
