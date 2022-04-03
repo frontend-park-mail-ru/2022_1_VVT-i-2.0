@@ -46,6 +46,4 @@ Object
 
 document.addEventListener('render-page', (e) => renderPage(e.detail.section));
 
-MENU.ordering.render(APP);
-
-events.addListeners(APP);
+renderPage('main');

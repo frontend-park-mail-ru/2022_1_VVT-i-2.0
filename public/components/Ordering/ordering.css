@@ -8,6 +8,7 @@
 #ordering-and-nav-block {
   display: inline-flex;
   justify-content: space-between;
+  margin-left: 50px;
 }
 
 #ordering-and-nav-block > div:first-child {
@@ -15,7 +16,7 @@
   border: 1px solid #DEDEDE;
   box-sizing: border-box;
   border-radius: 10px;
-  padding: 30px 64px 40px 64px;
+  padding: 30px 64px 0px 64px;
 }
 
 #ordering-and-nav-block #header {
@@ -45,7 +46,6 @@
 }
 
 #ordering-and-nav-block > div:last-child {
-  background: #FFFFFF;
   display: flex;
   flex-direction: column;
 }
@@ -54,8 +54,6 @@
   display: flex;
   font-weight: bold;
   margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 #ordering-and-nav-block .notify > div:last-child {
@@ -64,8 +62,6 @@
 
 #ordering-and-nav-block #order-payment-notify {
   margin-top: 30px;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 #ordering-and-nav-block #order-result {
@@ -73,8 +69,6 @@
   font-weight: bold;
   margin-top: 30px;
   font-size: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 #ordering-and-nav-block #order-result > div:last-child {

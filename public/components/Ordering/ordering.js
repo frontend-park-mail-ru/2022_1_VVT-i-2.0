@@ -1,8 +1,7 @@
 import UIKIT from '../../ui-kit/import.js';
 import paymentChoice from '../PaymentChoice/payment-choice.js';
-import OrderPoint from '../OrderPoint/order-point.js';
 
-const ordering = () => {
+const ordering = (props) => {
   const properties = [
     {
       title: 'Телефон',
@@ -31,27 +30,6 @@ const ordering = () => {
     //   title: 'Квартира',
     //   id: 'orderingFlat'
     // },
-  ];
-
-  const orderPoints = [
-    {
-      imgPath: 'icons/404.svg',
-      dishName: 'Бургер по-восточному',
-      count: 3,
-      price: 269,
-    },
-    {
-      imgPath: 'icons/404.svg',
-      dishName: 'Бургер по-восточному',
-      count: 3,
-      price: 269,
-    },
-    {
-      imgPath: 'icons/404.svg',
-      dishName: 'Бургер по-восточному',
-      count: 3,
-      price: 269,
-    },
   ];
 
   const template = `
@@ -102,7 +80,7 @@ const ordering = () => {
 
   return Mustache.render(template, {
     properties: properties,
-    orderPoints: orderPoints,
+    orderPoints: props.orderPoints,
     title() {
       return UIKIT.title('Оформление заказа');
     },
@@ -116,7 +94,7 @@ const ordering = () => {
       return UIKIT.buttonPay();
     },
     drawOrderPoint() {
-      return OrderPoint({ imgPath: this.imgPath, dishName: this.dishName, price: this.price, count: this.count });
+      return UIKIT.orderPoint(this.imgPath, this.dishName, this.additives, this.dishCount, this.price);
     },
     paymentNotification() {
       return UIKIT.paymentNotification('Закажите ещё на 380₽ для бесплатной доставки', false);
