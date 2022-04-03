@@ -46,6 +46,10 @@ Object
 
 document.addEventListener('render-page', (e) => renderPage(e.detail.section));
 
-MENU.login.render(APP);
+// MENU.main.render(APP);
+// setModalPagePosition(MENU.login);
+
+setModalPagePosition(MENU.shoppingCart);
+MENU.shoppingCart.render(APP);
 
 events.addListeners(APP);

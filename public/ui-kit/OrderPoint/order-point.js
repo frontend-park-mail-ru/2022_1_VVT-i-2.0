@@ -9,7 +9,7 @@ const orderPoint = (imgPath, dishName, additives, dishCount, price) => {
             <div>
                 <div class="dish-info">
                     <div>{{dishName}}</div>
-                    <div>{{price}}</div>
+                    <div>{{price}} ₽</div>
                 </div>
                 <div class="ingredients">
                     {{additives}}

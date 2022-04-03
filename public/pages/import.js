@@ -14,15 +14,18 @@ const MENU = {
     },
     login: {
         render: loginPage,
-        isModal: true
+        isModal: true,
+        position: 'modal-center',
     },
     register: {
         render: registerPage,
-        isModal: true
+        isModal: true,
+        position: 'modal-center',
     },
     profilePreview: {
         render: profilePreviewPage,
-        isModal: true
+        isModal: true,
+        position: 'modal-right',
     },
     profile: {
         render: profilePage,
@@ -34,7 +37,8 @@ const MENU = {
     },
     shoppingCart: {
         render: shoppingCartPage,
-        isModal: true
+        isModal: true,
+        position: 'modal-right',
     },
     ordering: {
         order: orderingPage,
