@@ -15,9 +15,9 @@ const orderPoint = (imgPath, dishName, additives, dishCount, price) => {
                     {{additives}}
                 </div>
                 <div class="edit-quantity">
-                    {{&addButton}}
-                    <div class="number-current-point">{{dishCount}}</div>
                     {{&removeButton}}
+                    <div class="number-current-point">{{dishCount}}</div>
+                    {{&addButton}}
                 </div>
             </div>
         </div>

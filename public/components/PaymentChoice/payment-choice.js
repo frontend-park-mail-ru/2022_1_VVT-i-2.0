@@ -5,7 +5,6 @@ const paymentTypes = [
 const paymentChoice = () => {
     const template = `
         <div class="payment-block">
-            <div>Оплата</div>
             <div class="payment-type">
                 {{#paymentTypes}}
                     <div>{{.}}</div>

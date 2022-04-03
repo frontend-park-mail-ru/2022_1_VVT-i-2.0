@@ -9,32 +9,10 @@ export const profileMenuPoints = [
 ];
 
 const profilePage = (app) => {
-    const properties = [
-        {
-            title: 'Имя',
-            width: 300,
-            placeholder: 'Сергей',
-            id: 'profileName'
-        },
-        {
-            title: 'Телефон',
-            width: 300,
-            placeholder: '+7(',
-            id: 'profilePhone'
-        },
-        {
-            title: 'Электронная почта',
-            width: 300,
-            type: 'email',
-            placeholder: 'Введите почту',
-            id: 'profileEmail'
-        },
-    ];
-
     app.root.innerHTML = components.header(true);
 
     const main = document.createElement('main');
-    main.innerHTML = components.personInfoForm(properties);
+    main.innerHTML = components.personInfoForm();
 
     app.root.appendChild(main);
     // events.addListeners(app);

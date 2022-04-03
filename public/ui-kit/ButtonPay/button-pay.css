@@ -1,17 +1,14 @@
 #button-pay {
-    max-width: 516px;
-    max-height: 63px;
+    width: 516px;
+    height: 63px;
     background: #000000;
     border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
 }
 
 #button-pay > div {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
     display: inline-flex;
 }
 

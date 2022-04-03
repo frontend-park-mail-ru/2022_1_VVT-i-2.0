@@ -1,26 +1,41 @@
 import UIKIT from '../../ui-kit/import.js';
 import COLORS from '../../utils/colors.js';
 
-const personInfoForm = (personProperties) => {
+const personInfoForm = () => {
+    const properties = [
+        {
+            title: 'Имя',
+            placeholder: 'Сергей',
+            id: 'profileName'
+        },
+        {
+            title: 'Телефон',
+            placeholder: '+7(',
+            id: 'profilePhone'
+        },
+        {
+            title: 'Электронная почта',
+            type: 'email',
+            placeholder: 'Введите почту',
+            id: 'profileEmail'
+        },
+    ];
+
     const template = `
         <div id="profile">
-            {{&back}}
+            {{&backButton}}
 
-            <div id="person-data-header">
-                Личные данные
-            </div>
-            
+            {{&title}}
+
             <div id="settings-and-nav-block">
                 <div>
                     <div id="profile-header">
                         Профиль
                     </div>
                     <div id="setting-block">
-                        {{#personProperties}}
-                            <div class="person-property">
-                                {{&input}}
-                            </div>
-                        {{/personProperties}}
+                        {{#properties}}
+                            {{&input}}
+                        {{/properties}}
                         <div id="button-save">
                             {{&savePersonInfoChanges}}
                         </div>
@@ -30,21 +45,24 @@ const personInfoForm = (personProperties) => {
                     {{&menu}}
                 </div>
             </div>
-                
+
             <div id="message-send-info">
                 Информация о заказах
             </div>
-            
+
             <div>
-                {{&switcherElem}}
+                {{&switcherElement}}
             </div>
         </div>
     `;
 
     return Mustache.render(template, {
-        personProperties: personProperties,
-        back() {
-            return UIKIT.backButton('Все рестораны', 'profileBackButton');
+        properties: properties,
+        backButton() {
+            return UIKIT.backButton('Все рестораны', 'main');
+        },
+        title() {
+            return UIKIT.title('Личные данные');
         },
         input () {
             return UIKIT.input(this.title, this.type, this.placeholder, this.id);
@@ -55,7 +73,7 @@ const personInfoForm = (personProperties) => {
         savePersonInfoChanges () {
             return UIKIT.button('Сохранить', COLORS.primary, 'profile', 'personInfoSaveButton');
         },
-        switcherElem () {
+        switcherElement () {
             return UIKIT.switcher();
         },
     });

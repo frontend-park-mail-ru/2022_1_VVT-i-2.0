@@ -5,7 +5,7 @@ import components from '../../components/import.js';
  * @param {Object} app - Объект приложения.
  */
 const shoppingCartPage = (app) => {
-    let restName = 'McDonalds';
+    const restName = 'McDonalds';
 
     const properties = [
         {

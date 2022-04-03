@@ -1,13 +1,8 @@
-body {
-    background: #F6F6F6;
-}
-
 #profile {
     display: flex;
     flex-direction: column;
     height: 100%;
-    margin-left: 10.5%;
-    margin-top: 3.7%;
+    margin-right: 10.5%;
 }
 
 #block-back-all-rest {

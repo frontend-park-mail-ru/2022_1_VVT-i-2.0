@@ -5,21 +5,7 @@ import components from '../../components/import.js';
  * @param {Object} app - Объект приложения.
  */
 const loginPage = (app) => {
-    const properties = [
-        {
-            title: 'Телефон',
-            placeholder: '+7(',
-            id: 'loginPhone'
-        },
-        {
-            title: 'Пароль',
-            type: 'password',
-            placeholder: 'Введите пароль',
-            id: 'loginPassword'
-        },
-    ];
-
-    app.modal.innerHTML = components.loginForm(properties);
+    app.modal.innerHTML = components.loginForm();
 };
 
 export default loginPage;

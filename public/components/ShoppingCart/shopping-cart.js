@@ -1,13 +1,13 @@
 import UIKIT from '../../ui-kit/import.js';
 import COLORS from '../../utils/colors.js';
 
-const shoppingCart = (restName, orderPoints) => {
+const shoppingCart = (restName, properties) => {
     const template = `
         <div id="order">
             <div id="info-about-rest" class="order-point">
                 <div>Ваш заказ в ресторане: {{restName}}</div>
             </div>
-            {{#orderPoints}}
+            {{#properties}}
                 {{&drawOrderPoint}}
             {{/orderPoints}}
             <div id="ordering">
@@ -17,7 +17,7 @@ const shoppingCart = (restName, orderPoints) => {
     `;
     return Mustache.render(template, {
         restName,
-        orderPoints: orderPoints,
+        properties: properties,
         drawOrderPoint () {
             return UIKIT.orderPoint(this.imgPath, this.dishName, this.additives, this.dishCount, this.price);
         },
