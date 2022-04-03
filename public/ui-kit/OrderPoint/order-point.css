@@ -1,6 +1,7 @@
 .order-point {
+    margin: 5px 2px;
     display: inline-flex;
-    max-width: 322px;
+    width: 312px;
 
     background: #FFFFFF;
     border: 1px solid #DEDEDE;

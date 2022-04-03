@@ -38,6 +38,6 @@ Object
 
 document.addEventListener('render-page', (e) => renderPage(e.detail.section));
 
-MENU.profile.render(APP);
+MENU.shoppingCart.render(APP);
 
 events.addListeners(APP);

@@ -33,7 +33,7 @@ const MENU = {
         isModal: false
     },
     shoppingCart: {
-        order: shoppingCartPage,
+        render: shoppingCartPage,
         isModal: true
     },
     ordering: {

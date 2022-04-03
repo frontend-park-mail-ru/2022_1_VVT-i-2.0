@@ -4,10 +4,7 @@ import COLORS from '../../utils/colors.js';
 const personInfoForm = (personProperties) => {
     const template = `
         <div id="profile">
-            <div id="block-back-all-rest">
-                <img src="icons/arrow_back.svg" alt="" height="24" width="24">
-                    Все рестораны
-            </div>
+            {{&back}}
 
             <div id="person-data-header">
                 Личные данные
@@ -46,6 +43,9 @@ const personInfoForm = (personProperties) => {
 
     return Mustache.render(template, {
         personProperties: personProperties,
+        back() {
+            return UIKIT.backButton('Все рестораны', 'profileBackButton');
+        },
         input () {
             return UIKIT.input(this.title, this.type, this.placeholder, this.id);
         },
