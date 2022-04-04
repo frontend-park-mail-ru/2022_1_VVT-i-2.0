@@ -27,15 +27,15 @@
 
 .text-notification {
     width: 299px;
-    height: 57px;
-    left: 22px;
-    top: 3px;
+    /*height: 57px;*/
+    /*left: 22px;*/
+    /*top: 3px;*/
 
     font-size: 13px;
     line-height: 15px;
     display: flex;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 10px;
 
     color: #000000;
 }

@@ -1,11 +1,11 @@
 import components from '../../components/import.js';
 
 export const profileMenuPoints = [
-    'Личные данные',
-    //  'Адреса доставки',
-    //  'Мои заказы',
-    //  'Мои скидки'
-    'Выход'
+    {point: 'Личные данные', dataSection: 'profile'},
+    // {point: 'Адреса доставки', dataSection: 'addresses'},
+    // {point: 'Мои заказы', dataSection: 'my-orders'},
+    // {point: 'Мои скидки', dataSection: 'my-promo'},
+    {point: 'Выход', dataSection: 'main'},
 ];
 
 const profilePage = (app) => {

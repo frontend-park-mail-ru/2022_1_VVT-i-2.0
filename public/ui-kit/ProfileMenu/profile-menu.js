@@ -7,8 +7,8 @@ import { profileMenuPoints } from '../../pages/Profile/profile.js';
 const profileMenu = () => {
     const template = `
         {{#profileMenuPoints}}
-            <div class="profile-menu-point">
-                {{.}}
+            <div data-section="{{dataSection}}" class="profile-menu-point">
+                <a data-section="{{dataSection}}">{{point}}</a>
             </div>
         {{/profileMenuPoints}}
     `;
