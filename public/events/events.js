@@ -1,139 +1,34 @@
-import * as api from '../api/api.js';
+// import * as api from '../api/api.js';
 import { Event } from './entity/import.js';
 import * as FORM from './common/status-form.js';
-import { hideEmptyInputs, showEmptyInputs } from './common/status-form.js';
+// import * as events from "events";
 
 const EVENTS = {
-    closeImg: [
-        {
-            type: 'click',
+    closeImg: Event.getFrameEvents(),
 
-            /**
-             * @function Закрывает форму при нажатии на значок 'x'.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener (app, e) {
-                app.modal.classList.remove('shown');
-                app.modal.innerHTML = '';
-                app.root.lastChild.classList.remove('hidden');
-            }
-        }
-    ],
-    loginPhone: Event.getPhoneFieldEvents('loginPhone'),
-    loginPassword: Event.singlePasswordFieldEvents,
-    loginButton: [
-        {
-            type: 'click',
-            /**
-             * @function Осуществляет проверку статуса формы авторизации (данные о статусах хранятся
-             *      в объекте statusLoginForm). Если все поля формы валидны,
-             *      то производится отправка данных формы на сервер.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener (app, e) {
-                if (!FORM.isAvailableForSend(FORM.statusLoginForm)) {
-                    showEmptyInputs(FORM.statusLoginForm, FORM.loginFormInputs);
-                    setTimeout(hideEmptyInputs, 400, FORM.statusLoginForm, FORM.loginFormInputs);
-                    return;
-                }
+    loginPhone: Event.getPhoneFieldEvents('loginPhone', FORM.statusLoginForm),
+    loginPassword: Event.singlePasswordFieldEvents(),
+    loginButton: Event.getButtonEvents().loginButton,
+    logoutButton: Event.getButtonEvents().logoutButton,
 
-                const phone = document.getElementById('loginPhone').children[0].value;
-                const password = document.getElementById('loginPassword').children[0].value;
+    registerPhone: Event.getPhoneFieldEvents('registerPhone', FORM.statusRegisterForm),
+    registerName: Event.getNameFieldEvents('registerName', FORM.statusRegisterForm),
+    registerPassword: Event.doublePasswordFieldEvents(),
+    registerRepeatPassword: Event.doublePasswordFieldEvents(),
+    registerButton: Event.getButtonEvents().registerButton,
 
-                api
-                    .login({
-                        phone,
-                        password
-                    })
-                    .then((res) => {
-                        if (res.status !== 200) {
-                            alert('Данные не валидны');
-                            return;
-                        }
-
-                        const event = new CustomEvent('render-page', { detail: { section: 'main' } });
-                        document.dispatchEvent(event);
-                    });
-            }
-        }
-    ],
-    registerPhone: Event.getPhoneFieldEvents('registerPhone'),
-    registerName: Event.nameFieldEvents,
-    registerPassword: Event.doublePasswordFieldEvents,
-    registerRepeatPassword: Event.doublePasswordFieldEvents,
-    registerButton: [
-        {
-            type: 'click',
-            /**
-             * @function Осуществляет проверку статуса формы авторизации (данные о статусах хранятся
-             *      в объекте statusRegisterForm). Если все поля формы валидны,
-             *      то производится отправка данных формы на сервер.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener (app, e) {
-                if (!FORM.isAvailableForSend(FORM.statusRegisterForm)) {
-                    showEmptyInputs(FORM.statusRegisterForm, FORM.registerFormInputs);
-                    setTimeout(hideEmptyInputs, 400, FORM.statusRegisterForm, FORM.registerFormInputs);
-                    return;
-                }
-
-                const phone = document.getElementById('registerPhone').children[0].value;
-                const name = document.getElementById('registerName').children[0].value;
-                const password = document.getElementById('registerPassword').children[0].value;
-
-                api
-                    .register({
-                        phone,
-                        name,
-                        password
-                    })
-                    .then((res) => {
-                        if (res.status !== 200) {
-                            alert('Данные не валидны');
-                            return;
-                        }
-
-                        const event = new CustomEvent('render-page', { detail: { section: 'main' } });
-                        document.dispatchEvent(event);
-                    });
-            }
-        }
-    ],
-    logoutButton: [
-        {
-            type: 'click',
-            /**
-             * @function Осуществляет отправку запроса на ввыход пользователя из учетной записи.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener (app, e) {
-                api
-                    .logout()
-                    .then((res) => {
-                        if (res.status !== 200) {
-                            alert('Ошибка!');
-                            return;
-                        }
-
-                        const event = new CustomEvent('render-page', { detail: { section: 'main' } });
-                        document.dispatchEvent(event);
-                    });
-            }
-        }
-    ],
-    profile: [
-        {
-            type: 'click',
-            listener (app, e) {
-                const event = new CustomEvent('render-page', { detail: { section: 'profile' } });
-                document.dispatchEvent(event);
-            }
-        }
-    ]
+    profileName: Event.getNameFieldEvents('profileName', FORM.statusPersonInfoForm),
+    profilePhone: Event.getPhoneFieldEvents('profilePhone', FORM.statusPersonInfoForm),
+    profileEmail: Event.getEmailFieldEvents('profileEmail', FORM.statusPersonInfoForm),
+    // profile: [
+    //     {
+    //         type: 'click',
+    //         listener (app, e) {
+    //             const event = new CustomEvent('render-page', { detail: { section: 'profile' } });
+    //             document.dispatchEvent(event);
+    //         }
+    //     }
+    // ]
 };
 
 /**

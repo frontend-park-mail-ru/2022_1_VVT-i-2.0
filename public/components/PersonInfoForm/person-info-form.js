@@ -22,7 +22,7 @@ const personInfoForm = () => {
     ];
 
     const template = `
-        <div id="profile">
+        <div id="person-info-form">
             {{&backButton}}
 
             {{&title}}

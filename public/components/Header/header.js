@@ -7,7 +7,7 @@ const header = (auth = false) => {
             </div>
             <div id="search" class="address-input__wrap">
                 <img src="icons/address.svg" data-section="addressSuggester">
-                <span class="address-input__location">
+                <span>
                     Москва, 4-й Вятский переулок, 18к3, кв. 100
                 </span>
             </div>

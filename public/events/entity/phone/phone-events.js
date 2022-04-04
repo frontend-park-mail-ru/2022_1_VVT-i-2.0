@@ -3,7 +3,7 @@ import * as CURSOR from '../../common/cursor.js';
 import * as CONFIG from '../../common/config.js';
 import * as FORM from '../../common/status-form.js';
 
-export function getPhoneFieldEvents (formName) {
+export function getPhoneFieldEvents (elemID, statusForm) {
     return [
         {
             type: 'mouseup',
@@ -19,7 +19,7 @@ export function getPhoneFieldEvents (formName) {
                     CURSOR.setCursorPosition(e, e.target.value.length);
                 }
                 FORM.inputDataManager(
-                    e, formName, FORM.statusLoginForm,
+                    e, elemID, statusForm,
                     CONFIG.Regex.phoneNumber, CONFIG.ErrorMsg.errorPhoneNumber
                 );
             }
@@ -65,7 +65,7 @@ export function getPhoneFieldEvents (formName) {
              */
             listener (app, e) {
                 FORM.inputDataManager(
-                    e, formName, FORM.statusLoginForm,
+                    e, elemID, statusForm,
                     CONFIG.Regex.phoneNumber, CONFIG.ErrorMsg.errorPhoneNumber
                 );
             }
