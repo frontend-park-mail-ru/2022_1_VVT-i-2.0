@@ -36,7 +36,7 @@ main {
 /*    background: #ffffff;*/
 /*}*/
 
-#modal .modal-center > * {
+div#modal.modal-center > * {
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -49,10 +49,14 @@ main {
 div#modal.modal-right > * {
     display: flex;
     border: none;
-    height: 1024px;
+    /*height: 1024px;*/
+    height: 90vh;
     flex-direction: column;
-    margin-right: 0;
-    margin-left: auto;
-    margin-top: 68px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    /*margin-right: 0;*/
+    /*margin-left: auto;*/
+    /*margin-top: 68px;*/
     background: #ffffff;
 }

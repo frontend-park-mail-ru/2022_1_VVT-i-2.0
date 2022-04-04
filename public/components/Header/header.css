@@ -17,12 +17,23 @@ header > div {
     align-items: center;
     flex: 1 1 auto;
     cursor: pointer;
+    border-left: 1px solid #b9b9b9;
+    border-right: 1px solid #b9b9b9;
+    min-width: 159px;
+}
+
+header > div:nth-child(n+1) {
+    margin-left: -1px;
+}
+
+header > div#button-shopping-cart {
+    min-width: 160px;
 }
 
 header > #search {
     flex: 30 1 auto;
-    border-left: 1px solid #b9b9b9;
-    border-right: 1px solid #b9b9b9;
+    /*border-left: 1px solid #b9b9b9;*/
+    /*border-right: 1px solid #b9b9b9;*/
 }
 
 header > div > a {

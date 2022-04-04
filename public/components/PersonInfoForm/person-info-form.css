@@ -1,4 +1,4 @@
-#profile {
+#person-info-form {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -53,7 +53,7 @@
     flex-direction: column;
     background: #FFFFFF;
     border-radius: 5px;
-    margin-right: 10%;
+    /*margin-right: 10%;*/
 }
 
 #message-send-info {

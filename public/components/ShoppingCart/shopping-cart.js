@@ -9,7 +9,7 @@ const shoppingCart = (restName, properties) => {
             </div>
             {{#properties}}
                 {{&drawOrderPoint}}
-            {{/orderPoints}}
+            {{/properties}}
             <div id="ordering">
                 {{&buttonOrder}}
             </div>
@@ -22,7 +22,7 @@ const shoppingCart = (restName, properties) => {
             return UIKIT.orderPoint(this.imgPath, this.dishName, this.additives, this.dishCount, this.price);
         },
         buttonOrder () {
-            return UIKIT.button('Заказать 330 ₽', COLORS.primary, '', 'orderButton');
+            return UIKIT.button('Заказать 330 ₽', COLORS.primary, 'ordering', 'orderButton');
         }
     });
 };

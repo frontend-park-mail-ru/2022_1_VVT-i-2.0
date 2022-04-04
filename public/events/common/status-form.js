@@ -2,6 +2,7 @@ import { ErrorMsg } from './config.js';
 
 export const loginFormInputs = ['loginPhone', 'loginPassword'];
 export const registerFormInputs = ['registerPhone', 'registerName', 'registerPassword', 'registerRepeatPassword'];
+export const personInfoInputs = ['profileName', 'profilePhone', 'profileEmail'];
 
 export const statusLoginForm = {
     isValidPhone: false,
@@ -13,6 +14,12 @@ export const statusRegisterForm = {
     isValidName: false,
     isValidPassword: false,
     isValidRepeatPassword: false,
+};
+
+export const statusPersonInfoForm = {
+    isValidName: false,
+    isValidPhone: false,
+    isValidEmail: false,
 };
 
 export function getElemParameters (elemID) {
@@ -62,18 +69,19 @@ export function hideEmptyInputs (statusForm, formInputs) {
  */
 export function setFormStatus (statusForm, elemID, status) {
     switch (elemID) {
-        case 'loginPhone':
-            statusForm.isValidPhone = status;
-            break;
-        case 'loginPassword':
-            statusForm.isValidPassword = status;
-            break;
-        case 'registerPhone':
-            statusForm.isValidPhone = status;
-            break;
         case 'registerName':
+        case 'profileName':
             statusForm.isValidName = status;
             break;
+        case 'loginPhone':
+        case 'registerPhone':
+        case 'profilePhone':
+            statusForm.isValidPhone = status;
+            break;
+        case 'profileEmail':
+            statusForm.isValidEmail = status;
+            break;
+        case 'loginPassword':
         case 'registerPassword':
             statusForm.isValidPassword = status;
             break;
@@ -129,6 +137,7 @@ export function showError (statusForm, elemID, input, error) {
 
 export function hideError (statusForm, elemID, input) {
     setFormStatus(statusForm, elemID, true);
+    console.log(statusForm);
     removeVisibleError(input.childList);
 }
 
