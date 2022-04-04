@@ -50,6 +50,17 @@
   flex-direction: column;
 }
 
+#ordering-rest {
+  padding: 10px;
+}
+
+#ordering-rest > div {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
 #ordering-and-nav-block .notify {
   display: flex;
   font-weight: bold;
