@@ -60,3 +60,14 @@ div#modal.modal-right > * {
     /*margin-top: 68px;*/
     background: #ffffff;
 }
+
+div#modal.modal-top > * {
+    margin: auto;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border: none;
+    border-radius: 14px;
+    /* background: #ffffff; */
+}

@@ -1,0 +1,34 @@
+#suggest-form {
+  position: relative;
+  width: 100%;
+  padding: 0px !important;
+  border-radius: 0px !important;
+}
+
+.suggest-row {
+  height: 68px;
+  display: flex;
+}
+
+.suggest-row > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+  cursor: pointer;
+  min-width: 159px;
+  background: transparent;
+}
+
+.suggest {
+  font-weight: bold;
+  background: #ffffff !important;
+  flex: 30 1 auto !important;
+  border-bottom: 1px solid #b9b9b9;
+  border-left: 1px solid #b9b9b9;
+  border-right: 1px solid #b9b9b9;
+}
+
+.suggest:hover {
+  background: #dedede !important;
+}

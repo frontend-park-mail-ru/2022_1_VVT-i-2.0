@@ -5,9 +5,9 @@ const header = (auth = false) => {
                 <img src="icons/delivery_icon.svg" data-section="main">
                 <a data-section="main">Delivery Club</a>
             </div>
-            <div id="search" class="address-input__wrap">
-                <img src="icons/address.svg" data-section="addressSuggester">
-                <span>
+            <div id="search" class="address-input__wrap" data-section="suggests">
+                <img src="icons/address.svg" data-section="addressSuggester" data-section="suggests">
+                <span data-section="suggests">
                     Москва, 4-й Вятский переулок, 18к3, кв. 100
                 </span>
             </div>
