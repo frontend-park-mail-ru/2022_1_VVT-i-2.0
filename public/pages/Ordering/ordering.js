@@ -1,6 +1,8 @@
 import components from '../../components/import.js';
 
 const ordering = (app) => {
+  const restName = 'McDonalds';
+
   const orderPoints = [
     {
       imgPath: 'icons/Image.png',
@@ -28,7 +30,7 @@ const ordering = (app) => {
   app.root.innerHTML = components.header(false);
 
   const main = document.createElement('main');
-  main.innerHTML = components.ordering({ orderPoints });
+  main.innerHTML = components.ordering({ restName, orderPoints });
 
   app.root.appendChild(main);
 };

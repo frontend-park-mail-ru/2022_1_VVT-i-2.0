@@ -54,6 +54,13 @@ const ordering = (props) => {
           {{&buttonPay}}
         </div>
         <div>
+          <div id="ordering-rest" class="order-point">
+            <div>
+              Ваш заказ в ресторане:
+              <div>{{restName}}</div>
+            </div>
+          </div>
+
           {{#orderPoints}}
             {{&drawOrderPoint}}
           {{/orderPoints}}
@@ -79,6 +86,7 @@ const ordering = (props) => {
   `;
 
   return Mustache.render(template, {
+    restName: props.restName,
     properties: properties,
     orderPoints: props.orderPoints,
     title() {
