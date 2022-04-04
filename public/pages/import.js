@@ -6,6 +6,7 @@ import profilePage from './Profile/profile.js';
 import productsPage from './Products/products.js';
 import shoppingCartPage from './ShoppingCart/shopping-cart.js';
 import orderingPage from './Ordering/ordering.js';
+import suggestsPage from './Suggests/suggests.js';
 
 const MENU = {
     main: {
@@ -43,6 +44,11 @@ const MENU = {
     ordering: {
         render: orderingPage,
         isModal: false
+    },
+    suggests: {
+        render: suggestsPage,
+        isModal: true,
+        position: 'modal-top'
     }
 };
 
