@@ -1,16 +1,16 @@
-#suggest-form {
+.suggest-form {
   position: relative;
   width: 100%;
-  padding: 0px !important;
-  border-radius: 0px !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
 }
 
-.suggest-row {
+.suggest-form__suggest-row {
   height: 68px;
   display: flex;
 }
 
-.suggest-row > div {
+.suggest-form__suggest-row:nth-child(n) {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,7 @@
   background: transparent;
 }
 
-.suggest {
+.suggest-form__suggest-address {
   font-weight: bold;
   background: #ffffff !important;
   flex: 30 1 auto !important;
@@ -29,6 +29,6 @@
   border-right: 1px solid #b9b9b9;
 }
 
-.suggest:hover {
+.suggest-form__suggest-address:hover {
   background: #dedede !important;
 }
