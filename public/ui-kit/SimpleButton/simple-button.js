@@ -6,11 +6,11 @@
  * @param {string} id - id кнопки.
  * @return {string} HTML строка для отрисовки ui-kit компонента button.
  */
-const button = (title, color, href, id) => {
+const simpleButton = (title, color, href, id) => {
     const template = `
         <button
             {{#id}} id={{id}} {{/id}}
-            class="button"
+            class="simple-button"
             style="background-color: {{color}}"
             data-section="{{href}}"
         >
@@ -20,4 +20,4 @@ const button = (title, color, href, id) => {
     return Mustache.render(template, {title, color, href, id});
 };
 
-export default button;
+export default simpleButton;

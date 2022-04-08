@@ -71,7 +71,7 @@ const personInfoForm = () => {
             return UIKIT.profileMenu();
         },
         savePersonInfoChanges () {
-            return UIKIT.button('Сохранить', COLORS.primary, 'profile', 'personInfoSaveButton');
+            return UIKIT.simpleButton('Сохранить', COLORS.primary, 'profile', 'personInfoSaveButton');
         },
         switcherElement () {
             return UIKIT.switcher();
