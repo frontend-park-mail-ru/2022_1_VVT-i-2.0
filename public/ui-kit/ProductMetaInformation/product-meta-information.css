@@ -1,4 +1,4 @@
-.product_meta_information_block {
+.prod-icon__meta-info-block {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@
     background: #FFFFFF;
 }
 
-.product_meta_information_block .product_name {
+.prod-icon__name {
     position: static;
     width: 460px;
 
@@ -31,17 +31,17 @@
     color: #2E2E33;
 }
 
-.product_meta_information_block .info {
+.prod-icon__calories-info {
     color: #DEDEDE;
     margin-top: 15px;
     margin-bottom: 10px;
 }
 
-.product_meta_information_block .description {
+.prod-icon__description {
     color: #DEDEDE;
 }
 
-.product_meta_information_block .bottom {
+.prod-icon__price-bar {
     position: absolute;
     width: 100%;
     display: flex;
@@ -49,11 +49,11 @@
     font-weight: bold;
 }
 
-.product_meta_information_block .bottom div {
+.prod-icon__price-bar:first-child {
     margin-top: 5px;
 }
 
-.product_meta_information_block button {
+.prod-icon__button-add-to-order {
     margin-left: auto;
     width: 87px;
     height: 28px;
@@ -63,7 +63,7 @@
     font-weight: bold;
 }
 
-.product_meta_information_block button:hover {
+.prod-icon__button-add-to-order:hover {
     cursor: pointer;
     opacity: 0.5;
 }
