@@ -13,7 +13,9 @@
 }
 
 #button-pay > div > img {
-    margin-top: 3px;
+    margin-top: 5px;
+    width: 80%;
+    height: 80%;
 }
 
 #payment-sep {

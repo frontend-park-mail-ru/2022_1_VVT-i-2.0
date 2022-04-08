@@ -13,23 +13,23 @@ const ordering = (props) => {
       placeholder: 'Введите адрес доставки',
       id: 'orderingAddress'
     },
-    // {
-    //   title: 'Подъезд',
-    //   id: 'orderingEntrance'
-    // },
-    // {
-    //   title: 'Домофон',
-    //   id: 'orderingIntercom'
-    // },
-    // {
-    //   title: 'Этаж',
-    //   placeholder: '',
-    //   id: 'orderingFloor'
-    // },
-    // {
-    //   title: 'Квартира',
-    //   id: 'orderingFlat'
-    // },
+    {
+      title: 'Подъезд',
+      id: 'orderingEntrance'
+    },
+    {
+      title: 'Домофон',
+      id: 'orderingIntercom'
+    },
+    {
+      title: 'Этаж',
+      placeholder: '',
+      id: 'orderingFloor'
+    },
+    {
+      title: 'Квартира',
+      id: 'orderingFlat'
+    }
   ];
 
   const template = `
@@ -44,10 +44,11 @@ const ordering = (props) => {
           {{/properties}}
 
           <div id="comment">Комментарий</div>
-          <textarea
+          <div
             id="comment-block"
-            placeholder="Напишите как Вас найти или пожелаения для блюд..."
-          /></textarea>
+            contenteditable="true"
+            placeholder="Напишите как Вас найти или пожелания для блюд..."
+          ></div>
 
           <div id="order-header">Оплата</div>
           {{&paymentChoices}}
