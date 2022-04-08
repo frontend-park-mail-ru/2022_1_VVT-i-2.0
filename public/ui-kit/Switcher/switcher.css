@@ -1,4 +1,4 @@
-#mail-notification {
+.mail-notification__switcher-block {
     display: flex;
     flex-direction: row;
     background: #777373;
@@ -14,7 +14,7 @@
     cursor: pointer;
 }
 
-#moving-ball {
+.switcher-block__moving-ball {
     background: #FFFFFF;
     width: 25px;
     height: 25px;
