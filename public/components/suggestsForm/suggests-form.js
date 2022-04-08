@@ -1,10 +1,10 @@
 const suggestsForm = (props) => {
   const template = `
-    <div id="suggest-form">
+    <div id="suggest-form" class="suggest-form">
       {{#suggests}}
-        <div class="suggest-row">
+        <div class="suggest-form__suggest-row">
           <div></div>
-          <div class="suggest">
+          <div class="suggest-form__suggest-address">
             {{.}}
           </div>
           <div></div>

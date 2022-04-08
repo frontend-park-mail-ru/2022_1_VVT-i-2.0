@@ -23,15 +23,15 @@ const loginForm = () => {
     ];
 
     const template = `
-        <div id="login-form">
-            <img id="closeImg" src="icons/close.svg">
-            <h2>Войти в аккаунт</h2>
+        <div id="login-form" class="login-form">
+            <img id="closeImg" class="login-form__close-img" src="icons/close.svg" alt="">
+            <h2 class="login-form__title">Войти в аккаунт</h2>
                 {{#properties}}
-                    <div class="property">
+                    <div class="login-form__input">
                         {{&input}}
                     </div>
                 {{/properties}}
-            <div id="login-button">{{&login}}</div>
+            <div id="login-button" class="login-form__button-login">{{&login}}</div>
             {{&register}}
         </div>
     `;
@@ -42,10 +42,10 @@ const loginForm = () => {
             return UIKIT.input(this.title, this.type, this.placeholder, this.id);
         },
         login () {
-            return UIKIT.simpleButton('Войти', COLORS.primary, null, 'loginButton');
+            return UIKIT.simpleButton('Войти', COLORS.primary, '', 'loginButton');
         },
         register () {
-            return UIKIT.simpleButton('Регистрация', COLORS.grey, 'register');
+            return UIKIT.simpleButton('Регистрация', COLORS.grey, 'register','registerButton');
         }
     });
 };
