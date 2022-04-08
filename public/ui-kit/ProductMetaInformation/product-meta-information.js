@@ -4,23 +4,23 @@
  * @param {string} info - информация товара о калоариях и весе.
  * @param {string} description - описание товара.
  * @param {string} price - цена товара.
- * @return {string} HTML строка для отрисовки ui-kit компонента prMetaInf.
+ * @return {string} HTML строка для отрисовки ui-kit компонента productMetaInformation.
  */
-const prMetaInf = (productName, info, description, price) => {
+const productMetaInformation = (productName, info, description, price) => {
   const template = `
-    <div class="product_meta_information_block">
-      <div class="product_name">
+    <div class="prod-icon__meta-info-block">
+      <div class="prod-icon__name">
         {{productName}}
       </div>
-      <div class="info">
+      <div class="prod-icon__calories-info">
         {{info}}
       </div>
-      <div class="description">
+      <div class="prod-icon__description">
         {{description}}
       </div>
-      <div class="bottom">
+      <div class="prod-icon__price-bar">
         <div>{{price}} ₽</div>
-        <button>В корзину</button>
+        <button class="prod-icon__button-add-to-order">В корзину</button>
       </div>
     </div>
   `;
@@ -29,4 +29,4 @@ const prMetaInf = (productName, info, description, price) => {
   });
 };
 
-export default prMetaInf;
+export default productMetaInformation;
