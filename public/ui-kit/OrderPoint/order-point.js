@@ -2,21 +2,21 @@ import UIKIT from '../import.js';
 
 const orderPoint = (imgPath, dishName, additives, dishCount, price) => {
     const template = `
-        <div class="order-point">
-            <div>
-                <img class="dish-img" src="{{imgPath}}" alt="">
+        <div class="shopping-cart__order-point">
+            <div class="order-point__img-block">
+                <img class="order-point__dish-img" src="{{imgPath}}" alt="">
             </div>
-            <div>
-                <div class="dish-info">
+            <div class="order-point__main-block">
+                <div class="order-point__dish-info">
                     <div>{{dishName}}</div>
                     <div>{{price}} ₽</div>
                 </div>
-                <div class="ingredients">
+                <div class="order-point__ingredients">
                     {{additives}}
                 </div>
-                <div class="edit-quantity">
+                <div class="order-point__edit-quantity">
                     {{&removeButton}}
-                    <div class="number-current-point">{{dishCount}}</div>
+                    <div class="order-point__count-current-point">{{dishCount}}</div>
                     {{&addButton}}
                 </div>
             </div>

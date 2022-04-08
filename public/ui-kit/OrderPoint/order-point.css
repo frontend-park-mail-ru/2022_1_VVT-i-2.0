@@ -1,4 +1,4 @@
-.order-point {
+.shopping-cart__order-point {
     margin: 5px auto;
     display: inline-flex;
     width: 292px;
@@ -10,46 +10,46 @@
     padding: 10px 5px 10px 15px;
 }
 
-.order-point > div:first-child {
+.order-point__img-block {
     width: 13%;
 }
 
-.dish-img {
+.order-point__dish-img {
     height: 28px;
     width: 28px;
     margin-top: 2px;
 }
 
-.order-point > div:nth-child(2) {
+.order-point__main-block {
     display: flex;
     flex-direction: column;
     width: 87%;
 }
 
-.dish-info {
+.order-point__dish-info {
     display: inline-flex;
 }
 
-.dish-info > div:nth-child(1) {
+.order-point__dish-info :nth-child(1) {
     width: 70%;
 }
 
-.dish-info > div:nth-child(2) {
+.order-point__dish-info :nth-child(2) {
     text-align: right;
     width: 30%;
 }
 
-.ingredients {
+.order-point__ingredients {
     display: inline-flex;
     margin-top: 5px;
     margin-bottom: 15px;
     color: #DEDEDE;
 }
 
-.edit-quantity {
+.order-point__edit-quantity {
     display: inline-flex;
 }
 
-.number-current-point {
+.order-point__count-current-point {
     margin: auto 20px;
 }
