@@ -10,7 +10,7 @@ const simpleButton = (title, color, href, id) => {
     const template = `
         <button
             {{#id}} id={{id}} {{/id}}
-            class="simple-button"
+            class="uikit__simple-button"
             style="background-color: {{color}}"
             data-section="{{href}}"
         >

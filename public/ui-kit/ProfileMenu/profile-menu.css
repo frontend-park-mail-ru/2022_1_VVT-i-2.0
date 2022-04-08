@@ -1,4 +1,4 @@
-.profile-menu-point {
+.profile-menu__point {
     display: flex;
     align-items: center;
     -webkit-filter: grayscale(0%);
@@ -6,11 +6,9 @@
     padding-left: 25px;
     width: 320px;
     height: 59px;
-    /*color: #BEB6AE;*/
     cursor: pointer;
 }
 
-.profile-menu-point:hover {
-    /*color: black;*/
+.profile-menu__point:hover {
     background: #DEDEDE;
 }
