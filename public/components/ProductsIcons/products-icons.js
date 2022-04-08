@@ -12,14 +12,14 @@ const productsIcons = (products) => {
       {{#products}}
         <div class="product_icon">
           <img src={{imgPath}} alt={{productName}}>
-          {{&productMetaInformation}}
+          {{&prodMetaInfo}}
         </div>
       {{/products}}
     </div>
   `;
   return Mustache.render(template, {
     products: products,
-    productMetaInformation() {
+    prodMetaInfo() {
       return UIKIT.productMetaInformation(this.productName, this.info, this.description, this.price);
     }
   });
