@@ -1,4 +1,4 @@
-.notification {
+.ordering-form__notification {
     width: 321px;
     height: 62px;
 
@@ -7,29 +7,26 @@
     border-radius: 0 10px 10px 0;
 }
 
-.not-free-delivery {
+.ordering-notification__not-free-delivery {
     background: rgba(255, 0, 0, 0.15);
 }
 
-.not-free-delivery > div:first-child {
+.ordering-notification__not-free-delivery :first-child {
     background: #EE1212;
     width: 4px;
 }
 
-.free-delivery {
+.ordering-notification__free-delivery {
     background: rgba(23, 177, 10, 0.19);
 }
 
-.free-delivery > div:first-child {
+.ordering-notification__free-delivery :first-child {
     background: #17D685;
     width: 4px;
 }
 
-.text-notification {
+.ordering-notification__text {
     width: 299px;
-    /*height: 57px;*/
-    /*left: 22px;*/
-    /*top: 3px;*/
 
     font-size: 13px;
     line-height: 15px;

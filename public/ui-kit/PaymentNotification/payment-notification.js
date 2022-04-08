@@ -1,14 +1,14 @@
 const paymentNotification = (textNotification, freeDelivery) => {
-    let statusNotification = 'free-delivery';
+    let statusNotification = 'ordering-notification__free-delivery';
 
     if (freeDelivery === false) {
-        statusNotification = 'not-free-delivery';
+        statusNotification = 'ordering-notification__not-free-delivery';
     }
 
     const template = `
-        <div class="notification {{statusNotification}}">
+        <div class="ordering-form__notification {{statusNotification}}">
             <div></div>
-            <div class="text-notification">
+            <div class="ordering-notification__text">
                 {{textNotification}}
             </div>
         </div>
