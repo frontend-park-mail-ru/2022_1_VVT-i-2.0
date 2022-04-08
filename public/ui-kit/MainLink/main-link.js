@@ -5,7 +5,9 @@
  */
 const mainLink = (title) => {
     const template = `
-        <h1><a class="main-link">{{title}}</a></h1>
+        <h1>
+            <a class="uikit__main-link">{{title}}</a>
+        </h1>
     `;
     return Mustache.render(template, {title});
 }
