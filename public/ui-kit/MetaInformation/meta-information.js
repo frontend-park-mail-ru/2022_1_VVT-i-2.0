@@ -8,23 +8,23 @@
  */
 const metaInf = (restName, timeToDeliver, price, rating) => {
     const template = `
-        <div class="rest_meta_information_block">
-            <div class="rest_name">
+        <div class="rest-icon__rest_meta_info_block">
+            <div class="rest-icon__rest_name">
                 {{restName}}
             </div>
-            <div class="meta_buttons_block">
-                <div class="meta_stat">
-                    <div class="parameters">
+            <div class="rest-icon__meta_info">
+                <div class="rest-icon__meta_stat">
+                    <div class="rest-icon__meta-stat-param">
                         {{timeToDeliver}}
                     </div>
                 </div>
-                <div class="meta_stat">
-                    <div class="parameters">
+                <div class="rest-icon__meta_stat">
+                    <div class="rest-icon__meta-stat-param">
                         {{price}}
                     </div>
                 </div>
-                <div class="meta_stat">
-                    <div class="parameters">
+                <div class="rest-icon__meta_stat">
+                    <div class="rest-icon__meta-stat-param">
                         <img src="icons/star.svg" alt="rating">
                         <span class="rating">{{rating}}</span>
                     </div>
