@@ -1,4 +1,4 @@
-.button-add-remove {
+.uikit__button-add-remove {
     height: 40px;
     width: 40px;
     background: #F6F6F6;
@@ -9,10 +9,10 @@
     cursor: pointer;
 }
 
-.button-add-remove:hover {
+.uikit__button-add-remove:hover {
     background: #DEDEDE;
 }
 
-.button-add-remove:active {
+.uikit__button-add-remove:active {
     background: #F6F6F6;
 }

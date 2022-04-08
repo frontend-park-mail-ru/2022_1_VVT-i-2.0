@@ -6,7 +6,7 @@
  */
 const backButton = (title, href) => {
   const template = `
-    <a class="back-button" data-section="{{href}}">
+    <a class="uikit__back-button" data-section="{{href}}">
       <img class="back-button__img" src="icons/back_button.svg" data-section="{{href}}">
       <span data-section="{{href}}">{{title}}</span>
     </a>

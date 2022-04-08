@@ -10,7 +10,7 @@ const BACKSPACE_KEY = 8;
 
 export const ErrorMsg = {
     errorPhoneNumber: 'Формат телефона: +7(988)888-88-88',
-    errorName: 'Длина не менее 3 символов',
+    errorName: 'Имя должно состоять из букв, не менее 3',
     errorEmail: 'Формат email: fobrinto@gmail.com',
     errorPassword: 'Длина не менее 8 символов',
     errorPasswordCMP: 'Пароли не совпадают',
