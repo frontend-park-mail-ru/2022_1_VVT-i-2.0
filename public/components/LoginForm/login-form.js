@@ -42,10 +42,10 @@ const loginForm = () => {
             return UIKIT.input(this.title, this.type, this.placeholder, this.id);
         },
         login () {
-            return UIKIT.button('Войти', COLORS.primary, null, 'loginButton');
+            return UIKIT.simpleButton('Войти', COLORS.primary, null, 'loginButton');
         },
         register () {
-            return UIKIT.button('Регистрация', COLORS.grey, 'register');
+            return UIKIT.simpleButton('Регистрация', COLORS.grey, 'register');
         }
     });
 };
