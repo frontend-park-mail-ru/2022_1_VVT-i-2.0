@@ -1,4 +1,4 @@
-#button-pay {
+.uikit__button-pay {
     width: 516px;
     height: 63px;
     background: #000000;
@@ -8,17 +8,17 @@
     justify-items: center;
 }
 
-#button-pay > div {
+.button-pay__block-img {
     display: inline-flex;
 }
 
-#button-pay > div > img {
+.button-pay__img {
     margin-top: 5px;
     width: 80%;
     height: 80%;
 }
 
-#payment-sep {
+.button-pay__payment-separator {
     margin: auto 5px;
     background: #BEB6AE;
     width: 2px;
