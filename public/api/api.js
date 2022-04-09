@@ -36,6 +36,10 @@ export const getRestaurants = () => {
     return request('/restaurants');
 }
 
+export const getProducts = () => {
+    return request('/products');
+}
+
 /**
  * @function Осуществляет отправку запроса на регистрацию пользователя.
  * @return {Promise} - возвращает Promise на отправку запроса.

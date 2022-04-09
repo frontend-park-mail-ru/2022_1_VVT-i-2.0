@@ -3,7 +3,7 @@ import FORMS_CONFIGURATION from '../../configurations/forms.js';
 
 export const profileMenuPoints = FORMS_CONFIGURATION.menu.profilePoints;
 
-const profilePage = (app) => {
+const profilePage = (app, store) => {
     app.root.innerHTML = components.header(true);
 
     const main = document.createElement('main');
