@@ -8,32 +8,32 @@ import FORM_CONFIGURATION from '../../import-form-configurations.js';
  * @return {string} HTML строка для отрисовки компонента registerForm.
  */
 const registerForm = () => {
-    const configuration = FORM_CONFIGURATION.registerForm;
+    const inputConfigurations = FORM_CONFIGURATION.registerForm;
 
     const template = `
-        <div id="register-form">
-            <img id="closeImg" src="icons/close.svg">
-            <h2>Создать аккаунт</h2>
-            {{#configuration}}
-                <div class="property">
+        <div id="register-form" class="register-form">
+            <img id="closeImg" class="register-form__close-img" src="icons/close.svg">
+            <h2 class="register-form__title">Создать аккаунт</h2>
+            {{#inputConfigurations}}
+                <div class="register-form__input">
                     {{&input}}
                 </div>
-            {{/configuration}}
-            <div id="register-button">{{&register}}</div>
+            {{/inputConfigurations}}
+            <div id="register-button" class="register-form__button-register">{{&register}}</div>
             {{&login}}
         </div>
     `;
 
     return Mustache.render(template, {
-        configuration: configuration,
+        inputConfigurations: inputConfigurations,
         input() {
             return UIKIT.input(this.title, this.type, this.placeholder, this.id);
         },
         register() {
-            return UIKIT.simpleButton('Регистрация', COLORS.primary, null, 'registerButton');
+            return UIKIT.simpleButton('Регистрация', COLORS.primary, '', 'registerButton');
         },
         login() {
-            return UIKIT.simpleButton('Уже есть аккаунт?', COLORS.grey, 'login');
+            return UIKIT.simpleButton('Уже есть аккаунт?', COLORS.grey, 'login', '');
         }
     });
 };

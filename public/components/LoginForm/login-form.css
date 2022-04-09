@@ -2,11 +2,6 @@
     position: relative;
 }
 
-.login-form__title {
-    margin-top: 0;
-    margin-bottom: 35px;
-}
-
 .login-form__close-img {
     position: absolute;
     height: 30px;
@@ -19,6 +14,11 @@
     cursor: pointer;
     /* inverted #212121 */
     filter: invert(100%) sepia(0%) saturate(1569%) hue-rotate(174deg) brightness(106%) contrast(74%);
+}
+
+.login-form__title {
+    margin-top: 0;
+    margin-bottom: 35px;
 }
 
 .login-form__input{
