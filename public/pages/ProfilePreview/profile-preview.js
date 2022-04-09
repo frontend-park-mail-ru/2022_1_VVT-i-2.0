@@ -1,6 +1,6 @@
 import components from '../../components/import.js';
 
-const profilePreviewPage = (app) => {
+const profilePreviewPage = (app, store) => {
     app.modal.innerHTML = components.profilePreviewForm();
 };
 
