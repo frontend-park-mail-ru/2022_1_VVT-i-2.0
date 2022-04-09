@@ -19,27 +19,27 @@
   padding: 30px 64px 0px 64px;
 }
 
-#ordering-and-nav-block .input-block:nth-child(4) {
+#ordering-and-nav-block .uikit__input-block:nth-child(4) {
   display: inline-block;
   margin-right: 62px;
-  width: 80px;
+  /*width: 80px;*/
 }
 
-#ordering-and-nav-block .input-block:nth-child(5) {
+#ordering-and-nav-block .uikit__input-block:nth-child(5) {
   display: inline-block;
   margin-right: 62px;
-  width: 80px;
+  /*width: 80px;*/
 }
 
-#ordering-and-nav-block .input-block:nth-child(6) {
+#ordering-and-nav-block .uikit__input-block:nth-child(6) {
   display: inline-block;
   margin-right: 62px;
-  width: 80px;
+  /*width: 80px;*/
 }
 
-#ordering-and-nav-block .input-block:nth-child(7) {
+#ordering-and-nav-block .uikit__input-block:nth-child(7) {
   display: inline-block;
-  width: 80px;
+  /*width: 80px;*/
 }
 
 #ordering-and-nav-block #header {

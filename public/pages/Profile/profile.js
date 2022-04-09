@@ -1,7 +1,7 @@
 import components from '../../components/import.js';
-import FORM_CONFIGURATION from '../../import-form-configurations.js';
+import FORMS_CONFIGURATION from '../../configurations/forms.js';
 
-export const profileMenuPoints = FORM_CONFIGURATION.profilePoints;
+export const profileMenuPoints = FORMS_CONFIGURATION.menu.profilePoints;
 
 const profilePage = (app) => {
     app.root.innerHTML = components.header(true);

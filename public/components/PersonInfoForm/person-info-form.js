@@ -1,9 +1,9 @@
 import UIKIT from '../../ui-kit/import.js';
-import COLORS from '../../utils/colors.js';
-import FORM_CONFIGURATION from '../../import-form-configurations.js';
+import COLORS from '../../configurations/colors.js';
+import FORMS_CONFIGURATION from '../../configurations/forms.js';
 
 const personInfoForm = () => {
-    const inputConfigurations = FORM_CONFIGURATION.personInfoForm;
+    const inputConfigurations = FORMS_CONFIGURATION.inputs.personInfoForm;
 
     const template = `
         <div id="person-info-form" class="person-info-form">
@@ -49,13 +49,13 @@ const personInfoForm = () => {
             return UIKIT.title('Личные данные');
         },
         input () {
-            return UIKIT.input(this.title, this.type, this.placeholder, this.id);
+            return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id);
         },
         menu () {
             return UIKIT.profileMenu();
         },
         savePersonInfoChanges () {
-            return UIKIT.simpleButton('Сохранить', COLORS.primary, 'profile', 'personInfoSaveButton');
+            return UIKIT.simpleButton('Сохранить', COLORS.primary, this.width, 'profile', 'personInfoSaveButton');
         },
         switcherElement () {
             return UIKIT.switcher();

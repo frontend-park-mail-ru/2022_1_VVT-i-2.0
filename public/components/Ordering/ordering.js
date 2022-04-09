@@ -1,9 +1,9 @@
 import UIKIT from '../../ui-kit/import.js';
-import FORM_CONFIGURATION from '../../import-form-configurations.js';
+import FORMS_CONFIGURATION from '../../configurations/forms.js';
 import paymentChoice from '../PaymentChoice/payment-choice.js';
 
 const ordering = (props) => {
-  const inputConfigurations = FORM_CONFIGURATION.ordering;
+  const inputConfigurations = FORMS_CONFIGURATION.inputs.ordering;
 
   const template = `
     <div id="ordering">
@@ -67,7 +67,7 @@ const ordering = (props) => {
       return UIKIT.title('Оформление заказа');
     },
     input() {
-      return UIKIT.input(this.title, this.type, this.placeholder, this.id);
+      return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id);
     },
     paymentChoices() {
       return paymentChoice();
