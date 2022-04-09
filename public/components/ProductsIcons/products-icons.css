@@ -1,15 +1,15 @@
-.rest-page__products-form {
+.rest-menu {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-right: 30%;
 }
 
-.products-form__product-icon {
+.rest-menu__product-icon {
   margin-bottom: 70px;
 }
 
-.products-form__product-icon {
+.rest-menu__product-icon {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -24,7 +24,7 @@
   filter: drop-shadow(0px 0px 12px rgba(26, 26, 26, 0.25));
 }
 
-.products-form__product-icon:hover {
+.rest-menu__product-icon:hover {
   filter: drop-shadow(0px 4px 4px rgba(26, 26, 26, 0.25));
   cursor: pointer;
 }

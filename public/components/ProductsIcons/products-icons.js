@@ -8,9 +8,9 @@ import UIKIT from '../../ui-kit/import.js';
  */
 const productsIcons = (products) => {
   const template = `
-    <div class="rest-page__products-form">
+    <div class="rest-menu">
       {{#products}}
-        <div class="products-form__product-icon">
+        <div class="rest-menu__product-icon">
           <img class="product-icon__img" src={{imgPath}} alt={{productName}}>
           {{&prodMetaInfo}}
         </div>
