@@ -6,7 +6,7 @@ import UIKIT from '../../ui-kit/import.js';
  */
 const profilePreviewForm = () => {
     const template = `
-        <div id="profile-preview-block">
+        <div class="profile-preview__menu">
             {{&menu}}
         </div>
     `;
