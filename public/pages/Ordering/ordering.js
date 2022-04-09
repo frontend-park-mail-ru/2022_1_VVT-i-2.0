@@ -1,6 +1,6 @@
 import components from '../../components/import.js';
 
-const ordering = (app) => {
+const ordering = (app, store) => {
   const restName = 'McDonalds';
 
   const orderPoints = [
