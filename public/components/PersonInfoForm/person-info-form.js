@@ -6,31 +6,31 @@ const personInfoForm = () => {
     const inputConfigurations = FORM_CONFIGURATION.personInfoForm;
 
     const template = `
-        <div id="person-info-form">
+        <div id="person-info-form" class="person-info-form">
             {{&backButton}}
 
             {{&title}}
 
-            <div id="settings-and-nav-block">
+            <div class="person-info-form__sets-nav-block">
                 <div>
-                    <div id="profile-header">
+                    <div class="sets-nav-block__profile-header">
                         Профиль
                     </div>
-                    <div id="setting-block">
+                    <div class="sets-nav-block__settings-block">
                         {{#inputConfigurations}}
                             {{&input}}
                         {{/inputConfigurations}}
-                        <div id="button-save">
+                        <div id="button-save-settings" class="settings-block__button-save-settings">
                             {{&savePersonInfoChanges}}
                         </div>
                     </div>
                 </div>
-                <div id="navigation-block">
+                <div class="sets-nav-block__navigation-block">
                     {{&menu}}
                 </div>
             </div>
 
-            <div id="message-send-info">
+            <div class="person-info-form__mail-notification">
                 Информация о заказах
             </div>
 
