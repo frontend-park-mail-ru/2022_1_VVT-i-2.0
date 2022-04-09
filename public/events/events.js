@@ -1,29 +1,29 @@
 // import * as api from '../api/api.js';
-import { Event } from './entity/import.js';
+import ENTITY from './entity/import.js';
 import * as FORM from './common/status-form.js';
 // import * as events from "events";
 
 const EVENTS = {
-    closeImg: Event.getFrameEvents(),
+    closeImg: ENTITY.getFrameEvents(),
 
     loginPhone: Event.getPhoneFieldEvents('loginPhone', FORM.statusLoginForm),
     loginPassword: Event.singlePasswordFieldEvents('loginPassword', FORM.statusLoginForm),
     loginButton: Event.getButtonEvents().loginButton,
     logoutButton: Event.getButtonEvents().logoutButton,
 
-    registerPhone: Event.getPhoneFieldEvents('registerPhone', FORM.statusRegisterForm),
-    registerName: Event.getNameFieldEvents('registerName', FORM.statusRegisterForm),
-    registerPassword: Event.doublePasswordFieldEvents(),
-    registerRepeatPassword: Event.doublePasswordFieldEvents(),
-    registerButton: Event.getButtonEvents().registerButton,
+    registerPhone: ENTITY.getPhoneFieldEvents('registerPhone', FORM.statusRegisterForm),
+    registerName: ENTITY.getNameFieldEvents('registerName', FORM.statusRegisterForm),
+    registerPassword: ENTITY.doublePasswordFieldEvents(),
+    registerRepeatPassword: ENTITY.doublePasswordFieldEvents(),
+    registerButton: ENTITY.getButtonEvents().registerButton,
 
-    profileName: Event.getNameFieldEvents('profileName', FORM.statusPersonInfoForm),
-    profilePhone: Event.getPhoneFieldEvents('profilePhone', FORM.statusPersonInfoForm),
-    profileEmail: Event.getEmailFieldEvents('profileEmail', FORM.statusPersonInfoForm),
+    profileName: ENTITY.getNameFieldEvents('profileName', FORM.statusPersonInfoForm),
+    profilePhone: ENTITY.getPhoneFieldEvents('profilePhone', FORM.statusPersonInfoForm),
+    profileEmail: ENTITY.getEmailFieldEvents('profileEmail', FORM.statusPersonInfoForm),
     // profile: [
     //     {
     //         type: 'click',
-    //         listener (app, e) {
+    //         listener (app, store, e) {
     //             const event = new CustomEvent('render-page', { detail: { section: 'profile' } });
     //             document.dispatchEvent(event);
     //         }
@@ -35,7 +35,7 @@ const EVENTS = {
  * @function Добавляет листенеры.
  * @param {Object} app - Объект приложения.
  */
-export const addListeners = (app) => {
+export const addListeners = (app, store) => {
     Object.entries(EVENTS).forEach(([name, events]) => {
         const node = document.getElementById(name);
         if (!node) {
@@ -44,7 +44,7 @@ export const addListeners = (app) => {
         events.forEach(({
             type,
             listener
-        }) => node.addEventListener(type, (e) => listener(app, e)));
+        }) => node.addEventListener(type, (e) => listener(app, store, e)));
     });
 };
 
@@ -52,7 +52,7 @@ export const addListeners = (app) => {
  * @function Удаляет все листенеры.
  * @param {Object} app - Объект приложения.
  */
-export const removeListeners = (app) => {
+export const removeListeners = (app, store) => {
     Object.entries(EVENTS).forEach(([name, events]) => {
         const node = document.getElementById(name);
         if (!node) {
@@ -61,6 +61,6 @@ export const removeListeners = (app) => {
         events.forEach(({
             type,
             listener
-        }) => node.removeEventListener(type, (e) => listener(app, e)));
+        }) => node.removeEventListener(type, (e) => listener(app, store, e)));
     });
 };

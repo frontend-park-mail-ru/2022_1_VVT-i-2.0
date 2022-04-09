@@ -7,7 +7,7 @@ const APP = {
     modal: document.getElementById('modal')
 };
 
-const setModalPagePosition = (page) => {
+const setModalPosition = (page) => {
     if (page.position) {
         APP.modal.classList.add(page.position);
     }
@@ -23,22 +23,21 @@ const renderPage = (section) => {
         return;
     }
 
-    events.removeListeners(APP);
+    events.removeListeners(APP, store);
 
     const page = MENU[section];
 
     if (page.isModal) {
         APP.modal.classList.add('shown');
-        setModalPagePosition(page);
+        setModalPosition(page);
     } else {
         APP.modal.classList.remove(...APP.modal.classList);
-        // APP.modal.classList.remove('shown');
         APP.modal.innerHTML = '';
     }
 
     page.render(APP, store);
 
-    events.addListeners(APP);
+    events.addListeners(APP, store);
 };
 
 Object

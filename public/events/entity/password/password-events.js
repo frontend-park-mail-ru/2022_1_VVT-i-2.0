@@ -2,7 +2,7 @@ import * as VALIDATION from "./password-src.js";
 import * as FORM from '../../common/status-form.js';
 import * as CONFIG from '../../common/config.js';
 
-export function singlePasswordFieldEvents (elemID, statusForm) {
+export const singlePasswordFieldEvents = (elemID, statusForm) => {
     return [
         {
             type: 'change',
@@ -13,7 +13,7 @@ export function singlePasswordFieldEvents (elemID, statusForm) {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener(app, e) {
+            listener(app, store, e) {
                 FORM.inputDataManager(
                     e, elemID, statusForm,
                     CONFIG.Regex.password, CONFIG.ErrorMsg.errorPassword
@@ -23,7 +23,7 @@ export function singlePasswordFieldEvents (elemID, statusForm) {
     ];
 }
 
-export function doublePasswordFieldEvents () {
+export const doublePasswordFieldEvents = () => {
     return [
         {
             type: 'change',
@@ -34,7 +34,7 @@ export function doublePasswordFieldEvents () {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener(app, e) {
+            listener(app, store, e) {
                 VALIDATION.passwordController(
                     e, FORM.statusRegisterForm
                 );

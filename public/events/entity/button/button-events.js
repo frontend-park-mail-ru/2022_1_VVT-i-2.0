@@ -1,8 +1,7 @@
 import * as FORM from '../../common/status-form.js';
 import {hideEmptyInputs, showEmptyInputs} from "../../common/status-form.js";
-// import * as api from "../../../api/api";
 
-export function getButtonEvents () {
+export const getButtonEvents = () => {
     return {
         loginButton: [
             {
@@ -14,7 +13,7 @@ export function getButtonEvents () {
                  * @param {Object} app - Объект приложения.
                  * @param {Event} e - Событие.
                  */
-                listener (app, e) {
+                listener(app, store, e) {
                     if (!FORM.isAvailableForSend(FORM.statusLoginForm)) {
                         showEmptyInputs(FORM.statusLoginForm, FORM.loginFormInputs);
                         setTimeout(hideEmptyInputs, 400, FORM.statusLoginForm, FORM.loginFormInputs);
@@ -49,7 +48,7 @@ export function getButtonEvents () {
                  * @param {Object} app - Объект приложения.
                  * @param {Event} e - Событие.
                  */
-                listener (app, e) {
+                listener(app, store, e) {
                     // api
                     //     .logout()
                     //     .then((res) => {
@@ -74,7 +73,7 @@ export function getButtonEvents () {
                  * @param {Object} app - Объект приложения.
                  * @param {Event} e - Событие.
                  */
-                listener (app, e) {
+                listener(app, store, e) {
                     if (!FORM.isAvailableForSend(FORM.statusRegisterForm)) {
                         showEmptyInputs(FORM.statusRegisterForm, FORM.registerFormInputs);
                         setTimeout(hideEmptyInputs, 400, FORM.statusRegisterForm, FORM.registerFormInputs);
@@ -106,8 +105,8 @@ export function getButtonEvents () {
         personInfoSaveButton: [
             {
                 type: 'click',
-                listener (app, e) {
-                    // ТАКЖЕ ПРОВЕРИТЬ ЕСЛИ ИНПУТЫ ПУСТЫЕ ТО ЭТО НОРМ
+                listener(app, store, e) {
+                    // TODO: ТАКЖЕ ПРОВЕРИТЬ ЕСЛИ ИНПУТЫ ПУСТЫЕ ТО ЭТО НОРМ
 
                     if (!FORM.isAvailableForSend(FORM.statusPersonInfoForm)) {
                         showEmptyInputs(FORM.statusPersonInfoForm, FORM.personInfoInputs);

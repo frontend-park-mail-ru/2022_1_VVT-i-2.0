@@ -1,4 +1,4 @@
-const Store = {
+const STORE = {
   // State
   user: {},
   restaurants: [],
@@ -26,4 +26,4 @@ const Store = {
   }
 };
 
-export default Store;
+export default STORE;

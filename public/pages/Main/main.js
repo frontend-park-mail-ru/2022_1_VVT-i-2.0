@@ -8,19 +8,17 @@ const mainPage = (app, store) => {
     //     .getRestaurants()
     //     .then((res) => res.json())
     //     .then((res) => {
-    // events.removeListeners(app);
+    // events.removeListeners(app, store);
 
     app.root.innerHTML = components.header(true, 'TRASH/avatar.jpg');
 
-    // const main = document.createElement('main');
-    // main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons({});
+    const main = document.createElement('main');
+    main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons({});
 
-    // app.root.appendChild(main);
+    app.root.appendChild(main);
 
     // events.addListeners(app);
     // });
-
-    console.log(store.actions, store.getters);
 };
 
 export default mainPage;

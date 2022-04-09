@@ -22,7 +22,7 @@ export const statusPersonInfoForm = {
     isValidEmail: false,
 };
 
-export function getElemParameters (elemID) {
+export const getElemParameters = (elemID) => {
     const input = document.getElementById(elemID);
 
     return {
@@ -31,12 +31,12 @@ export function getElemParameters (elemID) {
     };
 }
 
-function IsInputOnEmpty (elemID) {
+const IsInputOnEmpty = (elemID) => {
     const input = document.getElementById(elemID);
     return input.children[0].value === '';
 }
 
-function getEmptyInputs (formInputs) {
+const getEmptyInputs = (formInputs) => {
     let emptyInputs = [];
     formInputs.forEach((elemID) => {
         if (IsInputOnEmpty(elemID)) {
@@ -47,14 +47,14 @@ function getEmptyInputs (formInputs) {
     return emptyInputs;
 }
 
-export function showEmptyInputs (statusForm, formInputs) {
+export const showEmptyInputs = (statusForm, formInputs) => {
     const emptyInputs = getEmptyInputs(formInputs);
     emptyInputs.forEach((elemID) => {
         showError(statusForm, elemID, getElemParameters(elemID), ErrorMsg.errorEmptyInput);
     });
 }
 
-export function hideEmptyInputs (statusForm, formInputs) {
+export const hideEmptyInputs = (statusForm, formInputs) => {
     const emptyInputs = getEmptyInputs(formInputs);
     emptyInputs.forEach((elemID) => {
         removeVisibleError(getElemParameters(elemID).childList);
@@ -67,7 +67,7 @@ export function hideEmptyInputs (statusForm, formInputs) {
  * @param {string} elemID - ID поля формы.
  * @param {boolean} status - Статус поля формы (корректны данные или нет).
  */
-export function setFormStatus (statusForm, elemID, status) {
+export const setFormStatus = (statusForm, elemID, status) => {
     switch (elemID) {
         case 'registerName':
         case 'profileName':
@@ -97,7 +97,7 @@ export function setFormStatus (statusForm, elemID, status) {
  * @param {NodeListOf<Element>} childList - Список элементов для применения стилей.
  * @param {string} error - Текст ошибки.
  */
-function getVisibleError (childList, error) {
+const getVisibleError = (childList, error) => {
     for (let childNode of childList) {
         childNode.classList.add('error');
         if (childNode.classList.contains('hidden')) {
@@ -111,7 +111,7 @@ function getVisibleError (childList, error) {
  * @function Скрывает ошибку.
  * @param {NodeListOf<Element>} childList - Список элементов для применения стилей.
  */
-export function removeVisibleError (childList) {
+export const removeVisibleError = (childList) => {
     for (let childNode of childList) {
         if (childNode.classList.contains('error')) {
             childNode.classList.remove('error');
@@ -126,16 +126,16 @@ export function removeVisibleError (childList) {
  * @param {Object} statusForm - Объект, хранящий статусы инпутов страницы.
  * @return {boolean} - Результат проверки на валидность.
  */
-export function isAvailableForSend (statusForm) {
+export const isAvailableForSend = (statusForm) => {
     return Object.entries(statusForm).every(([input, status]) => status);
 }
 
-export function showError (statusForm, elemID, input, error) {
+export const showError = (statusForm, elemID, input, error) => {
     setFormStatus(statusForm, elemID, false);
     getVisibleError(input.childList, error);
 }
 
-export function hideError (statusForm, elemID, input) {
+export const hideError = (statusForm, elemID, input) => {
     setFormStatus(statusForm, elemID, true);
     removeVisibleError(input.childList);
 }
@@ -149,7 +149,7 @@ export function hideError (statusForm, elemID, input) {
  * @param {RegExp} regularExpression - Регулярное выражение для данных поля на валидность.
  * @param {string} errorMsg - Текст ошибки.
  */
-export function inputDataManager (e, elemID, statusForm, regularExpression, errorMsg) {
+export const inputDataManager = (e, elemID, statusForm, regularExpression, errorMsg) => {
     const elem = getElemParameters(elemID);
 
     if (e.target.value !== '' && !regularExpression.test(e.target.value)) {
