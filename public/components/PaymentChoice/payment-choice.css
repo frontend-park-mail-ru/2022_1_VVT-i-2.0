@@ -1,27 +1,27 @@
-.payment-block {
+.ordering-form__payment-choice-block {
     margin-bottom: 15px;
 }
 
-.payment-block > div:first-child {
+.payment-choice-block__payment-types-block {
+    display: inline-block;
+}
+
+.payment-choice-block__payment-types-block:first-child {
     margin-bottom: 15px;
     font-weight: bold;
 }
 
-.payment-type {
-    display: inline-block;
-}
-
-.payment-type > div {
+.payment-types-block__payment-type {
     background: #F6F6F6;
     border-radius: 50px;
     padding: 5px 10px;
     display: inline-block;
 }
 
-.payment-type > div:not(:first-child) {
+.payment-types-block__payment-type:not(:first-child) {
     margin-left: 10px;
 }
 
-.payment-type > div:hover {
+.payment-types-block__payment-type:hover {
     background: #DEDEDE;
 }

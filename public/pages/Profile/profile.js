@@ -1,12 +1,7 @@
 import components from '../../components/import.js';
+import FORM_CONFIGURATION from '../../import-form-configurations.js';
 
-export const profileMenuPoints = [
-    {point: 'Личные данные', dataSection: 'profile'},
-    // {point: 'Адреса доставки', dataSection: 'addresses'},
-    // {point: 'Мои заказы', dataSection: 'my-orders'},
-    // {point: 'Мои скидки', dataSection: 'my-promo'},
-    {point: 'Выход', dataSection: 'main'},
-];
+export const profileMenuPoints = FORM_CONFIGURATION.profilePoints;
 
 const profilePage = (app) => {
     app.root.innerHTML = components.header(true);

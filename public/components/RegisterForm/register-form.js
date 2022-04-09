@@ -1,58 +1,31 @@
 import UIKIT from '../../ui-kit/import.js';
 import COLORS from '../../utils/colors.js';
+import FORM_CONFIGURATION from '../../import-form-configurations.js';
 
 /**
  * @function Создает html-строку для создания компонента формы регистрации
  *      registerForm через шаблонатор Mustache.
- * @param {Object} properties - Объект, содержащий аттрибуты тегов для отрисовки формы.
  * @return {string} HTML строка для отрисовки компонента registerForm.
  */
 const registerForm = () => {
-    const properties = [
-        {
-            title: 'Телефон',
-            width: 300,
-            placeholder: '+7(',
-            id: 'registerPhone'
-        },
-        {
-            title: 'Имя',
-            width: 300,
-            placeholder: 'Сергей',
-            id: 'registerName'
-        },
-        {
-            title: 'Пароль',
-            width: 300,
-            type: 'password',
-            placeholder: 'Введите пароль',
-            id: 'registerPassword'
-        },
-        {
-            title: 'Повторите пароль',
-            width: 300,
-            type: 'password',
-            placeholder: 'Введите пароль',
-            id: 'registerRepeatPassword'
-        },
-    ];
+    const configuration = FORM_CONFIGURATION.registerForm;
 
     const template = `
         <div id="register-form">
             <img id="closeImg" src="icons/close.svg">
             <h2>Создать аккаунт</h2>
-            {{#properties}}
+            {{#configuration}}
                 <div class="property">
                     {{&input}}
                 </div>
-            {{/properties}}
+            {{/configuration}}
             <div id="register-button">{{&register}}</div>
             {{&login}}
         </div>
     `;
 
     return Mustache.render(template, {
-        properties: properties,
+        configuration: configuration,
         input() {
             return UIKIT.input(this.title, this.type, this.placeholder, this.id);
         },

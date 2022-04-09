@@ -1,25 +1,9 @@
 import UIKIT from '../../ui-kit/import.js';
 import COLORS from '../../utils/colors.js';
+import FORM_CONFIGURATION from '../../import-form-configurations.js';
 
 const personInfoForm = () => {
-    const properties = [
-        {
-            title: 'Имя',
-            placeholder: 'Сергей',
-            id: 'profileName'
-        },
-        {
-            title: 'Телефон',
-            placeholder: '+7(',
-            id: 'profilePhone'
-        },
-        {
-            title: 'Электронная почта',
-            type: 'email',
-            placeholder: 'Введите почту',
-            id: 'profileEmail'
-        },
-    ];
+    const inputConfigurations = FORM_CONFIGURATION.personInfoForm;
 
     const template = `
         <div id="person-info-form">
@@ -33,9 +17,9 @@ const personInfoForm = () => {
                         Профиль
                     </div>
                     <div id="setting-block">
-                        {{#properties}}
+                        {{#inputConfigurations}}
                             {{&input}}
-                        {{/properties}}
+                        {{/inputConfigurations}}
                         <div id="button-save">
                             {{&savePersonInfoChanges}}
                         </div>
@@ -57,7 +41,7 @@ const personInfoForm = () => {
     `;
 
     return Mustache.render(template, {
-        properties: properties,
+        inputConfigurations: inputConfigurations,
         backButton() {
             return UIKIT.backButton('Все рестораны', 'main');
         },
