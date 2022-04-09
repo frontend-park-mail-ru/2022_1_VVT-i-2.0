@@ -8,24 +8,24 @@ import FORM_CONFIGURATION from '../../import-form-configurations.js';
  * @return {string} HTML строка для отрисовки компонента registerForm.
  */
 const loginForm = () => {
-    const configuration = FORM_CONFIGURATION.loginForm;
+    const inputConfigurations = FORM_CONFIGURATION.loginForm;
 
     const template = `
         <div id="login-form" class="login-form">
             <img id="closeImg" class="login-form__close-img" src="icons/close.svg" alt="">
             <h2 class="login-form__title">Войти в аккаунт</h2>
-                {{#configuration}}
+                {{#inputConfigurations}}
                     <div class="login-form__input">
                         {{&input}}
                     </div>
-                {{/configuration}}
+                {{/inputConfigurations}}
             <div id="login-button" class="login-form__button-login">{{&login}}</div>
             {{&register}}
         </div>
     `;
 
     return Mustache.render(template, {
-        configuration: configuration,
+        inputConfigurations: inputConfigurations,
         input () {
             return UIKIT.input(this.title, this.type, this.placeholder, this.id);
         },
