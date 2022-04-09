@@ -1,5 +1,6 @@
 import UIKIT from '../../ui-kit/import.js';
-import COLORS from '../../utils/colors.js';
+import COLORS from '../../configurations/colors.js';
+import ELEMS_CONFIGURATION from '../../configurations/elems.js';
 
 const shoppingCart = (restName, props) => {
     const template = `
@@ -22,7 +23,8 @@ const shoppingCart = (restName, props) => {
             return UIKIT.orderPoint(this.imgPath, this.dishName, this.additives, this.dishCount, this.price);
         },
         buttonOrder () {
-            return UIKIT.simpleButton('Заказать 330 ₽', COLORS.primary, 'ordering', 'orderButton');
+            return UIKIT.simpleButton('Заказать 330 ₽', COLORS.primary,
+                ELEMS_CONFIGURATION.buttons.LARGE,'ordering', 'orderButton');
         }
     });
 };

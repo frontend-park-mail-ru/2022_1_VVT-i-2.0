@@ -7,7 +7,7 @@ const EVENTS = {
     closeImg: Event.getFrameEvents(),
 
     loginPhone: Event.getPhoneFieldEvents('loginPhone', FORM.statusLoginForm),
-    loginPassword: Event.singlePasswordFieldEvents(),
+    loginPassword: Event.singlePasswordFieldEvents('loginPassword', FORM.statusLoginForm),
     loginButton: Event.getButtonEvents().loginButton,
     logoutButton: Event.getButtonEvents().logoutButton,
 

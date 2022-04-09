@@ -137,7 +137,6 @@ export function showError (statusForm, elemID, input, error) {
 
 export function hideError (statusForm, elemID, input) {
     setFormStatus(statusForm, elemID, true);
-    console.log(statusForm);
     removeVisibleError(input.childList);
 }
 
