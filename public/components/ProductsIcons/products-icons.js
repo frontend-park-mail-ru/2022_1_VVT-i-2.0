@@ -8,18 +8,18 @@ import UIKIT from '../../ui-kit/import.js';
  */
 const productsIcons = (products) => {
   const template = `
-    <div id="products-container">
+    <div class="rest-menu">
       {{#products}}
-        <div class="product_icon">
-          <img src={{imgPath}} alt={{productName}}>
-          {{&productMetaInformation}}
+        <div class="rest-menu__product-icon">
+          <img class="product-icon__img" src={{imgPath}} alt={{productName}}>
+          {{&prodMetaInfo}}
         </div>
       {{/products}}
     </div>
   `;
   return Mustache.render(template, {
     products: products,
-    productMetaInformation() {
+    prodMetaInfo() {
       return UIKIT.productMetaInformation(this.productName, this.info, this.description, this.price);
     }
   });

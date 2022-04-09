@@ -1,52 +1,36 @@
 import UIKIT from '../../ui-kit/import.js';
 import COLORS from '../../utils/colors.js';
+import FORM_CONFIGURATION from '../../import-form-configurations.js';
 
 const personInfoForm = () => {
-    const properties = [
-        {
-            title: 'Имя',
-            placeholder: 'Сергей',
-            id: 'profileName'
-        },
-        {
-            title: 'Телефон',
-            placeholder: '+7(',
-            id: 'profilePhone'
-        },
-        {
-            title: 'Электронная почта',
-            type: 'email',
-            placeholder: 'Введите почту',
-            id: 'profileEmail'
-        },
-    ];
+    const inputConfigurations = FORM_CONFIGURATION.personInfoForm;
 
     const template = `
-        <div id="person-info-form">
+        <div id="person-info-form" class="person-info-form">
             {{&backButton}}
 
             {{&title}}
 
-            <div id="settings-and-nav-block">
+            <div class="person-info-form__sets-nav-block">
                 <div>
-                    <div id="profile-header">
+                    <div class="sets-nav-block__profile-header">
                         Профиль
                     </div>
-                    <div id="setting-block">
-                        {{#properties}}
+                    <div class="sets-nav-block__settings-block">
+                        {{#inputConfigurations}}
                             {{&input}}
-                        {{/properties}}
-                        <div id="button-save">
+                        {{/inputConfigurations}}
+                        <div id="button-save-settings" class="settings-block__button-save-settings">
                             {{&savePersonInfoChanges}}
                         </div>
                     </div>
                 </div>
-                <div id="navigation-block">
+                <div class="sets-nav-block__navigation-block">
                     {{&menu}}
                 </div>
             </div>
 
-            <div id="message-send-info">
+            <div class="person-info-form__mail-notification">
                 Информация о заказах
             </div>
 
@@ -57,7 +41,7 @@ const personInfoForm = () => {
     `;
 
     return Mustache.render(template, {
-        properties: properties,
+        inputConfigurations: inputConfigurations,
         backButton() {
             return UIKIT.backButton('Все рестораны', 'main');
         },
@@ -71,7 +55,7 @@ const personInfoForm = () => {
             return UIKIT.profileMenu();
         },
         savePersonInfoChanges () {
-            return UIKIT.button('Сохранить', COLORS.primary, 'profile', 'personInfoSaveButton');
+            return UIKIT.simpleButton('Сохранить', COLORS.primary, 'profile', 'personInfoSaveButton');
         },
         switcherElement () {
             return UIKIT.switcher();

@@ -1,66 +1,39 @@
 import UIKIT from '../../ui-kit/import.js';
 import COLORS from '../../utils/colors.js';
+import FORM_CONFIGURATION from '../../import-form-configurations.js';
 
 /**
  * @function Создает html-строку для создания компонента формы регистрации
  *      registerForm через шаблонатор Mustache.
- * @param {Object} properties - Объект, содержащий аттрибуты тегов для отрисовки формы.
  * @return {string} HTML строка для отрисовки компонента registerForm.
  */
 const registerForm = () => {
-    const properties = [
-        {
-            title: 'Телефон',
-            width: 300,
-            placeholder: '+7(',
-            id: 'registerPhone'
-        },
-        {
-            title: 'Имя',
-            width: 300,
-            placeholder: 'Сергей',
-            id: 'registerName'
-        },
-        {
-            title: 'Пароль',
-            width: 300,
-            type: 'password',
-            placeholder: 'Введите пароль',
-            id: 'registerPassword'
-        },
-        {
-            title: 'Повторите пароль',
-            width: 300,
-            type: 'password',
-            placeholder: 'Введите пароль',
-            id: 'registerRepeatPassword'
-        },
-    ];
+    const inputConfigurations = FORM_CONFIGURATION.registerForm;
 
     const template = `
-        <div id="register-form">
-            <img id="closeImg" src="icons/close.svg">
-            <h2>Создать аккаунт</h2>
-            {{#properties}}
-                <div class="property">
+        <div id="register-form" class="register-form">
+            <img id="closeImg" class="register-form__close-img" src="icons/close.svg">
+            <h2 class="register-form__title">Создать аккаунт</h2>
+            {{#inputConfigurations}}
+                <div class="register-form__input">
                     {{&input}}
                 </div>
-            {{/properties}}
-            <div id="register-button">{{&register}}</div>
+            {{/inputConfigurations}}
+            <div id="register-button" class="register-form__button-register">{{&register}}</div>
             {{&login}}
         </div>
     `;
 
     return Mustache.render(template, {
-        properties: properties,
+        inputConfigurations: inputConfigurations,
         input() {
             return UIKIT.input(this.title, this.type, this.placeholder, this.id);
         },
         register() {
-            return UIKIT.button('Регистрация', COLORS.primary, null, 'registerButton');
+            return UIKIT.simpleButton('Регистрация', COLORS.primary, '', 'registerButton');
         },
         login() {
-            return UIKIT.button('Уже есть аккаунт?', COLORS.grey, 'login');
+            return UIKIT.simpleButton('Уже есть аккаунт?', COLORS.grey, 'login', '');
         }
     });
 };

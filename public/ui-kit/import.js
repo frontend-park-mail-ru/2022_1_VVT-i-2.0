@@ -1,7 +1,7 @@
-import button from './Button/button.js';
+import simpleButton from './SimpleButton/simple-button.js';
 import input from './Input/input.js';
 import mainLink from './MainLink/main-link.js';
-import metaInformation from './MetaInformation/meta-information.js';
+import restMetaInformation from './RestMetaInformation/rest-meta-information.js';
 import productMetaInformation from './ProductMetaInformation/product-meta-information.js';
 import addRemoveButton from './AddRemoveButton/add-remove-button.js';
 import backButton from './BackButton/back-button.js';
@@ -13,10 +13,10 @@ import buttonPay from './ButtonPay/button-pay.js';
 import title from './Title/title.js';
 
 export default {
-    button,
+    simpleButton,
     input,
     mainLink,
-    metaInformation,
+    restMetaInformation,
     productMetaInformation,
     addRemoveButton,
     backButton,

@@ -1,9 +1,9 @@
-a.main-link {
+.uikit__main-link {
     cursor: pointer;
     color: #8f8a8a;
 }
 
-a.main-link:hover {
+.uikit__main-link:hover {
     cursor: pointer;
     border-radius: 14px;
     background: rgba(143, 138, 138, 0.2);

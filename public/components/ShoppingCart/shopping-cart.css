@@ -1,4 +1,4 @@
-#order {
+.shopping-cart-form {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -9,7 +9,7 @@
     box-sizing: border-box;
 }
 
-#order div.order-point:first-child div {
+.shopping-cart__order-point:first-child div {
     width: 80%;
     text-align: center;
     margin-left: auto;
@@ -17,19 +17,13 @@
     max-width: 312px;
 }
 
-#info-about-rest {
+.shopping-cart__info-about-rest {
     padding: 10px;
 }
 
-div#order button {
+.shopping-cart__button-order {
     position: absolute;
     right: auto;
     left: 10px;
     bottom: 5px;
-}
-
-.lr-auto {
-    /*margin-right: auto;*/
-    /*margin-left: auto;*/
-    text-align: center;
 }

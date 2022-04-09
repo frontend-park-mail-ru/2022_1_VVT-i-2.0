@@ -1,19 +1,16 @@
-#main-container {
+.restaurants-form {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-#main-container > .rest_icon {
-    margin-bottom: 70px;
-}
-
-.rest_icon {
+.restaurants-form__rest_icon {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 
     align-content: center;
+    margin-bottom: 70px;
 
     width: 460px;
     height: 370px;
@@ -28,7 +25,7 @@
     cursor: pointer;
 }
 
-.rest_icon > img {
+.rest-icon__rest_img {
     width: 460px;
     height: 215px;
     border-radius: 14px 14px 0 0;

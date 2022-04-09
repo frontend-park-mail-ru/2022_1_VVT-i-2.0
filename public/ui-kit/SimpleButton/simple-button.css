@@ -1,4 +1,4 @@
-.button {
+.uikit__simple-button {
     min-height: 45px;
     min-width: 300px;
     border: none;
@@ -6,7 +6,7 @@
     font-weight: bold;
 }
 
-.button:hover {
+.uikit__simple-button:hover {
     cursor: pointer;
     opacity: 0.5;
 }

@@ -1,4 +1,4 @@
-.back-button {
+.uikit__back-button {
   position: relative;
   display: flex;
   justify-content: left;
@@ -9,6 +9,6 @@
   font-weight: bold;
 }
 
-.back-button img {
+.back-button__img {
   margin-right: 10px;
 }

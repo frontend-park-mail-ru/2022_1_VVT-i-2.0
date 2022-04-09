@@ -1,28 +1,28 @@
 import UIKIT from '../../ui-kit/import.js';
 import COLORS from '../../utils/colors.js';
 
-const shoppingCart = (restName, properties) => {
+const shoppingCart = (restName, props) => {
     const template = `
-        <div id="order">
-            <div id="info-about-rest" class="order-point">
+        <div class="shopping-cart-form">
+            <div class="shopping-cart__info-about-rest shopping-cart__order-point">
                 <div>Ваш заказ в ресторане: {{restName}}</div>
             </div>
-            {{#properties}}
+            {{#props}}
                 {{&drawOrderPoint}}
-            {{/properties}}
-            <div id="ordering">
+            {{/props}}
+            <div class="shopping-cart__button-order">
                 {{&buttonOrder}}
             </div>
         </div>
     `;
     return Mustache.render(template, {
         restName,
-        properties: properties,
+        props: props,
         drawOrderPoint () {
             return UIKIT.orderPoint(this.imgPath, this.dishName, this.additives, this.dishCount, this.price);
         },
         buttonOrder () {
-            return UIKIT.button('Заказать 330 ₽', COLORS.primary, 'ordering', 'orderButton');
+            return UIKIT.simpleButton('Заказать 330 ₽', COLORS.primary, 'ordering', 'orderButton');
         }
     });
 };

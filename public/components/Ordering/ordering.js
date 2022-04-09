@@ -1,36 +1,9 @@
 import UIKIT from '../../ui-kit/import.js';
+import FORM_CONFIGURATION from '../../import-form-configurations.js';
 import paymentChoice from '../PaymentChoice/payment-choice.js';
 
 const ordering = (props) => {
-  const properties = [
-    {
-      title: 'Телефон',
-      placeholder: '+7(',
-      id: 'orderingPhone'
-    },
-    {
-      title: 'Адрес доставки',
-      placeholder: 'Введите адрес доставки',
-      id: 'orderingAddress'
-    },
-    {
-      title: 'Подъезд',
-      id: 'orderingEntrance'
-    },
-    {
-      title: 'Домофон',
-      id: 'orderingIntercom'
-    },
-    {
-      title: 'Этаж',
-      placeholder: '',
-      id: 'orderingFloor'
-    },
-    {
-      title: 'Квартира',
-      id: 'orderingFlat'
-    }
-  ];
+  const inputConfigurations = FORM_CONFIGURATION.ordering;
 
   const template = `
     <div id="ordering">
@@ -39,9 +12,9 @@ const ordering = (props) => {
       <div id="ordering-and-nav-block">
         <div>
           <div id="header">Доставка</div>
-          {{#properties}}
+          {{#inputConfigurations}}
             {{&input}}
-          {{/properties}}
+          {{/inputConfigurations}}
 
           <div id="comment">Комментарий</div>
           <div
@@ -88,7 +61,7 @@ const ordering = (props) => {
 
   return Mustache.render(template, {
     restName: props.restName,
-    properties: properties,
+    inputConfigurations: inputConfigurations,
     orderPoints: props.orderPoints,
     title() {
       return UIKIT.title('Оформление заказа');

@@ -11,7 +11,7 @@ export function getFrameEvents () {
             listener (app, e) {
                 app.modal.classList.remove('shown');
                 app.modal.innerHTML = '';
-                app.root.lastChild.classList.remove('hidden');
+                app.root.lastChild.classList.remove('input-block__error_hidden');
             }
         }
     ];

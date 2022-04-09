@@ -4,10 +4,10 @@ const paymentTypes = [
 
 const paymentChoice = () => {
     const template = `
-        <div class="payment-block">
-            <div class="payment-type">
+        <div class="ordering-form__payment-choice-block">
+            <div class="payment-choice-block__payment-types-block">
                 {{#paymentTypes}}
-                    <div>{{.}}</div>
+                    <div class="payment-types-block__payment-type">{{.}}</div>
                 {{/paymentTypes}}
             </div>
         </div>

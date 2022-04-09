@@ -9,11 +9,11 @@
  */
 const input = (title, type, placeholder, id, error = 'Ошибка') => {
     const template = `
-        <div class="input-block">
-            <div class="title">{{title}}</div>
+        <div class="uikit__input-block">
+            <div class="input-block__title">{{title}}</div>
             <div {{#id}} id={{id}} {{/id}}>
-                <input placeholder="{{placeholder}}" type="{{type}}">
-                <div class="hidden">{{error}}</div>
+                <input class="input-block__input" placeholder="{{placeholder}}" type="{{type}}">
+                <div class="input-block__input-underline hidden">{{error}}</div>
             </div>
         </div>
     `;
