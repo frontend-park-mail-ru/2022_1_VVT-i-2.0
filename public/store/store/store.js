@@ -4,7 +4,7 @@ const STORE = {
   // State
   user: {},
   restaurants: [],
-  products: [],
+  products: {},
   cart: [],
 
   // Mutations
@@ -17,8 +17,8 @@ const STORE = {
   addRestaurants(restaurants) {
     this.restaurants = restaurants;
   },
-  addProducts(products) {
-    this.products = products;
+  addProducts(restName, result) {
+    this.products[restName] = { products: result.products, restName: result.restName };
   },
   addProductToCart(product) {
     const cart = this.cart;

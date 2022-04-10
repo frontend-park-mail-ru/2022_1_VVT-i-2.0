@@ -13,53 +13,64 @@ import networkErrors from './NetworkErrors/network-errors.js';
 const MENU = {
     main: {
         render: mainPage,
-        isModal: false
+        isModal: false,
+        authRequired: false
     },
     login: {
         render: loginPage,
         isModal: true,
         position: 'modal-center',
+        authRequired: false
     },
     register: {
         render: registerPage,
         isModal: true,
         position: 'modal-center',
+        authRequired: false
     },
     confirmCode: {
         render: confirmCodePage,
         isModal: true,
         position: 'modal-center',
+        authRequired: false
     },
     profilePreview: {
         render: profilePreviewPage,
         isModal: true,
         position: 'modal-right',
+        authRequired: true
     },
     profile: {
         render: profilePage,
-        isModal: false
+        isModal: false,
+        authRequired: true
     },
     products: {
         render: productsPage,
-        isModal: false
+        isModal: false,
+        authRequired: false
     },
     shoppingCart: {
         render: shoppingCartPage,
         isModal: true,
         position: 'modal-right',
+        authRequired: true
     },
     ordering: {
         render: orderingPage,
-        isModal: false
+        isModal: false,
+        authRequired: true
     },
     suggests: {
         render: suggestsPage,
         isModal: true,
-        position: 'modal-top'
+        position: 'modal-top',
+        authRequired: true
     },
     networkErrors: {
         render: networkErrors,
-        isModal: false
+        isModal: false,
+        authRequired: false
     },
 };
 
