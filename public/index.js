@@ -1,5 +1,6 @@
 import * as events from './events/events.js';
 import MENU from './pages/import.js';
+import * as store from './store/import.js';
 
 const APP = {
     root: document.getElementById('root'),
@@ -35,7 +36,7 @@ const renderPage = (section) => {
         APP.modal.innerHTML = '';
     }
 
-    page.render(APP);
+    page.render(APP, store);
 
     events.addListeners(APP);
 };
@@ -46,4 +47,4 @@ Object
 
 document.addEventListener('render-page', (e) => renderPage(e.detail.section));
 
-renderPage('profile');
+renderPage('main', store);

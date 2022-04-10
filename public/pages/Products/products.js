@@ -6,7 +6,7 @@ import UIKIT from '../../ui-kit/import.js';
  * @function Рендерит страницу по входящему объекту приложения.
  * @param {Object} app - Объект приложения.
  */
-const mainPage = (app) => {
+const mainPage = (app, store) => {
   // api
   //     .getProducts()
   //     .then((res) => res.json())
