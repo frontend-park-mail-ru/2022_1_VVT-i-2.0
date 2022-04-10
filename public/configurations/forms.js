@@ -9,12 +9,12 @@ const FORMS_CONFIGURATION = {
                 placeholder: '+7(',
                 id: 'loginPhone'
             },
-            {
-                title: 'Пароль',
-                type: 'password',
-                placeholder: 'Введите пароль',
-                id: 'loginPassword'
-            },
+            // {
+            //     title: 'Пароль',
+            //     type: 'password',
+            //     placeholder: 'Введите пароль',
+            //     id: 'loginPassword'
+            // },
         ],
         registerForm: [
             {
@@ -24,26 +24,38 @@ const FORMS_CONFIGURATION = {
             },
             {
                 title: 'Имя',
-                placeholder: 'Сергей',
+                placeholder: 'Введите имя',
                 id: 'registerName'
             },
             {
-                title: 'Пароль',
-                type: 'password',
-                placeholder: 'Введите пароль',
-                id: 'registerPassword'
+                title: 'Электронная почта',
+                placeholder: 'Введите электронную почту',
+                id: 'registerEmail'
             },
+            // {
+            //     title: 'Пароль',
+            //     type: 'password',
+            //     placeholder: 'Введите пароль',
+            //     id: 'registerPassword'
+            // },
+            // {
+            //     title: 'Повторите пароль',
+            //     type: 'password',
+            //     placeholder: 'Введите пароль',
+            //     id: 'registerRepeatPassword'
+            // },
+        ],
+        confirmCodeForm: [
             {
-                title: 'Повторите пароль',
-                type: 'password',
-                placeholder: 'Введите пароль',
-                id: 'registerRepeatPassword'
-            },
+                title: 'Код',
+                placeholder: 'Введите код',
+                id: 'confirmCode',
+            }
         ],
         personInfoForm: [
             {
                 title: 'Имя',
-                placeholder: 'Сергей',
+                placeholder: 'Введите имя',
                 width: ELEMS_CONFIGURATION.inputs.LARGE,
                 id: 'profileName'
             },
