@@ -39,3 +39,10 @@ header > #search {
 header > div > a {
     margin-left: 10px;
 }
+
+.page-header__avatar {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #BEB6AE;
+    border-radius: 15px;
+}

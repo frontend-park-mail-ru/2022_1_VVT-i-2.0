@@ -4,7 +4,7 @@ import FORMS_CONFIGURATION from '../../configurations/forms.js';
 export const profileMenuPoints = FORMS_CONFIGURATION.menu.profilePoints;
 
 const profilePage = (app) => {
-    app.root.innerHTML = components.header(true);
+    app.root.innerHTML = components.header(true, 'TRASH/avatar.jpg');
 
     const main = document.createElement('main');
     main.innerHTML = components.personInfoForm();

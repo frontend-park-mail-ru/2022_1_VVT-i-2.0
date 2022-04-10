@@ -13,7 +13,7 @@ const mainPage = (app) => {
     //     .then((res) => {
     events.removeListeners(app);
 
-    app.root.innerHTML = components.header(true);
+    app.root.innerHTML = components.header(true, 'TRASH/avatar.jpg');
 
     const main = document.createElement('main');
     main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons({});

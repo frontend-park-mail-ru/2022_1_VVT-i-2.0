@@ -1,4 +1,4 @@
-const header = (auth = false) => {
+const header = (auth = false, customImgPath = '') => {
     const template = `
         <header>
             <div data-section="main">
@@ -13,7 +13,12 @@ const header = (auth = false) => {
             </div>
             {{#auth}}
                 <div data-section="profilePreview">
+                {{#customImgPath}} 
+                    <img class="page-header__avatar" src="{{customImgPath}}" data-section="profilePreview">                  
+                {{/customImgPath}}
+                {{^customImgPath}}
                     <img src="icons/profile.svg" data-section="profilePreview">
+                {{/customImgPath}}
                     <a data-section="profilePreview">Профиль</a>
                 </div>
                 <div id="button-shopping-cart" data-section="shoppingCart">
