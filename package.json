@@ -7,9 +7,13 @@
   "scripts": {
     "start": "DEBUG=server node server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --watch",
+    "build": "webpack",
     "webpack-start": "webpack-dev-server"
   },
+  "browserslist": [
+    ">1%",
+    "last 3 version"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/frontend-park-mail-ru/2022_1_VVT-i-2.0.git"
@@ -27,14 +31,14 @@
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
+    "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.4",
     "css-loader": "^6.7.1",
-    "file-loader": "^6.2.0",
-    "postcss": "^8.4.12",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^5.1.7",
+    "mini-css-extract-plugin": "^2.6.0",
+    "path": "^0.12.7",
     "postcss-loader": "^6.2.1",
-    "style-loader": "^3.3.1",
-    "svg-url-loader": "^7.1.1",
-    "url-loader": "^4.1.1",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1"
