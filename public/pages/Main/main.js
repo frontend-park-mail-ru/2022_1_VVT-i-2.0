@@ -8,7 +8,7 @@ const mainPage = (app, store) => {
         return;
     }
 
-    app.root.innerHTML = components.header(true, 'TRASH/avatar.jpg');
+    app.root.innerHTML = components.header(true, 'graphics/images/avatar.jpg');
 
     const main = document.createElement('main');
     main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons(store.getters.restaurants);

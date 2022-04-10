@@ -9,21 +9,21 @@ const shoppingCartPage = (app, store) => {
 
     const properties = [
         {
-            imgPath: 'icons/Image.png',
+            imgPath: 'graphics/icons/Image.png',
             dishName: 'Бургер по-восточному',
             additives: 'Без котлеты',
             dishCount: 3,
             price: 269,
         },
         {
-            imgPath: 'icons/Image.png',
+            imgPath: 'graphics/icons/Image.png',
             dishName: 'Бургер по-восточному',
             additives: 'Без котлеты',
             dishCount: 3,
             price: 269,
         },
         {
-            imgPath: 'icons/Image.png',
+            imgPath: 'graphics/icons/Image.png',
             dishName: 'Бургер по-восточному',
             additives: 'Без котлеты',
             dishCount: 3,

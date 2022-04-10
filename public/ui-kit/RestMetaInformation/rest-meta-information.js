@@ -25,7 +25,7 @@ const restMetaInformation = (restName, timeToDeliver, price, rating) => {
                 </div>
                 <div class="meta-info__param">
                     <div class="meta-info__param-value">
-                        <img src="icons/star.svg" alt="rating">
+                        <img src="graphics/icons/star.svg" alt="rating">
                         <span class="rating">{{rating}}</span>
                     </div>
                 </div>

@@ -12,7 +12,7 @@ const loginForm = () => {
 
     const template = `
         <div id="login-form" class="login-form">
-            <img id="closeImg" class="login-form__close-img" src="icons/close.svg" alt="">
+            <img id="closeImg" class="login-form__close-img" src="graphics/icons/close.svg" alt="">
             <h2 class="login-form__title">Войти в аккаунт</h2>
                 {{#inputConfigurations}}
                     <div class="login-form__input">

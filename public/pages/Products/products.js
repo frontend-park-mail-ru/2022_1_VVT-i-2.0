@@ -13,7 +13,7 @@ const mainPage = (app, store) => {
   //     .then((res) => {
   events.removeListeners(app);
 
-  app.root.innerHTML = components.header(false, 'TRASH/avatar.jpg');
+  app.root.innerHTML = components.header(false, 'graphics/images/avatar.jpg');
 
   const main = document.createElement('main');
   main.innerHTML =

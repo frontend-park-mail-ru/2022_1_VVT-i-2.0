@@ -5,21 +5,21 @@ const ordering = (app, store) => {
 
   const orderPoints = [
     {
-      imgPath: 'icons/Image.png',
+      imgPath: 'graphics/icons/Image.png',
       dishName: 'Бургер по-восточному',
       additives: 'Без котлеты',
       dishCount: 3,
       price: 269,
     },
     {
-      imgPath: 'icons/Image.png',
+      imgPath: 'graphics/icons/Image.png',
       dishName: 'Бургер по-восточному',
       additives: 'Без котлеты',
       dishCount: 3,
       price: 269,
     },
     {
-      imgPath: 'icons/Image.png',
+      imgPath: 'graphics/icons/Image.png',
       dishName: 'Бургер по-восточному',
       additives: 'Без котлеты',
       dishCount: 3,
@@ -27,7 +27,7 @@ const ordering = (app, store) => {
     },
   ];
 
-  app.root.innerHTML = components.header(false, 'TRASH/avatar.jpg');
+  app.root.innerHTML = components.header(false, 'graphics/images/avatar.jpg');
 
   const main = document.createElement('main');
   main.innerHTML = components.ordering({ restName, orderPoints });
