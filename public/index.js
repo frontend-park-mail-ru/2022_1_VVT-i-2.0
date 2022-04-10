@@ -1,49 +1,12 @@
-import * as events from './events/events.js';
-import MENU from './pages/import.js';
-import * as store from './store/import.js';
-
-const APP = {
-    root: document.getElementById('root'),
-    modal: document.getElementById('modal')
-};
-
-const setModalPosition = (page) => {
-    if (page.position) {
-        APP.modal.classList.add(page.position);
-    }
-}
-
-/**
- * @function Рендерит страницу по входящему section. Если section нет, рендер не производится.
- * @param {string} section - метаинформация, прописанная в атрибуте data-section тега.
- *      Атрибут data-section имеется только у pages(main, login, register).
- */
-const renderPage = (section) => {
-    if (!section) {
-        return;
-    }
-
-    events.removeListeners(APP, store);
-
-    const page = MENU[section];
-
-    if (page.isModal) {
-        APP.modal.classList.add('shown');
-        setModalPosition(page);
-    } else {
-        APP.modal.classList.remove(...APP.modal.classList);
-        APP.modal.innerHTML = '';
-    }
-
-    page.render(APP, store);
-
-    events.addListeners(APP, store);
-};
+import { APP, render, renderAndUpdateURN } from './render/render.js';
+import * as store from './store/import';
 
 Object
     .entries(APP)
-    .forEach(([name, node]) => node.addEventListener('click', (e) => renderPage(e.target.dataset.section)));
+    .forEach(([name, node]) => {
+        node.addEventListener('click', (e) => renderAndUpdateURN(e.target.section.dataset.section))
+    });
 
-document.addEventListener('render-page', (e) => renderPage(e.detail.section));
+window.onpopstate = () => render(location.pathname);
 
-renderPage('ordering', store);
+store.actions.getUser().then(() => render(location.pathname));

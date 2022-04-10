@@ -8,7 +8,7 @@ import {
     doublePasswordFieldEvents
 } from './password/password-events.js';
 
-const ENTITY = {
+const Event = {
     getFrameEvents,
     getButtonEvents,
     getNameFieldEvents,
@@ -18,4 +18,4 @@ const ENTITY = {
     doublePasswordFieldEvents,
 };
 
-export default ENTITY;
+export default Event;

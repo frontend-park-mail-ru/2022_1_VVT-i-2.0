@@ -1,3 +1,5 @@
+import { render } from '../../render/render';
+
 const STORE = {
   // State
   user: {},
@@ -19,11 +21,24 @@ const STORE = {
     this.products = products;
   },
   addProductToCart(product) {
-    this.cart.push(product);
+    const cart = this.cart;
+    cart.push(product);
+    this.cart = cart;
   },
   clearCart() {
     this.cart = [];
   }
 };
 
-export default STORE;
+const PROXY_STORE = new Proxy(STORE, {
+  set(target, prop, value) {
+    target[prop] = value;
+
+    const page = sessionStorage.getItem('page');
+    render(page);
+
+    return true;
+  }
+});
+
+export default PROXY_STORE;

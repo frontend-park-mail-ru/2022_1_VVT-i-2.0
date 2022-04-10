@@ -8,3 +8,7 @@ export const getRestaurants = () => {
 export const getProducts = () => {
   return API.getProducts().then((result) => STORE.addProducts(result.json()));
 }
+
+export const getUser = () => {
+  return API.getUser().then((result) => STORE.addUser(result.json()));
+}

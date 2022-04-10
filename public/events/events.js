@@ -1,25 +1,25 @@
 // import * as api from '../api/api.js';
-import ENTITY from './entity/import.js';
+import Event from './entity/import.js';
 import * as FORM from './common/status-form.js';
 // import * as events from "events";
 
 const EVENTS = {
-    closeImg: ENTITY.getFrameEvents(),
+    closeImg: Event.getFrameEvents(),
 
     loginPhone: Event.getPhoneFieldEvents('loginPhone', FORM.statusLoginForm),
     loginPassword: Event.singlePasswordFieldEvents('loginPassword', FORM.statusLoginForm),
     loginButton: Event.getButtonEvents().loginButton,
     logoutButton: Event.getButtonEvents().logoutButton,
 
-    registerPhone: ENTITY.getPhoneFieldEvents('registerPhone', FORM.statusRegisterForm),
-    registerName: ENTITY.getNameFieldEvents('registerName', FORM.statusRegisterForm),
-    registerPassword: ENTITY.doublePasswordFieldEvents(),
-    registerRepeatPassword: ENTITY.doublePasswordFieldEvents(),
-    registerButton: ENTITY.getButtonEvents().registerButton,
+    registerPhone: Event.getPhoneFieldEvents('registerPhone', FORM.statusRegisterForm),
+    registerName: Event.getNameFieldEvents('registerName', FORM.statusRegisterForm),
+    registerPassword: Event.doublePasswordFieldEvents(),
+    registerRepeatPassword: Event.doublePasswordFieldEvents(),
+    registerButton: Event.getButtonEvents().registerButton,
 
-    profileName: ENTITY.getNameFieldEvents('profileName', FORM.statusPersonInfoForm),
-    profilePhone: ENTITY.getPhoneFieldEvents('profilePhone', FORM.statusPersonInfoForm),
-    profileEmail: ENTITY.getEmailFieldEvents('profileEmail', FORM.statusPersonInfoForm),
+    profileName: Event.getNameFieldEvents('profileName', FORM.statusPersonInfoForm),
+    profilePhone: Event.getPhoneFieldEvents('profilePhone', FORM.statusPersonInfoForm),
+    profileEmail: Event.getEmailFieldEvents('profileEmail', FORM.statusPersonInfoForm),
     // profile: [
     //     {
     //         type: 'click',

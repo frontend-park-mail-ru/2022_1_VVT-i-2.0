@@ -12,7 +12,6 @@
 
 .register-form__close-img:hover {
     cursor: pointer;
-    /* inverted #212121 */
     filter: invert(100%) sepia(0%) saturate(1569%) hue-rotate(174deg) brightness(106%) contrast(74%);
 }
 

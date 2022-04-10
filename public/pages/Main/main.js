@@ -2,23 +2,18 @@ import components from '../../components/import.js';
 import * as events from '../../events/events.js';
 import UIKIT from '../../ui-kit/import.js';
 
-
 const mainPage = (app, store) => {
-    // api
-    //     .getRestaurants()
-    //     .then((res) => res.json())
-    //     .then((res) => {
-    // events.removeListeners(app, store);
+    if (store.getters.restaurants === []) {
+        store.actions.getRestaurants();
+        return;
+    }
 
     app.root.innerHTML = components.header(true, 'TRASH/avatar.jpg');
 
     const main = document.createElement('main');
-    main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons({});
+    main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons(store.getters.restaurants);
 
     app.root.appendChild(main);
-
-    // events.addListeners(app);
-    // });
 };
 
 export default mainPage;

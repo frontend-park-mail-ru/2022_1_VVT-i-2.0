@@ -1,5 +1,6 @@
 import * as FORM from '../../common/status-form.js';
-import {hideEmptyInputs, showEmptyInputs} from "../../common/status-form.js";
+import { hideEmptyInputs, showEmptyInputs } from '../../common/status-form.js';
+import { render } from '../../../render/render.js';
 
 export const getButtonEvents = () => {
     return {
@@ -34,8 +35,7 @@ export const getButtonEvents = () => {
                     //             return;
                     //         }
                     //
-                            const event = new CustomEvent('render-page', { detail: { section: 'main' } });
-                            document.dispatchEvent(event);
+                    render('/');
                     //     });
                 }
             }
@@ -57,8 +57,7 @@ export const getButtonEvents = () => {
                     //             return;
                     //         }
 
-                    const event = new CustomEvent('render-page', { detail: { section: 'main' } });
-                    document.dispatchEvent(event);
+                    render('/');
                     // });
                 }
             }
@@ -96,8 +95,7 @@ export const getButtonEvents = () => {
                     //             return;
                     //         }
 
-                            const event = new CustomEvent('render-page', { detail: { section: 'main' } });
-                            document.dispatchEvent(event);
+                    render('/');
                         // });
                 }
             }
@@ -130,8 +128,7 @@ export const getButtonEvents = () => {
                     //             return;
                     //         }
 
-                    // const event = new CustomEvent('render-page', { detail: { section: 'main' } });
-                    // document.dispatchEvent(event);
+                    // render('/');
                     // });
                 }
             }

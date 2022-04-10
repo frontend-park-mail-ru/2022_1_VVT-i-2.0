@@ -7,6 +7,7 @@ import productsPage from './Products/products.js';
 import shoppingCartPage from './ShoppingCart/shopping-cart.js';
 import orderingPage from './Ordering/ordering.js';
 import suggestsPage from './Suggests/suggests.js';
+import networkErrors from './NetworkErrors/network-errors.js';
 
 const MENU = {
     main: {
@@ -49,7 +50,11 @@ const MENU = {
         render: suggestsPage,
         isModal: true,
         position: 'modal-top'
-    }
+    },
+    networkErrors: {
+        render: networkErrors,
+        isModal: false
+    },
 };
 
 export default MENU;
