@@ -6,29 +6,29 @@ const ordering = (props) => {
   const inputConfigurations = FORMS_CONFIGURATION.inputs.ordering;
 
   const template = `
-    <div id="ordering">
+    <div class="ordering-page">
       {{&title}}
 
-      <div id="ordering-and-nav-block">
-        <div>
-          <div id="header">Доставка</div>
+      <div class="ordering-page__ordering-and-shop-cart-block">
+        <div class="ordering-page__ordering-block">
+          <div class="ordering-block__delivery-header">Доставка</div>
           {{#inputConfigurations}}
             {{&input}}
           {{/inputConfigurations}}
 
-          <div id="comment">Комментарий</div>
+          <div class="ordering-block__comment-header">Комментарий</div>
           <div
-            id="comment-block"
+            class="ordering-block__comment-block"
             contenteditable="true"
             placeholder="Напишите как Вас найти или пожелания для блюд..."
           ></div>
 
-          <div id="order-header">Оплата</div>
+          <div class="ordering-block__order-header">Оплата</div>
           {{&paymentChoices}}
           {{&buttonPay}}
         </div>
-        <div>
-          <div id="ordering-rest" class="order-point">
+        <div class="ordering-page__shop-cart-block">
+          <div class="shopping-cart__rest shopping-cart__order-point">
             <div>
               Ваш заказ в ресторане:
               <div>{{restName}}</div>
@@ -39,20 +39,20 @@ const ordering = (props) => {
             {{&drawOrderPoint}}
           {{/orderPoints}}
 
-          <div class="notify">
+          <div class="shop-cart-block__payment-info">
             <div>Доставка</div>
-            <div>500 ₽</div>
+            <div class="payment__price">500 ₽</div>
           </div>
-          <div class="notify">
+          <div class="shop-cart-block__payment-info">
             <div>Сервисный сбор</div>
-            <div>500 ₽</div>
+            <div class="payment__price">500 ₽</div>
           </div>
 
-          <div id="order-payment-notify">{{&paymentNotification}}</div>
+          <div class="shop-cart-block__payment-notify">{{&paymentNotification}}</div>
 
-          <div id="order-result">
+          <div class="shop-cart-block__summary-payment">
             <div>Итого</div>
-            <div>980 ₽</div>
+            <div class="payment__price">980 ₽</div>
           </div>
         </div>
       </div>

@@ -47,4 +47,4 @@ Object
 
 document.addEventListener('render-page', (e) => renderPage(e.detail.section));
 
-renderPage('main', store);
+renderPage('ordering', store);
