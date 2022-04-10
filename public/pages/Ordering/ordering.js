@@ -27,7 +27,7 @@ const ordering = (app, store) => {
     },
   ];
 
-  app.root.innerHTML = components.header(false);
+  app.root.innerHTML = components.header(false, 'TRASH/avatar.jpg');
 
   const main = document.createElement('main');
   main.innerHTML = components.ordering({ restName, orderPoints });

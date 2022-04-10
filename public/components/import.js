@@ -9,6 +9,7 @@ import paymentChoice from './PaymentChoice/payment-choice.js';
 import shoppingCart from './ShoppingCart/shopping-cart.js';
 import ordering from './Ordering/ordering.js';
 import suggestsForm from './suggestsForm/suggests-form.js';
+import NetworkErrorForm from './NetworkErrorForm/network-error-form.js';
 
 export default {
     header,
@@ -21,5 +22,6 @@ export default {
     paymentChoice,
     shoppingCart,
     ordering,
-    suggestsForm
+    suggestsForm,
+    NetworkErrorForm,
 };
