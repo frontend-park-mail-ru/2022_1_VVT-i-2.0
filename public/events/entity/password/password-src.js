@@ -1,11 +1,11 @@
 import * as FORM from '../../common/status-form.js';
 import * as CONFIG from '../../common/config.js';
 
-function IsPasswordNotEqual(val1, val2) {
+const IsPasswordNotEqual = (val1, val2) => {
     return val1 !== '' && val2 !== '' && val1 !== val2;
 }
 
-function checkPasswordFormat(statusForm, elemID, passwordField) {
+const checkPasswordFormat = (statusForm, elemID, passwordField) => {
     if (passwordField.value === '') {
         FORM.setFormStatus(statusForm, elemID, false);
         return false;
@@ -22,7 +22,7 @@ function checkPasswordFormat(statusForm, elemID, passwordField) {
     return true;
 }
 
-function setSuccessStatus(statusRegisterForm, firstInput, secondInput) {
+const setSuccessStatus = (statusRegisterForm, firstInput, secondInput) => {
     FORM.setFormStatus(statusRegisterForm, 'registerPassword', true);
     FORM.setFormStatus(statusRegisterForm, 'registerRepeatPassword', true);
 
@@ -35,7 +35,7 @@ function setSuccessStatus(statusRegisterForm, firstInput, secondInput) {
  * @param {Event} e - Событие.
  * @param {Object} statusRegisterForm - Статусы полей формы.
  */
-export function passwordController(e, statusRegisterForm) {
+export const passwordController = (e, statusRegisterForm) => {
     const firstInput = FORM.getElemParameters('registerPassword');
     const secondInput = FORM.getElemParameters('registerRepeatPassword');
 

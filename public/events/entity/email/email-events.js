@@ -1,7 +1,7 @@
 import * as FORM from '../../common/status-form.js';
 import * as CONFIG from '../../common/config.js';
 
-export function getEmailFieldEvents (elemID, statusForm) {
+export const getEmailFieldEvents = (elemID, statusForm) => {
     return [
         {
             type: 'change',
@@ -10,7 +10,7 @@ export function getEmailFieldEvents (elemID, statusForm) {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener(app, e) {
+            listener(app, store, e) {
                 FORM.inputDataManager(
                     e, elemID, statusForm,
                     CONFIG.Regex.email, CONFIG.ErrorMsg.errorEmail);

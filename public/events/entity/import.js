@@ -8,7 +8,7 @@ import {
     doublePasswordFieldEvents
 } from './password/password-events.js';
 
-export const Event = {
+const Event = {
     getFrameEvents,
     getButtonEvents,
     getNameFieldEvents,
@@ -17,3 +17,5 @@ export const Event = {
     singlePasswordFieldEvents,
     doublePasswordFieldEvents,
 };
+
+export default Event;

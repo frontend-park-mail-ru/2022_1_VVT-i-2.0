@@ -3,6 +3,10 @@
 @import 'ui-kit/import.css';
 @import 'components/import.css';
 
+#loader.hidden {
+    display: none;
+}
+
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -26,17 +30,7 @@ main {
     background-color: rgba(33, 33, 33, 0.7);
 }
 
-/*#modal > * {*/
-/*    margin: auto;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    padding: 30px;*/
-/*    border: none;*/
-/*    border-radius: 14px;*/
-/*    background: #ffffff;*/
-/*}*/
-
-div#modal.modal-center > * {
+#modal.modal-center > * {
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -46,22 +40,18 @@ div#modal.modal-center > * {
     background: #ffffff;
 }
 
-div#modal.modal-right > * {
+#modal.modal-right > * {
     display: flex;
     border: none;
-    /*height: 1024px;*/
     height: 90vh;
     flex-direction: column;
     position: absolute;
     top: 0;
     right: 0;
-    /*margin-right: 0;*/
-    /*margin-left: auto;*/
-    /*margin-top: 68px;*/
     background: #ffffff;
 }
 
-div#modal.modal-top > * {
+#modal.modal-top > * {
     margin: auto;
     margin-top: 0px;
     display: flex;

@@ -3,7 +3,7 @@
  * @param {Object} ctrl - Объект, хранящий статусы инпутов страницы.
  * @return {int} - Позиция курсора в строке.
  */
-export function getCursorPosition(ctrl) {
+export const getCursorPosition = (ctrl) => {
     let CaretPos = 0;
     if (document.selection) {
         ctrl.focus();
@@ -21,7 +21,7 @@ export function getCursorPosition(ctrl) {
  * @param {Event} e - Событие.
  * @param {Object} position - Требуемая позиция курсора в поле input.
  */
-export function setCursorPosition(e, position) {
+export const setCursorPosition = (e, position) => {
     e.target.focus();
     e.target.setSelectionRange(e.target.value.length, position);
 }

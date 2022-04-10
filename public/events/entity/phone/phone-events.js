@@ -3,7 +3,7 @@ import * as CURSOR from '../../common/cursor.js';
 import * as CONFIG from '../../common/config.js';
 import * as FORM from '../../common/status-form.js';
 
-export function getPhoneFieldEvents (elemID, statusForm) {
+export const getPhoneFieldEvents = (elemID, statusForm) => {
     return [
         {
             type: 'mouseup',
@@ -13,7 +13,7 @@ export function getPhoneFieldEvents (elemID, statusForm) {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener (app, e) {
+            listener (app, store, e) {
                 if (e.target.value === '') {
                     e.target.value = VALIDATION.NumberPhoneFormat.phoneBeginString;
                     CURSOR.setCursorPosition(e, e.target.value.length);
@@ -32,7 +32,7 @@ export function getPhoneFieldEvents (elemID, statusForm) {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener (app, e) {
+            listener (app, store, e) {
                 if (CONFIG.Keypad.deleteSymbols.includes(e.keyCode)) {
                     let currPos = CURSOR.getCursorPosition(e.target);
                     if (VALIDATION.numberServiceSymbols.includes(e.target.value[currPos - 1])) {
@@ -50,7 +50,7 @@ export function getPhoneFieldEvents (elemID, statusForm) {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener (app, e) {
+            listener (app, store, e) {
                 VALIDATION.numberAutocomplete(e);
             }
         },
@@ -63,7 +63,7 @@ export function getPhoneFieldEvents (elemID, statusForm) {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener (app, e) {
+            listener (app, store, e) {
                 FORM.inputDataManager(
                     e, elemID, statusForm,
                     CONFIG.Regex.phoneNumber, CONFIG.ErrorMsg.errorPhoneNumber

@@ -1,4 +1,4 @@
-export function getFrameEvents () {
+export const getFrameEvents = () => {
     return [
         {
             type: 'click',
@@ -8,10 +8,12 @@ export function getFrameEvents () {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener (app, e) {
+            listener(app, store, e) {
                 app.modal.classList.remove('shown');
                 app.modal.innerHTML = '';
                 app.root.lastChild.classList.remove('input-block__error_hidden');
+
+                console.log(store.getters.user());
             }
         }
     ];

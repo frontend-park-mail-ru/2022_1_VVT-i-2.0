@@ -1,9 +1,9 @@
-import Store from '../store/store.js';
+import STORE from '../store/store.js';
 
-export const user = () => Store.user;
+export const user = () => STORE.user;
 
-export const restaurants = () => Store.restaurants;
+export const restaurants = () => STORE.restaurants;
 
-export const products = () => Store.products;
+export const products = () => STORE.products;
 
-export const cart = () => Store.cart;
+export const cart = () => STORE.cart;

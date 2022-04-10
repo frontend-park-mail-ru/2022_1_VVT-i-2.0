@@ -1,4 +1,6 @@
-const METHODS = {GET: 'GET', POST: 'POST', PUT: 'PUT', DELETE: 'DELETE'};
+import { renderAndUpdateURN } from '../render/render';
+
+const METHODS = { GET: 'GET', POST: 'POST', PUT: 'PUT', DELETE: 'DELETE' };
 
 const BASE_URI = 'http://localhost:8080';
 
@@ -24,7 +26,14 @@ const request = (url, options = DEFAULT_OPTIONS) => {
     }
     return fetch(BASE_URI + '/api/v1' + url, options)
         .catch(() => {
-            alert('Ошибка сети!');
+            sessionStorage.setItem('error', '500');
+            renderAndUpdateURN('/networkErrors')
+        })
+        .then((res) => {
+            if (res.status === 500) {
+                sessionStorage.setItem('error', '500');
+                renderAndUpdateURN('/networkErrors');
+            }
         });
 }
 
@@ -38,6 +47,10 @@ export const getRestaurants = () => {
 
 export const getProducts = () => {
     return request('/products');
+}
+
+export const getUser = () => {
+    return request('/user');
 }
 
 /**

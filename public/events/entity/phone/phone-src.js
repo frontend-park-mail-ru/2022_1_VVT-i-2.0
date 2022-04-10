@@ -32,7 +32,7 @@ export const NumberPhoneFormat = {
  *      производится удаление их из поля ввода.
  * @param {Event} e - Событие.
  */
-export function numberAutocomplete(e) {
+export const numberAutocomplete = (e) => {
     const val = e.target.value[e.target.value.length - 1];
     const currPos = CURSOR.getCursorPosition(e.target);
 

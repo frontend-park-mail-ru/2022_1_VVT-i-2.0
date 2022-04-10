@@ -2,7 +2,7 @@ import * as VALIDATION from './name-src.js';
 import * as FORM from '../../common/status-form.js';
 import * as CONFIG from '../../common/config.js';
 
-export function getNameFieldEvents (elemID, statusForm) {
+export const getNameFieldEvents = (elemID, statusForm) => {
     return [
         {
             type: 'input',
@@ -11,7 +11,7 @@ export function getNameFieldEvents (elemID, statusForm) {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener(app, e) {
+            listener(app, store, e) {
                 VALIDATION.nameAutocomplete(e);
             }
         },
@@ -22,7 +22,7 @@ export function getNameFieldEvents (elemID, statusForm) {
              * @param {Object} app - Объект приложения.
              * @param {Event} e - Событие.
              */
-            listener(app, e) {
+            listener(app, store, e) {
                 FORM.inputDataManager(
                     e, elemID, statusForm,
                     CONFIG.Regex.name, CONFIG.ErrorMsg.errorName);
