@@ -1,6 +1,7 @@
 import mainPage from './Main/main.js';
 import loginPage from './Login/login.js';
 import registerPage from './Register/register.js';
+import confirmCodePage from './ConfirmCode/confirm-code.js';
 import profilePreviewPage from './ProfilePreview/profile-preview.js';
 import profilePage from './Profile/profile.js';
 import productsPage from './Products/products.js';
@@ -21,6 +22,11 @@ const MENU = {
     },
     register: {
         render: registerPage,
+        isModal: true,
+        position: 'modal-center',
+    },
+    confirmCode: {
+        render: confirmCodePage,
         isModal: true,
         position: 'modal-center',
     },

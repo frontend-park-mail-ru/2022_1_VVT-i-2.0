@@ -1,8 +1,8 @@
-.login-form {
+.confirm-code-form {
     position: relative;
 }
 
-.login-form__close-img {
+.confirm-code-form__close-img {
     position: absolute;
     height: 30px;
     width: 30px;
@@ -10,25 +10,25 @@
     right: 15px;
 }
 
-.login-form__close-img:hover {
+.confirm-code-form__close-img:hover {
     cursor: pointer;
     filter: invert(100%) sepia(0%) saturate(1569%) hue-rotate(174deg) brightness(106%) contrast(74%);
 }
 
-.login-form__title {
+.confirm-code-form__title {
     margin-top: 0;
     margin-bottom: 35px;
 }
 
-.login-form__indication {
+.confirm-code-form__indication {
     margin-bottom: 40px;
 }
 
-.login-form__input{
+.confirm-form__input {
     margin-bottom: 44px;
 }
 
-.login-form__button-login {
+.confirm-code-form__button-confirm-code {
     margin-top: 3px;
     margin-bottom: 19px;
 }

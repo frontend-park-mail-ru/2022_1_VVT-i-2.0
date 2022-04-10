@@ -1,6 +1,7 @@
 import header from './Header/header.js';
 import loginForm from './LoginForm/login-form.js';
 import registerForm from './RegisterForm/register-form.js';
+import confirmCodeForm from './ConfirmCodeForm/confirm-code-form.js';
 import restIcons from './RestIcons/rest-icons.js';
 import profilePreviewForm from './ProfilePreviewForm/profile-preview-form.js';
 import personInfoForm from './PersonInfoForm/person-info-form.js';
@@ -15,6 +16,7 @@ export default {
     header,
     loginForm,
     registerForm,
+    confirmCodeForm,
     restIcons,
     profilePreviewForm,
     personInfoForm,
