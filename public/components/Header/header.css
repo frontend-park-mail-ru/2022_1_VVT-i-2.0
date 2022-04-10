@@ -1,4 +1,4 @@
-header {
+.page-header {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,7 +11,7 @@ header {
     z-index: 1;
 }
 
-header > div {
+.page-header__button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,22 +22,16 @@ header > div {
     min-width: 159px;
 }
 
-header > div:nth-child(n+1) {
+.page-header__button:nth-child(n+1) {
     margin-left: -1px;
 }
 
-header > div#button-shopping-cart {
-    min-width: 160px;
-}
-
-header > #search {
-    flex: 30 1 auto;
-    /*border-left: 1px solid #b9b9b9;*/
-    /*border-right: 1px solid #b9b9b9;*/
-}
-
-header > div > a {
+.button__controller {
     margin-left: 10px;
+}
+
+.page-header__button-search {
+    flex: 30 1 auto;
 }
 
 .page-header__avatar {
@@ -45,4 +39,8 @@ header > div > a {
     height: 30px;
     border: 1px solid #BEB6AE;
     border-radius: 15px;
+}
+
+.page-header__button-cart {
+    min-width: 160px;
 }
