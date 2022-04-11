@@ -25,7 +25,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    'style-loader',
+                    // 'style-loader',
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
@@ -38,7 +38,9 @@ module.exports = {
                         loader: 'postcss-loader',
                         options: {
                             sourceMap: true,
-                            postcssOptions: { path: 'postcss.config.js'}
+                            postcssOptions: {
+                                config: "postcss.config.js",
+                            }
                         }
                     }
                 ]
