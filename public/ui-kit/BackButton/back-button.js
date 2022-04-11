@@ -7,7 +7,7 @@
 const backButton = (title, href) => {
   const template = `
     <a class="back-button" data-section="{{href}}">
-      <img class="back-button__img" src="graphics/icons/back_button.svg" data-section="{{href}}">
+      <img class="back-button__img" src="/graphics/icons/back_button.svg" data-section="{{href}}">
       <span data-section="{{href}}">{{title}}</span>
     </a>
   `;

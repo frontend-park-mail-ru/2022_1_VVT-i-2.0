@@ -26,9 +26,9 @@ export const render = (urn) => {
   }
 
   let path = urn;
-
   const lastIndexOfPath = urn.lastIndexOf('/');
-  if (lastIndexOfPath !== -1 && lastIndexOfPath !== 0) {
+
+  if (lastIndexOfPath > 0) {
     const params = urn.substr(lastIndexOfPath + 1, urn.length - lastIndexOfPath);
     sessionStorage.setItem('params', params);
 
@@ -38,10 +38,7 @@ export const render = (urn) => {
   let section = path.replace('/', '');
   section = section === '' ? 'main' : section;
 
-  events.removeListeners(APP, store);
-
   let page = MENU[section];
-
   if (!page) {
     sessionStorage.setItem('error', '404');
     page = MENU.networkErrors;
@@ -51,23 +48,19 @@ export const render = (urn) => {
     renderAndUpdateURN('/');
     return;
   }
-
   if (AUTH_PAGES.includes(section) && Object.keys(store.getters.user()).length !== 0) {
     renderAndUpdateURN('/');
     return;
   }
 
+  events.removeListeners(APP, store);
+
   if (page.isModal) {
-    let root = sessionStorage.getItem('root');
-    if (!root) {
-      root = 'main';
-    }
+    const root = sessionStorage.getItem('root') || 'main';
     MENU[root].render(APP, store);
 
     APP.modal.classList.add('shown');
     setModalPosition(page);
-
-    sessionStorage.removeItem('root');
   } else {
     APP.modal.classList.remove(...APP.modal.classList);
     APP.modal.innerHTML = '';
@@ -88,6 +81,10 @@ export const renderAndUpdateURN = (urn) => {
   }
 
   render(urn);
+
+  if (!urn.startsWith('/')) {
+    urn = `/${urn}`;
+  }
 
   history.pushState({}, null, urn);
 };

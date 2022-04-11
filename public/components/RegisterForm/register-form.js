@@ -12,7 +12,7 @@ const registerForm = () => {
 
     const template = `
         <form id="register-form" class="register-form">
-            <img id="closeImg" class="register-form__close-img" src="graphics/icons/close.svg">
+            <img id="closeImg" class="register-form__close-img" src="/graphics/icons/close.svg">
             <h2 class="register-form__title">Создать аккаунт</h2>
             {{#inputConfigurations}}
                 <div class="register-form__input">

@@ -11,7 +11,7 @@ const STORE = {
   addUser(user) {
     this.user = user;
   },
-  deleteUser() {
+  removeUser() {
     this.user = {};
   },
   addRestaurants(restaurants) {

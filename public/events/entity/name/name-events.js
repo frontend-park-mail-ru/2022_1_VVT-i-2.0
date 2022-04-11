@@ -6,6 +6,7 @@ export const getNameFieldEvents = (elemID, statusForm) => {
     return [
         {
             type: 'input',
+            selector: 'id',
             /**
              * @function При каждом введении символа осуществляет форматирование введенного имени.
              * @param {Object} app - Объект приложения.
@@ -17,6 +18,7 @@ export const getNameFieldEvents = (elemID, statusForm) => {
         },
         {
             type: 'change',
+            selector: 'id',
             /**
              * @function Осуществляет проверку имени пользователя на валидность.
              * @param {Object} app - Объект приложения.

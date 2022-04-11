@@ -5,6 +5,7 @@ export const getEmailFieldEvents = (elemID, statusForm) => {
     return [
         {
             type: 'change',
+            selector: 'id',
             /**
              * @function Осуществляет проверку имени пользователя на валидность.
              * @param {Object} app - Объект приложения.
