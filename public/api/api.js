@@ -29,11 +29,21 @@ const request = (url, options = DEFAULT_OPTIONS) => {
             sessionStorage.setItem('error', '500');
             renderAndUpdateURN('/networkErrors')
         })
-        .then((res) => {
-            if (res.status === 500) {
+        .then((result) => {
+            if (result.status === 500) {
                 sessionStorage.setItem('error', '500');
                 renderAndUpdateURN('/networkErrors');
+                return Promise.reject();
             }
+
+            const data = result.json();
+
+            if (result.status !== 200) {
+                alert(data.error);
+                return Promise.reject();
+            }
+
+            return data;
         });
 }
 
@@ -51,6 +61,14 @@ export const getProducts = (restName) => {
 
 export const getUser = () => {
     return request('/user');
+}
+
+export const updateUser = (user) => {
+    return request('/update', { method: METHODS.POST, body: { phone } });
+}
+
+export const sendCode = (phone) => {
+    return request('/send_code', { method: METHODS.POST, body: { phone } });
 }
 
 /**
@@ -74,5 +92,5 @@ export const login = (user) => {
  * @return {Promise} - возвращает Promise на отправку запроса.
  */
 export const logout = () => {
-    return request('/auth/logout', {method: METHODS.POST});
+    return request('/auth/logout', {method: METHODS.GET});
 }

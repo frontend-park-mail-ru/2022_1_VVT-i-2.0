@@ -20,7 +20,7 @@ const productMetaInformation = (productName, info, description, price) => {
       </div>
       <div class="prod-icon__price-bar">
         <div>{{price}} ₽</div>
-        <button class="prod-icon__button-add-to-order">В корзину</button>
+        <button class="prod-icon__button-add-to-order addToCart">В корзину</button>
       </div>
     </div>
   `;

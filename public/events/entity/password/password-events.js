@@ -6,6 +6,7 @@ export const singlePasswordFieldEvents = (elemID, statusForm) => {
     return [
         {
             type: 'change',
+            selector: 'id',
             /**
              * @function Осуществляет проверку пароля на валидность в форме авторизации.
              *      А также производит запись статуса в statusForm данной страницы.
@@ -27,6 +28,7 @@ export const doublePasswordFieldEvents = () => {
     return [
         {
             type: 'change',
+            selector: 'id',
             /**
              * @function Осуществляет проверку паролей на валидность и идентичность в форме авторизации.
              *      А также производит запись статуса в statusForm данной страницы.

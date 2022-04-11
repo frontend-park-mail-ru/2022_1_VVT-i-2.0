@@ -1,12 +1,13 @@
 import * as FORM from '../../common/status-form.js';
 import { hideEmptyInputs, showEmptyInputs } from '../../common/status-form.js';
-import { render } from '../../../render/render.js';
+import { render, renderAndUpdateURN } from '../../../render/render.js';
 
 export const getButtonEvents = () => {
     return {
         loginButton: [
             {
                 type: 'click',
+                selector: 'id',
                 /**
                  * @function Осуществляет проверку статуса формы авторизации (данные о статусах хранятся
                  *      в объекте statusLoginForm). Если все поля формы валидны,
@@ -22,49 +23,60 @@ export const getButtonEvents = () => {
                     }
 
                     const phone = document.getElementById('loginPhone').children[0].value;
-                    const password = document.getElementById('loginPassword').children[0].value;
 
-                    // api
-                    //     .login({
-                    //         phone,
-                    //         password
-                    //     })
-                    //     .then((res) => {
-                    //         if (res.status !== 200) {
-                    //             alert('Данные не валидны');
-                    //             return;
-                    //         }
-                    //
-                    render('/');
-                    //     });
+                    store.actions.sendCode(phone).then((result) => renderAndUpdateURN('/confirmCode'));
+
+                    sessionStorage.setItem('phone', phone);
+
+                    sessionStorage.setItem('logicType', 'login');
+                }
+            }
+        ],
+        confirmCodeButton: [
+            {
+                type: 'click',
+                selector: 'id',
+                listener(app, store, e) {
+                    const logicType = sessionStorage.getItem('logicType');
+                    sessionStorage.removeItem('logicType');
+
+                    const phone = sessionStorage.getItem('phone', phone);
+                    sessionStorage.removeItem('phone');
+
+                    const name = sessionStorage.getItem('name', name);
+                    sessionStorage.removeItem('name');
+
+                    const email = sessionStorage.getItem('email', email);
+                    sessionStorage.removeItem('email');
+
+                    const code = document.getElementById('confirmCode').children[0].value;
+
+                    if (logicType === 'login') {
+                        store.actions.login({ phone, code }).then(() => renderAndUpdateURN('/'));
+                    } else if (logicType === 'register') {
+                        store.actions.register({ phone, code, email, name }).then(() => renderAndUpdateURN('/'));
+                    }
                 }
             }
         ],
         logoutButton: [
             {
                 type: 'click',
+                selector: 'id',
                 /**
                  * @function Осуществляет отправку запроса на ввыход пользователя из учетной записи.
                  * @param {Object} app - Объект приложения.
                  * @param {Event} e - Событие.
                  */
                 listener(app, store, e) {
-                    // api
-                    //     .logout()
-                    //     .then((res) => {
-                    //         if (res.status !== 200) {
-                    //             alert('Ошибка!');
-                    //             return;
-                    //         }
-
-                    render('/');
-                    // });
+                    store.actions.logout().then(() => renderAndUpdateURN('/'));
                 }
             }
         ],
         registerButton: [
             {
                 type: 'click',
+                selector: 'id',
                 /**
                  * @function Осуществляет проверку статуса формы авторизации (данные о статусах хранятся
                  *      в объекте statusRegisterForm). Если все поля формы валидны,
@@ -81,28 +93,22 @@ export const getButtonEvents = () => {
 
                     const phone = document.getElementById('registerPhone').children[0].value;
                     const name = document.getElementById('registerName').children[0].value;
-                    const password = document.getElementById('registerPassword').children[0].value;
+                    const email = document.getElementById('registerEmail').children[0].value;
 
-                    // api
-                    //     .register({
-                    //         phone,
-                    //         name,
-                    //         password
-                    //     })
-                    //     .then((res) => {
-                    //         if (res.status !== 200) {
-                    //             alert('Данные не валидны');
-                    //             return;
-                    //         }
+                    store.actions.sendCode(phone).then((result) => renderAndUpdateURN('/confirmCode'));
 
-                    render('/');
-                        // });
+                    sessionStorage.setItem('phone', phone);
+                    sessionStorage.setItem('name', name);
+                    sessionStorage.setItem('email', email);
+
+                    sessionStorage.setItem('logicType', 'register');
                 }
             }
         ],
         personInfoSaveButton: [
             {
                 type: 'click',
+                selector: 'id',
                 listener(app, store, e) {
                     // TODO: ТАКЖЕ ПРОВЕРИТЬ ЕСЛИ ИНПУТЫ ПУСТЫЕ ТО ЭТО НОРМ
 
@@ -113,23 +119,9 @@ export const getButtonEvents = () => {
                     }
 
                     const name = document.getElementById('profileName').children[0].value;
-                    const phone = document.getElementById('profilePhone').children[0].value;
                     const email = document.getElementById('profileEmail').children[0].value;
 
-                    // api
-                    //     .savePersonInfoSettings({
-                    //         name,
-                    //         phone,
-                    //         email
-                    //     })
-                    //     .then((res) => {
-                    //         if (res.status !== 200) {
-                    //             alert('Данные не валидны');
-                    //             return;
-                    //         }
-
-                    // render('/');
-                    // });
+                    store.actions.updateUser({ name, email });
                 }
             }
         ]

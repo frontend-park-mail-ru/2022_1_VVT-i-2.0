@@ -13,9 +13,9 @@ const confirmCodeForm = () => {
 
     const template = `
         <form id="confirm-code-form" class="confirm-code-form">
-            <img id="closeImg" class="confirm-code-form__close-img" src="graphics/icons/close.svg" alt="">
+            <img id="closeImg" class="confirm-code-form__close-img" src="/graphics/icons/close.svg" alt="">
             <h2 class="confirm-code-form__title">Подтвердите телефон</h2>
-            <div class="confirm-code-form__indication">Код отправлен на номер 
+            <div class="confirm-code-form__indication">Код отправлен на номер
                 <strong>+7(915)000-11-22</strong>
             </div>
             {{#inputConfigurations}}

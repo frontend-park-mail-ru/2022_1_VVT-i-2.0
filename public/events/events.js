@@ -29,6 +29,8 @@ const EVENTS = {
     //         }
     //     }
     // ]
+
+    addToCart: Event.productEvents(),
 };
 
 /**
@@ -38,13 +40,20 @@ const EVENTS = {
 export const addListeners = (app, store) => {
     Object.entries(EVENTS).forEach(([name, events]) => {
         const node = document.getElementById(name);
-        if (!node) {
-            return;
+        if (node) {
+            events
+                .filter(({ selector }) => selector === 'id')
+                .forEach(({ type, listener }) => node.addEventListener(type, (e) => listener(app, store, e)));
         }
-        events.forEach(({
-            type,
-            listener
-        }) => node.addEventListener(type, (e) => listener(app, store, e)));
+
+        const nodes = document.getElementsByClassName(name);
+        if (nodes) {
+            events
+                .filter(({ selector }) => selector === 'class')
+                .forEach(({ type, listener }) => {
+                    Array.from(nodes).forEach((node) => node.addEventListener(type, (e) => listener(app, store, e)));
+                });
+        }
     });
 };
 
@@ -55,12 +64,19 @@ export const addListeners = (app, store) => {
 export const removeListeners = (app, store) => {
     Object.entries(EVENTS).forEach(([name, events]) => {
         const node = document.getElementById(name);
-        if (!node) {
-            return;
+        if (node) {
+            events
+                .filter(({ selector }) => selector === 'id')
+                .forEach(({ type, listener }) => node.removeEventListener(type, (e) => listener(app, store, e)));
         }
-        events.forEach(({
-            type,
-            listener
-        }) => node.removeEventListener(type, (e) => listener(app, store, e)));
+
+        const nodes = document.getElementsByClassName(name);
+        if (nodes) {
+            events
+                .filter(({ selector }) => selector === 'class')
+                .forEach(({ type, listener }) => {
+                    Array.from(nodes).forEach((node) => node.removeEventListener(type, (e) => listener(app, store, e)));
+                });
+        }
     });
 };

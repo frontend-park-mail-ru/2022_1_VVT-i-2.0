@@ -7,6 +7,7 @@ import {
     singlePasswordFieldEvents,
     doublePasswordFieldEvents
 } from './password/password-events.js';
+import { productEvents } from './product/product-events.js';
 
 const Event = {
     getFrameEvents,
@@ -16,6 +17,7 @@ const Event = {
     getEmailFieldEvents,
     singlePasswordFieldEvents,
     doublePasswordFieldEvents,
+    productEvents
 };
 
 export default Event;

@@ -7,6 +7,7 @@ export const getPhoneFieldEvents = (elemID, statusForm) => {
     return [
         {
             type: 'mouseup',
+            selector: 'id',
             /**
              * @function Осуществляет при активации пустого поля ввода номера
              *      создание шаблона номера '+7(' и устанавливает курсор в конец строки.
@@ -26,6 +27,7 @@ export const getPhoneFieldEvents = (elemID, statusForm) => {
         },
         {
             type: 'keyup',
+            selector: 'id',
             /**
              * @function Проверяет: если код нажатой клавиши совпадает с кодом backspace или
              *      delete, то производит удаление символа перед курсором.
@@ -44,6 +46,7 @@ export const getPhoneFieldEvents = (elemID, statusForm) => {
         },
         {
             type: 'input',
+            selector: 'id',
             /**
              * @function При введении символа, осуществляет добавление служебных символов
              *      для соответствия требуемому шаблону.
@@ -56,6 +59,7 @@ export const getPhoneFieldEvents = (elemID, statusForm) => {
         },
         {
             type: 'change',
+            selector: 'id',
             /**
              * @function Осуществляет проверку телефона на валидность в форме авторизации.
              *      А также производит запись статуса в statusForm данной страницы. statusForm
