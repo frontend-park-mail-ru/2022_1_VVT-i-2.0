@@ -21,7 +21,7 @@ export const sendCode = (phone) => {
   return API.sendCode(phone);
 }
 
-export const register = () => {
+export const register = (user) => {
   return API.register(user).then((result) => STORE.addUser(result));
 }
 
