@@ -1,6 +1,25 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
+@mixin flex-center () {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin comment-static-sets () {
+  border: none;
+  font-weight: bold;
+  outline: none;
+  word-break: break-all;
+  overflow-y: auto;
+  clear:both;
+  resize: none;
+}
+
 .ordering-page {
   display: flex;
   flex-direction: column;
+
   height: 100%;
   margin-right: 22%;
 }
@@ -8,6 +27,7 @@
 .ordering-page__ordering-and-shop-cart-block {
   display: inline-flex;
   justify-content: space-between;
+
   margin-left: 70px;
 }
 
@@ -16,8 +36,8 @@
   box-sizing: border-box;
 
   border-radius: 10px;
-  background: #FFFFFF;
-  border: 1px solid #DEDEDE;
+  background: theme.getColor('white');
+  border: 1px solid theme.getColor('grey');
 }
 
 .uikit__input-block:nth-child(n+4) {
@@ -36,23 +56,18 @@
 }
 
 .ordering-block__comment-block {
+  @include flex-center ();
   height: 65px;
   width: 496px;
-  border: none;
+
+  @include comment-static-sets ();
+
   border-radius: 6px;
   background: rgba(222, 222, 222, 0.3);
-  resize: none;
-  color: #212121;
-  font-weight: bold;
+  color: theme.getColor('black');
+
   margin-bottom: 30px;
   padding: 10px;
-  outline: none;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  word-break: break-all;
-  overflow-y: auto;
-  clear:both;
 }
 
 .ordering-block__comment-block:empty:before {
@@ -84,10 +99,11 @@
 }
 
 .shopping-cart__rest:first-child {
+  width: 100%;
   text-align: center;
+
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
 }
 
 .shop-cart-block__payment-info {
@@ -107,6 +123,7 @@
 .shop-cart-block__summary-payment {
   display: flex;
   font-weight: bold;
-  margin-top: 30px;
+
   font-size: 20px;
+  margin-top: 30px;
 }
