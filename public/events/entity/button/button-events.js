@@ -45,7 +45,7 @@ export const getButtonEvents = () => {
                     const logicType = sessionStorage.getItem('logicType');
                     sessionStorage.removeItem('logicType');
 
-                    const phone = sessionStorage.getItem('phone', phone);
+                    let phone = sessionStorage.getItem('phone', phone);
                     sessionStorage.removeItem('phone');
 
                     phone = phone.replace('+', '');
@@ -95,13 +95,13 @@ export const getButtonEvents = () => {
                  * @param {Event} e - Событие.
                  */
                 listener(app, store, e) {
-                    if (!FORM.isAvailableForSend(FORM.statusRegisterForm)) {
-                        showEmptyInputs(FORM.statusRegisterForm, FORM.registerFormInputs);
-                        setTimeout(hideEmptyInputs, 400, FORM.statusRegisterForm, FORM.registerFormInputs);
-                        return;
-                    }
+                    // if (!FORM.isAvailableForSend(FORM.statusRegisterForm)) {
+                    //     showEmptyInputs(FORM.statusRegisterForm, FORM.registerFormInputs);
+                    //     setTimeout(hideEmptyInputs, 400, FORM.statusRegisterForm, FORM.registerFormInputs);
+                    //     return;
+                    // }
 
-                    const phone = document.getElementById('registerPhone').children[0].value;
+                    let phone = document.getElementById('registerPhone').children[0].value;
 
                     phone = phone.replace('+', '');
                     phone = phone.replace('(', '');

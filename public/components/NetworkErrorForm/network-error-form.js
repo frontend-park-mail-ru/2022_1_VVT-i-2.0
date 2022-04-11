@@ -16,7 +16,7 @@ const networkErrorForm = ({ header, text }) => {
 
                 <div class="view__graphic-content">
                     <div class="graphic-content__img">
-                        <img src="images/godzilla.png" alt="">
+                        <img src="/graphics/images/godzilla.png" alt="">
                     </div>
                 </div>
             </div>
