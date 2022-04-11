@@ -1,19 +1,17 @@
 import { ErrorMsg } from './config.js';
 
-export const loginFormInputs = ['loginPhone', 'loginPassword'];
-export const registerFormInputs = ['registerPhone', 'registerName', 'registerPassword', 'registerRepeatPassword'];
+export const loginFormInputs = ['loginPhone'];
+export const registerFormInputs = ['registerPhone', 'registerName', 'registerEmail'];
 export const personInfoInputs = ['profileName', 'profilePhone', 'profileEmail'];
 
 export const statusLoginForm = {
-    isValidPhone: false,
-    isValidPassword: false,
+    isValidPhone: false
 };
 
 export const statusRegisterForm = {
     isValidPhone: false,
     isValidName: false,
-    isValidPassword: false,
-    isValidRepeatPassword: false,
+    isValidEmail: false
 };
 
 export const statusPersonInfoForm = {

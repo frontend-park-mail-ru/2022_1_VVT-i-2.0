@@ -101,11 +101,11 @@ export const getButtonEvents = () => {
                  * @param {Event} e - Событие.
                  */
                 listener(app, store, e) {
-                    // if (!FORM.isAvailableForSend(FORM.statusRegisterForm)) {
-                    //     showEmptyInputs(FORM.statusRegisterForm, FORM.registerFormInputs);
-                    //     setTimeout(hideEmptyInputs, 400, FORM.statusRegisterForm, FORM.registerFormInputs);
-                    //     return;
-                    // }
+                    if (!FORM.isAvailableForSend(FORM.statusRegisterForm)) {
+                        showEmptyInputs(FORM.statusRegisterForm, FORM.registerFormInputs);
+                        setTimeout(hideEmptyInputs, 400, FORM.statusRegisterForm, FORM.registerFormInputs);
+                        return;
+                    }
 
                     let phone = document.getElementById('registerPhone').children[0].value;
 
