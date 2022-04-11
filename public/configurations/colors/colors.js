@@ -4,21 +4,21 @@ const lightTheme = {
     black: '#212121',
     grey: '#DEDEDE',
     lightGrey: '#F6F6F6',
-    greyBrown: '8F8A8A',
+    greyBrown: '#8F8A8A',
     white: '#FFFFFF',
     warm: '#BEB6AE',
 }
 
-function setThemeColors(theme) {
-    let AppColors = {};
+// function setThemeColors(theme) {
+//     let AppColors = {};
+//
+//     Object.entries(theme).forEach(([key, value]) => {
+//         AppColors.key = value;
+//     })
+//
+//     return AppColors;
+// }
 
-    Object.entries(theme).forEach(([key, value]) => {
-        AppColors.key = value;
-    })
-
-    return AppColors;
-}
-
-const COLORS = setThemeColors(lightTheme);
+const COLORS = lightTheme;
 
 export default COLORS;

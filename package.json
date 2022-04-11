@@ -7,7 +7,7 @@
   "scripts": {
     "start": "DEBUG=server node server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build": "webpack --watch",
     "webpack-start": "webpack-dev-server"
   },
   "browserslist": [
@@ -36,9 +36,12 @@
     "css-loader": "^6.7.1",
     "cssnano": "^5.1.7",
     "mini-css-extract-plugin": "^2.6.0",
+    "node-sass": "^7.0.1",
     "path": "^0.12.7",
     "postcss-loader": "^6.2.1",
+    "sass": "^1.50.0",
     "sass-lint": "^1.13.1",
+    "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",

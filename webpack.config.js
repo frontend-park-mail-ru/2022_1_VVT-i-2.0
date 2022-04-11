@@ -23,28 +23,58 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 use: [
                     // 'style-loader',
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
                         options: {
-                            importLoaders: 1,
+                            // importLoaders: 1,
                             sourceMap: true
                         }
                     },
                     {
-                        loader: 'postcss-loader',
+                        loader: "sass-loader",
                         options: {
-                            sourceMap: true,
-                            postcssOptions: {
-                                config: "postcss.config.js",
-                            }
+                            // importLoaders: 1,
+                            sourceMap: true
                         }
                     }
+                    // {
+                    //     loader: 'postcss-loader',
+                    //     options: {
+                    //         sourceMap: true,
+                    //         postcssOptions: {
+                    //             config: "postcss.config.js",
+                    //         }
+                    //     }
+                    // }
                 ]
             },
+            // {
+            //     test: /\.css$/,
+            //     use: [
+            //         // 'style-loader',
+            //         MiniCssExtractPlugin.loader,
+            //         {
+            //             loader: 'css-loader',
+            //             options: {
+            //                 importLoaders: 1,
+            //                 sourceMap: true
+            //             }
+            //         },
+            //         {
+            //             loader: 'postcss-loader',
+            //             options: {
+            //                 sourceMap: true,
+            //                 postcssOptions: {
+            //                     config: "postcss.config.js",
+            //                 }
+            //             }
+            //         }
+            //     ]
+            // },
         ]
     },
     plugins: [

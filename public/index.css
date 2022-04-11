@@ -3,10 +3,6 @@
 @import 'ui-kit/import.css';
 @import 'components/import.css';
 
-#loader.hidden {
-    display: none;
-}
-
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
