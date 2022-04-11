@@ -45,8 +45,8 @@ export const getRestaurants = () => {
     return request('/restaurants');
 }
 
-export const getProducts = () => {
-    return request('/products');
+export const getProducts = (restName) => {
+    return request(`/products/${restName}`);
 }
 
 export const getUser = () => {

@@ -3,11 +3,11 @@ import FORMS_CONFIGURATION from '../../configurations/forms.js';
 
 export const profileMenuPoints = FORMS_CONFIGURATION.menu.profilePoints;
 
-const profilePage = (app) => {
-    app.root.innerHTML = components.header(true, 'graphics/images/avatar.jpg');
+const profilePage = (app, store) => {
+    app.root.innerHTML = components.header(true, '/graphics/images/avatar.jpg');
 
     const main = document.createElement('main');
-    main.innerHTML = components.personInfoForm();
+    main.innerHTML = components.personInfoForm(store.getters.user());
 
     app.root.appendChild(main);
     // events.addListeners(app);

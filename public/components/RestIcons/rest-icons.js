@@ -10,7 +10,7 @@ const restIcons = (restaurants) => {
     const template = `
         <div class="restaurants-form">
             {{#restaurants}}
-                <div class="restaurants-form__rest_icon">
+                <div class="restaurants-form__rest_icon" data-section="{{href}}">
                     <img class="rest-icon__rest_img" src={{imgPath}} alt={{restName}}>
                     {{&metaInformation}}
                 </div>
@@ -19,6 +19,9 @@ const restIcons = (restaurants) => {
     `;
     return Mustache.render(template, {
         restaurants: restaurants,
+        href() {
+            return `/products/${this.slug}`;
+        },
         metaInformation() {
             return UIKIT.restMetaInformation(this.restName, this.timeToDeliver, this.price, this.rating);
         }
