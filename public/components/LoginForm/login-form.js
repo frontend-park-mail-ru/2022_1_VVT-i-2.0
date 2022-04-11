@@ -1,5 +1,5 @@
 import UIKIT from '../../ui-kit/import.js';
-import COLORS from '../../configurations/colors.js';
+import COLORS from '../../configurations/colors/colors.js';
 import FORMS_CONFIGURATION from '../../configurations/forms.js';
 
 /**

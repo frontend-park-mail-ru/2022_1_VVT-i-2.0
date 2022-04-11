@@ -1,5 +1,5 @@
 import ELEMS_CONFIGURATION from './elems.js';
-import COLORS from './colors.js';
+import COLORS from './colors/colors.js';
 
 const FORMS_CONFIGURATION = {
     inputs: {

@@ -1,0 +1,23 @@
+$lightTheme: (
+  primary: '#17D685',
+  warning: '#FF3985',
+  black: '#212121',
+  grey: '#DEDEDE',
+  white: '#FFFFFF',
+  warm: '#BEB6AE',
+);
+
+@function setThemeColors($theme) {
+  $appColors: (
+          primary: map-get($theme, primary),
+          warning: map-get($theme, warning),
+          black: map-get($theme, black),
+          grey: map-get($theme, grey),
+          white: map-get($theme, white),
+          warm: map-get($theme, warm),
+  );
+
+  @return $appColors;
+}
+
+$COLORS: setThemeColors($lightTheme);

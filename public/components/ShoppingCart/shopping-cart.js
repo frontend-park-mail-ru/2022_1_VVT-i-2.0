@@ -1,5 +1,5 @@
 import UIKIT from '../../ui-kit/import.js';
-import COLORS from '../../configurations/colors.js';
+import COLORS from '../../configurations/colors/colors.js';
 import ELEMS_CONFIGURATION from '../../configurations/elems.js';
 
 const shoppingCart = (restName, props) => {
