@@ -1,0 +1,34 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
+.shopping-cart {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    width: 322px;
+    height: 100%;
+
+    background: theme.getColor('white');
+    border: 1px solid theme.getColor('grey');
+    box-sizing: border-box;
+}
+
+//.shopping-cart__order-point:first-child div {
+//    width: 80%;
+//    max-width: 312px;
+//
+//    text-align: center;
+//    margin-left: auto;
+//    margin-right: auto;
+//}
+
+.shopping-cart__info-about-rest {
+    padding: 10px;
+}
+
+.shopping-cart__button-order {
+    position: absolute;
+    right: auto;
+    left: 10px;
+    bottom: 5px;
+}

@@ -1,3 +1,5 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
 .person-info-form {
     display: flex;
     flex-direction: column;
@@ -18,8 +20,8 @@
     box-sizing: border-box;
     border-radius: 10px;
 
-    background: #FFFFFF;
-    border: 1px solid #DEDEDE;
+    background: theme.getColor('white');
+    border: 1px solid theme.getColor('grey');
 }
 
 .settings-block__profile-header {
@@ -72,7 +74,7 @@
 .sets-nav-block__navigation-block {
     display: flex;
     flex-direction: column;
-    background: #FFFFFF;
+    background: theme.getColor('white');
     border-radius: 5px;
     /*margin-right: 10%;*/
 }

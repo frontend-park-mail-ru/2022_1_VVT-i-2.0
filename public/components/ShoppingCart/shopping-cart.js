@@ -4,7 +4,7 @@ import ELEMS_CONFIGURATION from '../../configurations/elems.js';
 
 const shoppingCart = (restName, props) => {
     const template = `
-        <div class="shopping-cart-form">
+        <div class="shopping-cart">
             <div class="shopping-cart__info-about-rest shopping-cart__order-point">
                 <div>Ваш заказ в ресторане: {{restName}}</div>
             </div>

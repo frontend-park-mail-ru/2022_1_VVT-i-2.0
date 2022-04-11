@@ -1,8 +1,8 @@
 .suggest-form {
   position: relative;
   width: 100%;
-  padding: 0 !important;
-  border-radius: 0 !important;
+  padding: 0 /*!important*/;
+  border-radius: 0 /*!important*/;
 }
 
 .suggest-form__suggest-row {
@@ -22,13 +22,13 @@
 
 .suggest-form__suggest-address {
   font-weight: bold;
-  background: #ffffff !important;
-  flex: 30 1 auto !important;
+  background: #ffffff /*!important*/;
+  flex: 30 1 auto /*!important*/;
   border-bottom: 1px solid #b9b9b9;
   border-left: 1px solid #b9b9b9;
   border-right: 1px solid #b9b9b9;
 }
 
 .suggest-form__suggest-address:hover {
-  background: #dedede !important;
+  background: #dedede /*!important*/;
 }

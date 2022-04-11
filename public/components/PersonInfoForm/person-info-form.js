@@ -7,7 +7,7 @@ const personInfoForm = () => {
     const inputConfigurations = FORMS_CONFIGURATION.inputs.personInfoForm;
 
     const template = `
-        <div id="person-info-form" class="person-info-form">
+        <section id="person-info-form" class="person-info-form">
             {{&backButton}}
 
             {{&title}}
@@ -48,7 +48,7 @@ const personInfoForm = () => {
             <div>
                 {{&switcherElement}}
             </div>
-        </div>
+        </section>
     `;
 
     return Mustache.render(template, {

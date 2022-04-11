@@ -6,11 +6,11 @@
 
 .payment-choice-block__payment-types-block {
     display: inline-block;
-}
 
-.payment-choice-block__payment-types-block:first-child {
-    font-weight: bold;
-    margin-bottom: 15px;
+    &:first-child {
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
 }
 
 .payment-types-block__payment-type {
@@ -19,12 +19,11 @@
     border-radius: 50px;
     background: theme.getColor('lightGrey');
     padding: 5px 10px;
-}
 
-.payment-types-block__payment-type:not(:first-child) {
-    margin-left: 10px;
-}
-
-.payment-types-block__payment-type:hover {
-    background: theme.getColor('grey');
+    &:not(:first-child) {
+        margin-left: 10px;
+    }
+    &:hover {
+        background: theme.getColor('grey');
+    }
 }
