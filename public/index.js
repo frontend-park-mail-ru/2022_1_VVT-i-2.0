@@ -1,5 +1,6 @@
 import { APP, render, renderAndUpdateURN } from './render/render.js';
 import * as store from './store/import';
+import './index.scss';
 
 Object
     .entries(APP)

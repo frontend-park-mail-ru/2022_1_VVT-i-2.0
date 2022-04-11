@@ -1,12 +1,14 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
 .shopping-cart__order-point {
-    margin: 5px auto;
     display: inline-flex;
     width: 292px;
 
-    background: #FFFFFF;
-    border: 1px solid #DEDEDE;
-
+    background: theme.getColor('white');
+    border: 1px solid theme.getColor('grey');
     border-radius: 10px;
+
+    margin: 5px auto;
     padding: 10px 5px 10px 15px;
 }
 
@@ -15,41 +17,42 @@
 }
 
 .order-point__dish-img {
-    height: 28px;
     width: 28px;
+    height: 28px;
     margin-top: 2px;
 }
 
-.order-point__main-block {
+.order-point__point-info {
     display: flex;
     flex-direction: column;
     width: 87%;
 }
 
-.order-point__dish-info {
+.point-info__dish-info {
     display: inline-flex;
 }
 
-.order-point__dish-info :nth-child(1) {
+.point-info__dish-info :nth-child(1) {
     width: 70%;
 }
 
-.order-point__dish-info :nth-child(2) {
+.point-info__dish-info :nth-child(2) {
     text-align: right;
     width: 30%;
 }
 
-.order-point__ingredients {
+.point-info__ingredients {
     display: inline-flex;
+    color: theme.getColor('grey');
+
     margin-top: 5px;
     margin-bottom: 15px;
-    color: #DEDEDE;
 }
 
-.order-point__edit-quantity {
+.point-info__edit-quantity {
     display: inline-flex;
 }
 
-.order-point__count-current-point {
+.point-info__count-current-point {
     margin: auto 20px;
 }

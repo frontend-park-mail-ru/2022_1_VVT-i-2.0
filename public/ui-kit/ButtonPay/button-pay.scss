@@ -1,11 +1,18 @@
-.uikit__button-pay {
+@use 'public/configurations/colors/colors.scss' as theme;
+
+@mixin flex-center () {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.button-pay {
+    @include flex-center ();
+
     width: 516px;
     height: 63px;
     background: #000000;
     border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
 }
 
 .button-pay__block-img {
@@ -20,7 +27,7 @@
 
 .button-pay__payment-separator {
     margin: auto 5px;
-    background: #BEB6AE;
+    background: theme.getColor('warm');
     width: 2px;
     height: 32px;
 }

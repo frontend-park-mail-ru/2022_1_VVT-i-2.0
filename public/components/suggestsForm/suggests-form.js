@@ -1,17 +1,17 @@
 const suggestsForm = (props) => {
   const template = `
-    <div id="suggest-form" class="suggest-form">
+    <form id="suggest-form" class="suggest-form">
       {{#suggests}}
         <div class="suggest-form__suggest-row">
           <div></div>
-          <div class="suggest-form__suggest-address">
+          <div class="suggest-row__suggest-address">
             {{.}}
           </div>
           <div></div>
           <div></div>
         </div>
       {{/suggests}}
-    </div>
+    </form>
   `;
   return Mustache.render(template, { suggests: props.suggests });
 };

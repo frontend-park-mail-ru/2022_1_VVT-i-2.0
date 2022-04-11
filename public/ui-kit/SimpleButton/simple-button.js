@@ -13,7 +13,7 @@ const simpleButton = (title, color, width = ELEMS_CONFIGURATION.buttons.STANDARD
     const template = `
         <button
             {{#id}} id={{id}} {{/id}}
-            class="uikit__simple-button"
+            class="simple-button"
             style="background-color: {{color}}; width: {{width}}px;"
             data-section="{{href}}"
         >

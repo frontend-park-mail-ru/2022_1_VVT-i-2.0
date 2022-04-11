@@ -1,5 +1,5 @@
 import UIKIT from '../../ui-kit/import.js';
-import COLORS from '../../configurations/colors.js';
+import COLORS from '../../configurations/colors/colors.js';
 import FORMS_CONFIGURATION from '../../configurations/forms.js';
 import ELEMS_CONFIGURATION from '../../configurations/elems.js';
 
@@ -7,7 +7,7 @@ const personInfoForm = () => {
     const inputConfigurations = FORMS_CONFIGURATION.inputs.personInfoForm;
 
     const template = `
-        <div id="person-info-form" class="person-info-form">
+        <section id="person-info-form" class="person-info-form">
             {{&backButton}}
 
             {{&title}}
@@ -48,7 +48,7 @@ const personInfoForm = () => {
             <div>
                 {{&switcherElement}}
             </div>
-        </div>
+        </section>
     `;
 
     return Mustache.render(template, {

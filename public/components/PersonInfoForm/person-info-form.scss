@@ -1,6 +1,9 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
 .person-info-form {
     display: flex;
     flex-direction: column;
+
     height: 100%;
     margin-right: 10.5%;
 }
@@ -11,12 +14,14 @@
 }
 
 .sets-nav-block__settings-block {
-    background: #FFFFFF;
-    border: 1px solid #DEDEDE;
-    box-sizing: border-box;
-    border-radius: 10px;
     width: 646px;
     height: 479px;
+
+    box-sizing: border-box;
+    border-radius: 10px;
+
+    background: theme.getColor('white');
+    border: 1px solid theme.getColor('grey');
 }
 
 .settings-block__profile-header {
@@ -51,18 +56,15 @@
 .avatar__img {
     width: 80px;
     height: 80px;
+
     border: 1px solid #BEB6AE;
     border-radius: 40px;
 }
 
 .avatar-choice-block__button-change {
-    /*width: max-content;*/
     margin-right: 0;
     margin-left: auto;
 }
-
-
-
 
 .settings-block__button-save-settings {
     text-align: center;
@@ -72,7 +74,7 @@
 .sets-nav-block__navigation-block {
     display: flex;
     flex-direction: column;
-    background: #FFFFFF;
+    background: theme.getColor("white");
     border-radius: 5px;
     /*margin-right: 10%;*/
 }

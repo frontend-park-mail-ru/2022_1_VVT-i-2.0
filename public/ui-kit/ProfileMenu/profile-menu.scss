@@ -1,0 +1,18 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
+.profile-menu__point {
+    display: flex;
+    align-items: center;
+    -webkit-filter: grayscale(0%);
+
+    width: 320px;
+    height: 59px;
+
+    filter: none;
+    cursor: pointer;
+    padding-left: 25px;
+
+    &:hover {
+        background: theme.getColor('grey');
+    }
+}

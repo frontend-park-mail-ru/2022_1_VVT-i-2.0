@@ -1,6 +1,6 @@
 const title = (title) => {
   const template = `
-    <div class="uikit__form-title">
+    <div class="form-title">
       <h1 class="form-title__title-name">{{title}}</h1>
       <hr>
     </div>

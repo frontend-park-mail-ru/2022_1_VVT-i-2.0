@@ -1,19 +1,24 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
 .prod-icon__meta-info-block {
-    position: relative;
     display: flex;
     flex-direction: column;
-
-    padding-left: 20px;
-    padding-top: 30px;
+    position: relative;
 
     width: 210px;
     height: 170px;
 
-    background: #FFFFFF;
+    padding-left: 20px;
+    padding-top: 30px;
+
+    background: theme.getColor('white');
 }
 
 .prod-icon__name {
+    display: flex;
+    align-items: center;
     position: static;
+
     width: 460px;
 
     left: 0;
@@ -25,20 +30,17 @@
     font-size: 21px;
     line-height: 16px;
 
-    display: flex;
-    align-items: center;
-
     color: #2E2E33;
 }
 
 .prod-icon__calories-info {
-    color: #DEDEDE;
+    color: theme.getColor('grey');
     margin-top: 15px;
     margin-bottom: 10px;
 }
 
 .prod-icon__description {
-    color: #DEDEDE;
+    color: theme.getColor('grey');
 }
 
 .prod-icon__price-bar {
@@ -57,7 +59,7 @@
     margin-left: auto;
     width: 87px;
     height: 28px;
-    background-color: #17D685;
+    background-color: theme.getColor('primary');
     border: none;
     border-radius: 6px;
     font-weight: bold;

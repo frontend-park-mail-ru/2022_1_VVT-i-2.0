@@ -1,22 +1,28 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
 .mail-notification__switcher-block {
     display: flex;
     flex-direction: row;
-    background: #777373;
-    height: 29px;
-    max-width: 61px;
-    border-radius: 25px;
     align-items: center;
+    justify-content: flex-end; /*flex-end*/
+    cursor: pointer;
+
+    max-width: 61px;
+    height: 29px;
+    border-radius: 25px;
+
     padding-left: 4px;
     padding-right: 4px;
     padding-inline-end: 2px;
     padding-inline-start: 2px;
-    justify-content: flex-end; /*flex-end*/
-    cursor: pointer;
+
+    background: #777373;
 }
 
 .switcher-block__moving-ball {
-    background: #FFFFFF;
     width: 25px;
     height: 25px;
+
     border-radius: 50%;
+    background: theme.getColor('white');
 }

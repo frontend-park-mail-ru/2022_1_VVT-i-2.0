@@ -6,13 +6,13 @@ import { profileMenuPoints } from '../../pages/Profile/profile.js';
  */
 const profileMenu = () => {
     const template = `
-        <div class="profile-menu">
+        <section class="profile-menu">
             {{#profileMenuPoints}}
                 <div data-section="{{dataSection}}" class="profile-menu__point">
                     <a data-section="{{dataSection}}">{{point}}</a>
                 </div>
             {{/profileMenuPoints}}
-        </div>
+        </section>
     `;
     return Mustache.render(template, { profileMenuPoints });
 };

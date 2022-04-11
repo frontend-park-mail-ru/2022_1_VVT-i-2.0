@@ -1,12 +1,21 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
+@mixin flex-center () {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .error-page__view {
     position: relative;
     height: 100vh;
+
+    color: theme.getColor('white');
     padding: 0 40px;
-    color: #fff;
-    background-size: cover;
-    background: #a34ca6;
-    background: linear-gradient(45deg, #a34ca6 0%, #7742b9 50%, #643ec2 100%);
     overflow: hidden;
+    background: #a34ca6;
+    background-size: cover;
+    background: linear-gradient(45deg, #a34ca6 0%, #7742b9 50%, #643ec2 100%);
 }
 
 .view__text-content {
@@ -33,16 +42,17 @@
 
 .text-content__button-to-main {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    cursor: pointer;
+    @include flex-center;
+
     max-width: 200px;
     height: 60px;
-    border-radius: 30px;
-    cursor: pointer;
+
     font: 900 1.3rem/24px "Roboto", "Arial", sans-serif;
     text-transform: uppercase;
     text-decoration: none;
+    border-radius: 30px;
+
     color: #2a364d;
     background-color: #ffd919;
 }

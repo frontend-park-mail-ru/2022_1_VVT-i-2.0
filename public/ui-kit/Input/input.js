@@ -13,7 +13,7 @@ import ELEMS_CONFIGURATION from '../../configurations/elems.js';
 const input = (title, type, width = ELEMS_CONFIGURATION.inputs.STANDARD,
                placeholder, id, error = 'Ошибка') => {
     const template = `
-        <div class="uikit__input-block">
+        <div class="input-block">
             <div class="input-block__title">{{title}}</div>
             <div {{#id}} id={{id}} {{/id}}>
                 <input style="width: {{width}}px" class="input-block__input" placeholder="{{placeholder}}" type="{{type}}">

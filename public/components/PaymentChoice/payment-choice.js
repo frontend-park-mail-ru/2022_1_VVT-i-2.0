@@ -1,8 +1,8 @@
-const paymentTypes = [
-    'Онлайн оплата', 'Google Pay', 'Sber Pay'
-];
+import FORMS_CONFIGURATION from '../../configurations/forms.js';
 
 const paymentChoice = () => {
+    const paymentTypes = FORMS_CONFIGURATION.menu.typePaymentChoice;
+
     const template = `
         <div class="ordering-form__payment-choice-block">
             <div class="payment-choice-block__payment-types-block">

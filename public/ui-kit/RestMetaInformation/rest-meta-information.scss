@@ -1,68 +1,75 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
+@mixin flex-row () {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin font-normal-bold () {
+    font-style: normal;
+    font-weight: bold;
+}
+
 .rest-icon__rest-meta-info-block {
     display: flex;
     flex-direction: column;
 
-    padding-left: 20px;
-    padding-top: 30px;
-
     width: 248px;
     height: 60px;
 
-    background: #FFFFFF;
+    padding-left: 20px;
+    padding-top: 30px;
+    background: theme.getColor('white');
 }
 
 .rest-icon__rest-name {
+    display: flex;
+    align-items: center;
     position: static;
+
     width: 460px;
 
     left: 0;
     top: 0;
     bottom: 44px;
 
-    font-style: normal;
-    font-weight: bold;
+    @include font-normal-bold ();
     font-size: 21px;
     line-height: 16px;
-
-    display: flex;
-    align-items: center;
-
     color: #2E2E33;
 }
 
 .rest-icon__meta-info {
-    display: flex;
-    flex-direction: row;
+    @include flex-row ();
     justify-content: space-between;
+
     width: 248px;
     height: 28px;
 }
 
 .meta-info__param {
-    display: flex;
-    flex-direction: row;
+    @include flex-row ();
     align-items: center;
 
     min-width: 58px;
     height: 18px;
-    padding: 6px 14px 6px 12px;
 
-    background: #F6F6F6;
+    background: theme.getColor('lightGrey');
     border-radius: 50px;
-
     margin: 20px 5px;
+    padding: 6px 14px 6px 12px;
 }
 
 .meta-info__param-value {
-    font-style: normal;
-    font-weight: bold;
+    display: flex;
+    justify-content: center;
+
+    @include font-normal-bold ();
     font-size: 12px;
     line-height: 16px;
     margin: auto;
-    display: flex;
-    justify-content: center;
 }
 
-.rest_meta_information_block .parameters > span.rating {
+.meta-info__rating {
     margin-left: 5px;
 }

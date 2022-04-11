@@ -1,5 +1,5 @@
 import ELEMS_CONFIGURATION from './elems.js';
-import COLORS from './colors.js';
+import COLORS from './colors/colors.js';
 
 const FORMS_CONFIGURATION = {
     inputs: {
@@ -9,12 +9,6 @@ const FORMS_CONFIGURATION = {
                 placeholder: '+7(',
                 id: 'loginPhone'
             },
-            // {
-            //     title: 'Пароль',
-            //     type: 'password',
-            //     placeholder: 'Введите пароль',
-            //     id: 'loginPassword'
-            // },
         ],
         registerForm: [
             {
@@ -32,18 +26,6 @@ const FORMS_CONFIGURATION = {
                 placeholder: 'Введите электронную почту',
                 id: 'registerEmail'
             },
-            // {
-            //     title: 'Пароль',
-            //     type: 'password',
-            //     placeholder: 'Введите пароль',
-            //     id: 'registerPassword'
-            // },
-            // {
-            //     title: 'Повторите пароль',
-            //     type: 'password',
-            //     placeholder: 'Введите пароль',
-            //     id: 'registerRepeatPassword'
-            // },
         ],
         confirmCodeForm: [
             {
@@ -109,21 +91,13 @@ const FORMS_CONFIGURATION = {
             }
         ],
     },
-    // simpleButtons: {
-    //     personInfoForm: {
-    //         title: 'Сохранить',
-    //         color: COLORS.primary,
-    //         href: 'profile',
-    //         id: 'personInfoSaveButton',
-    //     }
-    // },
     menu: {
         profilePoints: [
             {point: 'Личные данные', dataSection: 'profile'},
-            // {point: 'Адреса доставки', dataSection: 'addresses'},
-            // {point: 'Мои заказы', dataSection: 'my-orders'},
-            // {point: 'Мои скидки', dataSection: 'my-promo'},
             {point: 'Выход', dataSection: 'main'},
+        ],
+        typePaymentChoice: [
+            'Онлайн оплата', 'Google Pay', 'Sber Pay'
         ],
     }
 };

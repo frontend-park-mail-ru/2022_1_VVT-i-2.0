@@ -1,7 +1,10 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
 .rest-menu {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
   margin-right: 30%;
 }
 
@@ -19,14 +22,14 @@
   width: 270px;
   height: 440px;
 
-  background: #FFFFFF;
+  background: theme.getColor('white');
   border-radius: 14px;
   filter: drop-shadow(0px 0px 12px rgba(26, 26, 26, 0.25));
-}
 
-.rest-menu__product-icon:hover {
-  filter: drop-shadow(0px 4px 4px rgba(26, 26, 26, 0.25));
-  cursor: pointer;
+  &:hover {
+    filter: drop-shadow(0px 4px 4px rgba(26, 26, 26, 0.25));
+    cursor: pointer;
+  }
 }
 
 .product-icon__img {

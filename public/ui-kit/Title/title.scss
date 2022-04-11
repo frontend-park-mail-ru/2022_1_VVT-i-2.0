@@ -1,0 +1,11 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
+.form-title {
+  margin-bottom: 35px;
+  max-width: 500px;
+  color: theme.getColor('greyBrown');
+}
+
+.form-title__title-name {
+  margin-bottom: 10px;
+}

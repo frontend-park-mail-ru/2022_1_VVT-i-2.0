@@ -1,5 +1,5 @@
 import UIKIT from '../../ui-kit/import.js';
-import COLORS from '../../configurations/colors.js';
+import COLORS from '../../configurations/colors/colors.js';
 import FORMS_CONFIGURATION from '../../configurations/forms.js';
 import ELEMS_CONFIGURATION from '../../configurations/elems.js';
 
@@ -12,20 +12,20 @@ const confirmCodeForm = () => {
     const inputConfigurations = FORMS_CONFIGURATION.inputs.confirmCodeForm;
 
     const template = `
-        <div id="confirm-code-form" class="confirm-code-form">
+        <form id="confirm-code-form" class="confirm-code-form">
             <img id="closeImg" class="confirm-code-form__close-img" src="graphics/icons/close.svg" alt="">
             <h2 class="confirm-code-form__title">Подтвердите телефон</h2>
             <div class="confirm-code-form__indication">Код отправлен на номер 
                 <strong>+7(915)000-11-22</strong>
             </div>
             {{#inputConfigurations}}
-                <div class="confirm-form__input">
+                <div class="confirm-code-form__input">
                     {{&input}}
                 </div>
             {{/inputConfigurations}}
             <div id="confirm-code-button" class="confirm-code-form__button-confirm-code">{{&confirm}}</div>
             {{&sendAgain}}
-        </div>
+        </form>
     `;
 
     return Mustache.render(template, {

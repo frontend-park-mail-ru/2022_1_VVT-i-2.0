@@ -1,5 +1,5 @@
 import UIKIT from '../../ui-kit/import.js';
-import COLORS from '../../configurations/colors.js';
+import COLORS from '../../configurations/colors/colors.js';
 import FORMS_CONFIGURATION from '../../configurations/forms.js';
 
 /**
@@ -11,8 +11,8 @@ const registerForm = () => {
     const inputConfigurations = FORMS_CONFIGURATION.inputs.registerForm;
 
     const template = `
-        <div id="register-form" class="register-form">
-            <img id="closeImg" class="register-form__close-img" src="/graphics/icons/close.svg">
+        <form id="register-form" class="register-form">
+            <img id="closeImg" class="register-form__close-img" src="graphics/icons/close.svg">
             <h2 class="register-form__title">Создать аккаунт</h2>
             {{#inputConfigurations}}
                 <div class="register-form__input">
@@ -21,7 +21,7 @@ const registerForm = () => {
             {{/inputConfigurations}}
             <div id="register-button" class="register-form__button-register">{{&register}}</div>
             {{&login}}
-        </div>
+        </form>
     `;
 
     return Mustache.render(template, {
@@ -30,7 +30,7 @@ const registerForm = () => {
             return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id);
         },
         register() {
-            return UIKIT.simpleButton('Регистрация', COLORS.primary, this.width,'', 'registerButton');
+            return UIKIT.simpleButton('Регистрация', COLORS.primary, this.width,'confirmCode', 'registerButton');
         },
         login() {
             return UIKIT.simpleButton('Уже есть аккаунт?', COLORS.grey, this.width, 'login', '');

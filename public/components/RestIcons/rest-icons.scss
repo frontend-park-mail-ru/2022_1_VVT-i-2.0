@@ -1,3 +1,5 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
 .restaurants-form {
     display: flex;
     justify-content: space-between;
@@ -15,7 +17,7 @@
     width: 460px;
     height: 370px;
 
-    background: #FFFFFF;
+    background: theme.getColor('white');
     border-radius: 14px;
     filter: drop-shadow(0px 0px 12px rgba(26, 26, 26, 0.25));
 }

@@ -1,6 +1,6 @@
 const networkErrorForm = ({ header, text }) => {
     const template = `
-        <div class="error-page">
+        <section class="error-page">
             <div class="error-page__view">
                 <div class="view__text-content">
                     <h1 class="text-content__header">
@@ -20,7 +20,7 @@ const networkErrorForm = ({ header, text }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     `;
     return Mustache.render(template, { header, text });
 };
