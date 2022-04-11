@@ -61,7 +61,9 @@ const mainPage = (app, store) => {
     }
   ];
 
-  app.root.innerHTML = components.header(false, '/graphics/images/avatar.jpg');
+  app.root.innerHTML = components.header(
+    Object.keys(store.getters.user()).length !== 0, '/graphics/images/avatar.jpg'
+  );
 
   const main = document.createElement('main');
   main.innerHTML =

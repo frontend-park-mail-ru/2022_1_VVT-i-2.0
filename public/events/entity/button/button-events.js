@@ -45,13 +45,8 @@ export const getButtonEvents = () => {
                     const logicType = sessionStorage.getItem('logicType');
                     sessionStorage.removeItem('logicType');
 
-                    let phone = sessionStorage.getItem('phone', phone);
+                    const phone = sessionStorage.getItem('phone', phone);
                     sessionStorage.removeItem('phone');
-
-                    phone = phone.replace('+', '');
-                    phone = phone.replace('(', '');
-                    phone = phone.replace(')', '');
-                    phone = phone.replaceAll('-', '');
 
                     const name = sessionStorage.getItem('name', name);
                     sessionStorage.removeItem('name');
@@ -66,6 +61,17 @@ export const getButtonEvents = () => {
                     } else if (logicType === 'register') {
                         store.actions.register({ phone, code, email, name }).then(() => renderAndUpdateURN('/'));
                     }
+                }
+            }
+        ],
+        sendCodeButton: [
+            {
+                type: 'click',
+                selector: 'id',
+                listener(app, store, e) {
+                    const phone = sessionStorage.getItem('phone', phone);
+
+                    store.actions.sendCode(phone).then((result) => renderAndUpdateURN('/confirmCode'));
                 }
             }
         ],

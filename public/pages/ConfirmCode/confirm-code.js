@@ -2,7 +2,8 @@ import components from '../../components/import.js';
 
 
 const confirmCodePage = (app, store) => {
-    app.modal.innerHTML = components.confirmCodeForm();
+    const phone = sessionStorage.getItem('phone', phone);
+    app.modal.innerHTML = components.confirmCodeForm(phone);
 };
 
 export default confirmCodePage;
