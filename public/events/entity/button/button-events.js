@@ -22,12 +22,12 @@ export const getButtonEvents = () => {
                     //     return;
                     // }
 
-                    const phone = document.getElementById('loginPhone').children[0].value;
+                    let phone = document.getElementById('loginPhone').children[0].value;
 
-                    phone.replace('+', '');
-                    phone.replace('(', '');
-                    phone.replace(')', '');
-                    phone.replace('-', '');
+                    phone = phone.replace('+', '');
+                    phone = phone.replace('(', '');
+                    phone = phone.replace(')', '');
+                    phone = phone.replace('-', '');
 
                     store.actions.sendCode(phone).then((result) => renderAndUpdateURN('/confirmCode'));
 
@@ -48,10 +48,10 @@ export const getButtonEvents = () => {
                     const phone = sessionStorage.getItem('phone', phone);
                     sessionStorage.removeItem('phone');
 
-                    phone.replace('+', '');
-                    phone.replace('(', '');
-                    phone.replace(')', '');
-                    phone.replace('-', '');
+                    phone = phone.replace('+', '');
+                    phone = phone.replace('(', '');
+                    phone = phone.replace(')', '');
+                    phone = phone.replace('-', '');
 
                     const name = sessionStorage.getItem('name', name);
                     sessionStorage.removeItem('name');
@@ -103,10 +103,10 @@ export const getButtonEvents = () => {
 
                     const phone = document.getElementById('registerPhone').children[0].value;
 
-                    phone.replace('+', '');
-                    phone.replace('(', '');
-                    phone.replace(')', '');
-                    phone.replace('-', '');
+                    phone = phone.replace('+', '');
+                    phone = phone.replace('(', '');
+                    phone = phone.replace(')', '');
+                    phone = phone.replace('-', '');
 
                     const name = document.getElementById('registerName').children[0].value;
                     const email = document.getElementById('registerEmail').children[0].value;
