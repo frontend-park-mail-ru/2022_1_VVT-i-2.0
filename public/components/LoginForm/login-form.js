@@ -31,7 +31,7 @@ const loginForm = () => {
             return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id);
         },
         login () {
-            return UIKIT.simpleButton('Войти', COLORS.primary, this.width, '', 'loginButton');
+            return UIKIT.simpleButton('Войти', COLORS.primary, this.width, 'confirmCode', 'loginButton');
         },
         register () {
             return UIKIT.simpleButton('Регистрация', COLORS.grey, this.width,'register','registerButton');

@@ -23,29 +23,26 @@ module.exports = {
                 }
             },
             {
-                test: /\.scss$/,
+                test: /\.css$/,
                 use: [
                     'style-loader',
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
-                        options: { sourceMap: true }
-                    }, {
+                        options: {
+                            importLoaders: 1,
+                            sourceMap: true
+                        }
+                    },
+                    {
                         loader: 'postcss-loader',
-                        options: { sourceMap: true, config: { path: 'postcss.config.js'} }
-                    }, {
-                        loader: 'sass-loader',
-                        options: { sourceMap: true }
+                        options: {
+                            sourceMap: true,
+                            postcssOptions: { path: 'postcss.config.js'}
+                        }
                     }
                 ]
             },
-            {
-                test: /\.css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader'
-                ]
-            }
         ]
     },
     plugins: [

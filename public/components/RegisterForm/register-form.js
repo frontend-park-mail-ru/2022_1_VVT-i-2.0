@@ -30,7 +30,7 @@ const registerForm = () => {
             return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id);
         },
         register() {
-            return UIKIT.simpleButton('Регистрация', COLORS.primary, this.width,'', 'registerButton');
+            return UIKIT.simpleButton('Регистрация', COLORS.primary, this.width,'confirmCode', 'registerButton');
         },
         login() {
             return UIKIT.simpleButton('Уже есть аккаунт?', COLORS.grey, this.width, 'login', '');
