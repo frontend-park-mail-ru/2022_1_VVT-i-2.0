@@ -1,12 +1,17 @@
-.back-button {
-  position: relative;
+@mixin flex-left-center () {
   display: flex;
   justify-content: left;
   align-items: center;
+}
+
+.back-button {
   cursor: pointer;
+  font-weight: bold;
+  position: relative;
+  @include flex-left-center ();
+
   width: 200px;
   margin-bottom: 20px;
-  font-weight: bold;
 }
 
 .back-button__img {
