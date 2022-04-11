@@ -13,12 +13,12 @@
     width: 40px;
     height: 40px;
     border-radius: 8px;
-    background: map-get(theme.$COLORS, lightGrey);
+    background: theme.getColor('lightGrey');
 
     &:hover {
-        background: map-get(theme.$COLORS, grey);
+        background: theme.getColor('grey');
     }
     &:active {
-        background: map-get(theme.$COLORS, lightGrey);
+        background: theme.getColor('lightGrey');
     }
 }

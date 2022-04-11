@@ -4,8 +4,8 @@
     display: inline-flex;
     width: 292px;
 
-    background: map-get(theme.$COLORS, white);
-    border: 1px solid map-get(theme.$COLORS, grey);
+    background: theme.getColor('white');
+    border: 1px solid theme.getColor('grey');
     border-radius: 10px;
 
     margin: 5px auto;
@@ -43,7 +43,7 @@
 
 .point-info__ingredients {
     display: inline-flex;
-    color: map-get(theme.$COLORS, grey);
+    color: theme.getColor('grey');
 
     margin-top: 5px;
     margin-bottom: 15px;

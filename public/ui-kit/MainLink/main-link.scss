@@ -2,7 +2,7 @@
 
 .main-link {
     cursor: pointer;
-    color: map-get(theme.$COLORS, greyBrown);
+    color: theme.getColor('greyBrown');
 
     &:hover {
         cursor: pointer;

@@ -10,10 +10,10 @@ const productsIcons = (products) => {
   const template = `
     <div class="rest-menu">
       {{#products}}
-        <div class="rest-menu__product-icon">
+        <section class="rest-menu__product-icon">
           <img class="product-icon__img" src={{imgPath}} alt={{productName}}>
           {{&prodMetaInfo}}
-        </div>
+        </section>
       {{/products}}
     </div>
   `;

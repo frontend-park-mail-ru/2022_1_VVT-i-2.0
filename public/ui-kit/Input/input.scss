@@ -10,21 +10,21 @@
     height: 30px;
     border: none;
 
-    border-bottom: 2px solid map-get(theme.$COLORS, grey);
-    color: map-get(theme.$COLORS, black);
+    border-bottom: 2px solid theme.getColor('grey');
+    color: theme.getColor('black');
 }
 
 .input-block__input:focus-visible {
     border: none;
-    border-bottom: 2px solid map-get(theme.$COLORS, black);
+    border-bottom: 2px solid theme.getColor('black');
 }
 
 .input-block__input.error {
-    border-bottom: 2px solid map-get(theme.$COLORS, warning);
+    border-bottom: 2px solid theme.getColor('warning');
 }
 
 .input-block__input-underline.error {
-    color: map-get(theme.$COLORS, warning);
+    color: theme.getColor('warning');
     margin-top: 2px;
 }
 

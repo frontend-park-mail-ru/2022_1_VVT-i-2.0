@@ -11,7 +11,7 @@
 
     width: 516px;
     height: 63px;
-    background: map-get(theme.$COLORS, lightGrey);
+    background: theme.getColor('lightGrey');
     border-radius: 5px;
 }
 
@@ -27,7 +27,7 @@
 
 .button-pay__payment-separator {
     margin: auto 5px;
-    background: #BEB6AE;
+    background: theme.getColor('warm');
     width: 2px;
     height: 32px;
 }
