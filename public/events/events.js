@@ -31,6 +31,7 @@ const EVENTS = {
     // ]
 
     confirmCodeButton: Event.getButtonEvents().confirmCodeButton,
+    sendCodeButton: Event.getButtonEvents().sendCodeButton,
 
     addToCart: Event.productEvents(),
 };
