@@ -1,17 +1,24 @@
-.uikit__button-add-remove {
-    height: 40px;
-    width: 40px;
-    background: #F6F6F6;
+@use 'public/configurations/colors/colors.scss' as theme;
+
+@mixin flex-center () {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
+}
+
+.button-add-remove {
     cursor: pointer;
+    @include flex-center ();
+
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: map-get(theme.$COLORS, lightGrey);
 
     &:hover {
-        background: #DEDEDE;
+        background: map-get(theme.$COLORS, grey);
     }
     &:active {
-        background: #F6F6F6;
+        background: map-get(theme.$COLORS, lightGrey);
     }
 }

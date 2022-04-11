@@ -3,6 +3,7 @@ const lightTheme = {
     warning: '#FF3985',
     black: '#212121',
     grey: '#DEDEDE',
+    lightGrey: '#F6F6F6',
     white: '#FFFFFF',
     warm: '#BEB6AE',
 }

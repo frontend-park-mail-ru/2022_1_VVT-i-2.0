@@ -12,7 +12,7 @@ const addRemoveButton = (buttonType) => {
     }
 
     const template = `
-        <div class="uikit__button-add-remove">
+        <div class="button-add-remove">
             <img src="{{imgPath}}">
         </div>
     `;
