@@ -1,8 +1,0 @@
-.profile-preview__menu {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #DEDEDE;
-    box-sizing: border-box;
-    width: 322px;
-    height: 100%;
-}
