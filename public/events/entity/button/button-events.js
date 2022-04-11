@@ -29,11 +29,11 @@ export const getButtonEvents = () => {
                     phone = phone.replace(')', '');
                     phone = phone.replaceAll('-', '');
 
-                    store.actions.sendCode(phone).then((result) => renderAndUpdateURN('/confirmCode'));
-
                     sessionStorage.setItem('phone', phone);
 
                     sessionStorage.setItem('logicType', 'login');
+
+                    store.actions.sendCode(phone).then((result) => renderAndUpdateURN('/confirmCode'));
                 }
             }
         ],
@@ -111,13 +111,13 @@ export const getButtonEvents = () => {
                     const name = document.getElementById('registerName').children[0].value;
                     const email = document.getElementById('registerEmail').children[0].value;
 
-                    store.actions.sendCode(phone).then((result) => renderAndUpdateURN('/confirmCode'));
-
                     sessionStorage.setItem('phone', phone);
                     sessionStorage.setItem('name', name);
                     sessionStorage.setItem('email', email);
 
                     sessionStorage.setItem('logicType', 'register');
+
+                    store.actions.sendCode(phone).then((result) => renderAndUpdateURN('/confirmCode'));
                 }
             }
         ],
