@@ -16,11 +16,11 @@ export const getButtonEvents = () => {
                  * @param {Event} e - Событие.
                  */
                 listener(app, store, e) {
-                    // if (!FORM.isAvailableForSend(FORM.statusLoginForm)) {
-                    //     showEmptyInputs(FORM.statusLoginForm, FORM.loginFormInputs);
-                    //     setTimeout(hideEmptyInputs, 400, FORM.statusLoginForm, FORM.loginFormInputs);
-                    //     return;
-                    // }
+                    if (!FORM.isAvailableForSend(FORM.statusLoginForm)) {
+                        showEmptyInputs(FORM.statusLoginForm, FORM.loginFormInputs);
+                        setTimeout(hideEmptyInputs, 400, FORM.statusLoginForm, FORM.loginFormInputs);
+                        return;
+                    }
 
                     let phone = document.getElementById('loginPhone').children[0].value;
 
