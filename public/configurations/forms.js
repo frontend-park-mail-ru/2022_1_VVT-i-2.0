@@ -94,7 +94,7 @@ const FORMS_CONFIGURATION = {
     menu: {
         profilePoints: [
             {point: 'Личные данные', dataSection: 'profile'},
-            {point: 'Выход', dataSection: 'main'},
+            { point: 'Выход', dataSection: 'main', id: 'logoutButton'},
         ],
         typePaymentChoice: [
             'Онлайн оплата', 'Google Pay', 'Sber Pay'

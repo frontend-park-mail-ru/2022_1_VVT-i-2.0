@@ -8,7 +8,7 @@ const profileMenu = () => {
     const template = `
         <section class="profile-menu">
             {{#profileMenuPoints}}
-                <div data-section="{{dataSection}}" class="profile-menu__point">
+                <div id="{{id}}" data-section="{{dataSection}}" class="profile-menu__point">
                     <a data-section="{{dataSection}}">{{point}}</a>
                 </div>
             {{/profileMenuPoints}}
