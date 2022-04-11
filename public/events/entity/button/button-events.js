@@ -23,13 +23,12 @@ export const getButtonEvents = () => {
                     }
 
                     let phone = document.getElementById('loginPhone').children[0].value;
+                    sessionStorage.setItem('phone', phone);
 
                     phone = phone.replace('+', '');
                     phone = phone.replace('(', '');
                     phone = phone.replace(')', '');
                     phone = phone.replaceAll('-', '');
-
-                    sessionStorage.setItem('phone', phone);
 
                     sessionStorage.setItem('logicType', 'login');
 
@@ -45,13 +44,18 @@ export const getButtonEvents = () => {
                     const logicType = sessionStorage.getItem('logicType');
                     sessionStorage.removeItem('logicType');
 
-                    const phone = sessionStorage.getItem('phone', phone);
+                    let phone = sessionStorage.getItem('phone');
                     sessionStorage.removeItem('phone');
 
-                    const name = sessionStorage.getItem('name', name);
+                    phone = phone.replace('+', '');
+                    phone = phone.replace('(', '');
+                    phone = phone.replace(')', '');
+                    phone = phone.replaceAll('-', '');
+
+                    const name = sessionStorage.getItem('name');
                     sessionStorage.removeItem('name');
 
-                    const email = sessionStorage.getItem('email', email);
+                    const email = sessionStorage.getItem('email');
                     sessionStorage.removeItem('email');
 
                     const code = document.getElementById('confirmCode').children[0].value;
@@ -69,7 +73,12 @@ export const getButtonEvents = () => {
                 type: 'click',
                 selector: 'id',
                 listener(app, store, e) {
-                    const phone = sessionStorage.getItem('phone', phone);
+                    let phone = sessionStorage.getItem('phone');
+
+                    phone = phone.replace('+', '');
+                    phone = phone.replace('(', '');
+                    phone = phone.replace(')', '');
+                    phone = phone.replaceAll('-', '');
 
                     store.actions.sendCode(phone).then((result) => renderAndUpdateURN('/confirmCode'));
                 }
@@ -108,6 +117,7 @@ export const getButtonEvents = () => {
                     }
 
                     let phone = document.getElementById('registerPhone').children[0].value;
+                    sessionStorage.setItem('phone', phone);
 
                     phone = phone.replace('+', '');
                     phone = phone.replace('(', '');
@@ -117,7 +127,6 @@ export const getButtonEvents = () => {
                     const name = document.getElementById('registerName').children[0].value;
                     const email = document.getElementById('registerEmail').children[0].value;
 
-                    sessionStorage.setItem('phone', phone);
                     sessionStorage.setItem('name', name);
                     sessionStorage.setItem('email', email);
 

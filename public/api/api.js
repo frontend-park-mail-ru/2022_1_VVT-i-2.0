@@ -92,5 +92,5 @@ export const login = (user) => {
  * @return {Promise} - возвращает Promise на отправку запроса.
  */
 export const logout = () => {
-    return request('/auth/logout', {method: METHODS.GET});
+    return request('/logout', {method: METHODS.GET});
 }
