@@ -1,0 +1,58 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
+.shopping-cart__order-point {
+    display: inline-flex;
+    width: 292px;
+
+    background: map-get(theme.$COLORS, white);
+    border: 1px solid map-get(theme.$COLORS, grey);
+    border-radius: 10px;
+
+    margin: 5px auto;
+    padding: 10px 5px 10px 15px;
+}
+
+.order-point__img-block {
+    width: 13%;
+}
+
+.order-point__dish-img {
+    width: 28px;
+    height: 28px;
+    margin-top: 2px;
+}
+
+.order-point__point-info {
+    display: flex;
+    flex-direction: column;
+    width: 87%;
+}
+
+.point-info__dish-info {
+    display: inline-flex;
+}
+
+.point-info__dish-info :nth-child(1) {
+    width: 70%;
+}
+
+.point-info__dish-info :nth-child(2) {
+    text-align: right;
+    width: 30%;
+}
+
+.point-info__ingredients {
+    display: inline-flex;
+    color: map-get(theme.$COLORS, grey);
+
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.point-info__edit-quantity {
+    display: inline-flex;
+}
+
+.point-info__count-current-point {
+    margin: auto 20px;
+}
