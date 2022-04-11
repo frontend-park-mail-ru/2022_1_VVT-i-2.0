@@ -30,6 +30,8 @@ const EVENTS = {
     //     }
     // ]
 
+    confirmCodeButton: Event.getButtonEvents().confirmCodeButton,
+
     addToCart: Event.productEvents(),
 };
 
