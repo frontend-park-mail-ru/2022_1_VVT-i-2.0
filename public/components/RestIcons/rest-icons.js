@@ -19,6 +19,9 @@ const restIcons = (restaurants) => {
     `;
     return Mustache.render(template, {
         restaurants: restaurants,
+        href() {
+            return `/products/${this.slug}`;
+        },
         metaInformation() {
             return UIKIT.restMetaInformation(this.restName, this.timeToDeliver, this.price, this.rating);
         }

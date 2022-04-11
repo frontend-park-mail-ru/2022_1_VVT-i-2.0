@@ -21,7 +21,7 @@ const personInfoForm = () => {
                         <div class="settings__avatar-change-block">
                             <div class="avatar-change-block__description">Ваш аватар:</div>
                             <div class="avatar-change-block__avatar">
-                                <img class="avatar__img" src="graphics/images/avatar.jpg" alt="">
+                                <img class="avatar__img" src="/graphics/images/avatar.jpg" alt="">
                             </div>
                             <div class="avatar-choice-block__button-change">
                                 {{&buttonChangeAvatar}}
@@ -35,7 +35,7 @@ const personInfoForm = () => {
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="sets-nav-block__navigation-block">
                     {{&menu}}
                 </div>

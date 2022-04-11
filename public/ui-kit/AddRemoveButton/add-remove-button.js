@@ -2,13 +2,13 @@ const addRemoveButton = (buttonType) => {
     let imgPath = '';
     switch (buttonType) {
         case 'addPoint':
-            imgPath = 'graphics/icons/add_point.svg';
+            imgPath = '/graphics/icons/add_point.svg';
             break;
         case 'removePoint':
-            imgPath = 'graphics/icons/remove_point.svg';
+            imgPath = '/graphics/icons/remove_point.svg';
             break;
         default:
-            imgPath = 'graphics/icons/404.svg';
+            imgPath = '/graphics/icons/404.svg';
     }
 
     const template = `

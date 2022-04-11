@@ -7,6 +7,8 @@ export const APP = {
   modal: document.getElementById('modal')
 };
 
+const AUTH_PAGES = ['login', 'register', 'confirmCode'];
+
 const setModalPosition = (page) => {
   if (page.position) {
     APP.modal.classList.add(page.position);
@@ -23,7 +25,17 @@ export const render = (urn) => {
     return;
   }
 
-  let section = urn.replace('/', '');
+  let path = urn;
+
+  const lastIndexOfPath = urn.lastIndexOf('/');
+  if (lastIndexOfPath !== -1 && lastIndexOfPath !== 0) {
+    const params = urn.substr(lastIndexOfPath + 1, urn.length - lastIndexOfPath);
+    sessionStorage.setItem('params', params);
+
+    path = urn.substr(0, lastIndexOfPath);
+  }
+
+  let section = path.replace('/', '');
   section = section === '' ? 'main' : section;
 
   events.removeListeners(APP, store);
@@ -35,13 +47,32 @@ export const render = (urn) => {
     page = MENU.networkErrors;
   }
 
+  if (page.authRequired && Object.keys(store.getters.user()).length === 0) {
+    renderAndUpdateURN('/');
+    return;
+  }
+
+  if (AUTH_PAGES.includes(section) && Object.keys(store.getters.user()).length !== 0) {
+    renderAndUpdateURN('/');
+    return;
+  }
+
   if (page.isModal) {
-    MENU.main.render(APP, store);
+    let root = sessionStorage.getItem('root');
+    if (!root) {
+      root = 'main';
+    }
+    MENU[root].render(APP, store);
+
     APP.modal.classList.add('shown');
     setModalPosition(page);
+
+    sessionStorage.removeItem('root');
   } else {
     APP.modal.classList.remove(...APP.modal.classList);
     APP.modal.innerHTML = '';
+
+    sessionStorage.setItem('root', section)
   }
 
   page.render(APP, store);

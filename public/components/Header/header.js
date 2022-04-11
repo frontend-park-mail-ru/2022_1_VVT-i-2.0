@@ -17,7 +17,7 @@ const header = (auth = false, customImgPath = '') => {
                     <img class="page-header__avatar" src="{{customImgPath}}" data-section="profilePreview">                  
                 {{/customImgPath}}
                 {{^customImgPath}}
-                    <img src="graphics/icons/profile.svg" data-section="profilePreview">
+                    <img src="/graphics/icons/profile.svg" data-section="profilePreview">
                 {{/customImgPath}}
                     <a class="button__controller" data-section="profilePreview">Профиль</a>
                 </nav>
