@@ -27,7 +27,7 @@ export const getButtonEvents = () => {
                     phone = phone.replace('+', '');
                     phone = phone.replace('(', '');
                     phone = phone.replace(')', '');
-                    phone = phone.replace('-', '');
+                    phone = phone.replaceAll('-', '');
 
                     store.actions.sendCode(phone).then((result) => renderAndUpdateURN('/confirmCode'));
 
@@ -51,7 +51,7 @@ export const getButtonEvents = () => {
                     phone = phone.replace('+', '');
                     phone = phone.replace('(', '');
                     phone = phone.replace(')', '');
-                    phone = phone.replace('-', '');
+                    phone = phone.replaceAll('-', '');
 
                     const name = sessionStorage.getItem('name', name);
                     sessionStorage.removeItem('name');
@@ -106,7 +106,7 @@ export const getButtonEvents = () => {
                     phone = phone.replace('+', '');
                     phone = phone.replace('(', '');
                     phone = phone.replace(')', '');
-                    phone = phone.replace('-', '');
+                    phone = phone.replaceAll('-', '');
 
                     const name = document.getElementById('registerName').children[0].value;
                     const email = document.getElementById('registerEmail').children[0].value;
