@@ -13,7 +13,9 @@ const ordering = (props) => {
         <div class="ordering-page__ordering-block">
           <div class="ordering-block__delivery-header">Доставка</div>
           {{#inputConfigurations}}
-            {{&input}}
+<!--            <div class="ordering-block__input">-->
+                {{&input}}
+<!--            </div>-->
           {{/inputConfigurations}}
 
           <div class="ordering-block__comment-header">Комментарий</div>
