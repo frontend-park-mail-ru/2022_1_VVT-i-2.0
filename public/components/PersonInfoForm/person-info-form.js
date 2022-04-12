@@ -60,7 +60,7 @@ const personInfoForm = () => {
             return UIKIT.title('Личные данные');
         },
         buttonChangeAvatar() {
-            return UIKIT.simpleButton('Изменить аватар', COLORS.warm,
+            return UIKIT.simpleButton('Изменить аватар', COLORS.grey,
                 ELEMS_CONFIGURATION.buttons.SMALL, 'profile', 'personInfoSaveButton');
         },
         input () {
