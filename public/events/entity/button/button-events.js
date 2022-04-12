@@ -152,7 +152,7 @@ export const getButtonEvents = () => {
                     const name = document.getElementById('profileName').children[0].value;
                     const email = document.getElementById('profileEmail').children[0].value;
 
-                    store.actions.updateUser({ name, email });
+                    store.actions.updateUser({ name, email }).then(() => renderAndUpdateURN('/'));
                 }
             }
         ]

@@ -56,7 +56,12 @@ export const render = (urn) => {
   events.removeListeners(APP, store);
 
   if (page.isModal) {
-    const root = sessionStorage.getItem('root') || 'main';
+    let root = sessionStorage.getItem('root') || 'main';
+    if (root === 'networkErrors') {
+      root = 'main';
+    }
+    sessionStorage.setItem('root', root)
+
     MENU[root].render(APP, store);
 
     APP.modal.classList.add('shown');

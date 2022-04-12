@@ -1,9 +1,8 @@
 @use 'public/configurations/colors/colors.scss' as theme;
 
-@mixin flex-center () {
+@mixin flex-left () {
   display:flex;
   align-items: center;
-  justify-content: center;
 }
 
 @mixin comment-static-sets () {
@@ -61,7 +60,7 @@
 }
 
 .ordering-block__comment-block {
-  @include flex-center ();
+  @include flex-left ();
   height: 65px;
   width: 496px;
 
@@ -72,7 +71,7 @@
   color: theme.getColor('black');
 
   margin-bottom: 30px;
-  padding: 10px;
+  padding: 10px 10px 10px 55px;
 
   &:empty:before {
     content: attr(placeholder);
