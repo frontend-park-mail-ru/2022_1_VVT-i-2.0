@@ -36,8 +36,7 @@ const request = (url, options = DEFAULT_OPTIONS) => {
                 return Promise.reject();
             }
 
-            const text = result.text();
-            if (text === '') {
+            if (Number(result.headers.get('content-length')) === 0) {
                 if (result.status !== 200) {
                     alert('В ходе обработки запроса произошла ошибка');
                     return Promise.reject();
@@ -46,7 +45,7 @@ const request = (url, options = DEFAULT_OPTIONS) => {
                 return {};
             }
 
-            const data = JSON.parse(text);
+            const data = result.json();
 
             if (result.status !== 200) {
                 alert(data.error);
