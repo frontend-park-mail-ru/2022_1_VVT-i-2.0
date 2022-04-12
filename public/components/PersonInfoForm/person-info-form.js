@@ -41,13 +41,13 @@ const personInfoForm = ({ name, phone, email }) => {
                 </div>
             </div>
 
-            <div class="person-info-form__mail-notification">
-                Информация о заказах
-            </div>
+<!--            <div class="person-info-form__mail-notification">-->
+<!--                Информация о заказах-->
+<!--            </div>-->
 
-            <div>
-                {{&switcherElement}}
-            </div>
+<!--            <div>-->
+<!--                {{&switcherElement}}-->
+<!--            </div>-->
         </section>
     `;
 
@@ -81,9 +81,9 @@ const personInfoForm = ({ name, phone, email }) => {
             return UIKIT.simpleButton('Сохранить', COLORS.primary,
                 ELEMS_CONFIGURATION.buttons.STANDARD, 'profile', 'personInfoSaveButton');
         },
-        switcherElement () {
-            return UIKIT.switcher();
-        },
+        // switcherElement () {
+        //     return UIKIT.switcher();
+        // },
     });
 };
 

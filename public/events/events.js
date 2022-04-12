@@ -1,20 +1,17 @@
 // import * as api from '../api/api.js';
 import Event from './entity/import.js';
 import * as FORM from './common/status-form.js';
-// import * as events from "events";
 
 const EVENTS = {
     closeImg: Event.getFrameEvents(),
 
     loginPhone: Event.getPhoneFieldEvents('loginPhone', FORM.statusLoginForm),
-    loginPassword: Event.singlePasswordFieldEvents('loginPassword', FORM.statusLoginForm),
     loginButton: Event.getButtonEvents().loginButton,
     logoutButton: Event.getButtonEvents().logoutButton,
 
     registerPhone: Event.getPhoneFieldEvents('registerPhone', FORM.statusRegisterForm),
     registerName: Event.getNameFieldEvents('registerName', FORM.statusRegisterForm),
-    registerPassword: Event.doublePasswordFieldEvents(),
-    registerRepeatPassword: Event.doublePasswordFieldEvents(),
+    registerEmail: Event.getEmailFieldEvents('registerEmail', FORM.statusRegisterForm),
     registerButton: Event.getButtonEvents().registerButton,
 
     profileName: Event.getNameFieldEvents('profileName', FORM.statusPersonInfoForm),

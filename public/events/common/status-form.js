@@ -1,4 +1,8 @@
-import { ErrorMsg } from './config.js';
+import {
+    getVisibleError,
+    getElemParameters,
+    removeVisibleError,
+} from "./work-with-errors";
 
 export const loginFormInputs = ['loginPhone'];
 export const registerFormInputs = ['registerPhone', 'registerName', 'registerEmail'];
@@ -19,45 +23,6 @@ export const statusPersonInfoForm = {
     isValidPhone: false,
     isValidEmail: false,
 };
-
-export const getElemParameters = (elemID) => {
-    const input = document.getElementById(elemID);
-
-    return {
-        value: input.children[0].value,
-        childList: input.querySelectorAll('div > input, div'),
-    };
-}
-
-const IsInputOnEmpty = (elemID) => {
-    const input = document.getElementById(elemID);
-    return input.children[0].value === '';
-}
-
-const getEmptyInputs = (formInputs) => {
-    let emptyInputs = [];
-    formInputs.forEach((elemID) => {
-        if (IsInputOnEmpty(elemID)) {
-            emptyInputs.push(elemID);
-        }
-    });
-
-    return emptyInputs;
-}
-
-export const showEmptyInputs = (statusForm, formInputs) => {
-    const emptyInputs = getEmptyInputs(formInputs);
-    emptyInputs.forEach((elemID) => {
-        showError(statusForm, elemID, getElemParameters(elemID), ErrorMsg.errorEmptyInput);
-    });
-}
-
-export const hideEmptyInputs = (statusForm, formInputs) => {
-    const emptyInputs = getEmptyInputs(formInputs);
-    emptyInputs.forEach((elemID) => {
-        removeVisibleError(getElemParameters(elemID).childList);
-    });
-}
 
 /**
  * @function Меняет статус текущего поля после окончания ввода.
@@ -89,34 +54,28 @@ export const setFormStatus = (statusForm, elemID, status) => {
     }
 }
 
-/**
- * @function Визуализирует ошибку. Применяет стили ошибки (поле для ввода
- *      выделяет красным цветом и снизу выводит текст ошибки
- * @param {NodeListOf<Element>} childList - Список элементов для применения стилей.
- * @param {string} error - Текст ошибки.
- */
-const getVisibleError = (childList, error) => {
-    for (let childNode of childList) {
-        childNode.classList.add('error');
-        if (childNode.classList.contains('hidden')) {
-            childNode.innerText = error;
-            childNode.classList.remove('hidden');
-        }
-    }
+export const showError = (statusForm, elemID, input, error) => {
+    setFormStatus(statusForm, elemID, false);
+    getVisibleError(input.childList, error);
 }
 
-/**
- * @function Скрывает ошибку.
- * @param {NodeListOf<Element>} childList - Список элементов для применения стилей.
- */
-export const removeVisibleError = (childList) => {
-    for (let childNode of childList) {
-        if (childNode.classList.contains('error')) {
-            childNode.classList.remove('error');
-        }
-    }
+export const hideError = (statusForm, elemID, input) => {
+    setFormStatus(statusForm, elemID, true);
+    removeVisibleError(input.childList);
+}
 
-    childList[1].classList.add('hidden');
+export const showEmptyInputs = (statusForm, formInputs) => {
+    const emptyInputs = getEmptyInputs(formInputs);
+    emptyInputs.forEach((elemID) => {
+        showError(statusForm, elemID, getElemParameters(elemID), ErrorMsg.errorEmptyInput);
+    });
+}
+
+export const hideEmptyInputs = (statusForm, formInputs) => {
+    const emptyInputs = getEmptyInputs(formInputs);
+    emptyInputs.forEach((elemID) => {
+        removeVisibleError(getElemParameters(elemID).childList);
+    });
 }
 
 /**
@@ -126,16 +85,6 @@ export const removeVisibleError = (childList) => {
  */
 export const isAvailableForSend = (statusForm) => {
     return Object.entries(statusForm).every(([input, status]) => status);
-}
-
-export const showError = (statusForm, elemID, input, error) => {
-    setFormStatus(statusForm, elemID, false);
-    getVisibleError(input.childList, error);
-}
-
-export const hideError = (statusForm, elemID, input) => {
-    setFormStatus(statusForm, elemID, true);
-    removeVisibleError(input.childList);
 }
 
 /**

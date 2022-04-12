@@ -1,16 +1,23 @@
 export const Regex = {
-    phoneNumber: new RegExp('^[+]7[(][0-9]{3}[)][0-9]{3}-[0-9]{2}-[0-9]{2}$'),
-    name: new RegExp('^[A-ZА-Я]{1}[a-zа-я]{2,25}$'),
-    email: new RegExp('^([A-Za-z0-9_\\-\.])+\@([A-Za-z0-9_\\-\.])+\\.([A-Za-z]{2,4})$'),
-    password: new RegExp('^[A-Za-zА-Яа-я0-9]{8,50}$'),
+    letterSymbol: /^\p{L}$/u,
+    numericSymbol: /[0-9]/,
+    phoneNumber: /^[+]7[(][0-9]{3}[)][0-9]{3}-[0-9]{2}-[0-9]{2}$/,
+    name: /^[A-ZА-Я]{1}[a-zа-я]{2,25}$/,
+    email: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 };
+
+export const EntityLengthLimit = {
+    phoneNumber: 16,
+    name: 12,
+    email: 25,
+}
 
 const DELETE_KEY = 46;
 const BACKSPACE_KEY = 8;
 
 export const ErrorMsg = {
     errorPhoneNumber: 'Формат телефона: +7(988)888-88-88',
-    errorName: 'Имя должно состоять из букв, не менее 3',
+    errorName: 'Длина не менее 3 букв',
     errorEmail: 'Формат email: fobrinto@gmail.com',
     errorPassword: 'Длина не менее 8 символов',
     errorPasswordCMP: 'Пароли не совпадают',
