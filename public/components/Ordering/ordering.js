@@ -28,16 +28,20 @@ const ordering = (props) => {
           {{&buttonPay}}
         </div>
         <div class="ordering-page__shop-cart-block">
-          <div class="shopping-cart__rest shopping-cart__order-point">
+          <div class="shopping-cart__rest">
             <div>
               Ваш заказ в ресторане:
               <div>{{restName}}</div>
             </div>
           </div>
 
-          {{#orderPoints}}
-            {{&drawOrderPoint}}
-          {{/orderPoints}}
+<!--          <div class="shopping-cart_order-points">-->
+            {{#orderPoints}}
+              {{&drawOrderPoint}}
+            {{/orderPoints}}
+<!--          </div>-->
+          
+          <div class="shopping-cart__space-block"></div>
 
           <div class="shop-cart-block__payment-info">
             <div>Доставка</div>
