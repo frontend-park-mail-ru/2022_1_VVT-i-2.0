@@ -13,8 +13,9 @@ const EVENTS = {
 
     registerPhone: Event.getPhoneFieldEvents('registerPhone', FORM.statusRegisterForm),
     registerName: Event.getNameFieldEvents('registerName', FORM.statusRegisterForm),
-    registerPassword: Event.doublePasswordFieldEvents(),
-    registerRepeatPassword: Event.doublePasswordFieldEvents(),
+    registerEmail: Event.getEmailFieldEvents('registerEmail', FORM.statusRegisterForm),
+    // registerPassword: Event.doublePasswordFieldEvents(),
+    // registerRepeatPassword: Event.doublePasswordFieldEvents(),
     registerButton: Event.getButtonEvents().registerButton,
 
     profileName: Event.getNameFieldEvents('profileName', FORM.statusPersonInfoForm),

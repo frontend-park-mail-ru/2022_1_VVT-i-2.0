@@ -6,11 +6,6 @@ export const getEmailFieldEvents = (elemID, statusForm) => {
         {
             type: 'change',
             selector: 'id',
-            /**
-             * @function Осуществляет проверку имени пользователя на валидность.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
             listener(app, store, e) {
                 FORM.inputDataManager(
                     e, elemID, statusForm,
