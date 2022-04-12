@@ -1,6 +1,14 @@
-import * as CURSOR from '../../common/cursor.js';
+import {EntityLengthLimit} from "../../common/config.js";
+import {autoEraseExtraSymbols} from "../../common/common-custom-prettiers.js";
 
 export const numberServiceSymbols = ['(', '-', ')'];
+
+const numberObjectExclude = {
+    '+': true,
+    '(': true,
+    '-': true,
+    ')': true,
+};
 
 export const NumberPhoneFormat = {
     phoneBeginString: '+7(',
@@ -33,14 +41,8 @@ export const NumberPhoneFormat = {
  * @param {Event} e - Событие.
  */
 export const numberAutocomplete = (e) => {
-    const val = e.target.value[e.target.value.length - 1];
-    const currPos = CURSOR.getCursorPosition(e.target);
+    autoEraseExtraSymbols(e, 'phone', numberObjectExclude);
 
-    if (!(val >= '0' && val <= '9' || numberServiceSymbols.includes(val))) {
-        e.target.value = e.target.value.slice(0, currPos - 1) +
-            e.target.value.slice(currPos, e.target.value.length);
-        return;
-    }
-
+    e.target.value = e.target.value.slice(0, EntityLengthLimit.phoneNumber);
     NumberPhoneFormat.format(e);
 }

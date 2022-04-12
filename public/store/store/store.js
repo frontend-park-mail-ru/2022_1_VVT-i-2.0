@@ -2,8 +2,8 @@ import { render } from '../../render/render';
 
 const STORE = {
   // State
-  // user: { login: '1234' },
-  user: {},
+  user: { login: '1234' },
+  // user: {},
   restaurants: [],
   products: {},
   cart: [],
