@@ -8,9 +8,11 @@ const shoppingCart = (restName, props) => {
             <div class="shopping-cart__info-about-rest shopping-cart__order-point">
                 <div class="shopping-cart__preview-rest">Ваш заказ в ресторане: {{restName}}</div>
             </div>
-            {{#props}}
-                {{&drawOrderPoint}}
-            {{/props}}
+            <div class="shopping-cart__order-points">
+                {{#props}}
+                    {{&drawOrderPoint}}
+                {{/props}}
+            </div>
             <div class="shopping-cart__button-order">
                 {{&buttonOrder}}
             </div>

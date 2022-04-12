@@ -26,6 +26,21 @@
     padding: 10px;
 }
 
+.shopping-cart__order-points {
+    height: 800px;
+    width: 314px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-right: auto;
+    margin-left: auto;
+    //margin-left: calc(100vw - 100%) / 2;
+    //margin-right: 0;
+    //flex-wrap: wrap;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 .shopping-cart__button-order {
     position: absolute;
     left: 5px;
