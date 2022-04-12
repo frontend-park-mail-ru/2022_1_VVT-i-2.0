@@ -38,12 +38,12 @@ const MENU = {
         render: profilePreviewPage,
         isModal: true,
         position: 'modal-right',
-        authRequired: false/*true*/
+        authRequired: true
     },
     profile: {
         render: profilePage,
         isModal: false,
-        authRequired: false/*true*/
+        authRequired: true
     },
     products: {
         render: productsPage,
@@ -54,18 +54,18 @@ const MENU = {
         render: shoppingCartPage,
         isModal: true,
         position: 'modal-right',
-        authRequired: false/*true*/
+        authRequired: true
     },
     ordering: {
         render: orderingPage,
         isModal: false,
-        authRequired: false/*true*/
+        authRequired: true
     },
     suggests: {
         render: suggestsPage,
         isModal: true,
         position: 'modal-top',
-        authRequired: false/*true*/
+        authRequired: true
     },
     networkErrors: {
         render: networkErrors,
