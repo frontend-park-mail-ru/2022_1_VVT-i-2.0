@@ -20,15 +20,7 @@ const EVENTS = {
     profileName: Event.getNameFieldEvents('profileName', FORM.statusPersonInfoForm),
     profilePhone: Event.getPhoneFieldEvents('profilePhone', FORM.statusPersonInfoForm),
     profileEmail: Event.getEmailFieldEvents('profileEmail', FORM.statusPersonInfoForm),
-    // profile: [
-    //     {
-    //         type: 'click',
-    //         listener (app, store, e) {
-    //             const event = new CustomEvent('render-page', { detail: { section: 'profile' } });
-    //             document.dispatchEvent(event);
-    //         }
-    //     }
-    // ]
+    personInfoSaveButton: Event.getButtonEvents().personInfoSaveButton,
 
     confirmCodeButton: Event.getButtonEvents().confirmCodeButton,
     sendCodeButton: Event.getButtonEvents().sendCodeButton,

@@ -12,7 +12,6 @@ const profilePage = (app, store) => {
     main.innerHTML = components.personInfoForm(store.getters.user());
 
     app.root.appendChild(main);
-    // events.addListeners(app);
 };
 
 export default profilePage;

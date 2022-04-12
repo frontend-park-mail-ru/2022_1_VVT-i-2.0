@@ -3,7 +3,7 @@ import COLORS from '../../configurations/colors/colors.js';
 import FORMS_CONFIGURATION from '../../configurations/forms.js';
 import ELEMS_CONFIGURATION from '../../configurations/elems.js';
 
-const personInfoForm = () => {
+const personInfoForm = ({ name, phone, email }) => {
     const inputConfigurations = FORMS_CONFIGURATION.inputs.personInfoForm;
 
     const template = `
@@ -52,7 +52,7 @@ const personInfoForm = () => {
     `;
 
     return Mustache.render(template, {
-        inputConfigurations: inputConfigurations,
+        inputConfigurations,
         backButton() {
             return UIKIT.backButton('Все рестораны', 'main');
         },
@@ -61,10 +61,18 @@ const personInfoForm = () => {
         },
         buttonChangeAvatar() {
             return UIKIT.simpleButton('Изменить аватар', COLORS.grey,
-                ELEMS_CONFIGURATION.buttons.SMALL, 'profile', 'personInfoSaveButton');
+                ELEMS_CONFIGURATION.buttons.SMALL, 'profile', 'changeAvatarButton');
         },
-        input () {
-            return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id);
+        input() {
+            let value = name;
+            if (this.id === 'profilePhone') {
+                value = phone;
+            } else if (this.id === 'profileEmail') {
+                value = email;
+            }
+            const readonly = (this.id === 'profilePhone');
+
+            return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id, value, readonly);
         },
         menu () {
             return UIKIT.profileMenu();

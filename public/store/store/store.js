@@ -1,9 +1,9 @@
 import { render } from '../../render/render';
 
 const STORE = {
-  // State
-  // user: { login: '1234' },
-  user: {},
+  // State,
+  user: { name: 'Name', phone: '+7(915)000-11-22', email: 'test@ya.ru' },
+  // user: {},
   restaurants: [],
   products: {},
   cart: [],

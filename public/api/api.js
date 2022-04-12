@@ -73,7 +73,7 @@ export const getUser = () => {
 }
 
 export const updateUser = (user) => {
-    return request('/update', { method: METHODS.POST, body: { phone } });
+    return request('/update', { method: METHODS.POST, body: user });
 }
 
 export const sendCode = (phone) => {
