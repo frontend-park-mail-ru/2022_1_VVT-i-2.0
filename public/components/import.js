@@ -9,7 +9,7 @@ import productsIcons from './ProductsIcons/products-icons.js';
 import paymentChoice from './PaymentChoice/payment-choice.js';
 import shoppingCart from './ShoppingCart/shopping-cart.js';
 import ordering from './Ordering/ordering.js';
-import suggestsForm from './suggestsForm/suggests-form.js';
+import suggestsForm from './SuggestsForm/suggests-form.js';
 import NetworkErrorForm from './NetworkErrorForm/network-error-form.js';
 
 export default {
