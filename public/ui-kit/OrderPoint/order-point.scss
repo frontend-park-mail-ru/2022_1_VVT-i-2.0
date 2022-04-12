@@ -20,6 +20,7 @@
     width: 28px;
     height: 28px;
     margin-top: 2px;
+    margin-right: 7px;
 }
 
 .order-point__point-info {
@@ -30,16 +31,18 @@
 
 .point-info__dish-info {
     display: inline-flex;
+    margin-top: 4px;
+    margin-bottom: 6px;
 }
 
-.point-info__dish-info :nth-child(1) {
-    width: 70%;
-}
-
-.point-info__dish-info :nth-child(2) {
+.dish-info__price-bold {
     text-align: right;
     width: 30%;
 }
+
+//.point-info__dish-info:nth-child(n) {
+//    font-weight: bold;
+//}
 
 .point-info__ingredients {
     display: inline-flex;

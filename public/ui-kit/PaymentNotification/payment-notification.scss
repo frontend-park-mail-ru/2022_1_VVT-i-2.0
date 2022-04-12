@@ -4,7 +4,8 @@
     display: flex;
     flex-direction: row;
 
-    width: 321px;
+    //width: 321px;
+    width: 100%;
     height: 62px;
 
     border-radius: 0 10px 10px 0;
@@ -32,11 +33,11 @@
     display: flex;
     align-items: center;
 
-    width: 299px;
+    margin-left: 23px;
+    padding: 2px;
 
     font-size: 13px;
     line-height: 15px;
+    text-align: left;
     color: map-get(theme.$COLORS, black);
-
-    margin-left: 10px;
 }
