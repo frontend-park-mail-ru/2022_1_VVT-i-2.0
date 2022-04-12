@@ -41,13 +41,13 @@ const personInfoForm = () => {
                 </div>
             </div>
 
-            <div class="person-info-form__mail-notification">
-                Информация о заказах
-            </div>
+<!--            <div class="person-info-form__mail-notification">-->
+<!--                Информация о заказах-->
+<!--            </div>-->
 
-            <div>
-                {{&switcherElement}}
-            </div>
+<!--            <div>-->
+<!--                {{&switcherElement}}-->
+<!--            </div>-->
         </section>
     `;
 
@@ -60,7 +60,7 @@ const personInfoForm = () => {
             return UIKIT.title('Личные данные');
         },
         buttonChangeAvatar() {
-            return UIKIT.simpleButton('Изменить аватар', COLORS.warm,
+            return UIKIT.simpleButton('Изменить аватар', COLORS.grey,
                 ELEMS_CONFIGURATION.buttons.SMALL, 'profile', 'personInfoSaveButton');
         },
         input () {
@@ -73,9 +73,9 @@ const personInfoForm = () => {
             return UIKIT.simpleButton('Сохранить', COLORS.primary,
                 ELEMS_CONFIGURATION.buttons.STANDARD, 'profile', 'personInfoSaveButton');
         },
-        switcherElement () {
-            return UIKIT.switcher();
-        },
+        // switcherElement () {
+        //     return UIKIT.switcher();
+        // },
     });
 };
 
