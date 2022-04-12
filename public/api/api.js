@@ -36,17 +36,7 @@ const request = (url, options = DEFAULT_OPTIONS) => {
                 return Promise.reject();
             }
 
-            const text = result.text();
-            if (!text) {
-                if (result.status !== 200) {
-                    alert('В ходе запроса произошла ошибка');
-                    return Promise.reject();
-                }
-
-                return {};
-            }
-
-            const data = JSON.parse(text);
+            const data = result.json();
 
             if (result.status !== 200) {
                 alert(data.error);
