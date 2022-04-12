@@ -17,6 +17,7 @@ const EVENTS = {
     profileName: Event.getNameFieldEvents('profileName', FORM.statusPersonInfoForm),
     profilePhone: Event.getPhoneFieldEvents('profilePhone', FORM.statusPersonInfoForm),
     profileEmail: Event.getEmailFieldEvents('profileEmail', FORM.statusPersonInfoForm),
+    changeAvatarButton: Event.getButtonEvents().changeAvatarButton,
     personInfoSaveButton: Event.getButtonEvents().personInfoSaveButton,
 
     confirmCodeButton: Event.getButtonEvents().confirmCodeButton,
