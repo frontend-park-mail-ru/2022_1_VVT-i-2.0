@@ -35,11 +35,11 @@ const ordering = (props) => {
             </div>
           </div>
 
-<!--          <div class="shopping-cart_order-points">-->
+          <div class="shopping-cart_order-points">
             {{#orderPoints}}
               {{&drawOrderPoint}}
             {{/orderPoints}}
-<!--          </div>-->
+          </div>
           
           <div class="shopping-cart__space-block"></div>
 
