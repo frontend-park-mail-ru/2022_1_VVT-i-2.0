@@ -5,7 +5,7 @@
     flex-direction: column;
     position: relative;
 
-    width: 322px;
+    width: 321px;
     height: 100%;
 
     background: theme.getColor('white');
@@ -28,7 +28,7 @@
 
 .shopping-cart__button-order {
     position: absolute;
+    left: 5px;
     right: auto;
-    left: 10px;
     bottom: 5px;
 }
