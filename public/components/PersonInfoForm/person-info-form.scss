@@ -6,6 +6,7 @@
 
     height: 100%;
     margin-right: 10.5%;
+    margin-left: 10%;
 }
 
 .person-info-form__sets-nav-block {
@@ -15,7 +16,7 @@
 
 .sets-nav-block__settings-block {
     width: 646px;
-    height: 479px;
+    height: 529px;
 
     box-sizing: border-box;
     border-radius: 10px;
@@ -64,6 +65,11 @@
 .avatar-choice-block__button-change {
     margin-right: 0;
     margin-left: auto;
+}
+
+.settings-block__input {
+    margin-bottom: 15px;
+    margin-top: 10px;
 }
 
 .settings-block__button-save-settings {

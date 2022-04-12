@@ -28,7 +28,7 @@ const personInfoForm = () => {
                             </div>
                         </div>
                         {{#inputConfigurations}}
-                            {{&input}}
+                            <div class="settings-block__input">{{&input}}</div>
                         {{/inputConfigurations}}
                         <div id="button-save-settings" class="settings-block__button-save-settings">
                             {{&savePersonInfoChanges}}
