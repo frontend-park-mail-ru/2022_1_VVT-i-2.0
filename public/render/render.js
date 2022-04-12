@@ -80,11 +80,11 @@ export const renderAndUpdateURN = (urn) => {
     return;
   }
 
-  render(urn);
-
   if (!urn.startsWith('/')) {
     urn = `/${urn}`;
   }
 
   history.pushState({}, null, urn);
+
+  render(urn);
 };
