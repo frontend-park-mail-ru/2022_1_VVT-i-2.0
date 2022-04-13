@@ -12,5 +12,5 @@ if (!localStorage.getItem('address')) {
     localStorage.setItem('address', 'город Москва, улица Ленина, 21');
 }
 
-// store.actions.getUser().then(() => render(location.pathname));
-render(location.pathname);
+store.actions.getUser().then(() => render(location.pathname));
+// render(location.pathname);
