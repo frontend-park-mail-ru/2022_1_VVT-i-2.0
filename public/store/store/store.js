@@ -101,8 +101,10 @@ const STORE = {
     this.currentRestName = '';
     this.cart = [];
   },
-  addSuggests(suggests) {
-    this.suggests = suggests;
+  addSuggests(result) {
+    this.suggests = result.suggests.map((suggest) => {
+      return { address: suggest, end: result.end };
+    });
   },
   clearSuggests() {
     this.suggests = [];
