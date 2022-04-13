@@ -29,8 +29,9 @@ export const suggests = () => {
 
           document.getElementById('suggestsSearch').value = address;
 
+          localStorage.setItem('address', address);
+
           if (end) {
-            localStorage.setItem('address', address);
             renderAndUpdateURN('/');
             return;
           }
