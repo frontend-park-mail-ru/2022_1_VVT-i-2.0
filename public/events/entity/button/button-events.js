@@ -145,9 +145,9 @@ export const getButtonEvents = () => {
                     input.type = 'file';
                     input.onchange = () => {
                         console.log(input, input.files[0]);
-                        var preview = document.getElementById('user-avatar');
-                        var file    = input.files[0];
-                        var reader  = new FileReader();
+                        const preview = document.getElementById('user-avatar');
+                        const file    = input.files[0];
+                        const reader  = new FileReader();
 
                         reader.onloadend = function () {
                             preview.src = reader.result;
@@ -183,6 +183,39 @@ export const getButtonEvents = () => {
                     console.log(name, email);
 
                     store.actions.updateUser({ name, email }).then(() => renderAndUpdateURN('/'));
+                }
+            }
+        ],
+        profilePreviewButton: [
+            {
+                type: 'click',
+                selector: 'id',
+                listener(app, store, e) {
+                    console.log('ESSS');
+                    if (sessionStorage.getItem('profilePreviewStatus') === 'activated') {
+                        sessionStorage.setItem('profilePreviewStatus', 'deactivated');
+                        renderAndUpdateURN('/products/main');
+                        return;
+                    }
+
+                    sessionStorage.setItem('profilePreviewStatus', 'activated');
+                    renderAndUpdateURN('/profilePreview');
+                }
+            }
+        ],
+        shoppingCartButton: [
+            {
+                type: 'click',
+                selector: 'id',
+                listener(app, store, e) {
+                    if (sessionStorage.getItem('shoppingCartStatus') === 'activated') {
+                        sessionStorage.setItem('shoppingCartStatus', 'deactivated');
+                        renderAndUpdateURN('/products/main');
+                        return;
+                    }
+
+                    sessionStorage.setItem('shoppingCart', 'activated');
+                    renderAndUpdateURN('/shoppingCart')
                 }
             }
         ]

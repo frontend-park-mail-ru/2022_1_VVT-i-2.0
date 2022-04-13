@@ -18,16 +18,18 @@ const header = (auth = false, customImgPath = '') => {
                 </span>
             </nav>
             {{#auth}}
-                <nav class="page-header__button" data-section="profilePreview">
-                {{#customImgPath}}
-                    <img class="page-header__avatar" src="{{customImgPath}}" data-section="profilePreview">
-                {{/customImgPath}}
-                {{^customImgPath}}
-                    <img src="/graphics/icons/profile.svg" data-section="profilePreview">
-                {{/customImgPath}}
+                <nav id="profilePreviewButton" class="page-header__button" data-section="profilePreview">
+                    {{#customImgPath}}
+                        <img class="page-header__avatar" src="{{customImgPath}}" data-section="profilePreview">
+                    {{/customImgPath}}
+                    
+                    {{^customImgPath}}
+                        <img src="/graphics/icons/profile.svg" data-section="profilePreview">
+                    {{/customImgPath}}
+                
                     <a class="button__controller" data-section="profilePreview">Профиль</a>
                 </nav>
-                <nav id="button-shopping-cart" class="page-header__button page-header__button-cart" data-section="shoppingCart">
+                <nav id="shoppingCartButton" class="page-header__button page-header__button-cart" data-section="shoppingCart">
                     <img src="/graphics/icons/shopping_cart.svg" data-section="shoppingCart">
                     <a class="button__controller" data-section="shoppingCart">Корзина</a>
                 </nav>
