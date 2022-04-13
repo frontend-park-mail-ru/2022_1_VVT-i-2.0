@@ -4,6 +4,7 @@ import {getNameFieldEvents} from './name/name-events.js';
 import {getPhoneFieldEvents} from './phone/phone-events.js';
 import {getEmailFieldEvents} from './email/email-events.js';
 import { productEvents } from './product/product-events.js';
+import { suggests } from './suggests/suggests-events.js';
 
 const Event = {
     getFrameEvents,
@@ -11,7 +12,8 @@ const Event = {
     getNameFieldEvents,
     getPhoneFieldEvents,
     getEmailFieldEvents,
-    productEvents
+    productEvents,
+    suggests
 };
 
 export default Event;

@@ -7,6 +7,7 @@ const STORE = {
   restaurants: [],
   products: {},
   cart: [],
+  suggests: [],
 
   // Mutations
   addUser(user) {
@@ -28,6 +29,12 @@ const STORE = {
   },
   clearCart() {
     this.cart = [];
+  },
+  addSuggests(suggests) {
+    this.suggests = suggests;
+  },
+  clearSuggests() {
+    this.suggests = [];
   }
 };
 

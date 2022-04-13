@@ -23,6 +23,9 @@ const EVENTS = {
     sendCodeButton: Event.getButtonEvents().sendCodeButton,
 
     addToCart: Event.productEvents(),
+
+    suggestsSearch: Event.suggests().suggestsSearch,
+    suggestsRow: Event.suggests().suggestsRow
 };
 
 /**

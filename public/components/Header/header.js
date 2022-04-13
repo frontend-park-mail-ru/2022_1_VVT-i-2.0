@@ -1,4 +1,6 @@
 const header = (auth = false, customImgPath = '') => {
+    const address = localStorage.getItem('address');
+
     const template = `
         <header class="page-header">
             <nav class="page-header__button" data-section="main">
@@ -8,7 +10,11 @@ const header = (auth = false, customImgPath = '') => {
             <nav id="search" class="page-header__button page-header__button-search" data-section="suggests">
                 <img src="/graphics/icons/address.svg" data-section="addressSuggester" data-section="suggests">
                 <span data-section="suggests">
-                    Москва, 4-й Вятский переулок, 18к3, кв. 100
+                    <input
+                        id="suggestsSearch"
+                        class="page-header__suggests-input"
+                        value="{{address}}"
+                    >
                 </span>
             </nav>
             {{#auth}}
@@ -35,7 +41,7 @@ const header = (auth = false, customImgPath = '') => {
         </header>
     `;
 
-    return Mustache.render(template, { auth, customImgPath });
+    return Mustache.render(template, { auth, customImgPath, address });
 };
 
 export default header;

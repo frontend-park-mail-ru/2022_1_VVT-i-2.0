@@ -4,8 +4,8 @@ const suggestsForm = (props) => {
       {{#suggests}}
         <div class="suggest-form__suggest-row">
           <div></div>
-          <div class="suggest-row__suggest-address">
-            {{.}}
+          <div class="suggest-row__suggest-address suggestsRow" end="{{end}}">
+            {{address}}
           </div>
           <div></div>
           <div></div>

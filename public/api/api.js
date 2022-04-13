@@ -103,3 +103,7 @@ export const login = (user) => {
 export const logout = () => {
     return request('/logout', {method: METHODS.GET});
 }
+
+export const suggest = (query) => {
+    return request(`/suggest?q=${query}`);
+}

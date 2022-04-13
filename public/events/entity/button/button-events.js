@@ -1,6 +1,6 @@
 import * as FORM from '../../common/status-form.js';
 import { hideEmptyInputs, showEmptyInputs } from '../../common/status-form.js';
-import { render, renderAndUpdateURN } from '../../../render/render.js';
+import { renderAndUpdateURN } from '../../../render/render.js';
 
 export const getButtonEvents = () => {
     return {
@@ -151,6 +151,8 @@ export const getButtonEvents = () => {
 
                     const name = document.getElementById('profileName').children[0].value;
                     const email = document.getElementById('profileEmail').children[0].value;
+
+                    console.log(name, email);
 
                     store.actions.updateUser({ name, email }).then(() => renderAndUpdateURN('/'));
                 }

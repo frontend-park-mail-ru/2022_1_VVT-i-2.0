@@ -10,7 +10,7 @@ const restIcons = (restaurants) => {
     const template = `
         <div class="restaurants-form">
             {{#restaurants}}
-                <section class="restaurants-form__rest_icon">
+                <section class="restaurants-form__rest_icon" data-section="{{href}}">
                     <img class="rest-icon__rest_img" src={{imgPath}} alt={{restName}}>
                     {{&metaInformation}}
                 </section>

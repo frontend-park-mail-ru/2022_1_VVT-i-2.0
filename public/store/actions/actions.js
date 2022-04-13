@@ -32,3 +32,11 @@ export const login = (user) => {
 export const logout = () => {
   return API.logout().then(() => STORE.removeUser());
 }
+
+export const suggest = (query) => {
+  return API.suggest(query).then((result) => STORE.addSuggests(result.suggests));
+}
+
+export const clearSuggests = () => {
+  return STORE.clearSuggests();
+}
