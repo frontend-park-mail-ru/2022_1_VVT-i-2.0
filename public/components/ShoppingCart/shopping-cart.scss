@@ -11,6 +11,7 @@
     background: theme.getColor('white');
     border: 1px solid theme.getColor('grey');
     box-sizing: border-box;
+    z-index: 0 !important;
 }
 
 .shopping-cart__preview-rest {

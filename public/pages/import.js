@@ -52,10 +52,10 @@ const MENU = {
     },
     shoppingCart: {
         render: shoppingCartPage,
-        isModal: true,
+        isModal: false,
         position: 'modal-right',
         authRequired: true,
-        activeAround: true,
+        additionalPage: true,
     },
     ordering: {
         render: orderingPage,

@@ -4,6 +4,7 @@ import * as store from '../store/import.js';
 
 export const APP = {
   root: document.getElementById('root'),
+  additional: document.getElementById('additional'),
   modal: document.getElementById('modal')
 };
 
@@ -55,7 +56,7 @@ export const render = (urn) => {
 
   events.removeListeners(APP, store);
 
-  if (page.isModal) {
+  if (page.isModal || page.additionalPage) {
     let root = sessionStorage.getItem('root') || 'main';
     if (root === 'networkErrors') {
       root = 'main';
@@ -64,9 +65,11 @@ export const render = (urn) => {
 
     MENU[root].render(APP, store);
 
-    if (page.activeAround) {
-      APP.modal.classList.add('shown-not-modal');
+    if (page.additionalPage) {
+      APP.modal.classList.remove('shown');
+      APP.additional.classList.add('additional'/*'shown-not-modal'*/);
     } else {
+      APP.additional.classList.remove('additional'/*'shown-not-modal'*/);
       APP.modal.classList.add('shown');
     }
 
