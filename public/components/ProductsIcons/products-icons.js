@@ -6,7 +6,7 @@ import UIKIT from '../../ui-kit/import.js';
  * @param {Object} products - Объект, содержащий данные, полученные с сервера.
  * @return {string} HTML строка для отрисовки компонента registerForm.
  */
-const productsIcons = (products) => {
+const productsIcons = (products, restName) => {
   const template = `
     <div class="rest-menu">
       {{#products}}
@@ -18,9 +18,9 @@ const productsIcons = (products) => {
     </div>
   `;
   return Mustache.render(template, {
-    products: products,
+    products: products, restName,
     prodMetaInfo() {
-      return UIKIT.productMetaInformation(this.productName, this.info, this.description, this.price);
+      return UIKIT.productMetaInformation(this.productName, this.info, this.description, this.price, this.id, restName);
     }
   });
 };

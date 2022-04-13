@@ -5,61 +5,26 @@ import components from '../../components/import.js';
  * @param {Object} app - Объект приложения.
  */
 const shoppingCartPage = (app, store) => {
-    const restName = 'McDonalds';
+    const currentRestName = store.getters.currentRestName();
 
-    const properties = [
-        {
-            imgPath: '/graphics/icons/Image.png',
-            dishName: 'Бургер по-восточному',
-            additives: 'Без котлеты',
-            dishCount: 3,
-            price: 269,
-        },
-        {
-            imgPath: '/graphics/icons/Image.png',
-            dishName: 'Бургер по-восточному',
-            additives: 'Без котлеты',
-            dishCount: 3,
-            price: 269,
-        },
-        {
-            imgPath: '/graphics/icons/Image.png',
-            dishName: 'Бургер по-восточному',
-            additives: 'Без котлеты',
-            dishCount: 3,
-            price: 269,
-        },
-        {
-            imgPath: '/graphics/icons/Image.png',
-            dishName: 'Бургер по-восточному',
-            additives: 'Без котлеты',
-            dishCount: 3,
-            price: 269,
-        },
-        {
-            imgPath: '/graphics/icons/Image.png',
-            dishName: 'Бургер по-восточному',
-            additives: 'Без котлеты',
-            dishCount: 3,
-            price: 269,
-        },
-        {
-            imgPath: '/graphics/icons/Image.png',
-            dishName: 'Бургер по-восточному',
-            additives: 'Без котлеты',
-            dishCount: 3,
-            price: 269,
-        },
-        {
-            imgPath: '/graphics/icons/Image.png',
-            dishName: 'Бургер по-восточному',
-            additives: 'Без котлеты',
-            dishCount: 3,
-            price: 269,
-        },
-    ];
+    let productObj = { restName: '', products: [] };
+    if (currentRestName !== '') {
+        productObj = Object
+            .values(store.getters.products())
+            .find((product) => product.restName === currentRestName);
+    }
 
-    app.modal.innerHTML = components.shoppingCart(restName, properties);
+    const properties = store
+        .getters.cart()
+        .map(({ id, count }) => {
+            const index = productObj.products.findIndex((orderPoint) => orderPoint.id === id);
+            if (index === -1) {
+                return;
+            }
+            return { ...productObj.products[index], count };
+        });
+
+    app.modal.innerHTML = components.shoppingCart(productObj.restName, properties);
 };
 
 export default shoppingCartPage;

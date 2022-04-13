@@ -23,7 +23,7 @@ const EVENTS = {
     confirmCodeButton: Event.getButtonEvents().confirmCodeButton,
     sendCodeButton: Event.getButtonEvents().sendCodeButton,
 
-    addToCart: Event.productEvents(),
+    addToCart: Event.productEvents().addToCart,
 
     suggestsSearch: Event.suggests().suggestsSearch,
     suggestsRow: Event.suggests().suggestsRow

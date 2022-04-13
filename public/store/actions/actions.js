@@ -40,3 +40,7 @@ export const suggest = (query) => {
 export const clearSuggests = () => {
   return STORE.clearSuggests();
 }
+
+export const addProductToCart = (id, restName) => {
+  return STORE.addProductToCart(id, restName);
+}

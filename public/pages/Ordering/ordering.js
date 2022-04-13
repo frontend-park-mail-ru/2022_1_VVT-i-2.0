@@ -6,23 +6,23 @@ const ordering = (app, store) => {
   const orderPoints = [
     {
       imgPath: '/graphics/icons/Image.png',
-      dishName: 'Бургер по-восточному',
-      additives: 'Без котлеты',
-      dishCount: 3,
+      productName: 'Бургер по-восточному',
+      info: 'Без котлеты',
+      count: 3,
       price: 269,
     },
     {
       imgPath: '/graphics/icons/Image.png',
-      dishName: 'Бургер по-восточному',
-      additives: 'Без котлеты',
-      dishCount: 3,
+      productName: 'Бургер по-восточному',
+      info: 'Без котлеты',
+      count: 3,
       price: 269,
     },
     {
       imgPath: '/graphics/icons/Image.png',
-      dishName: 'Бургер по-восточному',
-      additives: 'Без котлеты',
-      dishCount: 3,
+      productName: 'Бургер по-восточному',
+      info: 'Без котлеты',
+      count: 3,
       price: 269,
     },
   ];

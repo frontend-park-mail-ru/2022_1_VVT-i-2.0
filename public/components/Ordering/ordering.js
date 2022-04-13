@@ -42,7 +42,7 @@ const ordering = (props) => {
               {{&drawOrderPoint}}
             {{/orderPoints}}
           </div>
-          
+
           <div class="shopping-cart__space-block"></div>
 
           <div class="shop-cart-block__payment-info">
@@ -82,7 +82,7 @@ const ordering = (props) => {
       return UIKIT.buttonPay();
     },
     drawOrderPoint() {
-      return UIKIT.orderPoint(this.imgPath, this.dishName, this.additives, this.dishCount, this.price);
+      return UIKIT.orderPoint(this.imgPath, this.productName, this.info, this.count, this.price);
     },
     paymentNotification() {
       return UIKIT.paymentNotification('Закажите ещё на 380₽ для бесплатной доставки', false);

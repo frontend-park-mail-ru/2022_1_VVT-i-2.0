@@ -14,60 +14,16 @@ const mainPage = (app, store) => {
     return;
   }
 
-  // const restName = store.getters.products(params).restName;
-  const restName = params;
-
-  const products = [
-    {
-      imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-      productName: 'Тестовое имя',
-      info: '172 г · 213 ккал',
-      description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-      price: 296
-    },
-    {
-      imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-      productName: 'Тестовое имя',
-      info: '172 г · 213 ккал',
-      description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-      price: 296
-    },
-    {
-      imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-      productName: 'Тестовое имя',
-      info: '172 г · 213 ккал',
-      description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-      price: 296
-    }, {
-      imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-      productName: 'Тестовое имя',
-      info: '172 г · 213 ккал',
-      description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-      price: 296
-    },
-    {
-      imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-      productName: 'Тестовое имя',
-      info: '172 г · 213 ккал',
-      description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-      price: 296
-    },
-    {
-      imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-      productName: 'Тестовое имя',
-      info: '172 г · 213 ккал',
-      description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-      price: 296
-    }
-  ];
+  const productObj = store.getters.products()[params];
+  const restName = productObj.restName;
 
   app.root.innerHTML = components.header(
     Object.keys(store.getters.user()).length !== 0, '/graphics/images/avatar.jpg'
   );
 
   const main = document.createElement('main');
-  main.innerHTML =
-    UIKIT.backButton('Все рестораны', 'main') + `<h1>${restName}</h1>` + components.productsIcons(products);
+  main.innerHTML = UIKIT.backButton('Все рестораны', 'main') + `<h1>${restName}</h1>` +
+    components.productsIcons(productObj.products, restName);
 
   app.root.appendChild(main);
 };
