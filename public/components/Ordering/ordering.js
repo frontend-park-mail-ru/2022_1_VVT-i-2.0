@@ -5,6 +5,8 @@ import paymentChoice from '../PaymentChoice/payment-choice.js';
 const ordering = (props) => {
   const inputConfigurations = FORMS_CONFIGURATION.inputs.ordering;
 
+  const isEmpty = props.total === 0;
+
   const template = `
     <div class="ordering-page">
       {{&title}}
@@ -30,6 +32,7 @@ const ordering = (props) => {
           {{&buttonPay}}
         </div>
         <div class="ordering-page__shop-cart-block">
+          {{^isEmpty}}
           <div class="shopping-cart__rest">
             <div>
               Ваш заказ в ресторане:
@@ -58,8 +61,9 @@ const ordering = (props) => {
 
           <div class="shop-cart-block__summary-payment">
             <div>Итого</div>
-            <div class="payment__price">980 ₽</div>
+            <div class="payment__price">{{total}} ₽</div>
           </div>
+          {{/isEmpty}}
         </div>
       </div>
     </div>
@@ -69,6 +73,8 @@ const ordering = (props) => {
     restName: props.restName,
     inputConfigurations: inputConfigurations,
     orderPoints: props.orderPoints,
+    total: props.total,
+    isEmpty,
     title() {
       return UIKIT.title('Оформление заказа');
     },
@@ -82,7 +88,7 @@ const ordering = (props) => {
       return UIKIT.buttonPay();
     },
     drawOrderPoint() {
-      return UIKIT.orderPoint(this.imgPath, this.productName, this.info, this.count, this.price);
+      return UIKIT.orderPoint(this.imgPath, this.productName, this.info, this.count, this.price, this.id);
     },
     paymentNotification() {
       return UIKIT.paymentNotification('Закажите ещё на 380₽ для бесплатной доставки', false);

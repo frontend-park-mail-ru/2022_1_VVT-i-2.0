@@ -11,14 +11,33 @@ export const productEvents = () => {
         }
       }
     ],
-    incrementCount: [
+    incrementProductCount: [
       {
         type: 'click',
         selector: 'class',
         listener(app, store, e) {
-          // const { id } = e.target.dataset;
+          const { id } = e.target.dataset;
 
-          // store.actions.incrementProductCount(parseInt(id, 10), rest);
+          if (e.target instanceof HTMLImageElement) {
+            e.stopPropagation();
+          }
+
+          store.actions.incrementProductCount(parseInt(id, 10));
+        }
+      }
+    ],
+    decrementProductCount: [
+      {
+        type: 'click',
+        selector: 'class',
+        listener(app, store, e) {
+          const { id } = e.target.dataset;
+
+          if (e.target instanceof HTMLImageElement) {
+            e.stopPropagation();
+          }
+
+          store.actions.decrementProductCount(parseInt(id, 10));
         }
       }
     ]

@@ -24,6 +24,8 @@ const EVENTS = {
     sendCodeButton: Event.getButtonEvents().sendCodeButton,
 
     addToCart: Event.productEvents().addToCart,
+    incrementProductCount: Event.productEvents().incrementProductCount,
+    decrementProductCount: Event.productEvents().decrementProductCount,
 
     suggestsSearch: Event.suggests().suggestsSearch,
     suggestsRow: Event.suggests().suggestsRow

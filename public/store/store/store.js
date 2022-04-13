@@ -66,6 +66,37 @@ const STORE = {
     this.currentRestName = restName;
     this.cart = cart;
   },
+  incrementProductCount(id) {
+    const cart = this.cart;
+
+    const index = cart.findIndex((orderPoint) => orderPoint.id === id);
+    if (index === -1) {
+      return;
+    }
+
+    cart[index].count = cart[index].count + 1;
+
+    this.cart = cart;
+  },
+  decrementProductCount(id) {
+    const cart = this.cart;
+
+    const index = cart.findIndex((orderPoint) => orderPoint.id === id);
+    if (index === -1) {
+      return;
+    }
+
+    cart[index].count = cart[index].count - 1;
+    if (cart[index].count < 1) {
+      cart.splice(index, 1);
+    }
+
+    this.cart = cart;
+
+    if (this.cart.length === 0) {
+      this.currentRestName = '';
+    }
+  },
   clearCart() {
     this.currentRestName = '';
     this.cart = [];

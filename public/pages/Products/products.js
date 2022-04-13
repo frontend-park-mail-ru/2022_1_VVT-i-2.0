@@ -8,6 +8,9 @@ import UIKIT from '../../ui-kit/import.js';
  */
 const mainPage = (app, store) => {
   const params = sessionStorage.getItem('params');
+  if (!params) {
+    return;
+  }
 
   if (store.getters.products.hasOwnProperty(params)) {
     store.actions.getProducts(params);

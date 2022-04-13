@@ -44,3 +44,11 @@ export const clearSuggests = () => {
 export const addProductToCart = (id, restName) => {
   return STORE.addProductToCart(id, restName);
 }
+
+export const incrementProductCount = (id) => {
+  return STORE.incrementProductCount(id);
+}
+
+export const decrementProductCount = (id) => {
+  return STORE.decrementProductCount(id);
+}

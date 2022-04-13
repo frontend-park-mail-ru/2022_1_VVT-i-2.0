@@ -144,7 +144,6 @@ export const getButtonEvents = () => {
                     let input = document.createElement('input');
                     input.type = 'file';
                     input.onchange = () => {
-                        console.log(input, input.files[0]);
                         var preview = document.getElementById('user-avatar');
                         var file    = input.files[0];
                         var reader  = new FileReader();
@@ -179,8 +178,6 @@ export const getButtonEvents = () => {
 
                     const name = document.getElementById('profileName').children[0].value;
                     const email = document.getElementById('profileEmail').children[0].value;
-
-                    console.log(name, email);
 
                     store.actions.updateUser({ name, email }).then(() => renderAndUpdateURN('/'));
                 }

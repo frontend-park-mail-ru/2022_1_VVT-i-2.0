@@ -8,5 +8,7 @@ Object
 
 window.onpopstate = () => render(location.pathname);
 
+localStorage.setItem('address', 'Москва');
+
 // store.actions.getUser().then(() => render(location.pathname));
 render(location.pathname);
