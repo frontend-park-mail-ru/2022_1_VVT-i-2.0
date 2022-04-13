@@ -43,7 +43,9 @@ const STORE = {
     // }
   },
   cart: [],
-  suggests: [],
+  suggests: [
+    // { address: 'FIRST', end: false }, { address: 'SECOND', end: true }
+  ],
   currentRestName: '',
 
   // Mutations
