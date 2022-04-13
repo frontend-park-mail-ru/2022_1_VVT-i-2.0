@@ -3,6 +3,10 @@
 @use 'public/configurations/colors/colors.scss' as theme;
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+html {
+  overflow: auto;
+}
+
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;

@@ -29,6 +29,34 @@ const shoppingCartPage = (app, store) => {
             dishCount: 3,
             price: 269,
         },
+        {
+            imgPath: '/graphics/icons/Image.png',
+            dishName: 'Бургер по-восточному',
+            additives: 'Без котлеты',
+            dishCount: 3,
+            price: 269,
+        },
+        {
+            imgPath: '/graphics/icons/Image.png',
+            dishName: 'Бургер по-восточному',
+            additives: 'Без котлеты',
+            dishCount: 3,
+            price: 269,
+        },
+        {
+            imgPath: '/graphics/icons/Image.png',
+            dishName: 'Бургер по-восточному',
+            additives: 'Без котлеты',
+            dishCount: 3,
+            price: 269,
+        },
+        {
+            imgPath: '/graphics/icons/Image.png',
+            dishName: 'Бургер по-восточному',
+            additives: 'Без котлеты',
+            dishCount: 3,
+            price: 269,
+        },
     ];
 
     app.modal.innerHTML = components.shoppingCart(restName, properties);
