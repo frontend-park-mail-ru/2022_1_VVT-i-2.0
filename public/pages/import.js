@@ -54,7 +54,8 @@ const MENU = {
         render: shoppingCartPage,
         isModal: true,
         position: 'modal-right',
-        authRequired: true
+        authRequired: true,
+        activeAround: true,
     },
     ordering: {
         render: orderingPage,

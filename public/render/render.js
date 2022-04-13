@@ -64,7 +64,13 @@ export const render = (urn) => {
 
     MENU[root].render(APP, store);
 
-    APP.modal.classList.add('shown');
+    if (page.activeAround) {
+      APP.modal.classList.add('shown-not-modal');
+    } else {
+      APP.modal.classList.add('shown');
+    }
+
+    // APP.modal.classList.add('shown');
     setModalPosition(page);
   } else {
     APP.modal.classList.remove(...APP.modal.classList);
