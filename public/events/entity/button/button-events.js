@@ -143,11 +143,23 @@ export const getButtonEvents = () => {
                 listener(app, store, e) {
                     let input = document.createElement('input');
                     input.type = 'file';
-                    input.onchange = _ => {
-                        // you can use this method to get file and perform respective operations
-                        let files =   Array.from(input.files);
-                        console.log(files);
+                    input.onchange = () => {
+                        console.log(input, input.files[0]);
+                        var preview = document.getElementById('user-avatar');
+                        var file    = input.files[0];
+                        var reader  = new FileReader();
+
+                        reader.onloadend = function () {
+                            preview.src = reader.result;
+                        }
+
+                        if (file) {
+                            reader.readAsDataURL(file);
+                        } else {
+                            preview.src = "";
+                        }
                     };
+
                     input.click();
                 }
             }
