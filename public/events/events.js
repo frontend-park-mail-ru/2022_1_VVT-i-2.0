@@ -14,6 +14,8 @@ const EVENTS = {
     registerEmail: Event.getEmailFieldEvents('registerEmail', FORM.statusRegisterForm),
     registerButton: Event.getButtonEvents().registerButton,
 
+    // profilePreviewButton: Event.getButtonEvents().profilePreviewButton,
+
     profileName: Event.getNameFieldEvents('profileName', FORM.statusPersonInfoForm),
     profilePhone: Event.getPhoneFieldEvents('profilePhone', FORM.statusPersonInfoForm),
     profileEmail: Event.getEmailFieldEvents('profileEmail', FORM.statusPersonInfoForm),
@@ -23,6 +25,7 @@ const EVENTS = {
     confirmCodeButton: Event.getButtonEvents().confirmCodeButton,
     sendCodeButton: Event.getButtonEvents().sendCodeButton,
 
+    // shoppingCartButton: Event.getButtonEvents().shoppingCartButton,
     addToCart: Event.productEvents().addToCart,
 
     suggestsSearch: Event.suggests().suggestsSearch,
