@@ -10,6 +10,8 @@ const ordering = (app, store) => {
       .find((product) => product.restName === currentRestName);
   }
 
+  const phone = store.getters.user().phone;
+
   const cart = store.getters.cart();
 
   const orderPoints = cart
@@ -38,7 +40,7 @@ const ordering = (app, store) => {
   );
 
   const main = document.createElement('main');
-  main.innerHTML = components.ordering({ restName: productObj.restName, orderPoints, total });
+  main.innerHTML = components.ordering({ phone, restName: productObj.restName, orderPoints, total });
 
   app.root.appendChild(main);
 };

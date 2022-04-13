@@ -107,3 +107,7 @@ export const logout = () => {
 export const suggest = (query) => {
     return request(`/suggest?q=${query}`);
 }
+
+export const createOrder = (order) => {
+    return request('/order', { method: METHODS.POST, body: order })
+}

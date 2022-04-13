@@ -22,6 +22,7 @@ const ordering = (props) => {
 
           <div class="ordering-block__comment-header">Комментарий</div>
           <div
+            id="orderingComment"
             class="ordering-block__comment-block"
             contenteditable="true"
             placeholder="Напишите как Вас найти или пожелания для блюд..."
@@ -79,7 +80,16 @@ const ordering = (props) => {
       return UIKIT.title('Оформление заказа');
     },
     input() {
-      return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id);
+      let value = '';
+      let readonly = false;
+      if (this.id === 'orderingPhone') {
+        value = props.phone;
+        readonly = true;
+      } else if (this.id === 'orderingAddress') {
+        value = localStorage.getItem('address');
+        readonly = true;
+      }
+      return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id, value, readonly);
     },
     paymentChoices() {
       return paymentChoice();

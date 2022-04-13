@@ -182,6 +182,35 @@ export const getButtonEvents = () => {
                     store.actions.updateUser({ name, email }).then(() => renderAndUpdateURN('/'));
                 }
             }
+        ],
+        buttonPay: [
+            {
+                type: 'click',
+                selector: 'id',
+                listener(app, store, e) {
+                    let phone = document.getElementById('orderingPhone').children[0].value;
+
+                    phone = phone.replace('+', '');
+                    phone = phone.replace('(', '');
+                    phone = phone.replace(')', '');
+                    phone = phone.replaceAll('-', '');
+
+                    let address = localStorage.getItem('address');
+
+                    const entrance = document.getElementById('orderingEntrance').children[0].value;
+                    const intercom = document.getElementById('orderingIntercom').children[0].value;
+                    const floor = document.getElementById('orderingFloor').children[0].value;
+                    const flat = document.getElementById('orderingFlat').children[0].value;
+
+                    address = `${address}, подъезд ${entrance}, домофон ${intercom}, этаж ${floor}, квартира ${flat}`;
+
+                    const comment = document.getElementById('orderingComment').innerText;
+
+                    const cart = store.getters.cart();
+
+                    store.actions.createOrder({ address, comment, cart }).then(() => renderAndUpdateURN('/'));
+                }
+            }
         ]
     };
 }

@@ -52,3 +52,7 @@ export const incrementProductCount = (id) => {
 export const decrementProductCount = (id) => {
   return STORE.decrementProductCount(id);
 }
+
+export const createOrder = (order) => {
+  return API.createOrder(order).then(() => STORE.clearCart());
+}
