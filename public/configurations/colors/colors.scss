@@ -1,0 +1,33 @@
+$_lightTheme: (
+  "primary": #17D685,
+  "warning": #FF3985,
+  "black": #212121,
+  "grey": #DEDEDE,
+  "lightGrey": #F6F6F6,
+  "greyBrown": #8F8A8A,
+  "white": #FFFFFF,
+  "warm": #BEB6AE,
+);
+
+//@function setThemeColors($theme) {
+//  $appColors: (
+//    "primary": map-get($theme, "primary"),
+//    "warning": map-get($theme, "warning"),
+//    "black": map-get($theme, "black"),
+//    "grey": map-get($theme, "grey"),
+//    "lightGrey": map-get($theme, "lightGrey"),
+//    "greyBrown": map-get($theme, "greyBrown"),
+//    "white": map-get($theme, "white"),
+//    "warm": map-get($theme, "warm"),
+//  );
+//
+//  @return $appColors;
+//}
+
+
+$COLORS: $_lightTheme;
+
+
+@function getColor($color) {
+  @return map-get($COLORS, $color);
+}

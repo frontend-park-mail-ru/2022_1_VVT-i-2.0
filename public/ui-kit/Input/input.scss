@@ -1,0 +1,33 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
+.input-block__title {
+    margin-bottom: 4px;
+}
+
+.input-block__input {
+    all: unset;
+    font-weight: bold;
+    height: 30px;
+    border: none;
+
+    border-bottom: 2px solid theme.getColor('grey');
+    color: theme.getColor('black');
+}
+
+.input-block__input:focus-visible {
+    border: none;
+    border-bottom: 2px solid theme.getColor('black');
+}
+
+.input-block__input.error {
+    border-bottom: 2px solid theme.getColor('warning');
+}
+
+.input-block__input-underline.error {
+    color: theme.getColor('warning');
+    margin-top: 2px;
+}
+
+.hidden {
+    visibility: hidden;
+}

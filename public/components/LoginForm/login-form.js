@@ -1,36 +1,40 @@
 import UIKIT from '../../ui-kit/import.js';
-import COLORS from '../../utils/colors.js';
+import COLORS from '../../configurations/colors/colors.js';
+import FORMS_CONFIGURATION from '../../configurations/forms.js';
 
 /**
  * @function Создает html-строку для создания компонента формы авторизации
- *      loginForm через шаблонатор Mustache.
- * @param {Object} properties - Объект, содержащий аттрибуты тегов для отрисовки формы.
+ *      profileMenuPoint через шаблонатор Mustache.
  * @return {string} HTML строка для отрисовки компонента registerForm.
  */
-const loginForm = (properties) => {
+const loginForm = () => {
+    const inputConfigurations = FORMS_CONFIGURATION.inputs.loginForm;
+
     const template = `
-        <div id="login-form">
-            <img id="closeImg" src="icons/close.svg">
-            <h2>Войти в аккаунт</h2>
-                {{#properties}}
-                    <div class="property">
+        <form id="login-form" class="login-form">
+            <img id="closeImg" class="login-form__close-img" src="/graphics/icons/close.svg" alt="">
+            <h2 class="login-form__title">Войти в аккаунт</h2>
+            <div class="login-form__indication">Для авторизации заполните поле телефон</div>
+                {{#inputConfigurations}}
+                    <div class="login-form__input">
                         {{&input}}
                     </div>
-                {{/properties}}
-            <div id="login-button">{{&login}}</div>
+                {{/inputConfigurations}}
+            <div id="login-button" class="login-form__button-login">{{&login}}</div>
             {{&register}}
-        </div>
+        </form>
     `;
+
     return Mustache.render(template, {
-        properties: properties,
-        input() {
-            return UIKIT.input(this.title, this.type, this.placeholder, this.id);
+        inputConfigurations: inputConfigurations,
+        input () {
+            return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id);
         },
-        login() {
-            return UIKIT.button('Войти', COLORS.primary, null, 'loginButton');
+        login () {
+            return UIKIT.simpleButton('Войти', COLORS.primary, this.width, 'confirmCode', 'loginButton');
         },
-        register() {
-            return UIKIT.button('Регистрация', COLORS.grey, 'register');
+        register () {
+            return UIKIT.simpleButton('Регистрация', COLORS.grey, this.width,'register','registerButton');
         }
     });
 };

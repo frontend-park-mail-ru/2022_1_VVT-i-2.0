@@ -1,36 +1,39 @@
 import UIKIT from '../../ui-kit/import.js';
-import COLORS from '../../utils/colors.js';
+import COLORS from '../../configurations/colors/colors.js';
+import FORMS_CONFIGURATION from '../../configurations/forms.js';
 
 /**
  * @function Создает html-строку для создания компонента формы регистрации
  *      registerForm через шаблонатор Mustache.
- * @param {Object} properties - Объект, содержащий аттрибуты тегов для отрисовки формы.
  * @return {string} HTML строка для отрисовки компонента registerForm.
  */
-const registerForm = (properties) => {
+const registerForm = () => {
+    const inputConfigurations = FORMS_CONFIGURATION.inputs.registerForm;
+
     const template = `
-        <div id="register-form">
-            <img id="closeImg" src="icons/close.svg">
-            <h2>Создать аккаунт</h2>
-            {{#properties}}
-                <div class="property">
+        <form id="register-form" class="register-form">
+            <img id="closeImg" class="register-form__close-img" src="/graphics/icons/close.svg">
+            <h2 class="register-form__title">Создать аккаунт</h2>
+            {{#inputConfigurations}}
+                <div class="register-form__input">
                     {{&input}}
                 </div>
-            {{/properties}}
-            <div id="register-button">{{&register}}</div>
+            {{/inputConfigurations}}
+            <div id="register-button" class="register-form__button-register">{{&register}}</div>
             {{&login}}
-        </div>
+        </form>
     `;
+
     return Mustache.render(template, {
-        properties: properties,
+        inputConfigurations: inputConfigurations,
         input() {
-            return UIKIT.input(this.title, this.type, this.placeholder, this.id);
+            return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id);
         },
         register() {
-            return UIKIT.button('Регистрация', COLORS.primary, null, 'registerButton');
+            return UIKIT.simpleButton('Регистрация', COLORS.primary, this.width,'confirmCode', 'registerButton');
         },
         login() {
-            return UIKIT.button('Уже есть аккаунт?', COLORS.grey, 'login');
+            return UIKIT.simpleButton('Уже есть аккаунт?', COLORS.grey, this.width, 'login', '');
         }
     });
 };

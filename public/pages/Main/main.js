@@ -1,28 +1,21 @@
-import * as api from '../../api/api.js';
 import components from '../../components/import.js';
 import * as events from '../../events/events.js';
 import UIKIT from '../../ui-kit/import.js';
 
-/**
- * @function Рендерит страницу по входящему объекту приложения.
- * @param {Object} app - Объект приложения.
- */
-const mainPage = (app) => {
-    api
-        .getRestaurants()
-        .then((res) => res.json())
-        .then((res) => {
-            events.removeListeners(app);
+const mainPage = (app, store) => {
+    if (store.getters.restaurants().length === 0) {
+        store.actions.getRestaurants();
+        return;
+    }
 
-            app.root.innerHTML = components.header(res.auth);
+    app.root.innerHTML = components.header(
+        Object.keys(store.getters.user()).length !== 0, '/graphics/images/avatar.jpg'
+    );
 
-            const main = document.createElement('main');
-            main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons(res.restaurants);
+    const main = document.createElement('main');
+    main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons(store.getters.restaurants);
 
-            app.root.appendChild(main);
-
-            events.addListeners(app);
-        });
+    app.root.appendChild(main);
 };
 
 export default mainPage;

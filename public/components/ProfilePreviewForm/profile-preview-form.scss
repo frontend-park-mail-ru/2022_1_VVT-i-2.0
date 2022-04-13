@@ -1,0 +1,10 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
+.profile-preview__menu {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid theme.getColor('white');
+    box-sizing: border-box;
+    width: 322px;
+    height: 100%;
+}

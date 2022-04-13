@@ -1,0 +1,66 @@
+@use 'ui-kit/import.scss' as uikit;
+@use 'components/import.scss' as components;
+@use 'public/configurations/colors/colors.scss' as theme;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+html {
+  overflow: auto;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: theme.getColor("lightGrey");
+}
+
+main {
+  margin-top: 68px;
+  padding-top: 1%;
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
+.shown {
+  display: flex;
+  position: fixed;
+  top: 68px;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(33, 33, 33, 0.7);
+}
+
+.modal-center > * {
+  display: flex;
+  flex-direction: column;
+
+  margin: auto;
+  padding: 30px;
+
+  border: none;
+  border-radius: 14px;
+  background: theme.getColor("white");
+}
+
+.modal-right > * {
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 93vh;
+
+  border: none;
+  background: theme.getColor("white");
+}
+
+.modal-top > * {
+  margin: 0 auto auto auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: none;
+}

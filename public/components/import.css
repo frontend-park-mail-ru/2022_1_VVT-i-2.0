@@ -1,4 +1,13 @@
 @import url('Header/header.css');
 @import url('LoginForm/login-form.css');
 @import url('RegisterForm/register-form.css');
+@import url('ConfirmCodeForm/confirm-code-form.css');
 @import url('RestIcons/rest-icons.css');
+@import url('ProfilePreviewForm/profile-preview-form.css');
+@import url('PersonInfoForm/person-info-form.css');
+@import url('ProductsIcons/products-icons.css');
+@import url('PaymentChoice/payment-choice.css');
+@import url('ShoppingCart/shopping-cart.css');
+@import url('Ordering/ordering.css');
+@import url('SuggestsForm/suggests-form.css');
+@import url('NetworkErrorForm/network-error-form.css');

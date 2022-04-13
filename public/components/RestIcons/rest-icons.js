@@ -8,22 +8,22 @@ import UIKIT from '../../ui-kit/import.js';
  */
 const restIcons = (restaurants) => {
     const template = `
-        <div id="container">
+        <div class="restaurants-form">
             {{#restaurants}}
-                <div class="rest_icon">
-                    {{&iconImage}}
+                <section class="restaurants-form__rest_icon" data-section="{{href}}">
+                    <img class="rest-icon__rest_img" src={{imgPath}} alt={{restName}} data-section="{{href}}">
                     {{&metaInformation}}
-                </div>
+                </section>
             {{/restaurants}}
         </div>
     `;
     return Mustache.render(template, {
         restaurants: restaurants,
-        iconImage() {
-            return UIKIT.iconImage(this.imgPath, this.restName);
+        href() {
+            return `/products/${this.slug}`;
         },
         metaInformation() {
-            return UIKIT.metaInformation(this.restName, this.timeToDeliver, this.price, this.rating);
+            return UIKIT.restMetaInformation(this.restName, this.timeToDeliver, this.price, this.rating);
         }
     });
 };

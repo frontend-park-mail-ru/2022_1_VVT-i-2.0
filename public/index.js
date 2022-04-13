@@ -1,43 +1,16 @@
-import * as events from './events/events.js';
-import MENU from './pages/import.js';
-
-const APP = {
-    root: document.getElementById('root'),
-    modal: document.getElementById('modal')
-};
-
-/**
- * @function Рендерит страницу по входящему section. Если section нет, рендер не производится.
- * @param {string} section - метаинформация, прописанная в атрибуте data-section тега.
- *      Атрибут data-section имеется только у pages(main, login, register).
- */
-const renderPage = (section) => {
-    if (!section) {
-        return;
-    }
-
-    events.removeListeners(APP);
-
-    const page = MENU[section];
-
-    if (page.isModal) {
-        APP.modal.classList.add('shown');
-    } else {
-        APP.modal.classList.remove('shown');
-        APP.modal.innerHTML = '';
-    }
-
-    page.render(APP);
-
-    events.addListeners(APP);
-};
+import { APP, render, renderAndUpdateURN } from './render/render.js';
+import * as store from './store/import';
+import './index.scss';
 
 Object
     .entries(APP)
-    .forEach(([name, node]) => node.addEventListener('click', (e) => renderPage(e.target.dataset.section)));
+    .forEach(([name, node]) => node.addEventListener('click', (e) => renderAndUpdateURN(e.target.dataset.section)));
 
-document.addEventListener('render-page', (e) => renderPage(e.detail.section));
+window.onpopstate = () => render(location.pathname);
 
-MENU.main.render(APP);
+if (!localStorage.getItem('address')) {
+    localStorage.setItem('address', 'город Москва, улица Ленина, 21');
+}
 
-events.addListeners(APP);
+store.actions.getUser().then(() => render(location.pathname));
+// render(location.pathname);
