@@ -13,6 +13,8 @@ export const suggests = () => {
 
           const query = e.target.value;
 
+          localStorage.setItem('address', query);
+
           store.actions.suggest(query);
         }
       }
