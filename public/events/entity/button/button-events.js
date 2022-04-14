@@ -208,7 +208,10 @@ export const getButtonEvents = () => {
 
                     const cart = store.getters.cart();
 
-                    store.actions.createOrder({ address, comment, cart }).then(() => renderAndUpdateURN('/'));
+                    store.actions.createOrder({ address, comment, cart }).then(() => {
+                        renderAndUpdateURN('/');
+                        alert('Заказ успешно создан')
+                    });
                 }
             }
         ]
