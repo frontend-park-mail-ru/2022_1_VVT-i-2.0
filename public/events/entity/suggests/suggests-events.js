@@ -13,6 +13,8 @@ export const suggests = () => {
 
           const query = e.target.value;
 
+          localStorage.setItem('address', query);
+
           store.actions.suggest(query);
         }
       }
@@ -29,8 +31,9 @@ export const suggests = () => {
 
           document.getElementById('suggestsSearch').value = address;
 
+          localStorage.setItem('address', address);
+
           if (end) {
-            localStorage.setItem('address', address);
             renderAndUpdateURN('/');
             return;
           }

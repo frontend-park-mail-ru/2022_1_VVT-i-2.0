@@ -34,7 +34,7 @@ export const logout = () => {
 }
 
 export const suggest = (query) => {
-  return API.suggest(query).then((result) => STORE.addSuggests(result.suggests));
+  return API.suggest(query).then((result) => STORE.addSuggests(result));
 }
 
 export const clearSuggests = () => {
@@ -43,4 +43,16 @@ export const clearSuggests = () => {
 
 export const addProductToCart = (id, restName) => {
   return STORE.addProductToCart(id, restName);
+}
+
+export const incrementProductCount = (id) => {
+  return STORE.incrementProductCount(id);
+}
+
+export const decrementProductCount = (id) => {
+  return STORE.decrementProductCount(id);
+}
+
+export const createOrder = (order) => {
+  return API.createOrder(order).then(() => STORE.clearCart());
 }

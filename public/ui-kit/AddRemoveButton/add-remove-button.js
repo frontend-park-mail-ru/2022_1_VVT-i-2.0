@@ -1,4 +1,4 @@
-const addRemoveButton = (buttonType) => {
+const addRemoveButton = (buttonType, className, id) => {
     let imgPath = '';
     switch (buttonType) {
         case 'addPoint':
@@ -12,12 +12,12 @@ const addRemoveButton = (buttonType) => {
     }
 
     const template = `
-        <div class="button-add-remove">
-            <img src="{{imgPath}}">
+        <div class="button-add-remove {{className}}" data-id="{{id}}">
+            <img class="{{className}}" src="{{imgPath}}" data-id="{{id}}">
         </div>
     `;
 
-    return Mustache.render(template, {imgPath});
+    return Mustache.render(template, { imgPath, className, id });
 };
 
 export default addRemoveButton;

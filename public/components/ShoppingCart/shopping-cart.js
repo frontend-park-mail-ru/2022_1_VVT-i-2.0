@@ -22,10 +22,10 @@ const shoppingCart = (restName, props) => {
         restName,
         props: props,
         drawOrderPoint () {
-            return UIKIT.orderPoint(this.imgPath, this.productName, this.info, this.count, this.price);
+            return UIKIT.orderPoint(this.imgPath, this.productName, this.info, this.count, this.price, this.id);
         },
         buttonOrder () {
-            return UIKIT.simpleButton('Заказать 330 ₽', COLORS.primary,
+            return UIKIT.simpleButton('Заказать', COLORS.primary,
                 ELEMS_CONFIGURATION.buttons.LARGE,'ordering', 'orderButton');
         }
     });

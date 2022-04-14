@@ -3,7 +3,7 @@ import * as events from '../../events/events.js';
 import UIKIT from '../../ui-kit/import.js';
 
 const mainPage = (app, store) => {
-    if (store.getters.restaurants === []) {
+    if (store.getters.restaurants().length === 0) {
         store.actions.getRestaurants();
         return;
     }

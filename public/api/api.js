@@ -24,19 +24,27 @@ const request = (url, options = DEFAULT_OPTIONS) => {
         });
         options.body = JSON.stringify(options.body);
     }
+    if (sessionStorage.getItem('token')) {
+        options.headers['X-CSRF-Token'] = sessionStorage.getItem('token');
+    }
+
     return fetch(BASE_URI + '/api/v1' + url, options)
         .catch(() => {
             sessionStorage.setItem('error', '500');
-            renderAndUpdateURN('/networkErrors')
+            renderAndUpdateURN('/networkErrors');
         })
         .then((result) => {
+            if (result.status === 200 && result.headers.get('X-CSRF-Token') !== '') {
+                sessionStorage.setItem('token', result.headers.get('X-CSRF-Token'));
+            }
+
             if (result.status === 500) {
                 sessionStorage.setItem('error', '500');
                 renderAndUpdateURN('/networkErrors');
                 return Promise.reject();
             }
 
-            if (Number(result.headers.get('content-length')) === 0) {
+            if (Number(result.headers.get('Content-Length')) === 0) {
                 if (result.status !== 200) {
                     alert('В ходе обработки запроса произошла ошибка');
                     return Promise.reject();
@@ -106,4 +114,8 @@ export const logout = () => {
 
 export const suggest = (query) => {
     return request(`/suggest?q=${query}`);
+}
+
+export const createOrder = (order) => {
+    return request('/order', { method: METHODS.POST, body: order })
 }

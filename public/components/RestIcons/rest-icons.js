@@ -11,7 +11,7 @@ const restIcons = (restaurants) => {
         <div class="restaurants-form">
             {{#restaurants}}
                 <section class="restaurants-form__rest_icon" data-section="{{href}}">
-                    <img class="rest-icon__rest_img" src={{imgPath}} alt={{restName}}>
+                    <img class="rest-icon__rest_img" src={{imgPath}} alt={{restName}} data-section="{{href}}">
                     {{&metaInformation}}
                 </section>
             {{/restaurants}}
