@@ -4,6 +4,8 @@ import * as FORM from './common/status-form.js';
 
 const EVENTS = {
     closeImg: Event.getFrameEvents(),
+    suggestsSearch: Event.suggests().suggestsSearch,
+    suggestsRow: Event.suggests().suggestsRow,
 
     loginPhone: Event.getPhoneFieldEvents('loginPhone', FORM.statusLoginForm),
     loginButton: Event.getButtonEvents().loginButton,
@@ -14,14 +16,15 @@ const EVENTS = {
     registerEmail: Event.getEmailFieldEvents('registerEmail', FORM.statusRegisterForm),
     registerButton: Event.getButtonEvents().registerButton,
 
+    confirmCode: Event.getConfirmCodeFieldEvents('confirmCode', FORM.statusConfirmCodeForm),
+    confirmCodeButton: Event.getButtonEvents().confirmCodeButton,
+    sendCodeButton: Event.getButtonEvents().sendCodeButton,
+
     profileName: Event.getNameFieldEvents('profileName', FORM.statusPersonInfoForm),
     profilePhone: Event.getPhoneFieldEvents('profilePhone', FORM.statusPersonInfoForm),
     profileEmail: Event.getEmailFieldEvents('profileEmail', FORM.statusPersonInfoForm),
     changeAvatarButton: Event.getButtonEvents().changeAvatarButton,
     personInfoSaveButton: Event.getButtonEvents().personInfoSaveButton,
-
-    confirmCodeButton: Event.getButtonEvents().confirmCodeButton,
-    sendCodeButton: Event.getButtonEvents().sendCodeButton,
 
     addToCart: Event.productEvents().addToCart,
     incrementProductCount: Event.productEvents().incrementProductCount,

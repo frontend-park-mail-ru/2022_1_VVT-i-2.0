@@ -26,6 +26,10 @@ export const autoEraseExtraSymbols = (e, entity, ObjectExcludes) => {
             func = IsSymbolLetter;
             lengthLimit = EntityLengthLimit.name;
             break;
+        case 'confirmCode':
+            func = IsSymbolNumeric;
+            lengthLimit = EntityLengthLimit.confirmCode;
+            break;
     }
 
     e.target.value = e.target.value.slice(0, lengthLimit);

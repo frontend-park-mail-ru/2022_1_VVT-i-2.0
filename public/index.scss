@@ -4,7 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 html {
-  overflow: auto;
+  overflow: hidden;
+  //overflow: auto;
 }
 
 body {
@@ -22,14 +23,33 @@ main {
 
 .shown {
   display: flex;
-  position: fixed;
-  top: 68px;
+  position: absolute;
+  top: 0;
   left: 0;
 
   width: 100%;
-  height: 100%;
+  height: 100vh;
 
   background-color: rgba(33, 33, 33, 0.7);
+}
+
+.shown-not-modal {
+  display: flex;
+  position: absolute;
+  top: 68px;
+  left: 0;
+  height: 93vh;
+
+  //width: 100%;
+  //height: 100%;
+}
+
+.additional__shopping-cart {
+  //width: 321px;
+  //height: 876px;
+  position: absolute;
+  top: 68px;
+  left: 0;
 }
 
 .modal-center > * {
@@ -49,7 +69,7 @@ main {
   flex-direction: column;
 
   position: absolute;
-  top: 0;
+  top: 68px;
   right: 0;
   height: 93vh;
 

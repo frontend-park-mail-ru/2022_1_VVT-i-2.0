@@ -144,9 +144,9 @@ export const getButtonEvents = () => {
                     let input = document.createElement('input');
                     input.type = 'file';
                     input.onchange = () => {
-                        var preview = document.getElementById('user-avatar');
-                        var file    = input.files[0];
-                        var reader  = new FileReader();
+                        const preview = document.getElementById('user-avatar');
+                        const file    = input.files[0];
+                        const reader  = new FileReader();
 
                         reader.onloadend = function () {
                             preview.src = reader.result;

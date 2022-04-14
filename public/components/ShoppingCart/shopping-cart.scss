@@ -33,9 +33,7 @@
     overflow-x: hidden;
     margin-right: auto;
     margin-left: auto;
-    //margin-left: calc(100vw - 100%) / 2;
-    //margin-right: 0;
-    //flex-wrap: wrap;
+
     &::-webkit-scrollbar {
         display: none;
     }

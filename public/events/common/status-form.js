@@ -2,6 +2,7 @@ import {
     getVisibleError,
     getElemParameters,
     removeVisibleError,
+    getEmptyInputs
 } from "./work-with-errors";
 
 export const loginFormInputs = ['loginPhone'];
@@ -23,6 +24,10 @@ export const statusPersonInfoForm = {
     isValidPhone: false,
     isValidEmail: false,
 };
+
+export const statusConfirmCodeForm = {
+    isValidCode: false,
+}
 
 /**
  * @function Меняет статус текущего поля после окончания ввода.

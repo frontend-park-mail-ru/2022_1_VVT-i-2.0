@@ -42,7 +42,7 @@ const IsInputOnEmpty = (elemID) => {
     return input.children[0].value === '';
 }
 
-const getEmptyInputs = (formInputs) => {
+export const getEmptyInputs = (formInputs) => {
     let emptyInputs = [];
     formInputs.forEach((elemID) => {
         if (IsInputOnEmpty(elemID)) {

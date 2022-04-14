@@ -4,6 +4,7 @@ import * as store from '../store/import.js';
 
 export const APP = {
   root: document.getElementById('root'),
+  additional: document.getElementById('additional'),
   modal: document.getElementById('modal')
 };
 
@@ -38,6 +39,10 @@ export const render = (urn) => {
   let section = path.replace('/', '');
   section = section === '' ? 'main' : section;
 
+  if (section === sessionStorage.getItem('page')) {
+    section = sessionStorage.getItem('root') || 'main';
+  }
+
   let page = MENU[section];
   if (!page) {
     sessionStorage.setItem('error', '404');
@@ -55,7 +60,8 @@ export const render = (urn) => {
 
   events.removeListeners(APP, store);
 
-  if (page.isModal) {
+  if (page.isModal || page.additionalPage) {
+    console.log('URAAA', section);
     let root = sessionStorage.getItem('root') || 'main';
     if (root === 'networkErrors') {
       root = 'main';
@@ -64,9 +70,20 @@ export const render = (urn) => {
 
     MENU[root].render(APP, store);
 
-    APP.modal.classList.add('shown');
+    if (page.additionalPage) {
+      APP.modal.classList.remove('shown');
+      APP.additional.classList.add('additional'/*'shown-not-modal'*/);
+    } else {
+      APP.additional.classList.remove('additional'/*'shown-not-modal'*/);
+      APP.modal.classList.add('shown');
+    }
+
+    // APP.modal.classList.add('shown');
     setModalPosition(page);
   } else {
+    APP.additional.classList.remove(...APP.additional.classList);
+    APP.additional.innerHTML = '';
+
     APP.modal.classList.remove(...APP.modal.classList);
     APP.modal.innerHTML = '';
 
