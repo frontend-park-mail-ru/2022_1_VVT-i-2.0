@@ -8,5 +8,5 @@ Object
 
 window.onpopstate = () => render(location.pathname);
 
-// store.actions.getUser().then(() => render(location.pathname));
-render(location.pathname);
+store.actions.getUser().then(() => render(location.pathname));
+// render(location.pathname);

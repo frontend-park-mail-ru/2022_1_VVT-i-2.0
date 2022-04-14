@@ -186,42 +186,5 @@ export const getButtonEvents = () => {
                 }
             }
         ],
-        // profilePreviewButton: [
-        //     {
-        //         type: 'click',
-        //         selector: 'id',
-        //         listener(app, store, e) {
-        //             console.log(e.target);
-        //             if (sessionStorage.getItem('profilePreviewStatus') === 'activated') {
-        //
-        //                 sessionStorage.setItem('profilePreviewStatus', 'deactivated');
-        //                 const root = sessionStorage.getItem('root') || 'main';
-        //
-        //                 renderAndUpdateURN(root);
-        //
-        //                 return;
-        //             }
-        //
-        //             sessionStorage.setItem('profilePreviewStatus', 'activated');
-        //             renderAndUpdateURN('/profilePreview');
-        //         }
-        //     }
-        // ],
-        // shoppingCartButton: [
-        //     {
-        //         type: 'click',
-        //         selector: 'id',
-        //         listener(app, store, e) {
-        //             if (sessionStorage.getItem('shoppingCartStatus') === 'activated') {
-        //                 sessionStorage.setItem('shoppingCartStatus', 'deactivated');
-        //                 renderAndUpdateURN('/products/main');
-        //                 return;
-        //             }
-        //
-        //             sessionStorage.setItem('shoppingCart', 'activated');
-        //             renderAndUpdateURN('/shoppingCart')
-        //         }
-        //     }
-        // ]
     };
 }

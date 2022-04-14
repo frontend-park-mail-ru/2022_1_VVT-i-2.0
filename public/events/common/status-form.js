@@ -2,6 +2,7 @@ import {
     getVisibleError,
     getElemParameters,
     removeVisibleError,
+    getEmptyInputs
 } from "./work-with-errors";
 
 export const loginFormInputs = ['loginPhone'];
