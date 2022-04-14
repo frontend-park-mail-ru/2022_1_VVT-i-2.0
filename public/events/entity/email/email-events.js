@@ -8,7 +8,7 @@ export const getEmailFieldEvents = (elemID, statusForm) => {
             type: 'input',
             selector: 'id',
             listener(app, store, e) {
-                e.target.value = e.target.value.slice(0, EntityLengthLimit.confirmCode);
+                e.target.value = e.target.value.slice(0, EntityLengthLimit.email);
             }
         },
         {
@@ -17,7 +17,7 @@ export const getEmailFieldEvents = (elemID, statusForm) => {
             listener(app, store, e) {
                 FORM.inputDataManager(
                     e, elemID, statusForm,
-                    CONFIG.Regex.confirmCode, CONFIG.ErrorMsg.errorConfirmCode);
+                    CONFIG.Regex.email, CONFIG.ErrorMsg.errorEmail);
             }
         }
     ];
