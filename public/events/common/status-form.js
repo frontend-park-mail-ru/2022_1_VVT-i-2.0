@@ -24,6 +24,10 @@ export const statusPersonInfoForm = {
     isValidEmail: false,
 };
 
+export const statusConfirmCodeForm = {
+    isValidCode: false,
+}
+
 /**
  * @function Меняет статус текущего поля после окончания ввода.
  * @param {Object} statusForm - Список статусов полей формы.

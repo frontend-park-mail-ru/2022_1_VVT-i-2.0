@@ -1,5 +1,4 @@
 import {autoEraseExtraSymbols} from '../../common/common-custom-prettiers.js'
-import {EntityLengthLimit} from "../../common/config";
 
 export const nameAutocomplete = (e) => {
     autoEraseExtraSymbols(e,'name', {});
