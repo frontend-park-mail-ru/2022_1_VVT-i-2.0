@@ -10,6 +10,7 @@ export const productEvents = () => {
           const { id, rest } = e.target.dataset;
           store.actions.addProductToCart(parseInt(id, 10), rest);
           renderAndUpdateURN('/shoppingCart');
+        }
       }
     ],
     incrementProductCount: [
