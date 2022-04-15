@@ -124,7 +124,7 @@ const PROXY_STORE = new Proxy(STORE, {
     target[prop] = value;
 
     const page = sessionStorage.getItem('page');
-    render(page);
+    render(page, true);
 
     return true;
   }

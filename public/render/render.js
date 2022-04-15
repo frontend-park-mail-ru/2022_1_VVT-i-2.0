@@ -21,7 +21,7 @@ const setModalPosition = (page) => {
  * @param {string} section - метаинформация, прописанная в атрибуте data-section тега.
  *      Атрибут data-section имеется только у pages(main, login, register).
  */
-export const render = (urn) => {
+export const render = (urn, storeUpdate = false) => {
   if (!urn) {
     return;
   }
@@ -38,11 +38,11 @@ export const render = (urn) => {
 
   let section = path.replace('/', '');
   section = section === '' ? 'main' : section;
-  
-  if (section === sessionStorage.getItem('page')) {
+
+  if (!storeUpdate && section === sessionStorage.getItem('page')) {
     section = sessionStorage.getItem('root') || 'main';
   }
-  
+
   let page = MENU[section];
   if (!page) {
     sessionStorage.setItem('error', '404');
@@ -62,7 +62,7 @@ export const render = (urn) => {
 
   if (page.isModal || page.additionalPage) {
     console.log('URAAA', section);
-    
+
     let root = sessionStorage.getItem('root') || 'main';
     if (root === 'networkErrors') {
       root = 'main';
