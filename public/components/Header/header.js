@@ -8,7 +8,7 @@ const header = (auth = false, customImgPath = '') => {
                 <a class="button__controller" data-section="main">Delivery Club</a>
             </nav>
             <nav id="search" class="page-header__button page-header__button-search" data-section="suggests">
-                <img src="/graphics/icons/address.svg" data-section="addressSuggester" data-section="suggests">
+                <img src="/graphics/icons/address.svg" data-section="suggests">
                 <span data-section="suggests">
                     <input
                         id="suggestsSearch"
@@ -22,11 +22,11 @@ const header = (auth = false, customImgPath = '') => {
                     {{#customImgPath}}
                         <img class="page-header__avatar" src="{{customImgPath}}" data-section="profilePreview">
                     {{/customImgPath}}
-                    
+
                     {{^customImgPath}}
                         <img src="/graphics/icons/profile.svg" data-section="profilePreview">
                     {{/customImgPath}}
-                
+
                     <a class="button__controller" data-section="profilePreview">Профиль</a>
                 </nav>
                 <nav id="shoppingCartButton" class="page-header__button page-header__button-cart" data-section="shoppingCart">
