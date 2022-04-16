@@ -117,6 +117,7 @@ export const getButtonEvents = () => {
                     }
 
                     let phone = document.getElementById('registerPhone').children[0].value;
+
                     sessionStorage.setItem('phone', phone);
 
                     phone = phone.replace('+', '');

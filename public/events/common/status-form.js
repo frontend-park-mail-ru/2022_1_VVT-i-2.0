@@ -2,8 +2,9 @@ import {
     getVisibleError,
     getElemParameters,
     removeVisibleError,
-    getEmptyInputs
+    getEmptyInputs,
 } from "./work-with-errors";
+import {ErrorMsg} from './config';
 
 export const loginFormInputs = ['loginPhone'];
 export const registerFormInputs = ['registerPhone', 'registerName', 'registerEmail'];

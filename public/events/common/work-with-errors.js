@@ -38,8 +38,7 @@ export const removeVisibleError = (childList) => {
 }
 
 const IsInputOnEmpty = (elemID) => {
-    const input = document.getElementById(elemID);
-    return input.children[0].value === '';
+    return !document.getElementById(elemID).value;
 }
 
 export const getEmptyInputs = (formInputs) => {
