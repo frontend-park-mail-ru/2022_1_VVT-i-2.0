@@ -9,6 +9,7 @@ export const APP = {
 };
 
 const AUTH_PAGES = ['login', 'register', 'confirmCode'];
+const CLOSED_PAGES = ['shoppingCart', 'profilePreview'];
 
 const setModalPosition = (page) => {
   if (page.position) {
@@ -39,7 +40,7 @@ export const render = (urn, storeUpdate = false) => {
   let section = path.replace('/', '');
   section = section === '' ? 'main' : section;
 
-  if (!storeUpdate && section === sessionStorage.getItem('page') && section !== 'suggests') {
+  if (!storeUpdate && section === sessionStorage.getItem('page') && CLOSED_PAGES.includes(section)) {
     section = sessionStorage.getItem('root') || 'main';
   }
 
@@ -61,8 +62,6 @@ export const render = (urn, storeUpdate = false) => {
   events.removeListeners(APP, store);
 
   if (page.isModal || page.additionalPage) {
-    console.log('URAAA', section);
-
     let root = sessionStorage.getItem('root') || 'main';
     if (root === 'networkErrors') {
       root = 'main';
