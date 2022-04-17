@@ -1,11 +1,18 @@
 @use 'public/configurations/colors/colors.scss' as theme;
 
-.main-link {
+.links_block {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.links-block__main-link {
     cursor: pointer;
     color: theme.getColor('greyBrown');
+    font-weight: 550;
+    font-size: 36px;
 
     &:hover {
-        cursor: pointer;
+        font-weight: 600;
         border-radius: 14px;
         background: rgba(143, 138, 138, 0.2);
     }
