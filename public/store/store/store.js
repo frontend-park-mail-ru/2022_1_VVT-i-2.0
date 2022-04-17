@@ -37,37 +37,39 @@ const STORE = {
     // }
   ],
   products: {
-    // 'main': {
-    //   restName: 'McDonalds',
-    //   products: [
-    //     {
-    //       id: 1,
-    //       imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-    //       productName: 'Тестовое имя',
-    //       info: '172 г · 213 ккал',
-    //       description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-    //       price: 296
-    //     },
-    //     {
-    //       id: 2,
-    //       imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-    //       productName: 'Тестовое имя',
-    //       info: '172 г · 213 ккал',
-    //       description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-    //       price: 296
-    //     },
-    //     {
-    //       id: 3,
-    //       imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-    //       productName: 'Тестовое имя',
-    //       info: '172 г · 213 ккал',
-    //       description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-    //       price: 296
-    //     },
-    //   ]
-    // }
+    'main': {
+      restName: 'McDonalds',
+      products: [
+        {
+          id: 1,
+          imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
+          productName: 'Тестовое имя',
+          info: '172 г · 213 ккал',
+          description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
+          price: 296
+        },
+        {
+          id: 2,
+          imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
+          productName: 'Тестовое имя',
+          info: '172 г · 213 ккал',
+          description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
+          price: 296
+        },
+        {
+          id: 3,
+          imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
+          productName: 'Тестовое имя',
+          info: '172 г · 213 ккал',
+          description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
+          price: 296
+        },
+      ]
+    }
   },
-  cart: [],
+  cart: [
+
+  ],
   suggests: [
     // { address: 'FIRST', end: false }, { address: 'SECOND', end: true }
   ],

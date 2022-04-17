@@ -95,6 +95,7 @@ export const getButtonEvents = () => {
                  * @param {Event} e - Событие.
                  */
                 listener(app, store, e) {
+                    console.log('wewer');
                     store.actions.logout().then(() => renderAndUpdateURN('/'));
                 }
             }

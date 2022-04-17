@@ -18,10 +18,12 @@ const DEFAULT_OPTIONS = {
  */
 const request = (url, options = DEFAULT_OPTIONS) => {
     options.credentials = 'include';
+    options.headers = {};
     if (options.body) {
-        Object.assign(options, {
-            headers: {'Content-Type': 'application/json'}
-        });
+        // Object.assign(options, {
+        //     headers: {'Content-Type': 'application/json'}
+        // });
+        options.headers['Content-Type'] = 'application/json';
         options.body = JSON.stringify(options.body);
     }
     if (sessionStorage.getItem('token')) {
