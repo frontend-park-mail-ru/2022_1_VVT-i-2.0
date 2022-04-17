@@ -9,7 +9,7 @@ export const productEvents = () => {
         listener(app, store, e) {
           const { id, rest } = e.target.dataset;
           store.actions.addProductToCart(parseInt(id, 10), rest);
-          renderAndUpdateURN('/shoppingCart');
+          renderAndUpdateURN('/shoppingCart', true);
         }
       }
     ],
