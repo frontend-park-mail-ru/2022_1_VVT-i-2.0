@@ -29,6 +29,11 @@ const STORE = {
       slug: 'main',
       imgPath: './graphics/images/img.png',
       restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    },
+    {
+      slug: 'main',
+      imgPath: './graphics/images/img.png',
+      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
     }
   ],
   products: {

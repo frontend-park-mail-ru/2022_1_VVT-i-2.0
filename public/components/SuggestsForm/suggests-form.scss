@@ -26,16 +26,16 @@
 }
 
 .suggest-row__suggest-address {
-  flex: 30 1 auto !important;
+  flex: 30 1 auto /*!important*/;
 
   font-weight: bold;
 
-  background: theme.getColor('white') !important;
+  background: theme.getColor('white') /*!important*/;
   border-bottom: 1px solid #b9b9b9;
   // border-left: 1px solid #b9b9b9;
   // border-right: 1px solid #b9b9b9;
 
   &:hover {
-    background: theme.getColor('grey') !important;
+    background: theme.getColor('grey') /*!important*/;
   }
 }
