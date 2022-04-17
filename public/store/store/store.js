@@ -84,7 +84,7 @@ const STORE = {
     this.restaurants = restaurants;
   },
   addProducts(restName, result) {
-    this.products[restName] = { products: result.products, restName: result.restName };
+    this.products[restName] = { products: result.dishes, restName: result.restName };
   },
   addProductToCart(id, restName) {
     const cart = (restName === this.currentRestName) ? this.cart : [];
