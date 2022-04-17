@@ -5,8 +5,7 @@
     flex-direction: column;
 
     height: 100%;
-    margin-right: 10.5%;
-    margin-left: 10%;
+    margin: 45px 10.5% 25px 10%
 }
 
 .person-info-form__sets-nav-block {
@@ -27,7 +26,10 @@
 
 .settings-block__profile-header {
     font-size: 20px;
-    margin: 22px auto 13px 43px;
+    font-weight: 700;
+    color: #212121;
+
+    margin: 32px auto 13px 43px;
 }
 
 .settings-block__settings {
