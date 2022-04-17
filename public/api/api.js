@@ -73,7 +73,7 @@ export const getRestaurants = () => {
 }
 
 export const getProducts = (restName) => {
-    return request(`/products/${restName}`);
+    return request(`/restaurant/${restName}`);
 }
 
 export const getUser = () => {

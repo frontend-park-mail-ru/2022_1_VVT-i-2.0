@@ -1,5 +1,4 @@
 import components from '../../components/import.js';
-import * as events from '../../events/events.js';
 import UIKIT from '../../ui-kit/import.js';
 
 /**
@@ -12,7 +11,7 @@ const mainPage = (app, store) => {
     return;
   }
 
-  if (store.getters.products.hasOwnProperty(params)) {
+  if (!store.getters.products.hasOwnProperty(params)) {
     store.actions.getProducts(params);
     return;
   }

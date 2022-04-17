@@ -48,6 +48,7 @@ export const setFormStatus = (statusForm, elemID, status) => {
             statusForm.isValidPhone = status;
             break;
         case 'profileEmail':
+        case 'registerEmail':
             statusForm.isValidEmail = status;
             break;
         case 'loginPassword':

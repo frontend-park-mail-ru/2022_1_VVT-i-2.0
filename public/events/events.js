@@ -30,9 +30,6 @@ const EVENTS = {
     incrementProductCount: Event.productEvents().incrementProductCount,
     decrementProductCount: Event.productEvents().decrementProductCount,
     buttonPay: Event.getButtonEvents().buttonPay,
-
-    suggestsSearch: Event.suggests().suggestsSearch,
-    suggestsRow: Event.suggests().suggestsRow
 };
 
 /**

@@ -2,70 +2,70 @@ import { render } from '../../render/render';
 
 const STORE = {
   // State,
-  user: { name: 'Name', phone: '+7(915)000-11-22', email: 'test@ya.ru' },
-  // user: {},
+  // user: { name: 'Name', phone: '+7(915)000-11-22', email: 'test@ya.ru' },
+  user: {},
   restaurants: [
-    {
-      slug: 'main',
-      imgPath: './graphics/images/img.png',
-      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
-    },
-    {
-      slug: 'main',
-      imgPath: './graphics/images/img.png',
-      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
-    },
-    {
-      slug: 'main',
-      imgPath: './graphics/images/img.png',
-      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
-    },
-    {
-      slug: 'main',
-      imgPath: './graphics/images/img.png',
-      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
-    },
-    {
-      slug: 'main',
-      imgPath: './graphics/images/img.png',
-      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
-    },
-    {
-      slug: 'main',
-      imgPath: './graphics/images/img.png',
-      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
-    }
+    // {
+    //   slug: 'main',
+    //   imgPath: './graphics/images/img.png',
+    //   restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    // },
+    // {
+    //   slug: 'main',
+    //   imgPath: './graphics/images/img.png',
+    //   restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    // },
+    // {
+    //   slug: 'main',
+    //   imgPath: './graphics/images/img.png',
+    //   restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    // },
+    // {
+    //   slug: 'main',
+    //   imgPath: './graphics/images/img.png',
+    //   restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    // },
+    // {
+    //   slug: 'main',
+    //   imgPath: './graphics/images/img.png',
+    //   restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    // },
+    // {
+    //   slug: 'main',
+    //   imgPath: './graphics/images/img.png',
+    //   restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    // }
   ],
   products: {
-    'main': {
-      restName: 'McDonalds',
-      products: [
-        {
-          id: 1,
-          imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-          productName: 'Тестовое имя',
-          info: '172 г · 213 ккал',
-          description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-          price: 296
-        },
-        {
-          id: 2,
-          imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-          productName: 'Тестовое имя',
-          info: '172 г · 213 ккал',
-          description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-          price: 296
-        },
-        {
-          id: 3,
-          imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-          productName: 'Тестовое имя',
-          info: '172 г · 213 ккал',
-          description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-          price: 296
-        },
-      ]
-    }
+    // 'main': {
+    //   restName: 'McDonalds',
+    //   products: [
+    //     {
+    //       id: 1,
+    //       imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
+    //       productName: 'Тестовое имя',
+    //       info: '172 г · 213 ккал',
+    //       description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
+    //       price: 296
+    //     },
+    //     {
+    //       id: 2,
+    //       imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
+    //       productName: 'Тестовое имя',
+    //       info: '172 г · 213 ккал',
+    //       description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
+    //       price: 296
+    //     },
+    //     {
+    //       id: 3,
+    //       imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
+    //       productName: 'Тестовое имя',
+    //       info: '172 г · 213 ккал',
+    //       description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
+    //       price: 296
+    //     },
+    //   ]
+    // }
   },
   cart: [],
   suggests: [

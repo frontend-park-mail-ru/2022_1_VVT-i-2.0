@@ -19,6 +19,7 @@ export const getButtonEvents = () => {
                     if (!FORM.isAvailableForSend(FORM.statusLoginForm)) {
                         showEmptyInputs(FORM.statusLoginForm, FORM.loginFormInputs);
                         setTimeout(hideEmptyInputs, 400, FORM.statusLoginForm, FORM.loginFormInputs);
+                        e.stopImmediatePropagation();
                         return;
                     }
 
@@ -113,11 +114,11 @@ export const getButtonEvents = () => {
                     if (!FORM.isAvailableForSend(FORM.statusRegisterForm)) {
                         showEmptyInputs(FORM.statusRegisterForm, FORM.registerFormInputs);
                         setTimeout(hideEmptyInputs, 400, FORM.statusRegisterForm, FORM.registerFormInputs);
+                        e.stopImmediatePropagation();
                         return;
                     }
 
                     let phone = document.getElementById('registerPhone').children[0].value;
-
                     sessionStorage.setItem('phone', phone);
 
                     phone = phone.replace('+', '');
