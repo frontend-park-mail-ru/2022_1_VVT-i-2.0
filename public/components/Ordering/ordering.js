@@ -8,17 +8,23 @@ const ordering = (props) => {
   const isEmpty = props.total === 0;
 
   const template = `
+    <div><img class="ordering-page__week-dish" src="../../graphics/images/order_week_dish.png" alt=""></div>
     <div class="ordering-page">
       {{&title}}
 
       <div class="ordering-page__ordering-and-shop-cart-block">
         <div class="ordering-page__ordering-block">
           <div class="ordering-block__delivery-header">Доставка</div>
-          {{#inputConfigurations}}
-<!--            <div class="ordering-block__input">-->
+          
+          {{#inputConfigurations.largeInputs}}
                 {{&input}}
-<!--            </div>-->
-          {{/inputConfigurations}}
+          {{/inputConfigurations.largeInputs}}
+          
+          <div class="ordering-block__exact-address">
+            {{#inputConfigurations.smallInputs}}
+                  {{&input}}
+            {{/inputConfigurations.smallInputs}}
+          </div>
 
           <div class="ordering-block__comment-header">Комментарий</div>
           <div
@@ -32,13 +38,10 @@ const ordering = (props) => {
           {{&paymentChoices}}
           {{&buttonPay}}
         </div>
-        <div class="ordering-page__shop-cart-block">
+        <div class="ordering-page__shopping-cart">
           {{^isEmpty}}
-          <div class="shopping-cart__rest">
-            <div>
-              Ваш заказ в ресторане:
-              <div>{{restName}}</div>
-            </div>
+          <div class="shopping-cart__info-about-rest shopping-cart__order-point">
+              <div class="shopping-cart__preview-rest">Ваш заказ в ресторане: {{restName}}</div>
           </div>
 
           <div class="shopping-cart_order-points">
@@ -49,20 +52,20 @@ const ordering = (props) => {
 
           <div class="shopping-cart__space-block"></div>
 
-          <div class="shop-cart-block__payment-info">
+          <div class="shopping-cart__payment-info">
             <div>Доставка</div>
-            <div class="payment__price">500 ₽</div>
+            <div class="payment-info__price">500 ₽</div>
           </div>
-          <div class="shop-cart-block__payment-info">
+          <div class="shopping-cart__payment-info">
             <div>Сервисный сбор</div>
-            <div class="payment__price">500 ₽</div>
+            <div class="payment-info__price">500 ₽</div>
           </div>
 
-          <div class="shop-cart-block__payment-notify">{{&paymentNotification}}</div>
+          <div class="shopping-cart__payment-notify">{{&paymentNotification}}</div>
 
-          <div class="shop-cart-block__summary-payment">
+          <div class="shopping-cart__summary-payment">
             <div>Итого</div>
-            <div class="payment__price">{{total}} ₽</div>
+            <div class="payment-info__price">{{total}} ₽</div>
           </div>
           {{/isEmpty}}
         </div>

@@ -3,6 +3,7 @@ const ELEMS_CONFIGURATION = {
         SMALL: 80,
         STANDARD: 300,
         LARGE: 500,
+        VERY_LARGE: 515,
     },
     buttons: {
         SMALL: 240,
