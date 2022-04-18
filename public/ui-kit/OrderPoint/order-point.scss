@@ -35,19 +35,19 @@
     margin-bottom: 6px;
     color: theme.getColor('black');
 
-    :first-child {
-        width: 70%;
-        text-align: left;
+    //&:first-child {
+    //    width: 70%;
+    //    text-align: left;
+    //}
+
+    &:nth-child(n) {
+        font-weight: bold;
     }
 }
 
 .dish-info__price-bold {
     text-align: right;
     width: 30%;
-}
-
-.point-info__dish-info:nth-child(n) {
-    font-weight: bold;
 }
 
 .point-info__ingredients {

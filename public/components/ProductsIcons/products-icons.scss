@@ -9,15 +9,12 @@
 }
 
 .rest-menu__product-icon {
-  margin-bottom: 70px;
-}
-
-.rest-menu__product-icon {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  //flex-wrap: wrap;
 
   align-content: center;
+  margin-bottom: 70px;
 
   width: 270px;
   height: 440px;
@@ -33,7 +30,12 @@
 }
 
 .product-icon__img {
-  width: 270px;
+  width: 240px;
   height: 230px;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+
   border-radius: 14px 14px 0 0;
 }
