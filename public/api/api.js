@@ -1,5 +1,5 @@
 import { renderAndUpdateURN } from '../render/render.js';
-import store from '../store/import.js';
+import * as store from '../store/import.js';
 
 const METHODS = { GET: 'GET', POST: 'POST', PUT: 'PUT', DELETE: 'DELETE' };
 
