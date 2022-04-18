@@ -1,4 +1,5 @@
-import { renderAndUpdateURN } from '../render/render';
+import { renderAndUpdateURN } from '../render/render.js';
+import store from '../store/import.js';
 
 const METHODS = { GET: 'GET', POST: 'POST', PUT: 'PUT', DELETE: 'DELETE' };
 
@@ -24,8 +25,8 @@ const request = (url, options = DEFAULT_OPTIONS) => {
         });
         options.body = JSON.stringify(options.body);
     }
-    if (sessionStorage.getItem('token')) {
-        options.headers['X-CSRF-Token'] = sessionStorage.getItem('token');
+    if (store.getters.token() !== '') {
+        options.headers['X-CSRF-Token'] = store.getters.token();
     }
 
     return fetch(BASE_URI + '/api/v1' + url, options)
@@ -35,7 +36,7 @@ const request = (url, options = DEFAULT_OPTIONS) => {
         })
         .then((result) => {
             if (result.status === 200 && result.headers.get('X-CSRF-Token') !== '') {
-                sessionStorage.setItem('token', result.headers.get('X-CSRF-Token'));
+                store.actions.setToken(result.headers.get('X-CSRF-Token'));
             }
 
             if (result.status === 500) {

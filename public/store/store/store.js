@@ -47,6 +47,7 @@ const STORE = {
     // { address: 'FIRST', end: false }, { address: 'SECOND', end: true }
   ],
   currentRestName: '',
+  token: '',
 
   // Mutations
   addUser(user) {
@@ -116,6 +117,9 @@ const STORE = {
   },
   clearSuggests() {
     this.suggests = [];
+  },
+  setToken(token) {
+    this.token = token;
   }
 };
 
