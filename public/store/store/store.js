@@ -74,7 +74,13 @@ const STORE = {
   currentRestName: '',
 
   // Mutations
-  addUser(user) {
+  addUser(user, isFirstUpdate) {
+    if (isFirstUpdate) {
+      Object.entries(user).forEach(([key, value]) => {
+        this.user[key] = value;
+      });
+      return;
+    }
     this.user = user;
   },
   removeUser() {
