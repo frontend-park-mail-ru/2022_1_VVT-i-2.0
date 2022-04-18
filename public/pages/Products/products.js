@@ -24,7 +24,7 @@ const mainPage = (app, store) => {
   );
 
   const main = document.createElement('main');
-  main.innerHTML = UIKIT.backButton('Все рестораны', 'main') + `<h1>${restName}</h1>` +
+  main.innerHTML = UIKIT.backButton('Все рестораны', 'main') + UIKIT.simpleTitle(restName) +
     components.productsIcons(productObj.products, restName);
 
   app.root.appendChild(main);

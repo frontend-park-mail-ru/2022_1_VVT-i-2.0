@@ -57,7 +57,7 @@ const personInfoForm = ({ name, phone, email }) => {
             return UIKIT.backButton('Все рестораны', 'main');
         },
         title() {
-            return UIKIT.title('Личные данные');
+            return UIKIT.underlinedTitle('Личные данные');
         },
         buttonChangeAvatar() {
             return UIKIT.simpleButton('Изменить аватар', COLORS.grey,

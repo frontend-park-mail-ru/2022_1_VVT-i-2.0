@@ -80,7 +80,7 @@ const ordering = (props) => {
     total: props.total,
     isEmpty,
     title() {
-      return UIKIT.title('Оформление заказа');
+      return UIKIT.underlinedTitle('Оформление заказа');
     },
     input() {
       let value = '';

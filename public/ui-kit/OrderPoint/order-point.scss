@@ -35,10 +35,10 @@
     margin-bottom: 6px;
     color: theme.getColor('black');
 
-    //&:first-child {
-    //    width: 70%;
-    //    text-align: left;
-    //}
+    :first-child {
+        width: 70%;
+        text-align: left;
+    }
 
     &:nth-child(n) {
         font-weight: bold;
