@@ -11,7 +11,7 @@ const mainPage = (app, store) => {
     return;
   }
 
-  if (!store.getters.products.hasOwnProperty(params)) {
+  if (!store.getters.products().hasOwnProperty(params)) {
     store.actions.getProducts(params);
     return;
   }

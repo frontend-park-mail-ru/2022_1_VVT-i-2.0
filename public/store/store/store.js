@@ -66,10 +66,8 @@ const STORE = {
   //       },
   //     ]
   //   }
-  // },
-  cart: [
-
-  ],
+  },
+  cart: [],
   suggests: [
     // { address: 'FIRST', end: false }, { address: 'SECOND', end: true }
   ],
@@ -86,7 +84,9 @@ const STORE = {
     this.restaurants = restaurants;
   },
   addProducts(restName, result) {
-    this.products[restName] = { products: result.dishes, restName: result.restName };
+    const products = this.products;
+    products[restName] = { products: result.dishes, restName: result.restName };
+    this.products = products;
   },
   addProductToCart(id, restName) {
     const cart = (restName === this.currentRestName) ? this.cart : [];
