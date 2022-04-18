@@ -42,6 +42,10 @@ export const getPhoneFieldEvents = (elemID, statusForm) => {
                             e.target.value.slice(currPos, e.target.value.length);
                     }
                 }
+                FORM.inputDataManager(
+                    e, elemID, statusForm,
+                    CONFIG.Regex.phoneNumber, CONFIG.ErrorMsg.errorPhoneNumber
+                );
             }
         },
         {
@@ -57,22 +61,5 @@ export const getPhoneFieldEvents = (elemID, statusForm) => {
                 VALIDATION.numberAutocomplete(e);
             }
         },
-        {
-            type: 'change',
-            selector: 'id',
-            /**
-             * @function Осуществляет проверку телефона на валидность в форме авторизации.
-             *      А также производит запись статуса в statusForm данной страницы. statusForm
-             *      предназначен для быстрой проверки формы на валидность перед отправкой.
-             * @param {Object} app - Объект приложения.
-             * @param {Event} e - Событие.
-             */
-            listener (app, store, e) {
-                FORM.inputDataManager(
-                    e, elemID, statusForm,
-                    CONFIG.Regex.phoneNumber, CONFIG.ErrorMsg.errorPhoneNumber
-                );
-            }
-        }
     ];
 }

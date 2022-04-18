@@ -106,7 +106,12 @@ export const isAvailableForSend = (statusForm) => {
 export const inputDataManager = (e, elemID, statusForm, regularExpression, errorMsg) => {
     const elem = getElemParameters(elemID);
 
-    if (e.target.value !== '' && !regularExpression.test(e.target.value)) {
+    if (e.target.value === '') {
+        setFormStatus(statusForm, elemID, false);
+        return;
+    }
+
+    if (!regularExpression.test(e.target.value)) {
         showError(statusForm, elemID, elem, errorMsg);
         return;
     }
