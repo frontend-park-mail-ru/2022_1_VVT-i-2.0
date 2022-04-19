@@ -1,6 +1,7 @@
 import UIKIT from '../../ui-kit/import.js';
 import FORMS_CONFIGURATION from '../../configurations/forms.js';
 import paymentChoice from '../PaymentChoice/payment-choice.js';
+import {NumberPhoneFormat} from "../../events/entity/phone/phone-src";
 
 const ordering = (props) => {
   const inputConfigurations = FORMS_CONFIGURATION.inputs.ordering;
@@ -86,7 +87,7 @@ const ordering = (props) => {
       let value = '';
       let readonly = false;
       if (this.id === 'orderingPhone') {
-        value = props.phone;
+        value = NumberPhoneFormat.formatPhone(props.phone);
         readonly = true;
       } else if (this.id === 'orderingAddress') {
         value = localStorage.getItem('address');

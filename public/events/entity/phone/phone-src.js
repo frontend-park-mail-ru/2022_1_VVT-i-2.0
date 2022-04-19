@@ -14,6 +14,7 @@ const numberObjectExclude = {
 export const NumberPhoneFormat = {
     phoneBeginString: '+7(',
     formatters: [
+        // {symbol: '+', formatPositions: 0},
         {symbol: '(', formatPositions: [2]},
         {symbol: ')', formatPositions: [6]},
         {symbol: '-', formatPositions: [10, 13]},
@@ -33,6 +34,22 @@ export const NumberPhoneFormat = {
                 }
             });
         });
+    },
+    formatPhone(phoneNumber) {
+        console.log(phoneNumber);
+        if (phoneNumber[0] !== '+') {
+            phoneNumber = '+' + phoneNumber;
+        }
+        NumberPhoneFormat.formatters.forEach((obj) => {
+            obj.formatPositions.forEach((num) => {
+                console.log(num);
+                if (phoneNumber[num] !== obj.symbol) {
+                    phoneNumber = phoneNumber.slice(0, num) + obj.symbol + phoneNumber.slice(num, phoneNumber.length);
+                    console.log(phoneNumber.slice(0, num), phoneNumber.slice(num, num + 1));
+                }
+            });
+        });
+        return phoneNumber;
     }
 };
 
