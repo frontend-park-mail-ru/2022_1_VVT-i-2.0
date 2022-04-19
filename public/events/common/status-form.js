@@ -8,7 +8,7 @@ import {ErrorMsg} from './config';
 
 export const loginFormInputs = ['loginPhone'];
 export const registerFormInputs = ['registerPhone', 'registerName', 'registerEmail'];
-export const personInfoInputs = ['profileName', 'profilePhone', 'profileEmail'];
+export const personInfoInputs = ['profileName', /*'profilePhone',*/ 'profileEmail'];
 
 export const statusLoginForm = {
     isValidPhone: false
@@ -22,7 +22,7 @@ export const statusRegisterForm = {
 
 export const statusPersonInfoForm = {
     isValidName: true,
-    isValidPhone: true,
+    // isValidPhone: true,
     isValidEmail: true,
 };
 

@@ -21,7 +21,7 @@ const EVENTS = {
     sendCodeButton: Event.getButtonEvents().sendCodeButton,
 
     profileName: Event.getNameFieldEvents('profileName', FORM.statusPersonInfoForm),
-    profilePhone: Event.getPhoneFieldEvents('profilePhone', FORM.statusPersonInfoForm),
+    // profilePhone: Event.getPhoneFieldEvents('profilePhone', FORM.statusPersonInfoForm),
     profileEmail: Event.getEmailFieldEvents('profileEmail', FORM.statusPersonInfoForm),
     changeAvatarButton: Event.getButtonEvents().changeAvatarButton,
     personInfoSaveButton: Event.getButtonEvents().personInfoSaveButton,
@@ -29,6 +29,7 @@ const EVENTS = {
     addToCart: Event.productEvents().addToCart,
     incrementProductCount: Event.productEvents().incrementProductCount,
     decrementProductCount: Event.productEvents().decrementProductCount,
+    orderingComment: Event.productEvents().orderingComment,
     buttonPay: Event.getButtonEvents().buttonPay,
 
     suggestsSearch: Event.suggests().suggestsSearch,
