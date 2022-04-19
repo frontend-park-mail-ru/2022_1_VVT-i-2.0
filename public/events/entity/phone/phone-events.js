@@ -2,6 +2,7 @@ import * as VALIDATION from './phone-src.js';
 import * as CURSOR from '../../common/cursor.js';
 import * as CONFIG from '../../common/config.js';
 import * as FORM from '../../common/status-form.js';
+import {isCursorAtInputEnd} from "./phone-src.js";
 
 export const getPhoneFieldEvents = (elemID, statusForm) => {
     return [
@@ -15,6 +16,9 @@ export const getPhoneFieldEvents = (elemID, statusForm) => {
              * @param {Event} e - Событие.
              */
             listener (app, store, e) {
+                if (!isCursorAtInputEnd(e)) {
+                    return;
+                }
                 if (e.target.value === '') {
                     e.target.value = VALIDATION.NumberPhoneFormat.phoneBeginString;
                     CURSOR.setCursorPosition(e, e.target.value.length);
@@ -35,6 +39,9 @@ export const getPhoneFieldEvents = (elemID, statusForm) => {
              * @param {Event} e - Событие.
              */
             listener (app, store, e) {
+                if (!isCursorAtInputEnd(e)) {
+                    return;
+                }
                 if (CONFIG.Keypad.deleteSymbols.includes(e.keyCode)) {
                     let currPos = CURSOR.getCursorPosition(e.target);
                     if (VALIDATION.numberServiceSymbols.includes(e.target.value[currPos - 1])) {
@@ -42,6 +49,7 @@ export const getPhoneFieldEvents = (elemID, statusForm) => {
                             e.target.value.slice(currPos, e.target.value.length);
                     }
                 }
+
                 FORM.inputDataManager(
                     e, elemID, statusForm,
                     CONFIG.Regex.phoneNumber, CONFIG.ErrorMsg.errorPhoneNumber
@@ -61,5 +69,22 @@ export const getPhoneFieldEvents = (elemID, statusForm) => {
                 VALIDATION.numberAutocomplete(e);
             }
         },
+        {
+            type: 'change',
+            selector: 'id',
+            /**
+             * @function Осуществляет проверку телефона на валидность в форме авторизации.
+             *      А также производит запись статуса в statusForm данной страницы. statusForm
+             *      предназначен для быстрой проверки формы на валидность перед отправкой.
+             * @param {Object} app - Объект приложения.
+             * @param {Event} e - Событие.
+             */
+            listener (app, store, e) {
+                FORM.inputDataManager(
+                    e, elemID, statusForm,
+                    CONFIG.Regex.phoneNumber, CONFIG.ErrorMsg.errorPhoneNumber
+                );
+            }
+        }
     ];
 }

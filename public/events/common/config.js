@@ -14,9 +14,6 @@ export const EntityLengthLimit = {
     confirmCode: 4,
 }
 
-const DELETE_KEY = 46;
-const BACKSPACE_KEY = 8;
-
 export const ErrorMsg = {
     errorPhoneNumber: 'Формат телефона: +7(988)888-88-88',
     errorName: 'Длина не менее 3 букв',
@@ -24,6 +21,9 @@ export const ErrorMsg = {
     errorConfirmCode: 'Формат кода: 6666',
     errorEmptyInput: 'Заполните это поле',
 };
+
+const DELETE_KEY = 46;
+const BACKSPACE_KEY = 8;
 
 export const Keypad = {
     deleteSymbols: [DELETE_KEY, BACKSPACE_KEY],

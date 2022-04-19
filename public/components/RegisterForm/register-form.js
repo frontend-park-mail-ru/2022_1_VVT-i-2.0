@@ -11,7 +11,7 @@ const registerForm = () => {
     const inputConfigurations = FORMS_CONFIGURATION.inputs.registerForm;
 
     const template = `
-        <form id="register-form" class="register-form">
+        <div id="register-form" class="register-form">
             <img id="closeImg" class="register-form__close-img" src="/graphics/icons/close.svg">
             <h2 class="register-form__title">Создать аккаунт</h2>
             {{#inputConfigurations}}
@@ -21,7 +21,7 @@ const registerForm = () => {
             {{/inputConfigurations}}
             <div id="register-button" class="register-form__button-register">{{&register}}</div>
             {{&login}}
-        </form>
+        </div>
     `;
 
     return Mustache.render(template, {

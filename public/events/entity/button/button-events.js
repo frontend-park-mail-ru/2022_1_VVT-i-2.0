@@ -18,7 +18,6 @@ export const getButtonEvents = () => {
                 listener(app, store, e) {
                     if (!FORM.isAvailableForSend(FORM.statusLoginForm)) {
                         showEmptyInputs(FORM.statusLoginForm, FORM.loginFormInputs);
-                        // setTimeout(hideEmptyInputs, 400, FORM.statusLoginForm, FORM.loginFormInputs);
                         e.stopImmediatePropagation();
                         return;
                     }
@@ -113,10 +112,11 @@ export const getButtonEvents = () => {
                 listener(app, store, e) {
                     if (!FORM.isAvailableForSend(FORM.statusRegisterForm)) {
                         showEmptyInputs(FORM.statusRegisterForm, FORM.registerFormInputs);
-                        // setTimeout(hideEmptyInputs, 400, FORM.statusRegisterForm, FORM.registerFormInputs);
                         e.stopImmediatePropagation();
                         return;
                     }
+
+                    console.log('ALL RIGHT FORM AVAILABLE', FORM.statusRegisterForm);
 
                     let phone = document.getElementById('registerPhone').children[0].value;
                     const name = document.getElementById('registerName').children[0].value;
@@ -168,11 +168,8 @@ export const getButtonEvents = () => {
                 type: 'click',
                 selector: 'id',
                 listener(app, store, e) {
-                    // TODO: ТАКЖЕ ПРОВЕРИТЬ ЕСЛИ ИНПУТЫ ПУСТЫЕ ТО ЭТО НОРМ
-
                     if (!FORM.isAvailableForSend(FORM.statusPersonInfoForm)) {
                         showEmptyInputs(FORM.statusPersonInfoForm, FORM.personInfoInputs);
-                        // setTimeout(hideEmptyInputs, 400, FORM.statusPersonInfoForm, FORM.personInfoInputs);
                         return;
                     }
 

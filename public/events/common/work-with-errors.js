@@ -37,14 +37,16 @@ export const removeVisibleError = (childList) => {
     childList[1].classList.add('hidden');
 }
 
-const IsInputOnEmpty = (elemID) => {
-    return !document.getElementById(elemID).value;
+const IsInputEmpty = (elemID) => {
+    console.log('CURRENT INPUT', elemID,'VALUE: ', getElemParameters(elemID).value);
+    console.log(document.getElementById(elemID));
+    return getElemParameters(elemID).value === '';
 }
 
 export const getEmptyInputs = (formInputs) => {
     let emptyInputs = [];
     formInputs.forEach((elemID) => {
-        if (IsInputOnEmpty(elemID)) {
+        if (IsInputEmpty(elemID)) {
             emptyInputs.push(elemID);
         }
     });
