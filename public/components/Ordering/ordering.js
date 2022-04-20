@@ -101,7 +101,7 @@ const ordering = (props) => {
       return UIKIT.buttonPay();
     },
     drawOrderPoint() {
-      return UIKIT.orderPoint(this.imgPath, this.productName, this.info, this.count, this.price, this.id);
+      return UIKIT.orderPoint(this.imgPath, this.productName, this.weight, this.info, this.count, this.price, this.id);
     },
     paymentNotification() {
       return UIKIT.paymentNotification('Закажите ещё на 380₽ для бесплатной доставки', false);
