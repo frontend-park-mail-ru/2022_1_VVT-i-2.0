@@ -15,7 +15,8 @@
 
 .prod-icon__name {
     display: flex;
-    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     @include paddings();
 
@@ -23,7 +24,18 @@
     font-weight: bold;
     font-size: 21px;
 
+    //max-height: 48px;
+    //height: auto;
+
     color: #2E2E33;
+}
+
+@media (-webkit-min-device-pixel-ratio: 0) {
+    .prod-icon__name {
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
 }
 
 .prod-icon__calories-info {
@@ -37,18 +49,25 @@
 }
 
 .prod-icon__description {
+    display: flex;
     overflow: hidden;
-    //word-wrap: break-word;
-    text-overflow: clip;
-    //display:inline-block;
+    text-overflow: ellipsis;
 
     @include paddings();
 
-    width: 90%;
-    height: 60px;
+    //width: 90%;
+    //height: 50px;
 
     font-size: 14px;
     color: theme.getColor('warm');
+}
+
+@media (-webkit-min-device-pixel-ratio: 0) {
+    .prod-icon__description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
 }
 
 .prod-icon__price-bar {
