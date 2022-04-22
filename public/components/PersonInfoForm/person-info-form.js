@@ -21,7 +21,7 @@ const personInfoForm = ({ name, phone, email }) => {
                         <div class="settings__avatar-change-block">
                             <div class="avatar-change-block__description">Ваш аватар:</div>
                             <div class="avatar-change-block__avatar">
-                                <img id="user-avatar" class="avatar__img" src="/graphics/images/avatar.jpg" alt="">
+                                <img id="user-avatar-preview" class="avatar__img" alt="avatar">
                             </div>
                             <div class="avatar-choice-block__button-change">
                                 {{&buttonChangeAvatar}}
@@ -61,7 +61,7 @@ const personInfoForm = ({ name, phone, email }) => {
         },
         buttonChangeAvatar() {
             return UIKIT.simpleButton('Изменить аватар', COLORS.grey,
-                ELEMS_CONFIGURATION.buttons.SMALL, 'profile', 'changeAvatarButton');
+                ELEMS_CONFIGURATION.buttons.SMALL, 'profile', 'changeAvatarButton', true);
         },
         input() {
             let value = name;

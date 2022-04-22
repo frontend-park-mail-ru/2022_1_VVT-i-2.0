@@ -1,6 +1,7 @@
 import * as FORM from '../../common/status-form.js';
 import { hideEmptyInputs, showEmptyInputs } from '../../common/status-form.js';
 import { renderAndUpdateURN } from '../../../render/render.js';
+import {getters} from "../../../store/import";
 
 export const getButtonEvents = () => {
     return {
@@ -144,24 +145,7 @@ export const getButtonEvents = () => {
                 type: 'click',
                 selector: 'id',
                 listener(app, store, e) {
-                    let input = document.createElement('input');
-                    input.type = 'file';
-                    input.onchange = () => {
-                        const preview = document.getElementById('user-avatar');
-                        const file    = input.files[0];
-                        const reader  = new FileReader();
-
-                        reader.onloadend = function () {
-                            preview.src = reader.result;
-                        }
-
-                        if (file) {
-                            reader.readAsDataURL(file);
-                        } else {
-                            preview.src = "";
-                        }
-                    };
-
+                    const input = document.getElementById('avatarUpload');
                     input.click();
                 }
             }
@@ -173,19 +157,11 @@ export const getButtonEvents = () => {
                 listener(app, store, e) {
                     if (!FORM.isAvailableForSend(FORM.statusPersonInfoForm)) {
                         showEmptyInputs(FORM.statusPersonInfoForm, FORM.personInfoInputs);
-                        // setTimeout(hideEmptyInputs, 400, FORM.statusPersonInfoForm, FORM.personInfoInputs);
                         return;
                     }
 
-                    // const name = document.getElementById('profileName').children[0].value;
-                    // const email = document.getElementById('profileEmail').children[0].value;
-
-                    const form = document.getElementById('person-info-form');
-                    const obj = new FormData(form);
-                    // console.log(obj);
-                    // obj.append("firstName", "John");
-                    // console.log(obj);
-
+                    const obj = new FormData(document.getElementById('person-info-form'));
+                    obj.append("avatar", getters.avatar());
                     store.actions.updateUser(obj).then(() => renderAndUpdateURN('/'));
                 }
             }

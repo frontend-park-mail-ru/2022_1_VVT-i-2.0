@@ -23,7 +23,6 @@ const request = (url, options = DEFAULT_OPTIONS) => {
         switch (url) {
             case '/update':
                 options.headers = {};
-                console.log(options.body);
                 break;
             default:
                 options.headers['Content-Type'] = 'application/json';

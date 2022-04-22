@@ -10,7 +10,7 @@ import ELEMS_CONFIGURATION from '../../configurations/elems.js';
  * @return {string} HTML строка для отрисовки ui-kit компонента button.
  */
 const simpleButton = (title, color, width = ELEMS_CONFIGURATION.buttons.STANDARD,
-                      href, id, isSaveSettingsButton = false) => {
+                      href, id, isChangeAvatarButton = false) => {
     const template = `
         <button
             {{#id}} id={{id}} {{/id}}
@@ -19,12 +19,12 @@ const simpleButton = (title, color, width = ELEMS_CONFIGURATION.buttons.STANDARD
             data-section="{{href}}"
         >
             {{title}}
-            {{#isSaveSettingsButton}}
-                <input type="file" style="display: none; width: 100%; height: 100%;">
-            {{/isSaveSettingsButton}}
+            {{#isChangeAvatarButton}}
+                <input id="avatarUpload" type="file" style="display: none;">
+            {{/isChangeAvatarButton}}
         </button>
     `;
-    return Mustache.render(template, {title, color, width, href, id, isSaveSettingsButton});
+    return Mustache.render(template, {title, color, width, href, id, isChangeAvatarButton});
 };
 
 export default simpleButton;
