@@ -9,7 +9,8 @@ import ELEMS_CONFIGURATION from '../../configurations/elems.js';
  * @param {string} id - id кнопки.
  * @return {string} HTML строка для отрисовки ui-kit компонента button.
  */
-const simpleButton = (title, color, width = ELEMS_CONFIGURATION.buttons.STANDARD, href, id) => {
+const simpleButton = (title, color, width = ELEMS_CONFIGURATION.buttons.STANDARD,
+                      href, id, isSaveSettingsButton = false) => {
     const template = `
         <button
             {{#id}} id={{id}} {{/id}}
@@ -18,9 +19,12 @@ const simpleButton = (title, color, width = ELEMS_CONFIGURATION.buttons.STANDARD
             data-section="{{href}}"
         >
             {{title}}
+            {{#isSaveSettingsButton}}
+                <input type="file" style="display: none; width: 100%; height: 100%;">
+            {{/isSaveSettingsButton}}
         </button>
     `;
-    return Mustache.render(template, {title, color, width, href, id});
+    return Mustache.render(template, {title, color, width, href, id, isSaveSettingsButton});
 };
 
 export default simpleButton;

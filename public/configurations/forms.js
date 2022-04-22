@@ -39,20 +39,22 @@ const FORMS_CONFIGURATION = {
                 title: 'Имя',
                 placeholder: 'Введите имя',
                 width: ELEMS_CONFIGURATION.inputs.LARGE,
-                id: 'profileName'
+                id: 'profileName',
+                name: 'name',
             },
             {
                 title: 'Телефон',
                 placeholder: '+7(',
                 width: ELEMS_CONFIGURATION.inputs.LARGE,
-                id: 'profilePhone'
+                id: 'profilePhone',
             },
             {
                 title: 'Электронная почта',
                 type: 'email',
                 placeholder: 'Введите почту',
                 width: ELEMS_CONFIGURATION.inputs.LARGE,
-                id: 'profileEmail'
+                id: 'profileEmail',
+                name: 'email',
             },
         ],
         ordering: {

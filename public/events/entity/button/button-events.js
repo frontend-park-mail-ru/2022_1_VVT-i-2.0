@@ -171,18 +171,22 @@ export const getButtonEvents = () => {
                 type: 'click',
                 selector: 'id',
                 listener(app, store, e) {
-                    // TODO: ТАКЖЕ ПРОВЕРИТЬ ЕСЛИ ИНПУТЫ ПУСТЫЕ ТО ЭТО НОРМ
-
                     if (!FORM.isAvailableForSend(FORM.statusPersonInfoForm)) {
                         showEmptyInputs(FORM.statusPersonInfoForm, FORM.personInfoInputs);
-                        setTimeout(hideEmptyInputs, 400, FORM.statusPersonInfoForm, FORM.personInfoInputs);
+                        // setTimeout(hideEmptyInputs, 400, FORM.statusPersonInfoForm, FORM.personInfoInputs);
                         return;
                     }
 
-                    const name = document.getElementById('profileName').children[0].value;
-                    const email = document.getElementById('profileEmail').children[0].value;
+                    // const name = document.getElementById('profileName').children[0].value;
+                    // const email = document.getElementById('profileEmail').children[0].value;
 
-                    store.actions.updateUser({ name, email }).then(() => renderAndUpdateURN('/'));
+                    const form = document.getElementById('person-info-form');
+                    const obj = new FormData(form);
+                    // console.log(obj);
+                    // obj.append("firstName", "John");
+                    // console.log(obj);
+
+                    store.actions.updateUser(obj).then(() => renderAndUpdateURN('/'));
                 }
             }
         ],

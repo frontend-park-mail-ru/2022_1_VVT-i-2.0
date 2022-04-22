@@ -7,7 +7,7 @@ const personInfoForm = ({ name, phone, email }) => {
     const inputConfigurations = FORMS_CONFIGURATION.inputs.personInfoForm;
 
     const template = `
-        <section id="person-info-form" class="person-info-form">
+        <form id="person-info-form" class="person-info-form">
             {{&backButton}}
 
             {{&title}}
@@ -48,7 +48,7 @@ const personInfoForm = ({ name, phone, email }) => {
 <!--            <div>-->
 <!--                {{&switcherElement}}-->
 <!--            </div>-->
-        </section>
+        </form>
     `;
 
     return Mustache.render(template, {
@@ -72,7 +72,7 @@ const personInfoForm = ({ name, phone, email }) => {
             }
             const readonly = (this.id === 'profilePhone');
 
-            return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id, value, readonly);
+            return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id, this.name, value, readonly);
         },
         menu () {
             return UIKIT.profileMenu();
