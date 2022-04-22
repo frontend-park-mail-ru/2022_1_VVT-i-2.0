@@ -15,7 +15,7 @@ if (!localStorage.getItem('address')) {
 if ('serviceWorker' in navigator) {
     navigator
         .serviceWorker
-        .register('./sw/sw.js')
+        .register('./sw.js')
         .then(() => navigator.serviceWorker.ready.then((worker) => worker.sync.register('syncdata')))
         .catch((err) => console.log(err));
 }
