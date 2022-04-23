@@ -13,3 +13,5 @@ export const currentRestName = () => STORE.currentRestName;
 export const suggests = () => STORE.suggests;
 
 export const avatar = () => STORE.avatar;
+
+export const token = () => STORE.token;

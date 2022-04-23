@@ -17,7 +17,7 @@ export const getNameFieldEvents = (elemID, statusForm) => {
             }
         },
         {
-            type: 'change',
+            type: 'keyup',
             selector: 'id',
             /**
              * @function Осуществляет проверку имени пользователя на валидность.

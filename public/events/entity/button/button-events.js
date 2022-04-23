@@ -19,7 +19,6 @@ export const getButtonEvents = () => {
                 listener(app, store, e) {
                     if (!FORM.isAvailableForSend(FORM.statusLoginForm)) {
                         showEmptyInputs(FORM.statusLoginForm, FORM.loginFormInputs);
-                        setTimeout(hideEmptyInputs, 400, FORM.statusLoginForm, FORM.loginFormInputs);
                         e.stopImmediatePropagation();
                         return;
                     }
@@ -96,7 +95,6 @@ export const getButtonEvents = () => {
                  * @param {Event} e - Событие.
                  */
                 listener(app, store, e) {
-                    console.log('wewer');
                     store.actions.logout().then(() => renderAndUpdateURN('/'));
                 }
             }
@@ -115,26 +113,25 @@ export const getButtonEvents = () => {
                 listener(app, store, e) {
                     if (!FORM.isAvailableForSend(FORM.statusRegisterForm)) {
                         showEmptyInputs(FORM.statusRegisterForm, FORM.registerFormInputs);
-                        setTimeout(hideEmptyInputs, 400, FORM.statusRegisterForm, FORM.registerFormInputs);
                         e.stopImmediatePropagation();
                         return;
                     }
 
+                    console.log('ALL RIGHT FORM AVAILABLE', FORM.statusRegisterForm);
+
                     let phone = document.getElementById('registerPhone').children[0].value;
+                    const name = document.getElementById('registerName').children[0].value;
+                    const email = document.getElementById('registerEmail').children[0].value;
+
                     sessionStorage.setItem('phone', phone);
+                    sessionStorage.setItem('name', name);
+                    sessionStorage.setItem('email', email);
+                    sessionStorage.setItem('logicType', 'register');
 
                     phone = phone.replace('+', '');
                     phone = phone.replace('(', '');
                     phone = phone.replace(')', '');
                     phone = phone.replaceAll('-', '');
-
-                    const name = document.getElementById('registerName').children[0].value;
-                    const email = document.getElementById('registerEmail').children[0].value;
-
-                    sessionStorage.setItem('name', name);
-                    sessionStorage.setItem('email', email);
-
-                    sessionStorage.setItem('logicType', 'register');
 
                     store.actions.sendCode(phone).then((result) => renderAndUpdateURN('/confirmCode'));
                 }

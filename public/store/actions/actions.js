@@ -60,3 +60,7 @@ export const decrementProductCount = (id) => {
 export const createOrder = (order) => {
   return API.createOrder(order).then(() => STORE.clearCart());
 }
+
+export const setToken = (token) => {
+  return STORE.setToken(token);
+}

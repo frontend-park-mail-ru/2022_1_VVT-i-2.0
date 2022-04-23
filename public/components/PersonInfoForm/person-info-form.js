@@ -2,6 +2,7 @@ import UIKIT from '../../ui-kit/import.js';
 import COLORS from '../../configurations/colors/colors.js';
 import FORMS_CONFIGURATION from '../../configurations/forms.js';
 import ELEMS_CONFIGURATION from '../../configurations/elems.js';
+import {NumberPhoneFormat} from "../../events/entity/phone/phone-src";
 
 const personInfoForm = ({ name, phone, email }) => {
     const inputConfigurations = FORMS_CONFIGURATION.inputs.personInfoForm;
@@ -66,7 +67,7 @@ const personInfoForm = ({ name, phone, email }) => {
         input() {
             let value = name;
             if (this.id === 'profilePhone') {
-                value = phone;
+                value = NumberPhoneFormat.formatPhone(phone);
             } else if (this.id === 'profileEmail') {
                 value = email;
             }

@@ -1,5 +1,6 @@
 import {EntityLengthLimit} from "../../common/config.js";
 import {autoEraseExtraSymbols} from "../../common/common-custom-prettiers.js";
+import * as CURSOR from "../../common/cursor";
 
 export const numberServiceSymbols = ['(', '-', ')'];
 
@@ -13,6 +14,7 @@ const numberObjectExclude = {
 export const NumberPhoneFormat = {
     phoneBeginString: '+7(',
     formatters: [
+        // {symbol: '+', formatPositions: 0},
         {symbol: '(', formatPositions: [2]},
         {symbol: ')', formatPositions: [6]},
         {symbol: '-', formatPositions: [10, 13]},
@@ -32,6 +34,22 @@ export const NumberPhoneFormat = {
                 }
             });
         });
+    },
+    formatPhone(phoneNumber) {
+        console.log(phoneNumber);
+        if (phoneNumber[0] !== '+') {
+            phoneNumber = '+' + phoneNumber;
+        }
+        NumberPhoneFormat.formatters.forEach((obj) => {
+            obj.formatPositions.forEach((num) => {
+                console.log(num);
+                if (phoneNumber[num] !== obj.symbol) {
+                    phoneNumber = phoneNumber.slice(0, num) + obj.symbol + phoneNumber.slice(num, phoneNumber.length);
+                    console.log(phoneNumber.slice(0, num), phoneNumber.slice(num, num + 1));
+                }
+            });
+        });
+        return phoneNumber;
     }
 };
 
@@ -45,4 +63,15 @@ export const numberAutocomplete = (e) => {
 
     e.target.value = e.target.value.slice(0, EntityLengthLimit.phoneNumber);
     NumberPhoneFormat.format(e);
+}
+
+export const isCursorAtInputEnd = (e) => {
+    if (CURSOR.getCursorPosition(e.target) !== e.target.value.length) {
+        console.log(CURSOR.getCursorPosition(e.target), e.target.value.length);
+        CURSOR.setCursorPosition(e, e.target.value.length);
+
+        return false;
+    }
+
+    return true;
 }

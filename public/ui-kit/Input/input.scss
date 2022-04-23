@@ -14,6 +14,15 @@
     color: theme.getColor('black');
 }
 
+.input-block__input-readonly {
+    all: unset;
+    height: 30px;
+    border: none;
+
+    border-bottom: 2px solid theme.getColor('grey');
+    color: theme.getColor('grey');
+}
+
 .input-block__input:focus-visible {
     border: none;
     border-bottom: 2px solid theme.getColor('black');

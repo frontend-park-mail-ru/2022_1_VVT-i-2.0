@@ -8,7 +8,7 @@ import {ErrorMsg} from './config';
 
 export const loginFormInputs = ['loginPhone'];
 export const registerFormInputs = ['registerPhone', 'registerName', 'registerEmail'];
-export const personInfoInputs = ['profileName', 'profilePhone', 'profileEmail'];
+export const personInfoInputs = ['profileName', /*'profilePhone',*/ 'profileEmail'];
 
 export const statusLoginForm = {
     isValidPhone: false
@@ -22,7 +22,7 @@ export const statusRegisterForm = {
 
 export const statusPersonInfoForm = {
     isValidName: true,
-    isValidPhone: true,
+    // isValidPhone: true,
     isValidEmail: true,
 };
 
@@ -78,12 +78,12 @@ export const showEmptyInputs = (statusForm, formInputs) => {
     });
 }
 
-export const hideEmptyInputs = (statusForm, formInputs) => {
-    const emptyInputs = getEmptyInputs(formInputs);
-    emptyInputs.forEach((elemID) => {
-        removeVisibleError(getElemParameters(elemID).childList);
-    });
-}
+// export const hideEmptyInputs = (statusForm, formInputs) => {
+//     const emptyInputs = getEmptyInputs(formInputs);
+//     emptyInputs.forEach((elemID) => {
+//         removeVisibleError(getElemParameters(elemID).childList);
+//     });
+// }
 
 /**
  * @function Проверяет все ли данные в форме находятся в валидном состоянии для отправки на сервер.
@@ -106,7 +106,14 @@ export const isAvailableForSend = (statusForm) => {
 export const inputDataManager = (e, elemID, statusForm, regularExpression, errorMsg) => {
     const elem = getElemParameters(elemID);
 
-    if (e.target.value !== '' && !regularExpression.test(e.target.value)) {
+    if (e.target.value === '') {
+        hideError(statusForm, elemID, elem);
+        setFormStatus(statusForm, elemID, false);
+        return;
+    }
+
+    if (!regularExpression.test(e.target.value)) {
+        hideError(statusForm, elemID, elem);
         showError(statusForm, elemID, elem, errorMsg);
         return;
     }

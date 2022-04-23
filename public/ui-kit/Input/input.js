@@ -18,7 +18,8 @@ const input = (title, type, width = ELEMS_CONFIGURATION.inputs.STANDARD,
             <div {{#id}} id={{id}} {{/id}}>
                 <input
                     style="width: {{width}}px"
-                    class="input-block__input"
+                    {{#readonly}} class="input-block__input-readonly" {{/readonly}}
+                    {{^readonly}} class="input-block__input" {{/readonly}}
                     placeholder="{{placeholder}}"
                     type="{{type}}"
                     name="{{name}}"
