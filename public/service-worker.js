@@ -1,4 +1,3 @@
-// import { BASE_URI } from './api/api.js';
 const BASE_URI = 'http://localhost:8080';
 
 const CACHE = 'cache-v1';
@@ -8,12 +7,6 @@ self.addEventListener('install', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
-  // e
-  //   .respondWith(fromNetwork(e.request, TIMEOUT)
-  //   .catch((err) => {
-  //     console.log(`Error: ${err.message()}`);
-  //     return fromCache(e.request);
-  //   }));
   e.respondWith((async () => {
     const cachedResponse = await caches.match(e.request);
     if (cachedResponse) {
@@ -34,20 +27,3 @@ self.addEventListener('fetch', (e) => {
     return networkResponse;
   })());
 });
-
-// const fromNetwork = (request, TIMEOUT) => {
-//   return new Promise((fulfill, reject) => {
-//     const TIMEOUTId = setTimeout(reject, TIMEOUT);
-//     fetch(request)
-//       .then((response) => {
-//         clearTimeout(TIMEOUTId);
-//         fulfill(response);
-//       }, reject);
-//   });
-// }
-
-// const fromCache = (request) = {
-//   return caches
-//     .open(CACHE)
-//     .then((cache) => cache.match(request).then((matching) => matching || Promise.reject('no-match')));
-// }
