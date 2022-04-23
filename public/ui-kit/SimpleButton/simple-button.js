@@ -17,6 +17,7 @@ const simpleButton = (title, color, width = ELEMS_CONFIGURATION.buttons.STANDARD
             class="simple-button"
             style="background-color: {{color}}; width: {{width}}px;"
             data-section="{{href}}"
+            type="button"
         >
             {{title}}
             {{#isChangeAvatarButton}}
