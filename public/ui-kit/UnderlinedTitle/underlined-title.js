@@ -1,4 +1,4 @@
-const title = (title) => {
+const underlinedTitle = (title) => {
   const template = `
     <div class="form-title">
       <h1 class="form-title__title-name">{{title}}</h1>
@@ -8,4 +8,4 @@ const title = (title) => {
   return Mustache.render(template, { title });
 };
 
-export default title;
+export default underlinedTitle;

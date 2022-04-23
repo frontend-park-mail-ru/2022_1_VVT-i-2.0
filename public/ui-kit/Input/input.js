@@ -11,7 +11,7 @@ import ELEMS_CONFIGURATION from '../../configurations/elems.js';
  * @return {string} HTML строка для отрисовки ui-kit компонента input.
  */
 const input = (title, type, width = ELEMS_CONFIGURATION.inputs.STANDARD,
-               placeholder, id, value, readonly, error = 'Ошибка') => {
+               placeholder, id, name, value, readonly, error = 'Ошибка') => {
     const template = `
         <div class="input-block">
             <div class="input-block__title">{{title}}</div>
@@ -22,6 +22,7 @@ const input = (title, type, width = ELEMS_CONFIGURATION.inputs.STANDARD,
                     {{^readonly}} class="input-block__input" {{/readonly}}
                     placeholder="{{placeholder}}"
                     type="{{type}}"
+                    name="{{name}}"
                     value="{{value}}"
                     {{#readonly}} readonly {{/readonly}}
                 >
@@ -36,6 +37,7 @@ const input = (title, type, width = ELEMS_CONFIGURATION.inputs.STANDARD,
         width,
         placeholder,
         id,
+        name,
         value,
         readonly,
         error

@@ -8,7 +8,7 @@ const personInfoForm = ({ name, phone, email }) => {
     const inputConfigurations = FORMS_CONFIGURATION.inputs.personInfoForm;
 
     const template = `
-        <section id="person-info-form" class="person-info-form">
+        <form id="person-info-form" class="person-info-form" method="POST" enctype="multipart/form-data">
             {{&backButton}}
 
             {{&title}}
@@ -22,7 +22,7 @@ const personInfoForm = ({ name, phone, email }) => {
                         <div class="settings__avatar-change-block">
                             <div class="avatar-change-block__description">Ваш аватар:</div>
                             <div class="avatar-change-block__avatar">
-                                <img id="user-avatar" class="avatar__img" src="/graphics/images/avatar.jpg" alt="">
+                                <img id="user-avatar-preview" src="/graphics/icons/profile.svg" class="avatar__img" alt="avatar">
                             </div>
                             <div class="avatar-choice-block__button-change">
                                 {{&buttonChangeAvatar}}
@@ -49,7 +49,7 @@ const personInfoForm = ({ name, phone, email }) => {
 <!--            <div>-->
 <!--                {{&switcherElement}}-->
 <!--            </div>-->
-        </section>
+        </form>
     `;
 
     return Mustache.render(template, {
@@ -58,11 +58,11 @@ const personInfoForm = ({ name, phone, email }) => {
             return UIKIT.backButton('Все рестораны', 'main');
         },
         title() {
-            return UIKIT.title('Личные данные');
+            return UIKIT.underlinedTitle('Личные данные');
         },
         buttonChangeAvatar() {
             return UIKIT.simpleButton('Изменить аватар', COLORS.grey,
-                ELEMS_CONFIGURATION.buttons.SMALL, 'profile', 'changeAvatarButton');
+                ELEMS_CONFIGURATION.buttons.SMALL, 'profile', 'changeAvatarButton', true);
         },
         input() {
             let value = name;
@@ -73,7 +73,7 @@ const personInfoForm = ({ name, phone, email }) => {
             }
             const readonly = (this.id === 'profilePhone');
 
-            return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id, value, readonly);
+            return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id, this.name, value, readonly);
         },
         menu () {
             return UIKIT.profileMenu();

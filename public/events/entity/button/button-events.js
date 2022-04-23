@@ -1,6 +1,7 @@
 import * as FORM from '../../common/status-form.js';
-import { showEmptyInputs } from '../../common/status-form.js';
-import { renderAndUpdateURN } from '../../../render/render.js';
+import {hideEmptyInputs, showEmptyInputs} from '../../common/status-form.js';
+import {renderAndUpdateURN} from '../../../render/render.js';
+import {avatar} from "../../../store/store/store";
 
 export const getButtonEvents = () => {
     return {
@@ -141,24 +142,7 @@ export const getButtonEvents = () => {
                 type: 'click',
                 selector: 'id',
                 listener(app, store, e) {
-                    let input = document.createElement('input');
-                    input.type = 'file';
-                    input.onchange = () => {
-                        const preview = document.getElementById('user-avatar');
-                        const file    = input.files[0];
-                        const reader  = new FileReader();
-
-                        reader.onloadend = function () {
-                            preview.src = reader.result;
-                        }
-
-                        if (file) {
-                            reader.readAsDataURL(file);
-                        } else {
-                            preview.src = "";
-                        }
-                    };
-
+                    const input = document.getElementById('avatarUpload');
                     input.click();
                 }
             }
@@ -173,10 +157,17 @@ export const getButtonEvents = () => {
                         return;
                     }
 
-                    const name = document.getElementById('profileName').children[0].value;
-                    const email = document.getElementById('profileEmail').children[0].value;
+                    const personInfoForm = document.getElementById('person-info-form');
+                    const input = document.getElementById('avatarUpload');
 
-                    store.actions.updateUser({ name, email }).then(() => renderAndUpdateURN('/'));
+
+
+                    let dt  = new DataTransfer();
+                    dt.items.add(avatar);
+                    input.files = dt.files;
+
+                    const obj = new FormData(personInfoForm);
+                    store.actions.updateUser(obj).then(() => renderAndUpdateURN('/'));
                 }
             }
         ],

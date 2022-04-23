@@ -21,11 +21,16 @@ const request = (url, options = DEFAULT_OPTIONS) => {
     options.credentials = 'include';
     options.headers = {};
     if (options.body) {
-        // Object.assign(options, {
-        //     headers: {'Content-Type': 'application/json'}
-        // });
-        options.headers['Content-Type'] = 'application/json';
-        options.body = JSON.stringify(options.body);
+        switch (url) {
+            case '/update':
+                options.headers = {};
+                break;
+            default:
+                options.headers['Content-Type'] = 'application/json';
+                options.body = JSON.stringify(options.body);
+                break;
+        }
+        // options.body = JSON.stringify(options.body);
     }
     if (store.getters.token() !== '') {
         options.headers['X-CSRF-Token'] = store.getters.token();

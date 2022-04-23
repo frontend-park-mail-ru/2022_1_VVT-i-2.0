@@ -37,6 +37,10 @@ export const suggest = (query) => {
   return API.suggest(query).then((result) => STORE.addSuggests(result));
 }
 
+export const changeAvatar = (avatar) =>{
+  return STORE.addAvatar(avatar);
+}
+
 export const clearSuggests = () => {
   return STORE.clearSuggests();
 }

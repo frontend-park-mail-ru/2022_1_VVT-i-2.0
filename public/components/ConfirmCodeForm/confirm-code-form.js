@@ -31,7 +31,7 @@ const confirmCodeForm = (phone) => {
     return Mustache.render(template, {
         phone, inputConfigurations,
         input () {
-            return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id);
+            return UIKIT.input(this.underlinedTitle, this.type, this.width, this.placeholder, this.id);
         },
         confirm () {
             return UIKIT.simpleButton('Подтвердить', COLORS.primary,

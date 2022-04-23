@@ -7,6 +7,7 @@ const ordering = (props) => {
   const inputConfigurations = FORMS_CONFIGURATION.inputs.ordering;
 
   const isEmpty = props.total === 0;
+  const minPrice = props.minPrice;
 
   const template = `
     <div><img class="ordering-page__week-dish" src="../../graphics/images/order_week_dish.png" alt=""></div>
@@ -79,9 +80,10 @@ const ordering = (props) => {
     inputConfigurations: inputConfigurations,
     orderPoints: props.orderPoints,
     total: props.total,
+    minPrice: props.minPrice,
     isEmpty,
     title() {
-      return UIKIT.title('Оформление заказа');
+      return UIKIT.underlinedTitle('Оформление заказа');
     },
     input() {
       let value = '';
@@ -102,10 +104,13 @@ const ordering = (props) => {
       return UIKIT.buttonPay();
     },
     drawOrderPoint() {
-      return UIKIT.orderPoint(this.imgPath, this.productName, this.info, this.count, this.price, this.id);
+      return UIKIT.orderPoint(this.imgPath, this.productName, this.weight, this.info, this.count, this.price, this.id);
     },
     paymentNotification() {
-      return UIKIT.paymentNotification('Закажите ещё на 380₽ для бесплатной доставки', false);
+      if (this.total - 1000 < this.minPrice) {
+        return UIKIT.paymentNotification('Закажите ещё на ' + String(this.minPrice - (this.total - 1000)) + ' ₽ для бесплатной доставки', false);
+      }
+      return UIKIT.paymentNotification('Ваш заказ будет доставлен бесплатно!', true);
     }
   });
 };

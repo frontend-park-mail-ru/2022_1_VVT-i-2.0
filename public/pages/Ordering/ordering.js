@@ -1,4 +1,5 @@
 import components from '../../components/import.js';
+import {restaurants} from "../../store/getters/getters";
 
 const ordering = (app, store) => {
   const currentRestName = store.getters.currentRestName();
@@ -39,8 +40,15 @@ const ordering = (app, store) => {
     Object.keys(store.getters.user()).length !== 0, '/graphics/images/avatar.jpg'
   );
 
+  let minPrice = 0;
+  store.getters.restaurants().forEach( restObj => {
+    if (restObj.restName === currentRestName) {
+      minPrice = restObj.min_price;
+    }
+  });
+
   const main = document.createElement('main');
-  main.innerHTML = components.ordering({ phone, restName: productObj.restName, orderPoints, total });
+  main.innerHTML = components.ordering({ phone, restName: productObj.restName, orderPoints, total, minPrice });
 
   app.root.appendChild(main);
 };
