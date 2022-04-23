@@ -1,4 +1,5 @@
-import { BASE_URI } from './api/api.js';
+// import { BASE_URI } from './api/api.js';
+const BASE_URI = 'http://localhost:8080';
 
 const CACHE = 'cache-v1';
 
