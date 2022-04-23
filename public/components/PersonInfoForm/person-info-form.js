@@ -7,7 +7,7 @@ const personInfoForm = ({ name, phone, email }) => {
     const inputConfigurations = FORMS_CONFIGURATION.inputs.personInfoForm;
 
     const template = `
-        <form id="person-info-form" class="person-info-form">
+        <form id="person-info-form" class="person-info-form" method="POST" enctype="multipart/form-data">
             {{&backButton}}
 
             {{&title}}
@@ -21,7 +21,7 @@ const personInfoForm = ({ name, phone, email }) => {
                         <div class="settings__avatar-change-block">
                             <div class="avatar-change-block__description">Ваш аватар:</div>
                             <div class="avatar-change-block__avatar">
-                                <img id="user-avatar-preview" class="avatar__img" alt="avatar">
+                                <img id="user-avatar-preview" src="/graphics/icons/profile.svg" class="avatar__img" alt="avatar">
                             </div>
                             <div class="avatar-choice-block__button-change">
                                 {{&buttonChangeAvatar}}

@@ -20,7 +20,7 @@ const simpleButton = (title, color, width = ELEMS_CONFIGURATION.buttons.STANDARD
         >
             {{title}}
             {{#isChangeAvatarButton}}
-                <input id="avatarUpload" type="file" style="display: none;">
+                <input id="avatarUpload" name="avatar" type="file" style="display: none;" accept="image/*">
             {{/isChangeAvatarButton}}
         </button>
     `;

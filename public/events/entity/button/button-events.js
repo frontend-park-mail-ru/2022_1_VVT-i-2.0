@@ -160,8 +160,34 @@ export const getButtonEvents = () => {
                         return;
                     }
 
+                    // const obj = new FormData(document.getElementById('person-info-form'));
+                    // const input = document.getElementById('avatarUpload');
+                    // obj.append('avatar', blob, getters.avatar());
+                    // obj.append('avatar', action.payload.image, 'image');
+                    // input.onchange = function (e) {
+                    //     const avatarPreview = document.getElementById('user-avatar-preview');
+                    //     const file    = e.target.files[0];
+                    //     const reader  = new FileReader();
+                    //
+                    //     reader.onloadend = function () {
+                    //         avatarPreview.src = reader.result;
+                    //     }
+                    //
+                    //     if (file) {
+                    //         reader.readAsDataURL(file);
+                    //     } else {
+                    //         avatarPreview.src = "";
+                    //     }
+                    // }
+                    // obj.append('avatar', input.files);
+                    // console.log(obj.getAll('avatar'));
                     const obj = new FormData(document.getElementById('person-info-form'));
-                    obj.append("avatar", getters.avatar());
+                    obj.set('avatar', obj.get('avatar'), 'avatar.jpg');
+
+                    // for(var pair of obj.entries()) {
+                    //     console.warn(pair[0]+ ', '+ pair[1]);
+                    // }
+
                     store.actions.updateUser(obj).then(() => renderAndUpdateURN('/'));
                 }
             }
