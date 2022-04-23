@@ -1,5 +1,4 @@
 import components from '../../components/import.js';
-import * as events from '../../events/events.js';
 import UIKIT from '../../ui-kit/import.js';
 
 const mainPage = (app, store) => {

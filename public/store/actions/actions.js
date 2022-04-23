@@ -9,8 +9,8 @@ export const getProducts = (restName) => {
   return API.getProducts(restName).then((result) => STORE.addProducts(restName, result));
 }
 
-export const getUser = () => {
-  return API.getUser().then((result) => STORE.addUser(result));
+export const getUser = (isFirstUpdate = false) => {
+  return API.getUser().then((result) => STORE.addUser(result, isFirstUpdate));
 }
 
 export const updateUser = (user) => {

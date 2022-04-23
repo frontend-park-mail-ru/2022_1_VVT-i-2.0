@@ -97,7 +97,7 @@ export const render = (urn, storeUpdate = false) => {
   sessionStorage.setItem('page', section);
 };
 
-export const renderAndUpdateURN = (urn) => {
+export const renderAndUpdateURN = (urn, storeUpdate = false) => {
   if (!urn) {
     return;
   }
@@ -108,5 +108,5 @@ export const renderAndUpdateURN = (urn) => {
 
   history.pushState({}, null, urn);
 
-  render(urn);
+  render(urn, storeUpdate);
 };

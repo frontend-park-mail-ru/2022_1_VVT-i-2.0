@@ -12,7 +12,7 @@ const confirmCodeForm = (phone) => {
     const inputConfigurations = FORMS_CONFIGURATION.inputs.confirmCodeForm;
 
     const template = `
-        <form id="confirm-code-form" class="confirm-code-form">
+        <div id="confirm-code-form" class="confirm-code-form">
             <img id="closeImg" class="confirm-code-form__close-img" src="/graphics/icons/close.svg" alt="">
             <h2 class="confirm-code-form__title">Подтвердите телефон</h2>
             <div class="confirm-code-form__indication">Код отправлен на номер
@@ -25,7 +25,7 @@ const confirmCodeForm = (phone) => {
             {{/inputConfigurations}}
             <div id="confirm-code-button" class="confirm-code-form__button-confirm-code">{{&confirm}}</div>
             {{&sendAgain}}
-        </form>
+        </div>
     `;
 
     return Mustache.render(template, {

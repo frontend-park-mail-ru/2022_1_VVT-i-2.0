@@ -31,9 +31,6 @@ const EVENTS = {
     decrementProductCount: Event.productEvents().decrementProductCount,
     orderingComment: Event.productEvents().orderingComment,
     buttonPay: Event.getButtonEvents().buttonPay,
-
-    suggestsSearch: Event.suggests().suggestsSearch,
-    suggestsRow: Event.suggests().suggestsRow
 };
 
 /**

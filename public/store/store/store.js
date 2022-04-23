@@ -7,40 +7,65 @@ const STORE = {
   restaurants: [
     // {
     //   slug: 'main',
-    //   imgPath: 'https://citrusfoto.ru/sites/default/files/styles/work_samples/public/1000-vasiliy_malykhin-4dfd2881e419f552c3fa1208ff4e8535.jpg?itok=ZE_5-a43',
-    //   restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8
+    //   imgPath: './graphics/images/img.png',
+    //   restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    // },
+    // {
+    //   slug: 'main',
+    //   imgPath: './graphics/images/img.png',
+    //   restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    // },
+    // {
+    //   slug: 'main',
+    //   imgPath: './graphics/images/img.png',
+    //   restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    // },
+    // {
+    //   slug: 'main',
+    //   imgPath: './graphics/images/img.png',
+    //   restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    // },
+    // {
+    //   slug: 'main',
+    //   imgPath: './graphics/images/img.png',
+    //   restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    // },
+    // {
+    //   slug: 'main',
+    //   imgPath: './graphics/images/img.png',
+    //   restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
     // }
   ],
   products: {
-    // 'main': {
-    //   restName: 'McDonalds',
-    //   products: [
-    //     {
-    //       id: 1,
-    //       imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-    //       productName: 'Тестовое имя',
-    //       info: '172 г · 213 ккал',
-    //       description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-    //       price: 296
-    //     },
-    //     {
-    //       id: 2,
-    //       imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-    //       productName: 'Тестовое имя',
-    //       info: '172 г · 213 ккал',
-    //       description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-    //       price: 296
-    //     },
-    //     {
-    //       id: 3,
-    //       imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-    //       productName: 'Тестовое имя',
-    //       info: '172 г · 213 ккал',
-    //       description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-    //       price: 296
-    //     },
-    //   ]
-    // }
+  //   'main': {
+  //     restName: 'McDonalds',
+  //     products: [
+  //       {
+  //         id: 1,
+  //         imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
+  //         productName: 'Тестовое имя',
+  //         info: '172 г · 213 ккал',
+  //         description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
+  //         price: 296
+  //       },
+  //       {
+  //         id: 2,
+  //         imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
+  //         productName: 'Тестовое имя',
+  //         info: '172 г · 213 ккал',
+  //         description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
+  //         price: 296
+  //       },
+  //       {
+  //         id: 3,
+  //         imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
+  //         productName: 'Тестовое имя',
+  //         info: '172 г · 213 ккал',
+  //         description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
+  //         price: 296
+  //       },
+  //     ]
+  //   }
   },
   cart: [],
   suggests: [
@@ -50,7 +75,13 @@ const STORE = {
   token: '',
 
   // Mutations
-  addUser(user) {
+  addUser(user, isFirstUpdate) {
+    if (isFirstUpdate) {
+      Object.entries(user).forEach(([key, value]) => {
+        this.user[key] = value;
+      });
+      return;
+    }
     this.user = user;
   },
   removeUser() {
@@ -60,7 +91,9 @@ const STORE = {
     this.restaurants = restaurants;
   },
   addProducts(restName, result) {
-    this.products[restName] = { products: result.products, restName: result.restName };
+    const products = this.products;
+    products[restName] = { products: result.dishes, restName: result.restName };
+    this.products = products;
   },
   addProductToCart(id, restName) {
     const cart = (restName === this.currentRestName) ? this.cart : [];

@@ -55,41 +55,45 @@ const FORMS_CONFIGURATION = {
                 id: 'profileEmail'
             },
         ],
-        ordering: [
-            {
-                title: 'Телефон',
-                placeholder: '+7(',
-                width: ELEMS_CONFIGURATION.inputs.LARGE,
-                id: 'orderingPhone'
-            },
-            {
-                title: 'Адрес доставки',
-                placeholder: 'Введите адрес доставки',
-                width: ELEMS_CONFIGURATION.inputs.LARGE,
-                id: 'orderingAddress'
-            },
-            {
-                title: 'Подъезд',
-                width: ELEMS_CONFIGURATION.inputs.SMALL,
-                id: 'orderingEntrance'
-            },
-            {
-                title: 'Домофон',
-                width: ELEMS_CONFIGURATION.inputs.SMALL,
-                id: 'orderingIntercom'
-            },
-            {
-                title: 'Этаж',
-                placeholder: '',
-                width: ELEMS_CONFIGURATION.inputs.SMALL,
-                id: 'orderingFloor'
-            },
-            {
-                title: 'Квартира',
-                width: ELEMS_CONFIGURATION.inputs.SMALL,
-                id: 'orderingFlat'
-            }
-        ],
+        ordering: {
+            largeInputs: [
+                {
+                    title: 'Телефон',
+                    placeholder: '+7(',
+                    width: ELEMS_CONFIGURATION.inputs.VERY_LARGE,
+                    id: 'orderingPhone'
+                },
+                {
+                    title: 'Адрес доставки',
+                    placeholder: 'Введите адрес доставки',
+                    width: ELEMS_CONFIGURATION.inputs.VERY_LARGE,
+                    id: 'orderingAddress'
+                },
+            ],
+            smallInputs: [
+                {
+                    title: 'Подъезд',
+                    width: ELEMS_CONFIGURATION.inputs.SMALL,
+                    id: 'orderingEntrance'
+                },
+                {
+                    title: 'Домофон',
+                    width: ELEMS_CONFIGURATION.inputs.SMALL,
+                    id: 'orderingIntercom'
+                },
+                {
+                    title: 'Этаж',
+                    placeholder: '',
+                    width: ELEMS_CONFIGURATION.inputs.SMALL,
+                    id: 'orderingFloor'
+                },
+                {
+                    title: 'Квартира',
+                    width: ELEMS_CONFIGURATION.inputs.SMALL,
+                    id: 'orderingFlat'
+                }
+            ]
+        },
     },
     menu: {
         profilePoints: [

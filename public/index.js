@@ -13,7 +13,7 @@ if (!localStorage.getItem('address')) {
 }
 
 if (Object.keys(store.getters.user()).length === 0) {
-    store.actions.getUser().then(() => render(location.pathname));
+    store.actions.getUser(true).then(() => render(location.pathname));
 } else {
     render(location.pathname);
 }

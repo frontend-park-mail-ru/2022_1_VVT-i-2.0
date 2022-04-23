@@ -33,6 +33,12 @@
     display: inline-flex;
     margin-top: 4px;
     margin-bottom: 6px;
+    color: theme.getColor('black');
+
+    :first-child {
+        width: 70%;
+        text-align: left;
+    }
 }
 
 .dish-info__price-bold {
@@ -40,9 +46,9 @@
     width: 30%;
 }
 
-//.point-info__dish-info:nth-child(n) {
-//    font-weight: bold;
-//}
+.point-info__dish-info:nth-child(n) {
+    font-weight: bold;
+}
 
 .point-info__ingredients {
     display: inline-flex;

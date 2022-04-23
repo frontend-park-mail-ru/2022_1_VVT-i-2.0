@@ -1,5 +1,5 @@
 import * as FORM from '../../common/status-form.js';
-import { hideEmptyInputs, showEmptyInputs } from '../../common/status-form.js';
+import { showEmptyInputs } from '../../common/status-form.js';
 import { renderAndUpdateURN } from '../../../render/render.js';
 
 export const getButtonEvents = () => {
@@ -18,7 +18,7 @@ export const getButtonEvents = () => {
                 listener(app, store, e) {
                     if (!FORM.isAvailableForSend(FORM.statusLoginForm)) {
                         showEmptyInputs(FORM.statusLoginForm, FORM.loginFormInputs);
-                        setTimeout(hideEmptyInputs, 400, FORM.statusLoginForm, FORM.loginFormInputs);
+                        e.stopImmediatePropagation();
                         return;
                     }
 
@@ -112,26 +112,25 @@ export const getButtonEvents = () => {
                 listener(app, store, e) {
                     if (!FORM.isAvailableForSend(FORM.statusRegisterForm)) {
                         showEmptyInputs(FORM.statusRegisterForm, FORM.registerFormInputs);
-                        setTimeout(hideEmptyInputs, 400, FORM.statusRegisterForm, FORM.registerFormInputs);
+                        e.stopImmediatePropagation();
                         return;
                     }
 
+                    console.log('ALL RIGHT FORM AVAILABLE', FORM.statusRegisterForm);
+
                     let phone = document.getElementById('registerPhone').children[0].value;
+                    const name = document.getElementById('registerName').children[0].value;
+                    const email = document.getElementById('registerEmail').children[0].value;
 
                     sessionStorage.setItem('phone', phone);
+                    sessionStorage.setItem('name', name);
+                    sessionStorage.setItem('email', email);
+                    sessionStorage.setItem('logicType', 'register');
 
                     phone = phone.replace('+', '');
                     phone = phone.replace('(', '');
                     phone = phone.replace(')', '');
                     phone = phone.replaceAll('-', '');
-
-                    const name = document.getElementById('registerName').children[0].value;
-                    const email = document.getElementById('registerEmail').children[0].value;
-
-                    sessionStorage.setItem('name', name);
-                    sessionStorage.setItem('email', email);
-
-                    sessionStorage.setItem('logicType', 'register');
 
                     store.actions.sendCode(phone).then((result) => renderAndUpdateURN('/confirmCode'));
                 }
@@ -169,11 +168,8 @@ export const getButtonEvents = () => {
                 type: 'click',
                 selector: 'id',
                 listener(app, store, e) {
-                    // TODO: ТАКЖЕ ПРОВЕРИТЬ ЕСЛИ ИНПУТЫ ПУСТЫЕ ТО ЭТО НОРМ
-
                     if (!FORM.isAvailableForSend(FORM.statusPersonInfoForm)) {
                         showEmptyInputs(FORM.statusPersonInfoForm, FORM.personInfoInputs);
-                        setTimeout(hideEmptyInputs, 400, FORM.statusPersonInfoForm, FORM.personInfoInputs);
                         return;
                     }
 
