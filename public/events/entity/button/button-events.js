@@ -1,6 +1,7 @@
 import * as FORM from '../../common/status-form.js';
-import { hideEmptyInputs, showEmptyInputs } from '../../common/status-form.js';
-import { renderAndUpdateURN } from '../../../render/render.js';
+import {hideEmptyInputs, showEmptyInputs} from '../../common/status-form.js';
+import {renderAndUpdateURN} from '../../../render/render.js';
+import {avatar} from "../../../store/store/store";
 
 export const getButtonEvents = () => {
     return {
@@ -160,9 +161,15 @@ export const getButtonEvents = () => {
                     }
 
                     const personInfoForm = document.getElementById('person-info-form');
-                    const obj = new FormData(personInfoForm);
-                    obj.set('avatar', obj.get('avatar'), 'avatar.jpg');
+                    const input = document.getElementById('avatarUpload');
 
+
+
+                    let dt  = new DataTransfer();
+                    dt.items.add(avatar);
+                    input.files = dt.files;
+
+                    const obj = new FormData(personInfoForm);
                     store.actions.updateUser(obj).then(() => renderAndUpdateURN('/'));
                 }
             }

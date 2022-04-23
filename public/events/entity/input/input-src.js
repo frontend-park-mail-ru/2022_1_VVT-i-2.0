@@ -6,8 +6,6 @@ export const preview = (input, avatarPreview) => {
 
     reader.onloadend = function () {
         avatarPreview.src = reader.result;
-        // actions.changeAvatar(avatarPreview.src);
-        // console.log(avatarPreview.src);
     }
 
     if (file) {

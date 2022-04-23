@@ -7,8 +7,10 @@ const mainPage = (app, store) => {
         return;
     }
 
+    const user = store.getters.user();
+
     app.root.innerHTML = components.header(
-        Object.keys(store.getters.user()).length !== 0, '/graphics/images/avatar.jpg'
+        Object.keys(user).length !== 0, user
     );
 
     const main = document.createElement('main');
