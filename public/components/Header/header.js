@@ -11,7 +11,7 @@ const header = (auth = false, customImgPath = '', isOrderingPage = false) => {
             </nav>
             
             {{#isOrderingPage}}
-                <nav class="page-header__button page-header__back-button">
+                <nav class="page-header__button page-header__back-button" data-section="products">
                     {{&backToMenu}}
                 </nav>
             {{/isOrderingPage}}
