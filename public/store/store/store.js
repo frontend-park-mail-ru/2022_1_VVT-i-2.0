@@ -89,9 +89,6 @@ const STORE = {
   removeUser() {
     this.user = {};
   },
-  addAvatar(avatar) {
-    this.avatar = avatar;
-  },
   addRestaurants(restaurants) {
     this.restaurants = restaurants;
   },
