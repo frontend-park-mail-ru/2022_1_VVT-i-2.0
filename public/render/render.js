@@ -87,7 +87,7 @@ export const render = (urn, storeUpdate = false) => {
     APP.modal.classList.remove(...APP.modal.classList);
     APP.modal.innerHTML = '';
 
-    sessionStorage.setItem('root', section)
+    sessionStorage.setItem('root', section);
   }
 
   page.render(APP, store);
