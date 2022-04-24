@@ -18,7 +18,7 @@ const dishesIcons = (dishes, restName) => {
     restName,
     dishMetaInfo() {
       return UIKIT.dishMetaInformation(
-        this.dishName,
+        this.productName,
         this.weight,
         this.info,
         this.description,

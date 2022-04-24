@@ -115,7 +115,7 @@ const ordering = (props) => {
     drawOrderPoint() {
       return UIKIT.orderPoint(
         this.imgPath,
-        this.dishName,
+        this.productName,
         this.weight,
         this.info,
         this.count,
