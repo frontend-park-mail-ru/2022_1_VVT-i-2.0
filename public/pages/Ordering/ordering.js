@@ -37,7 +37,7 @@ const ordering = (app, store) => {
   }
 
   app.root.innerHTML = components.header(
-    Object.keys(store.getters.user()).length !== 0, '/graphics/images/avatar.jpg'
+    Object.keys(store.getters.user()).length !== 0, '/graphics/images/avatar.jpg', true
   );
 
   let minPrice = 0;
