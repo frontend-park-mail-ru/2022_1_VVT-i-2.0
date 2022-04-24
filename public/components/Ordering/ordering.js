@@ -43,7 +43,7 @@ const ordering = (props) => {
         </div>
         <div class="ordering-page__shopping-cart">
           {{^isEmpty}}
-          <div class="shopping-cart__info-about-rest shopping-cart__order-point">
+          <div class="shopping-cart__rest-main-info shopping-cart__order-point">
               <div class="shopping-cart__preview-rest">Ваш заказ в ресторане: {{restName}}</div>
           </div>
 
