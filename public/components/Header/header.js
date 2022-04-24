@@ -12,13 +12,13 @@ const header = (isOrderingPage = false) => {
                 <img src="/graphics/icons/delivery_icon.svg" data-section="main" alt="">
                 <a class="button__controller" data-section="main">Delivery Club</a>
             </nav>
-            
+
             {{#isOrderingPage}}
-                <nav class="page-header__button page-header__back-button" data-section="products">
+                <nav class="page-header__button page-header__back-button" data-section="dishes">
                     {{&backToMenu}}
                 </nav>
             {{/isOrderingPage}}
-            
+
             {{^isOrderingPage}}
                 <nav id="search" class="page-header__button page-header__button-search" data-section="suggests">
                     <img src="/graphics/icons/address.svg" data-section="suggests" alt="">
@@ -35,11 +35,11 @@ const header = (isOrderingPage = false) => {
                         {{#avatar}}
                             <img class="button__avatar-img" src="{{avatar}}" data-section="profilePreview" alt="">
                         {{/avatar}}
-    
+
                         {{^avatar}}
                             <img src="/graphics/icons/profile.svg" data-section="profilePreview" alt="">
                         {{/avatar}}
-    
+
                         <a class="button__controller" data-section="profilePreview">Профиль</a>
                     </nav>
                     <nav id="shoppingCartButton" class="page-header__button page-header__button-cart" data-section="shoppingCart">
@@ -63,7 +63,7 @@ const header = (isOrderingPage = false) => {
     avatar,
     address,
     backToMenu() {
-      return UIKIT.backButton("Обратно в меню", "products");
+      return UIKIT.backButton("Обратно в меню", "dishes");
     },
   });
 };
