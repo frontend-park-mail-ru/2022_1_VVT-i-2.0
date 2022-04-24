@@ -73,3 +73,8 @@ main {
   padding: 0;
   border: none;
 }
+
+#notification {
+  z-index: 9999;
+  background: theme.getColor("white");
+}

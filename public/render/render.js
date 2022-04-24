@@ -16,6 +16,8 @@ export const APP = {
 const AUTH_PAGES = ["login", "register", "confirmCode"];
 const CLOSED_PAGES = ["shoppingCart", "profilePreview"];
 
+const notification = document.getElementById('notification');
+
 const setModalPosition = (page) => {
   if (page.position) {
     APP.modal.classList.add(page.position);
@@ -152,4 +154,8 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
 
   history.pushState({}, null, urn);
   render(urn, storeUpdate);
+};
+
+export const renderNotification = (message, error = false) => {
+  notification.innerHTML = `${message}`;
 };

@@ -1,4 +1,4 @@
-import { APP, render, renderAndUpdateURN } from "./render/render.js";
+import { APP, render, renderAndUpdateURN, renderNotification } from "./render/render.js";
 import * as store from "./store/import";
 import "./index.scss";
 import { IsCartEmpty } from "./store/getters/getters";
@@ -94,6 +94,9 @@ if ("serviceWorker" in navigator) {
 }
 
 const decodedPathname = decodeURI(location.pathname);
+
+renderNotification('Тестовое сообщение', false);
+
 if (Object.keys(store.getters.user()).length === 0) {
   // render(decodedPathname);
   store.actions.getUser(true).then(() => render(decodedPathname));
