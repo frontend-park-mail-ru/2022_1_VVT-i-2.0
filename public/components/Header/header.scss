@@ -42,12 +42,12 @@
 
 .page-header__back-button {
     max-width: 190px;
-}
 
-.back-button {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 20px;
+    & a {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 20px;
+    }
 }
 
 .button__controller {
