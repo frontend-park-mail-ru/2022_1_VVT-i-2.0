@@ -6,7 +6,15 @@
  * @param {string} price - цена товара.
  * @return {string} HTML строка для отрисовки ui-kit компонента productMetaInformation.
  */
-const productMetaInformation = (productName, weight, info, description, price, id, restName) => {
+const productMetaInformation = (
+  productName,
+  weight,
+  info,
+  description,
+  price,
+  id,
+  restName
+) => {
   const template = `
     <div class="prod-icon__meta-info-block">
       <div class="prod-icon__name">
@@ -31,7 +39,13 @@ const productMetaInformation = (productName, weight, info, description, price, i
     </div>
   `;
   return Mustache.render(template, {
-    productName, weight, info, description, price, id, restName
+    productName,
+    weight,
+    info,
+    description,
+    price,
+    id,
+    restName,
   });
 };
 

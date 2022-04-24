@@ -1,11 +1,11 @@
 const paymentNotification = (textNotification, freeDelivery) => {
-    let statusNotification = 'ordering-notification__free-delivery';
+  let statusNotification = "ordering-notification__free-delivery";
 
-    if (freeDelivery === false) {
-        statusNotification = 'ordering-notification__not-free-delivery';
-    }
+  if (freeDelivery === false) {
+    statusNotification = "ordering-notification__not-free-delivery";
+  }
 
-    const template = `
+  const template = `
         <div class="ordering-form__notification {{statusNotification}}">
             <div></div>
             <div class="ordering-notification__text">
@@ -14,7 +14,7 @@ const paymentNotification = (textNotification, freeDelivery) => {
         </div>
     `;
 
-    return Mustache.render(template, { textNotification, statusNotification });
+  return Mustache.render(template, { textNotification, statusNotification });
 };
 
 export default paymentNotification;

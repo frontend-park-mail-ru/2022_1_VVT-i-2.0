@@ -1,15 +1,17 @@
-import { renderAndUpdateURN } from '../render/render.js';
-import * as store from '../store/import.js';
+import { renderAndUpdateURN } from "../render/render.js";
+import * as store from "../store/import.js";
 
-const METHODS = { GET: 'GET', POST: 'POST', PUT: 'PUT', DELETE: 'DELETE' };
+const METHODS = { GET: "GET", POST: "POST", PUT: "PUT", DELETE: "DELETE" };
 
-const BASE_URI = 'http://localhost:8080';
+const BASE_URI = "http://localhost:8080";
 
 const DEFAULT_OPTIONS = {
-    method: METHODS.GET,
-    headers: {'Content-Type': 'application/json'},
-    credentials: 'include'
+  method: METHODS.GET,
+  headers: { "Content-Type": "application/json" },
+  credentials: "include",
 };
+
+const ERROR_MESSAGE = "В ходе обработки запроса произошла ошибка";
 
 /**
  * @function Осуществляет отправку запроса.
@@ -18,105 +20,109 @@ const DEFAULT_OPTIONS = {
  * @return {Promise} - возвращает Promise на отправку запроса.
  */
 const request = (url, options = DEFAULT_OPTIONS) => {
-    options.credentials = 'include';
-    options.headers = {};
-    if (options.body && url !== '/update') {
-        options.headers['Content-Type'] = 'application/json';
-        options.body = JSON.stringify(options.body);
-    }
+  options.credentials = "include";
+  options.headers = {};
+  if (options.body && url !== "/update") {
+    options.headers["Content-Type"] = "application/json";
+    options.body = JSON.stringify(options.body);
+  }
 
-    if (store.getters.token() !== '') {
-        options.headers['X-CSRF-Token'] = store.getters.token();
-    }
+  if (store.getters.token() !== "") {
+    options.headers["X-CSRF-Token"] = store.getters.token();
+  }
 
-    return fetch(BASE_URI + '/api/v1' + url, options)
-        .catch(() => {
-            sessionStorage.setItem('error', '500');
-            renderAndUpdateURN('/networkErrors');
-        })
-        .then((result) => {
-            if (result.status === 200 && result.headers.get('X-CSRF-Token') !== '') {
-                store.actions.setToken(result.headers.get('X-CSRF-Token'));
-            }
+  return fetch(BASE_URI + "/api/v1" + url, options)
+    .catch(() => {
+      sessionStorage.setItem("error", "500");
+      renderAndUpdateURN("/networkErrors");
+    })
+    .then((result) => {
+      if (result.status === 200 && result.headers.get("X-CSRF-Token") !== "") {
+        store.actions.setToken(result.headers.get("X-CSRF-Token"));
+      }
 
-            if (result.status === 500) {
-                sessionStorage.setItem('error', '500');
-                renderAndUpdateURN('/networkErrors');
-                return Promise.reject();
-            }
+      if (result.status === 500) {
+        sessionStorage.setItem("error", "500");
+        renderAndUpdateURN("/networkErrors");
+        return Promise.reject();
+      }
 
-            if (Number(result.headers.get('Content-Length')) === 0) {
-                if (result.status !== 200) {
-                    alert('В ходе обработки запроса произошла ошибка');
-                    return Promise.reject();
-                }
+      if (Number(result.headers.get("Content-Length")) === 0) {
+        if (result.status !== 200) {
+          alert(ERROR_MESSAGE);
+          return Promise.reject();
+        }
 
-                return {};
-            }
+        return {};
+      }
 
-            const data = result.json();
+      const data = result.json();
 
-            if (result.status !== 200) {
-                alert(data.error);
-                return Promise.reject();
-            }
+      if (result.status !== 200) {
+        if (data.error) {
+          alert(data.error);
+        } else {
+          alert(ERROR_MESSAGE);
+        }
+        return Promise.reject();
+      }
 
-            return data;
-        });
-}
+      return data;
+    });
+};
 
 /**
  * @function Осуществляет отправку запроса на получение ресторанов.
  * @return {Promise} - возвращает Promise на отправку запроса.
  */
 export const getRestaurants = () => {
-    return request('/restaurants');
-}
+  return request("/restaurants");
+};
 
 export const getProducts = (restName) => {
-    return request(`/restaurant/${restName}`);
-}
+  return request(`/restaurant/${restName}`);
+};
 
 export const getUser = () => {
-    return request('/user');
-}
+  return request("/user");
+};
 
 export const updateUser = (user) => {
-    return request('/update', { method: METHODS.POST, body: user });
-}
+  return request("/update", { method: METHODS.POST, body: user });
+};
 
 export const sendCode = (phone) => {
-    return request('/send_code', { method: METHODS.POST, body: { phone } });
-}
+  return request("/send_code", { method: METHODS.POST, body: { phone } });
+};
 
 /**
  * @function Осуществляет отправку запроса на регистрацию пользователя.
  * @return {Promise} - возвращает Promise на отправку запроса.
  */
 export const register = (user) => {
-    return request('/register', {method: METHODS.POST, body: user});
-}
+  return request("/register", { method: METHODS.POST, body: user });
+};
 
 /**
  * @function Осуществляет отправку запроса на авторизацтю пользователя.
  * @return {Promise} - возвращает Promise на отправку запроса.
  */
 export const login = (user) => {
-    return request('/login', {method: METHODS.POST, body: user});
-}
+  return request("/login", { method: METHODS.POST, body: user });
+};
 
 /**
  * @function Осуществляет отправку запроса на выход пользователя из учетной записи.
  * @return {Promise} - возвращает Promise на отправку запроса.
  */
 export const logout = () => {
-    return request('/logout', {method: METHODS.GET});
-}
+  return request("/logout", { method: METHODS.GET });
+};
 
 export const suggest = (query) => {
-    return request(`/suggest?q=${query}`);
-}
+  return request(`/suggest?q=${query}`);
+};
 
 export const createOrder = (order) => {
-    return request('/order', { method: METHODS.POST, body: order })
-}
+  return request("/order", { method: METHODS.POST, body: order });
+};

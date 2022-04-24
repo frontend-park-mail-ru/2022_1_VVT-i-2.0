@@ -11,7 +11,6 @@
 .rest-menu__product-icon {
   display: flex;
   flex-direction: column;
-  //flex-wrap: wrap;
 
   align-content: center;
   margin-bottom: 70px;
@@ -29,13 +28,12 @@
   }
 }
 
-.product-icon__img {
-  width: 240px;
+.product-icon__image-block {
   height: 230px;
+}
 
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 10px;
-
+.product-icon__img {
+  width: 280px;
+  margin-left: -7px;
   border-radius: 14px 14px 0 0;
 }
