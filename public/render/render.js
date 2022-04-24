@@ -4,7 +4,6 @@ import * as store from '../store/import.js';
 
 export const APP = {
   root: document.getElementById('root'),
-  additional: document.getElementById('additional'),
   modal: document.getElementById('modal')
 };
 
@@ -72,17 +71,13 @@ export const render = (urn, storeUpdate = false) => {
 
     if (page.additionalPage) {
       APP.modal.classList.remove('shown');
-      APP.additional.classList.add('additional'/*'shown-not-modal'*/);
     } else {
-      APP.additional.classList.remove('additional'/*'shown-not-modal'*/);
       APP.modal.classList.add('shown');
     }
 
-    // APP.modal.classList.add('shown');
     setModalPosition(page);
+
   } else {
-    APP.additional.classList.remove(...APP.additional.classList);
-    APP.additional.innerHTML = '';
 
     APP.modal.classList.remove(...APP.modal.classList);
     APP.modal.innerHTML = '';

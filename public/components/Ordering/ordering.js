@@ -7,10 +7,11 @@ const ordering = (props) => {
   const inputConfigurations = FORMS_CONFIGURATION.inputs.ordering;
 
   const isEmpty = props.total === 0;
-  const minPrice = props.minPrice;
 
   const template = `
-    <div><img class="ordering-page__week-dish" src="../../graphics/images/order_week_dish.png" alt=""></div>
+    <div>
+        <img class="ordering-page__week-dish" src="/graphics/images/order_week_dish.png" alt="">
+    </div>
     <div class="ordering-page">
       {{&title}}
 
