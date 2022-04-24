@@ -77,4 +77,8 @@ main {
 #notification {
   z-index: 9999;
   background: theme.getColor("white");
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  right: 50%;
 }
