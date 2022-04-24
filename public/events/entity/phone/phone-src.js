@@ -44,22 +44,16 @@ export const NumberPhoneFormat = {
     });
   },
   formatPhone(phoneNumber) {
-    console.log(phoneNumber);
     if (phoneNumber[0] !== "+") {
       phoneNumber = "+" + phoneNumber;
     }
     NumberPhoneFormat.formatters.forEach((obj) => {
       obj.formatPositions.forEach((num) => {
-        console.log(num);
         if (phoneNumber[num] !== obj.symbol) {
           phoneNumber =
             phoneNumber.slice(0, num) +
             obj.symbol +
             phoneNumber.slice(num, phoneNumber.length);
-          console.log(
-            phoneNumber.slice(0, num),
-            phoneNumber.slice(num, num + 1)
-          );
         }
       });
     });
@@ -81,7 +75,6 @@ export const numberAutocomplete = (e) => {
 
 export const isCursorAtInputEnd = (e) => {
   if (CURSOR.getCursorPosition(e.target) !== e.target.value.length) {
-    console.log(CURSOR.getCursorPosition(e.target), e.target.value.length);
     CURSOR.setCursorPosition(e, e.target.value.length);
 
     return false;

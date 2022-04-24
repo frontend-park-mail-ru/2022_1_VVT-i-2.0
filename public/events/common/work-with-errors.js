@@ -38,13 +38,6 @@ export const removeVisibleError = (childList) => {
 };
 
 const IsInputEmpty = (elemID) => {
-  console.log(
-    "CURRENT INPUT",
-    elemID,
-    "VALUE: ",
-    getElemParameters(elemID).value
-  );
-  console.log(document.getElementById(elemID));
   return getElemParameters(elemID).value === "";
 };
 

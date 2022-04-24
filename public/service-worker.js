@@ -19,12 +19,12 @@ self.addEventListener("fetch", (e) => {
       if (e.request.url.startsWith(BASE_URI)) {
         const clonedResponse = networkResponse.clone();
 
-        e.waitUntil(
-          (async () => {
-            const cache = await caches.open(CACHE);
-            await cache.put(e.request, clonedResponse);
-          })()
-        );
+        // e.waitUntil(
+        //   (async () => {
+        //     const cache = await caches.open(CACHE);
+        //     await cache.put(e.request, clonedResponse);
+        //   })()
+        // );
       }
 
       return networkResponse;

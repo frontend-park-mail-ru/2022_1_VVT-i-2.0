@@ -125,8 +125,6 @@ export const getButtonEvents = () => {
             return;
           }
 
-          console.log("ALL RIGHT FORM AVAILABLE", FORM.statusRegisterForm);
-
           let phone =
             document.getElementById("registerPhone").children[0].value;
           const name =
