@@ -102,6 +102,7 @@ const ordering = (props) => {
         this.width,
         this.placeholder,
         this.id,
+        '',
         value,
         readonly
       );

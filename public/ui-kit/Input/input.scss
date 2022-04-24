@@ -20,7 +20,8 @@
     border: none;
 
     border-bottom: 2px solid theme.getColor('grey');
-    color: theme.getColor('grey');
+    color: theme.getColor('warm');
+    font-weight: bold;
 }
 
 .input-block__input:focus-visible {
