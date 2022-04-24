@@ -16,20 +16,20 @@ const dishMetaInformation = (
   restName
 ) => {
   const template = `
-    <div class="prod-icon__meta-info-block">
-      <div class="prod-icon__name">
+    <div class="dish-icon__meta-info-block">
+      <div class="dish-icon__name">
         {{dishName}}
       </div>
-      <div class="prod-icon__calories-info">
+      <div class="dish-icon__calories-info">
         {{weight}} г · {{info}} ккал
       </div>
-      <div class="prod-icon__description">
+      <div class="dish-icon__description">
         {{description}}
       </div>
-      <div class="prod-icon__price-bar">
+      <div class="dish-icon__price-bar">
         <div>{{price}} ₽</div>
         <button
-          class="prod-icon__button-add-to-order addToCart"
+          class="dish-icon__button-add-to-order addToCart"
           data-id="{{id}}"
           data-rest="{{restName}}"
         >

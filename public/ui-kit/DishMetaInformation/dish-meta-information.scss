@@ -5,7 +5,7 @@
     padding-right: 20px;
 }
 
-.prod-icon__meta-info-block {
+.dish-icon__meta-info-block {
     display: flex;
     flex-direction: column;
 
@@ -13,7 +13,7 @@
     height: 50%;
 }
 
-.prod-icon__name {
+.dish-icon__name {
     display: flex;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -31,14 +31,14 @@
 }
 
 @media (-webkit-min-device-pixel-ratio: 0) {
-    .prod-icon__name {
+    .dish-icon__name {
         display: -webkit-box;
         -webkit-line-clamp: 2; /* number of lines to show */
         -webkit-box-orient: vertical;
     }
 }
 
-.prod-icon__calories-info {
+.dish-icon__calories-info {
     color: theme.getColor('grey');
     margin-top: 10px;
     margin-bottom: 10px;
@@ -48,7 +48,7 @@
     font-size: 14px;
 }
 
-.prod-icon__description {
+.dish-icon__description {
     display: flex;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -63,14 +63,14 @@
 }
 
 @media (-webkit-min-device-pixel-ratio: 0) {
-    .prod-icon__description {
+    .dish-icon__description {
         display: -webkit-box;
         -webkit-line-clamp: 3; /* number of lines to show */
         -webkit-box-orient: vertical;
     }
 }
 
-.prod-icon__price-bar {
+.dish-icon__price-bar {
     display: inline-flex;
     text-align: center;
     position: absolute;
@@ -90,7 +90,7 @@
     }
 }
 
-.prod-icon__button-add-to-order {
+.dish-icon__button-add-to-order {
     margin-left: auto;
     width: 87px;
     height: 28px;
@@ -102,7 +102,7 @@
     margin-right: 10px;
 }
 
-.prod-icon__button-add-to-order:hover {
+.dish-icon__button-add-to-order:hover {
     cursor: pointer;
     opacity: 0.5;
 }
