@@ -8,66 +8,90 @@ const STORE = {
   user: {},
   restaurants: [
     {
-      slug: 'main',
-      imgPath: './graphics/images/img.png',
-      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+      slug: "main",
+      imgPath: "./graphics/images/img.png",
+      restName: "Шоколадница",
+      timeToDeliver: "20-35 мин",
+      price: "550 ₽",
+      rating: 4.8,
     },
     {
-      slug: 'main',
-      imgPath: './graphics/images/img.png',
-      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+      slug: "main",
+      imgPath: "./graphics/images/img.png",
+      restName: "Шоколадница",
+      timeToDeliver: "20-35 мин",
+      price: "550 ₽",
+      rating: 4.8,
     },
     {
-      slug: 'main',
-      imgPath: './graphics/images/img.png',
-      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+      slug: "main",
+      imgPath: "./graphics/images/img.png",
+      restName: "Шоколадница",
+      timeToDeliver: "20-35 мин",
+      price: "550 ₽",
+      rating: 4.8,
     },
     {
-      slug: 'main',
-      imgPath: './graphics/images/img.png',
-      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+      slug: "main",
+      imgPath: "./graphics/images/img.png",
+      restName: "Шоколадница",
+      timeToDeliver: "20-35 мин",
+      price: "550 ₽",
+      rating: 4.8,
     },
     {
-      slug: 'main',
-      imgPath: './graphics/images/img.png',
-      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+      slug: "main",
+      imgPath: "./graphics/images/img.png",
+      restName: "Шоколадница",
+      timeToDeliver: "20-35 мин",
+      price: "550 ₽",
+      rating: 4.8,
     },
     {
-      slug: 'main',
-      imgPath: './graphics/images/img.png',
-      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
-    }
+      slug: "main",
+      imgPath: "./graphics/images/img.png",
+      restName: "Шоколадница",
+      timeToDeliver: "20-35 мин",
+      price: "550 ₽",
+      rating: 4.8,
+    },
   ],
   dishes: {
-    'main': {
-      restName: 'McDonalds',
+    main: {
+      restName: "McDonalds",
       dishes: [
         {
           id: 1,
-          imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-          dishName: 'Тестовое имя',
-          info: '172 г · 213 ккал',
-          description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-          price: 296
+          imgPath:
+            "https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200",
+          dishName: "Тестовое имя",
+          info: "172 г · 213 ккал",
+          description:
+            "Вкусный и самый настоящий. Всем несомненно он погнравится",
+          price: 296,
         },
         {
           id: 2,
-          imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-          dishName: 'Тестовое имя',
-          info: '172 г · 213 ккал',
-          description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-          price: 296
+          imgPath:
+            "https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200",
+          dishName: "Тестовое имя",
+          info: "172 г · 213 ккал",
+          description:
+            "Вкусный и самый настоящий. Всем несомненно он погнравится",
+          price: 296,
         },
         {
           id: 3,
-          imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-          dishName: 'Тестовое имя',
-          info: '172 г · 213 ккал',
-          description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-          price: 296
+          imgPath:
+            "https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200",
+          dishName: "Тестовое имя",
+          info: "172 г · 213 ккал",
+          description:
+            "Вкусный и самый настоящий. Всем несомненно он погнравится",
+          price: 296,
         },
-      ]
-    }
+      ],
+    },
   },
   cart: [],
   suggests: [
@@ -98,13 +122,8 @@ const STORE = {
     dishes[restName] = { dishes: result.dishes, restName: result.restName };
     this.dishes = dishes;
   },
-<<<<<<< HEAD
-  addProductToCart(id, restName) {
-    const cart = restName === this.currentRestName ? this.cart : [];
-=======
   addDishToCart(id, restName, count = 1) {
-    const cart = (restName === this.currentRestName) ? this.cart : [];
->>>>>>> Renamed products and add cart to localstorage
+    const cart = restName === this.currentRestName ? this.cart : [];
 
     const index = cart.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {

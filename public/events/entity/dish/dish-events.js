@@ -8,17 +8,10 @@ export const dishEvents = () => {
         selector: "class",
         listener(app, store, e) {
           const { id, rest } = e.target.dataset;
-<<<<<<< HEAD:public/events/entity/product/product-events.js
-          store.actions.addProductToCart(parseInt(id, 10), rest);
+          store.actions.addDishToCart(parseInt(id, 10), rest);
           renderAndUpdateURN("/shoppingCart", true);
         },
       },
-=======
-          store.actions.addDishToCart(parseInt(id, 10), rest);
-          renderAndUpdateURN('/shoppingCart', true);
-        }
-      }
->>>>>>> Renamed products and add cart to localstorage:public/events/entity/dish/dish-events.js
     ],
     incrementDishCount: [
       {
@@ -32,8 +25,8 @@ export const dishEvents = () => {
           }
 
           store.actions.incrementDishCount(parseInt(id, 10));
-        }
-      }
+        },
+      },
     ],
     decrementDishCount: [
       {
@@ -47,8 +40,8 @@ export const dishEvents = () => {
           }
 
           store.actions.decrementDishCount(parseInt(id, 10));
-        }
-      }
+        },
+      },
     ],
     orderingComment: [
       {

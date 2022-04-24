@@ -6,7 +6,15 @@
  * @param {string} price - цена товара.
  * @return {string} HTML строка для отрисовки ui-kit компонента dishMetaInformation.
  */
-const dishMetaInformation = (dishName, weight, info, description, price, id, restName) => {
+const dishMetaInformation = (
+  dishName,
+  weight,
+  info,
+  description,
+  price,
+  id,
+  restName
+) => {
   const template = `
     <div class="prod-icon__meta-info-block">
       <div class="prod-icon__name">
@@ -31,17 +39,13 @@ const dishMetaInformation = (dishName, weight, info, description, price, id, res
     </div>
   `;
   return Mustache.render(template, {
-<<<<<<< HEAD:public/ui-kit/ProductMetaInformation/product-meta-information.js
-    productName,
+    dishName,
     weight,
     info,
     description,
     price,
     id,
     restName,
-=======
-    dishName, weight, info, description, price, id, restName
->>>>>>> Renamed products and add cart to localstorage:public/ui-kit/DishMetaInformation/dish-meta-information.js
   });
 };
 

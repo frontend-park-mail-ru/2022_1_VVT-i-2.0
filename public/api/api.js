@@ -80,8 +80,8 @@ export const getRestaurants = () => {
 };
 
 export const getDishes = (restName) => {
-    return request(`/restaurant/${restName}`);
-}
+  return request(`/restaurant/${restName}`);
+};
 
 export const getUser = () => {
   return request("/user");

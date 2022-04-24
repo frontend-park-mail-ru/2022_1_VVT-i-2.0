@@ -113,7 +113,15 @@ const ordering = (props) => {
       return UIKIT.buttonPay();
     },
     drawOrderPoint() {
-      return UIKIT.orderPoint(this.imgPath, this.dishName, this.weight, this.info, this.count, this.price, this.id);
+      return UIKIT.orderPoint(
+        this.imgPath,
+        this.dishName,
+        this.weight,
+        this.info,
+        this.count,
+        this.price,
+        this.id
+      );
     },
     paymentNotification() {
       if (this.total - 1000 < this.minPrice) {

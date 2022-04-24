@@ -1,4 +1,4 @@
-import UIKIT from '../../ui-kit/import.js';
+import UIKIT from "../../ui-kit/import.js";
 
 const dishesIcons = (dishes, restName) => {
   const template = `
@@ -12,10 +12,19 @@ const dishesIcons = (dishes, restName) => {
     </div>
   `;
   return Mustache.render(template, {
-    dishes: dishes, restName,
+    dishes: dishes,
+    restName,
     prodMetaInfo() {
-      return UIKIT.dishMetaInformation(this.dishName, this.weight, this.info, this.description, this.price, this.id, restName);
-    }
+      return UIKIT.dishMetaInformation(
+        this.dishName,
+        this.weight,
+        this.info,
+        this.description,
+        this.price,
+        this.id,
+        restName
+      );
+    },
   });
 };
 
