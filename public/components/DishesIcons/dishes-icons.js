@@ -5,7 +5,9 @@ const dishesIcons = (dishes, restName) => {
     <div class="rest-menu">
       {{#dishes}}
         <section class="rest-menu__dish-icon">
-          <img class="dish-icon__img" src={{imgPath}} alt={{dishName}}>
+          <div class="dish-icon__img-block">
+            <img class="dish-icon__img" src={{imgPath}} alt={{dishName}}>
+          </div>
           {{&dishMetaInfo}}
         </section>
       {{/dishes}}
