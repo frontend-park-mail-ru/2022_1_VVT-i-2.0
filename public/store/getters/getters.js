@@ -1,4 +1,4 @@
-import STORE from '../store/store.js';
+import STORE from "../store/store.js";
 
 export const user = () => STORE.user;
 
@@ -15,11 +15,11 @@ export const currentRestName = () => STORE.currentRestName;
 export const suggests = () => STORE.suggests;
 
 export const getAvatar = () => {
-    if (!STORE.user.avatar) {
-        return '';
-    }
+  if (!STORE.user.avatar) {
+    return "";
+  }
 
-    return STORE.user.avatar;
-}
+  return STORE.user.avatar;
+};
 
 export const token = () => STORE.token;

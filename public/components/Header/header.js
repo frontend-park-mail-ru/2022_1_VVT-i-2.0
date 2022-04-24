@@ -1,12 +1,12 @@
-import UIKIT from '../../ui-kit/import.js';
-import {getters} from "../../store/import";
+import UIKIT from "../../ui-kit/import.js";
+import { getters } from "../../store/import";
 
 const header = (isOrderingPage = false) => {
-    const auth = Object.keys(getters.user()).length !== 0;
-    const address = localStorage.getItem('address');
-    const avatar = getters.getAvatar();
+  const auth = Object.keys(getters.user()).length !== 0;
+  const address = localStorage.getItem("address");
+  const avatar = getters.getAvatar();
 
-    const template = `
+  const template = `
         <header class="page-header">
             <nav class="page-header__button page-header__button-main" data-section="main">
                 <img src="/graphics/icons/delivery_icon.svg" data-section="main" alt="">
@@ -57,12 +57,15 @@ const header = (isOrderingPage = false) => {
         </header>
     `;
 
-    return Mustache.render(template, {
-        auth, isOrderingPage, avatar, address,
-        backToMenu() {
-            return UIKIT.backButton('Обратно в меню', 'products');
-        }
-    });
+  return Mustache.render(template, {
+    auth,
+    isOrderingPage,
+    avatar,
+    address,
+    backToMenu() {
+      return UIKIT.backButton("Обратно в меню", "products");
+    },
+  });
 };
 
 export default header;

@@ -1,7 +1,4 @@
-import * as actions from './actions/actions.js';
-import * as getters from './getters/getters.js';
+import * as actions from "./actions/actions.js";
+import * as getters from "./getters/getters.js";
 
-export {
-  actions,
-  getters
-}
+export { actions, getters };

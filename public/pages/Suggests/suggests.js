@@ -1,4 +1,4 @@
-import components from '../../components/import.js';
+import components from "../../components/import.js";
 
 const suggestsPage = (app, store) => {
   const suggests = store.getters.suggests();

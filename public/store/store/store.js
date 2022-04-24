@@ -1,4 +1,4 @@
-import { render } from '../../render/render';
+import { render } from "../../render/render";
 
 export let avatar = {};
 
@@ -39,42 +39,42 @@ const STORE = {
     // }
   ],
   products: {
-  //   'main': {
-  //     restName: 'McDonalds',
-  //     products: [
-  //       {
-  //         id: 1,
-  //         imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-  //         productName: 'Тестовое имя',
-  //         info: '172 г · 213 ккал',
-  //         description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-  //         price: 296
-  //       },
-  //       {
-  //         id: 2,
-  //         imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-  //         productName: 'Тестовое имя',
-  //         info: '172 г · 213 ккал',
-  //         description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-  //         price: 296
-  //       },
-  //       {
-  //         id: 3,
-  //         imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-  //         productName: 'Тестовое имя',
-  //         info: '172 г · 213 ккал',
-  //         description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-  //         price: 296
-  //       },
-  //     ]
-  //   }
+    //   'main': {
+    //     restName: 'McDonalds',
+    //     products: [
+    //       {
+    //         id: 1,
+    //         imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
+    //         productName: 'Тестовое имя',
+    //         info: '172 г · 213 ккал',
+    //         description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
+    //         price: 296
+    //       },
+    //       {
+    //         id: 2,
+    //         imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
+    //         productName: 'Тестовое имя',
+    //         info: '172 г · 213 ккал',
+    //         description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
+    //         price: 296
+    //       },
+    //       {
+    //         id: 3,
+    //         imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
+    //         productName: 'Тестовое имя',
+    //         info: '172 г · 213 ккал',
+    //         description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
+    //         price: 296
+    //       },
+    //     ]
+    //   }
   },
   cart: [],
   suggests: [
     // { address: 'FIRST', end: false }, { address: 'SECOND', end: true }
   ],
-  currentRestName: '',
-  token: '',
+  currentRestName: "",
+  token: "",
 
   // Mutations
   addUser(user, isFirstUpdate) {
@@ -98,7 +98,7 @@ const STORE = {
     this.products = products;
   },
   addProductToCart(id, restName) {
-    const cart = (restName === this.currentRestName) ? this.cart : [];
+    const cart = restName === this.currentRestName ? this.cart : [];
 
     const index = cart.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {
@@ -138,11 +138,11 @@ const STORE = {
     this.cart = cart;
 
     if (this.cart.length === 0) {
-      this.currentRestName = '';
+      this.currentRestName = "";
     }
   },
   clearCart() {
-    this.currentRestName = '';
+    this.currentRestName = "";
     this.cart = [];
   },
   addSuggests(result) {
@@ -155,18 +155,18 @@ const STORE = {
   },
   setToken(token) {
     this.token = token;
-  }
+  },
 };
 
 const PROXY_STORE = new Proxy(STORE, {
   set(target, prop, value) {
     target[prop] = value;
 
-    const page = sessionStorage.getItem('page');
+    const page = sessionStorage.getItem("page");
     render(page, true);
 
     return true;
-  }
+  },
 });
 
 export default PROXY_STORE;
