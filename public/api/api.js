@@ -11,6 +11,8 @@ const DEFAULT_OPTIONS = {
     credentials: 'include'
 };
 
+const ERROR_MESSAGE = 'В ходе обработки запроса произошла ошибка';
+
 /**
  * @function Осуществляет отправку запроса.
  * @param {string} url - URL запроса.
@@ -47,7 +49,7 @@ const request = (url, options = DEFAULT_OPTIONS) => {
 
             if (Number(result.headers.get('Content-Length')) === 0) {
                 if (result.status !== 200) {
-                    alert('В ходе обработки запроса произошла ошибка');
+                    alert(ERROR_MESSAGE);
                     return Promise.reject();
                 }
 
@@ -57,7 +59,11 @@ const request = (url, options = DEFAULT_OPTIONS) => {
             const data = result.json();
 
             if (result.status !== 200) {
-                alert(data.error);
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    alert(ERROR_MESSAGE);
+                }
                 return Promise.reject();
             }
 
