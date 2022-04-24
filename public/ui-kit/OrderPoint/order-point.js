@@ -1,6 +1,6 @@
 import UIKIT from '../import.js';
 
-const orderPoint = (imgPath, productName, weight, info, count, price, id) => {
+const orderPoint = (imgPath, dishName, weight, info, count, price, id) => {
     const template = `
         <section class="shopping-cart__order-point">
             <div class="order-point__img-block">
@@ -8,11 +8,11 @@ const orderPoint = (imgPath, productName, weight, info, count, price, id) => {
             </div>
             <div class="order-point__point-info">
                 <div class="point-info__dish-info">
-                    <div>{{productName}}</div>
+                    <div>{{dishName}}</div>
                     <div class="dish-info__price-bold">{{price}} ₽</div>
                 </div>
                 <div class="point-info__ingredients">
-                    {{weight}} г · {{info}} ккал 
+                    {{weight}} г · {{info}} ккал
                 </div>
                 <div class="point-info__edit-quantity">
                     {{&removeButton}}
@@ -24,12 +24,12 @@ const orderPoint = (imgPath, productName, weight, info, count, price, id) => {
     `;
 
     return Mustache.render(template, {
-        imgPath, productName, weight, info, count, price,
+        imgPath, dishName, weight, info, count, price,
         addButton () {
-            return UIKIT.addRemoveButton('addPoint', 'incrementProductCount', id);
+            return UIKIT.addRemoveButton('addPoint', 'incrementDishCount', id);
         },
         removeButton () {
-            return UIKIT.addRemoveButton('removePoint', 'decrementProductCount', id);
+            return UIKIT.addRemoveButton('removePoint', 'decrementDishCount', id);
         }
     });
 };

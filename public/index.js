@@ -8,6 +8,27 @@ Object
 
 window.onpopstate = () => render(location.pathname);
 
+window.onload = () => {
+    const stringCart = localStorage.getItem('cart');
+    const currentRestName = localStorage.getItem('currentRestName');
+
+    if (stringCart) {
+        const cart = JSON.parse(stringCart);
+        cart.forEach((dish) => store.actions.addDishToCart(dish.id, currentRestName, dish.count));
+    }
+
+    localStorage.removeItem('cart');
+    localStorage.removeItem('currentRestName');
+}
+
+window.onbeforeunload = () => {
+    const cart = store.getters.cart();
+    if (Object.keys(cart).length > 0 && Object.keys(store.getters.user()).length > 0) {
+        localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem('currentRestName', store.getters.currentRestName());
+    }
+};
+
 if (!localStorage.getItem('address')) {
     localStorage.setItem('address', 'город Москва, улица Ленина, 21');
 }

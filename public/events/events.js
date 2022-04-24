@@ -27,10 +27,10 @@ const EVENTS = {
     changeAvatarButton: Event.getButtonEvents().changeAvatarButton,
     personInfoSaveButton: Event.getButtonEvents().personInfoSaveButton,
 
-    addToCart: Event.productEvents().addToCart,
-    incrementProductCount: Event.productEvents().incrementProductCount,
-    decrementProductCount: Event.productEvents().decrementProductCount,
-    orderingComment: Event.productEvents().orderingComment,
+    addToCart: Event.dishEvents().addToCart,
+    incrementDishCount: Event.dishEvents().incrementDishCount,
+    decrementDishCount: Event.dishEvents().decrementDishCount,
+    orderingComment: Event.dishEvents().orderingComment,
     buttonPay: Event.getButtonEvents().buttonPay,
 };
 

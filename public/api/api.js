@@ -79,7 +79,7 @@ export const getRestaurants = () => {
     return request('/restaurants');
 }
 
-export const getProducts = (restName) => {
+export const getDishes = (restName) => {
     return request(`/restaurant/${restName}`);
 }
 
