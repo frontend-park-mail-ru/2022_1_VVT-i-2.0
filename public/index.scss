@@ -13,8 +13,13 @@ body {
   background: theme.getColor("lightGrey");
 }
 
+body::-webkit-scrollbar-thumb {
+  background-color: #643ec2;
+}
+
 main {
-  margin-top: 68px;
+  position: absolute;
+  top: 68px;
   padding-top: 1%;
   padding-left: 8%;
   padding-right: 8%;
