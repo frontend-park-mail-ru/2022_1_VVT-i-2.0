@@ -8,6 +8,8 @@ export const products = () => STORE.products;
 
 export const cart = () => STORE.cart;
 
+export const IsCartEmpty = () => STORE.cart.length === 0;
+
 export const currentRestName = () => STORE.currentRestName;
 
 export const suggests = () => STORE.suggests;

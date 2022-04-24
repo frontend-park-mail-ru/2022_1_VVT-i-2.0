@@ -1,6 +1,7 @@
 import * as events from '../events/events.js';
 import MENU from '../pages/import.js';
 import * as store from '../store/import.js';
+import {getters} from "../store/import.js";
 
 export const APP = {
   root: document.getElementById('root'),
