@@ -6,7 +6,7 @@ const dishesIcons = (dishes, restName) => {
       {{#dishes}}
         <section class="rest-menu__dish-icon">
           <img class="dish-icon__img" src={{imgPath}} alt={{dishName}}>
-          {{&prodMetaInfo}}
+          {{&dishMetaInfo}}
         </section>
       {{/dishes}}
     </div>
@@ -14,7 +14,7 @@ const dishesIcons = (dishes, restName) => {
   return Mustache.render(template, {
     dishes: dishes,
     restName,
-    prodMetaInfo() {
+    dishMetaInfo() {
       return UIKIT.dishMetaInformation(
         this.dishName,
         this.weight,
