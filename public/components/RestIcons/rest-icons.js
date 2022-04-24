@@ -1,4 +1,4 @@
-import UIKIT from '../../ui-kit/import.js';
+import UIKIT from "../../ui-kit/import.js";
 
 /**
  * @function Создает html-строку для создания компонента формы ресторана
@@ -7,7 +7,7 @@ import UIKIT from '../../ui-kit/import.js';
  * @return {string} HTML строка для отрисовки компонента registerForm.
  */
 const restIcons = (restaurants) => {
-    const template = `
+  const template = `
         <div class="restaurants-form">
             {{#restaurants}}
                 <section class="restaurants-form__rest_icon" data-section="{{href}}">
@@ -17,15 +17,20 @@ const restIcons = (restaurants) => {
             {{/restaurants}}
         </div>
     `;
-    return Mustache.render(template, {
-        restaurants: restaurants,
-        href() {
-            return `/products/${this.slug}`;
-        },
-        metaInformation() {
-            return UIKIT.restMetaInformation(this.restName, this.timeToDeliver, this.price, this.rating);
-        }
-    });
+  return Mustache.render(template, {
+    restaurants: restaurants,
+    href() {
+      return `/products/${this.slug}`;
+    },
+    metaInformation() {
+      return UIKIT.restMetaInformation(
+        this.restName,
+        this.timeToDeliver,
+        this.price,
+        this.rating
+      );
+    },
+  });
 };
 
 export default restIcons;

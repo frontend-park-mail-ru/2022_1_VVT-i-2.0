@@ -1,7 +1,7 @@
-@use 'ui-kit/import.scss' as uikit;
-@use 'components/import.scss' as components;
-@use 'public/configurations/colors/colors.scss' as theme;
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@use "ui-kit/import.scss" as uikit;
+@use "components/import.scss" as components;
+@use "public/configurations/colors/colors.scss" as theme;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 html {
   overflow: auto;
@@ -9,7 +9,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background: theme.getColor("lightGrey");
 }
 

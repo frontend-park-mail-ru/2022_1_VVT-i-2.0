@@ -1,4 +1,4 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .form-title {
   margin-top: -20px;
@@ -9,5 +9,5 @@
 .form-title__title-name {
   margin-bottom: 20px;
   font-size: 36px;
-  color: theme.getColor('greyBrown');
+  color: theme.getColor("greyBrown");
 }

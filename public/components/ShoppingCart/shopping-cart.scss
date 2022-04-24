@@ -1,47 +1,47 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .shopping-cart {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 
-    width: 321px;
-    height: 100%;
+  width: 321px;
+  height: 100%;
 
-    background: theme.getColor('white');
-    border: 1px solid theme.getColor('grey');
-    box-sizing: border-box;
+  background: theme.getColor("white");
+  border: 1px solid theme.getColor("grey");
+  box-sizing: border-box;
 }
 
 .shopping-cart__preview-rest {
-    width: 60%;
-    max-width: 312px;
+  width: 60%;
+  max-width: 312px;
 
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .shopping-cart__info-about-rest {
-    padding: 10px;
+  padding: 10px;
 }
 
 .shopping-cart__order-points {
-    height: 800px;
-    width: 314px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    margin-right: auto;
-    margin-left: auto;
+  height: 800px;
+  width: 314px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-right: auto;
+  margin-left: auto;
 
-    &::-webkit-scrollbar {
-        display: none;
-    }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .shopping-cart__button-order {
-    position: absolute;
-    left: 5px;
-    right: auto;
-    bottom: 5px;
+  position: absolute;
+  left: 5px;
+  right: auto;
+  bottom: 5px;
 }

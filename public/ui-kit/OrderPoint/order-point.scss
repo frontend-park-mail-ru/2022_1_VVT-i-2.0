@@ -1,67 +1,67 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .shopping-cart__order-point {
-    display: inline-flex;
-    width: 292px;
+  display: inline-flex;
+  width: 292px;
 
-    background: theme.getColor('white');
-    border: 1px solid theme.getColor('grey');
-    border-radius: 10px;
+  background: theme.getColor("white");
+  border: 1px solid theme.getColor("grey");
+  border-radius: 10px;
 
-    margin: 5px auto;
-    padding: 10px 5px 10px 15px;
+  margin: 5px auto;
+  padding: 10px 5px 10px 15px;
 }
 
 .order-point__img-block {
-    width: 13%;
+  width: 13%;
 }
 
 .order-point__dish-img {
-    width: 28px;
-    height: 28px;
-    margin-top: 2px;
-    margin-right: 7px;
+  width: 28px;
+  height: 28px;
+  margin-top: 2px;
+  margin-right: 7px;
 }
 
 .order-point__point-info {
-    display: flex;
-    flex-direction: column;
-    width: 87%;
+  display: flex;
+  flex-direction: column;
+  width: 87%;
 }
 
 .point-info__dish-info {
-    display: inline-flex;
-    margin-top: 4px;
-    margin-bottom: 6px;
-    color: theme.getColor('black');
+  display: inline-flex;
+  margin-top: 4px;
+  margin-bottom: 6px;
+  color: theme.getColor("black");
 
-    :first-child {
-        width: 70%;
-        text-align: left;
-    }
+  :first-child {
+    width: 70%;
+    text-align: left;
+  }
 
-    &:nth-child(n) {
-        font-weight: bold;
-    }
+  &:nth-child(n) {
+    font-weight: bold;
+  }
 }
 
 .dish-info__price-bold {
-    text-align: right;
-    width: 30%;
+  text-align: right;
+  width: 30%;
 }
 
 .point-info__ingredients {
-    display: inline-flex;
-    color: theme.getColor('grey');
+  display: inline-flex;
+  color: theme.getColor("grey");
 
-    margin-top: 5px;
-    margin-bottom: 15px;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 .point-info__edit-quantity {
-    display: inline-flex;
+  display: inline-flex;
 }
 
 .point-info__count-current-point {
-    margin: auto 20px;
+  margin: auto 20px;
 }

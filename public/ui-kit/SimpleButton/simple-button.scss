@@ -1,11 +1,11 @@
 .simple-button {
-    min-height: 45px;
-    border: none;
-    border-radius: 14px;
-    font-weight: bold;
+  min-height: 45px;
+  border: none;
+  border-radius: 14px;
+  font-weight: bold;
 
-    &:hover {
-        cursor: pointer;
-        opacity: 0.5;
-    }
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
 }

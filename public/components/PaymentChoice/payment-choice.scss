@@ -1,28 +1,28 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .ordering-form__payment-choice-block {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .payment-choice-block__payment-types-block {
-    display: inline-block;
+  display: inline-block;
 
-    &:first-child {
-        font-weight: bold;
-    }
+  &:first-child {
+    font-weight: bold;
+  }
 }
 
 .payment-types-block__payment-type {
-    display: inline-block;
+  display: inline-block;
 
-    border-radius: 50px;
-    background: theme.getColor('lightGrey');
-    padding: 5px 10px;
+  border-radius: 50px;
+  background: theme.getColor("lightGrey");
+  padding: 5px 10px;
 
-    &:not(:first-child) {
-        margin-left: 10px;
-    }
-    &:hover {
-        background: theme.getColor('grey');
-    }
+  &:not(:first-child) {
+    margin-left: 10px;
+  }
+  &:hover {
+    background: theme.getColor("grey");
+  }
 }

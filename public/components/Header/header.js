@@ -1,7 +1,7 @@
-const header = (auth = false, customImgPath = '') => {
-    const address = localStorage.getItem('address');
+const header = (auth = false, customImgPath = "") => {
+  const address = localStorage.getItem("address");
 
-    const template = `
+  const template = `
         <header class="page-header">
             <nav class="page-header__button" data-section="main">
                 <img src="/graphics/icons/delivery_icon.svg" data-section="main">
@@ -43,7 +43,7 @@ const header = (auth = false, customImgPath = '') => {
         </header>
     `;
 
-    return Mustache.render(template, { auth, customImgPath, address });
+  return Mustache.render(template, { auth, customImgPath, address });
 };
 
 export default header;

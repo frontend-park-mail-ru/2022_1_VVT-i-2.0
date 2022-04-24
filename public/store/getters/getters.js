@@ -1,4 +1,4 @@
-import STORE from '../store/store.js';
+import STORE from "../store/store.js";
 
 export const user = () => STORE.user;
 

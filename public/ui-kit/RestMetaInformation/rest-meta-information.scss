@@ -1,74 +1,73 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
-@mixin flex-row () {
-    display: flex;
-    flex-direction: row;
+@mixin flex-row() {
+  display: flex;
+  flex-direction: row;
 }
 
-@mixin font-normal-bold () {
-    font-style: normal;
-    font-weight: bold;
+@mixin font-normal-bold() {
+  font-style: normal;
+  font-weight: bold;
 }
-
 
 .rest-icon__rest-meta-info-block {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    width: 248px;
-    height: 60px;
+  width: 248px;
+  height: 60px;
 
-    padding-left: 20px;
-    padding-top: 22px;
-    background: theme.getColor('white');
+  padding-left: 20px;
+  padding-top: 22px;
+  background: theme.getColor("white");
 }
 
 .rest-icon__rest-name {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    @include font-normal-bold ();
+  @include font-normal-bold();
 
-    font-size: 21px;
-    line-height: 16px;
-    color: #2E2E33;
+  font-size: 21px;
+  line-height: 16px;
+  color: #2e2e33;
 }
 
 .rest-icon__meta-info {
-    @include flex-row ();
+  @include flex-row();
 
-    justify-content: space-between;
+  justify-content: space-between;
 
-    width: 248px;
-    height: 28px;
+  width: 248px;
+  height: 28px;
 }
 
 .meta-info__param {
-    @include flex-row ();
+  @include flex-row();
 
-    align-items: center;
+  align-items: center;
 
-    min-width: 62px;
-    height: 18px;
+  min-width: 62px;
+  height: 18px;
 
-    background: theme.getColor('lightGrey');
-    border-radius: 50px;
-    margin: 20px 9px 20px 0;
-    padding: 6px 14px 6px 12px;
+  background: theme.getColor("lightGrey");
+  border-radius: 50px;
+  margin: 20px 9px 20px 0;
+  padding: 6px 14px 6px 12px;
 }
 
 .meta-info__param-value {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    @include font-normal-bold ();
+  @include font-normal-bold();
 
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: bolder;
-    margin: auto;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: bolder;
+  margin: auto;
 }
 
 .meta-info__rating {
-    margin-left: 5px;
+  margin-left: 5px;
 }

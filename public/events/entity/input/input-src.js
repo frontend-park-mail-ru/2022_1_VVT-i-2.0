@@ -1,16 +1,16 @@
-import {actions} from "../../../store/import";
+import { actions } from "../../../store/import";
 
 export const preview = (input, avatarPreview) => {
-    const file    = input.files[0];
-    const reader  = new FileReader();
+  const file = input.files[0];
+  const reader = new FileReader();
 
-    reader.onloadend = function () {
-        avatarPreview.src = reader.result;
-    }
+  reader.onloadend = function () {
+    avatarPreview.src = reader.result;
+  };
 
-    if (file) {
-        reader.readAsDataURL(file);
-    } else {
-        avatarPreview.src = "";
-    }
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    avatarPreview.src = "";
+  }
 };

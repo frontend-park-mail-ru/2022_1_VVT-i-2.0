@@ -1,6 +1,6 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
-@mixin flex-center () {
+@mixin flex-center() {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +16,7 @@
   display: flex;
 
   div {
-    @include flex-center ();
+    @include flex-center();
     flex: 1 1 auto;
     cursor: pointer;
 
@@ -30,12 +30,12 @@
 
   font-weight: bold;
 
-  background: theme.getColor('white') /*!important*/;
+  background: theme.getColor("white") /*!important*/;
   border-bottom: 1px solid #b9b9b9;
   // border-left: 1px solid #b9b9b9;
   // border-right: 1px solid #b9b9b9;
 
   &:hover {
-    background: theme.getColor('grey') /*!important*/;
+    background: theme.getColor("grey") /*!important*/;
   }
 }

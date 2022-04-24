@@ -1,7 +1,7 @@
-import UIKIT from '../../ui-kit/import.js';
-import FORMS_CONFIGURATION from '../../configurations/forms.js';
-import paymentChoice from '../PaymentChoice/payment-choice.js';
-import {NumberPhoneFormat} from "../../events/entity/phone/phone-src";
+import UIKIT from "../../ui-kit/import.js";
+import FORMS_CONFIGURATION from "../../configurations/forms.js";
+import paymentChoice from "../PaymentChoice/payment-choice.js";
+import { NumberPhoneFormat } from "../../events/entity/phone/phone-src";
 
 const ordering = (props) => {
   const inputConfigurations = FORMS_CONFIGURATION.inputs.ordering;
@@ -83,19 +83,27 @@ const ordering = (props) => {
     minPrice: props.minPrice,
     isEmpty,
     title() {
-      return UIKIT.underlinedTitle('Оформление заказа');
+      return UIKIT.underlinedTitle("Оформление заказа");
     },
     input() {
-      let value = '';
+      let value = "";
       let readonly = false;
-      if (this.id === 'orderingPhone') {
+      if (this.id === "orderingPhone") {
         value = NumberPhoneFormat.formatPhone(props.phone);
         readonly = true;
-      } else if (this.id === 'orderingAddress') {
-        value = localStorage.getItem('address');
+      } else if (this.id === "orderingAddress") {
+        value = localStorage.getItem("address");
         readonly = true;
       }
-      return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id, value, readonly);
+      return UIKIT.input(
+        this.title,
+        this.type,
+        this.width,
+        this.placeholder,
+        this.id,
+        value,
+        readonly
+      );
     },
     paymentChoices() {
       return paymentChoice();
@@ -104,14 +112,30 @@ const ordering = (props) => {
       return UIKIT.buttonPay();
     },
     drawOrderPoint() {
-      return UIKIT.orderPoint(this.imgPath, this.productName, this.weight, this.info, this.count, this.price, this.id);
+      return UIKIT.orderPoint(
+        this.imgPath,
+        this.productName,
+        this.weight,
+        this.info,
+        this.count,
+        this.price,
+        this.id
+      );
     },
     paymentNotification() {
       if (this.total - 1000 < this.minPrice) {
-        return UIKIT.paymentNotification('Закажите ещё на ' + String(this.minPrice - (this.total - 1000)) + ' ₽ для бесплатной доставки', false);
+        return UIKIT.paymentNotification(
+          "Закажите ещё на " +
+            String(this.minPrice - (this.total - 1000)) +
+            " ₽ для бесплатной доставки",
+          false
+        );
       }
-      return UIKIT.paymentNotification('Ваш заказ будет доставлен бесплатно!', true);
-    }
+      return UIKIT.paymentNotification(
+        "Ваш заказ будет доставлен бесплатно!",
+        true
+      );
+    },
   });
 };
 
