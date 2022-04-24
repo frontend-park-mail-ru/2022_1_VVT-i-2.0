@@ -14,4 +14,12 @@ export const suggests = () => STORE.suggests;
 
 export const avatar = () => STORE.avatar;
 
+export const getAvatar = () => {
+    if (!STORE.user.avatar) {
+        return '';
+    }
+
+    return STORE.user.avatar;
+}
+
 export const token = () => STORE.token;

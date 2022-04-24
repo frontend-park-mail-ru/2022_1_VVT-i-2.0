@@ -1,5 +1,4 @@
 import components from '../../components/import.js';
-import {restaurants} from "../../store/getters/getters";
 
 const ordering = (app, store) => {
   const currentRestName = store.getters.currentRestName();
@@ -36,9 +35,7 @@ const ordering = (app, store) => {
     total += 1000;
   }
 
-  app.root.innerHTML = components.header(
-    Object.keys(store.getters.user()).length !== 0, '/graphics/images/avatar.jpg', true
-  );
+  app.root.innerHTML = components.header(true);
 
   let minPrice = 0;
   store.getters.restaurants().forEach( restObj => {

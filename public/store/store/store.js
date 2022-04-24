@@ -6,7 +6,6 @@ const STORE = {
   // State,
   // user: { name: 'Name', phone: '+7(915)000-11-22', email: 'test@ya.ru' },
   user: {},
-  avatar: '',
   restaurants: [
     // {
     //   slug: 'main',
