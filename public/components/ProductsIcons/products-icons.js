@@ -5,7 +5,9 @@ const productsIcons = (products, restName) => {
     <div class="rest-menu">
       {{#products}}
         <section class="rest-menu__product-icon">
+        <div class="product-icon__image-block">
           <img class="product-icon__img" src={{imgPath}} alt={{productName}}>
+          </div>
           {{&prodMetaInfo}}
         </section>
       {{/products}}

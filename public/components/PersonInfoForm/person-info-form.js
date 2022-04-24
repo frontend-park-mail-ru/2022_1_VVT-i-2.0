@@ -3,9 +3,14 @@ import COLORS from '../../configurations/colors/colors.js';
 import FORMS_CONFIGURATION from '../../configurations/forms.js';
 import ELEMS_CONFIGURATION from '../../configurations/elems.js';
 import {NumberPhoneFormat} from "../../events/entity/phone/phone-src";
+import {getters} from "../../store/import";
 
 const personInfoForm = ({ name, phone, email }) => {
     const inputConfigurations = FORMS_CONFIGURATION.inputs.personInfoForm;
+    let avatar = getters.getAvatar();
+    if (avatar === '') {
+        avatar = '/graphics/icons/profile.svg';
+    }
 
     const template = `
         <form id="person-info-form" class="person-info-form" method="POST" enctype="multipart/form-data">
@@ -22,7 +27,7 @@ const personInfoForm = ({ name, phone, email }) => {
                         <div class="settings__avatar-change-block">
                             <div class="avatar-change-block__description">Ваш аватар:</div>
                             <div class="avatar-change-block__avatar">
-                                <img id="user-avatar-preview" src="/graphics/icons/profile.svg" class="avatar__img" alt="avatar">
+                                <img id="user-avatar-preview" src="{{avatar}}" class="avatar__img" alt="avatar">
                             </div>
                             <div class="avatar-choice-block__button-change">
                                 {{&buttonChangeAvatar}}
@@ -54,6 +59,7 @@ const personInfoForm = ({ name, phone, email }) => {
 
     return Mustache.render(template, {
         inputConfigurations,
+        avatar,
         backButton() {
             return UIKIT.backButton('Все рестораны', 'main');
         },

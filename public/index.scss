@@ -13,8 +13,13 @@ body {
   background: theme.getColor("lightGrey");
 }
 
+body::-webkit-scrollbar-thumb {
+  background-color: #643ec2;
+}
+
 main {
-  margin-top: 68px;
+  position: absolute;
+  top: 68px;
   padding-top: 1%;
   padding-left: 8%;
   padding-right: 8%;
@@ -30,25 +35,6 @@ main {
   height: 100vh;
 
   background-color: rgba(33, 33, 33, 0.7);
-}
-
-.shown-not-modal {
-  display: flex;
-  position: absolute;
-  top: 68px;
-  left: 0;
-  height: 93vh;
-
-  //width: 100%;
-  //height: 100%;
-}
-
-.additional__shopping-cart {
-  //width: 321px;
-  //height: 876px;
-  position: absolute;
-  top: 68px;
-  left: 0;
 }
 
 .modal-center > * {
@@ -67,7 +53,7 @@ main {
   display: flex;
   flex-direction: column;
 
-  position: absolute;
+  position: fixed;
   top: 68px;
   right: 0;
   height: 93vh;

@@ -7,11 +7,7 @@ const mainPage = (app, store) => {
         return;
     }
 
-    const user = store.getters.user();
-
-    app.root.innerHTML = components.header(
-        Object.keys(user).length !== 0, user
-    );
+    app.root.innerHTML = components.header();
 
     const main = document.createElement('main');
     main.innerHTML = UIKIT.mainLink('Рестораны') + components.restIcons(store.getters.restaurants);

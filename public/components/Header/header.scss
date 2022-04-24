@@ -9,6 +9,7 @@
 .page-header {
     display: flex;
     position: fixed;
+    justify-content: space-between;
     top: 0;
     left: 0;
 
@@ -35,6 +36,20 @@
     margin-left: -1px;
 }
 
+.page-header__button-main {
+    max-width: 161px;
+}
+
+.page-header__back-button {
+    max-width: 190px;
+
+    & a {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 20px;
+    }
+}
+
 .button__controller {
     margin-left: 10px;
 }
@@ -49,7 +64,7 @@
     width: 500px;
 }
 
-.page-header__avatar {
+.button__avatar-img {
     width: 30px;
     height: 30px;
 
