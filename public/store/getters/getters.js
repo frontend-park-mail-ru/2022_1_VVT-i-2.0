@@ -4,7 +4,7 @@ export const user = () => STORE.user;
 
 export const restaurants = () => STORE.restaurants;
 
-export const products = () => STORE.products;
+export const dishes = () => STORE.dishes;
 
 export const cart = () => STORE.cart;
 

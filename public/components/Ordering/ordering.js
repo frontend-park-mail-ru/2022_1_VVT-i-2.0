@@ -18,11 +18,11 @@ const ordering = (props) => {
       <div class="ordering-page__ordering-and-shop-cart-block">
         <div class="ordering-page__ordering-block">
           <div class="ordering-block__delivery-header">Доставка</div>
-          
+
           {{#inputConfigurations.largeInputs}}
                 {{&input}}
           {{/inputConfigurations.largeInputs}}
-          
+
           <div class="ordering-block__exact-address">
             {{#inputConfigurations.smallInputs}}
                   {{&input}}
@@ -113,15 +113,7 @@ const ordering = (props) => {
       return UIKIT.buttonPay();
     },
     drawOrderPoint() {
-      return UIKIT.orderPoint(
-        this.imgPath,
-        this.productName,
-        this.weight,
-        this.info,
-        this.count,
-        this.price,
-        this.id
-      );
+      return UIKIT.orderPoint(this.imgPath, this.dishName, this.weight, this.info, this.count, this.price, this.id);
     },
     paymentNotification() {
       if (this.total - 1000 < this.minPrice) {

@@ -1,6 +1,6 @@
 import { renderAndUpdateURN } from "../../../render/render.js";
 
-export const productEvents = () => {
+export const dishEvents = () => {
   return {
     addToCart: [
       {
@@ -8,12 +8,19 @@ export const productEvents = () => {
         selector: "class",
         listener(app, store, e) {
           const { id, rest } = e.target.dataset;
+<<<<<<< HEAD:public/events/entity/product/product-events.js
           store.actions.addProductToCart(parseInt(id, 10), rest);
           renderAndUpdateURN("/shoppingCart", true);
         },
       },
+=======
+          store.actions.addDishToCart(parseInt(id, 10), rest);
+          renderAndUpdateURN('/shoppingCart', true);
+        }
+      }
+>>>>>>> Renamed products and add cart to localstorage:public/events/entity/dish/dish-events.js
     ],
-    incrementProductCount: [
+    incrementDishCount: [
       {
         type: "click",
         selector: "class",
@@ -24,11 +31,11 @@ export const productEvents = () => {
             e.stopPropagation();
           }
 
-          store.actions.incrementProductCount(parseInt(id, 10));
-        },
-      },
+          store.actions.incrementDishCount(parseInt(id, 10));
+        }
+      }
     ],
-    decrementProductCount: [
+    decrementDishCount: [
       {
         type: "click",
         selector: "class",
@@ -39,9 +46,9 @@ export const productEvents = () => {
             e.stopPropagation();
           }
 
-          store.actions.decrementProductCount(parseInt(id, 10));
-        },
-      },
+          store.actions.decrementDishCount(parseInt(id, 10));
+        }
+      }
     ],
     orderingComment: [
       {

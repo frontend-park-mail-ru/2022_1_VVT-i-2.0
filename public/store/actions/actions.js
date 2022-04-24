@@ -5,11 +5,9 @@ export const getRestaurants = () => {
   return API.getRestaurants().then((result) => STORE.addRestaurants(result));
 };
 
-export const getProducts = (restName) => {
-  return API.getProducts(restName).then((result) =>
-    STORE.addProducts(restName, result)
-  );
-};
+export const getDishes = (restName) => {
+  return API.getDishes(restName).then((result) => STORE.addDishes(restName, result));
+}
 
 export const getUser = (isFirstUpdate = false) => {
   return API.getUser().then((result) => STORE.addUser(result, isFirstUpdate));
@@ -43,6 +41,7 @@ export const clearSuggests = () => {
   return STORE.clearSuggests();
 };
 
+<<<<<<< HEAD
 export const addProductToCart = (id, restName) => {
   return STORE.addProductToCart(id, restName);
 };
@@ -54,6 +53,19 @@ export const incrementProductCount = (id) => {
 export const decrementProductCount = (id) => {
   return STORE.decrementProductCount(id);
 };
+=======
+export const addDishToCart = (id, restName, count = 1) => {
+  return STORE.addDishToCart(id, restName, count);
+}
+
+export const incrementDishCount = (id) => {
+  return STORE.incrementDishCount(id);
+}
+
+export const decrementDishCount = (id) => {
+  return STORE.decrementDishCount(id);
+}
+>>>>>>> Renamed products and add cart to localstorage
 
 export const createOrder = (order) => {
   return API.createOrder(order).then(() => STORE.clearCart());

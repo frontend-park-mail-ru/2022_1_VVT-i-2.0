@@ -18,30 +18,17 @@ const shoppingCart = (restName, props) => {
             </div>
         </div>
     `;
-  return Mustache.render(template, {
-    restName,
-    props: props,
-    drawOrderPoint() {
-      return UIKIT.orderPoint(
-        this.imgPath,
-        this.productName,
-        this.weight,
-        this.info,
-        this.count,
-        this.price,
-        this.id
-      );
-    },
-    buttonOrder() {
-      return UIKIT.simpleButton(
-        "Заказать",
-        COLORS.primary,
-        ELEMS_CONFIGURATION.buttons.LARGE,
-        "ordering",
-        "orderButton"
-      );
-    },
-  });
+    return Mustache.render(template, {
+        restName,
+        props: props,
+        drawOrderPoint () {
+            return UIKIT.orderPoint(this.imgPath, this.dishName, this.weight, this.info, this.count, this.price, this.id);
+        },
+        buttonOrder () {
+            return UIKIT.simpleButton('Заказать', COLORS.primary,
+                ELEMS_CONFIGURATION.buttons.LARGE,'ordering', 'orderButton');
+        }
+    });
 };
 
 export default shoppingCart;

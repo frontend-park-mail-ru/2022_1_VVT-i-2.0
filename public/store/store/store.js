@@ -7,85 +7,67 @@ const STORE = {
   // user: { name: 'Name', phone: '+7(915)000-11-22', email: 'test@ya.ru' },
   user: {},
   restaurants: [
-    // {
-    //   slug: "main",
-    //   imgPath: "./graphics/images/img.png",
-    //   restName: "Шоколадница",
-    //   timeToDeliver: "20-35 мин",
-    //   price: "550 ₽",
-    //   rating: 4.8,
-    // },
-    // {
-    //   slug: "main",
-    //   imgPath: "./graphics/images/img.png",
-    //   restName: "Шоколадница",
-    //   timeToDeliver: "20-35 мин",
-    //   price: "550 ₽",
-    //   rating: 4.8,
-    // },
-    // {
-    //   slug: "main",
-    //   imgPath: "./graphics/images/img.png",
-    //   restName: "Шоколадница",
-    //   timeToDeliver: "20-35 мин",
-    //   price: "550 ₽",
-    //   rating: 4.8,
-    // },
-    // {
-    //   slug: "main",
-    //   imgPath: "./graphics/images/img.png",
-    //   restName: "Шоколадница",
-    //   timeToDeliver: "20-35 мин",
-    //   price: "550 ₽",
-    //   rating: 4.8,
-    // },
-    // {
-    //   slug: "main",
-    //   imgPath: "./graphics/images/img.png",
-    //   restName: "Шоколадница",
-    //   timeToDeliver: "20-35 мин",
-    //   price: "550 ₽",
-    //   rating: 4.8,
-    // },
-    // {
-    //   slug: "main",
-    //   imgPath: "./graphics/images/img.png",
-    //   restName: "Шоколадница",
-    //   timeToDeliver: "20-35 мин",
-    //   price: "550 ₽",
-    //   rating: 4.8,
-    // },
+    {
+      slug: 'main',
+      imgPath: './graphics/images/img.png',
+      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    },
+    {
+      slug: 'main',
+      imgPath: './graphics/images/img.png',
+      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    },
+    {
+      slug: 'main',
+      imgPath: './graphics/images/img.png',
+      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    },
+    {
+      slug: 'main',
+      imgPath: './graphics/images/img.png',
+      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    },
+    {
+      slug: 'main',
+      imgPath: './graphics/images/img.png',
+      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    },
+    {
+      slug: 'main',
+      imgPath: './graphics/images/img.png',
+      restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550 ₽', rating: 4.8
+    }
   ],
-  products: {
-    //   'main': {
-    //     restName: 'McDonalds',
-    //     products: [
-    //       {
-    //         id: 1,
-    //         imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-    //         productName: 'Тестовое имя',
-    //         info: '172 г · 213 ккал',
-    //         description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-    //         price: 296
-    //       },
-    //       {
-    //         id: 2,
-    //         imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-    //         productName: 'Тестовое имя',
-    //         info: '172 г · 213 ккал',
-    //         description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-    //         price: 296
-    //       },
-    //       {
-    //         id: 3,
-    //         imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-    //         productName: 'Тестовое имя',
-    //         info: '172 г · 213 ккал',
-    //         description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-    //         price: 296
-    //       },
-    //     ]
-    //   }
+  dishes: {
+    'main': {
+      restName: 'McDonalds',
+      dishes: [
+        {
+          id: 1,
+          imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
+          dishName: 'Тестовое имя',
+          info: '172 г · 213 ккал',
+          description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
+          price: 296
+        },
+        {
+          id: 2,
+          imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
+          dishName: 'Тестовое имя',
+          info: '172 г · 213 ккал',
+          description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
+          price: 296
+        },
+        {
+          id: 3,
+          imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
+          dishName: 'Тестовое имя',
+          info: '172 г · 213 ккал',
+          description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
+          price: 296
+        },
+      ]
+    }
   },
   cart: [],
   suggests: [
@@ -111,17 +93,22 @@ const STORE = {
   addRestaurants(restaurants) {
     this.restaurants = restaurants;
   },
-  addProducts(restName, result) {
-    const products = this.products;
-    products[restName] = { products: result.dishes, restName: result.restName };
-    this.products = products;
+  addDishes(restName, result) {
+    const dishes = this.dishes;
+    dishes[restName] = { dishes: result.dishes, restName: result.restName };
+    this.dishes = dishes;
   },
+<<<<<<< HEAD
   addProductToCart(id, restName) {
     const cart = restName === this.currentRestName ? this.cart : [];
+=======
+  addDishToCart(id, restName, count = 1) {
+    const cart = (restName === this.currentRestName) ? this.cart : [];
+>>>>>>> Renamed products and add cart to localstorage
 
     const index = cart.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {
-      cart.push({ id, count: 1 });
+      cart.push({ id, count: count });
     } else {
       cart[index].count = cart[index].count + 1;
     }
@@ -129,7 +116,7 @@ const STORE = {
     this.currentRestName = restName;
     this.cart = cart;
   },
-  incrementProductCount(id) {
+  incrementDishCount(id) {
     const cart = this.cart;
 
     const index = cart.findIndex((orderPoint) => orderPoint.id === id);
@@ -141,7 +128,7 @@ const STORE = {
 
     this.cart = cart;
   },
-  decrementProductCount(id) {
+  decrementDishCount(id) {
     const cart = this.cart;
 
     const index = cart.findIndex((orderPoint) => orderPoint.id === id);
