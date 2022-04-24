@@ -18,11 +18,11 @@ const ordering = (props) => {
       <div class="ordering-page__ordering-and-shop-cart-block">
         <div class="ordering-page__ordering-block">
           <div class="ordering-block__delivery-header">Доставка</div>
-          
+
           {{#inputConfigurations.largeInputs}}
                 {{&input}}
           {{/inputConfigurations.largeInputs}}
-          
+
           <div class="ordering-block__exact-address">
             {{#inputConfigurations.smallInputs}}
                   {{&input}}
@@ -115,7 +115,7 @@ const ordering = (props) => {
     drawOrderPoint() {
       return UIKIT.orderPoint(
         this.imgPath,
-        this.productName,
+        this.dishName,
         this.weight,
         this.info,
         this.count,

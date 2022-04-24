@@ -2,7 +2,7 @@ import simpleButton from "./SimpleButton/simple-button.js";
 import input from "./Input/input.js";
 import mainLink from "./MainLink/main-link.js";
 import restMetaInformation from "./RestMetaInformation/rest-meta-information.js";
-import productMetaInformation from "./ProductMetaInformation/product-meta-information.js";
+import dishMetaInformation from "./DishMetaInformation/dish-meta-information.js";
 import addRemoveButton from "./AddRemoveButton/add-remove-button.js";
 import backButton from "./BackButton/back-button.js";
 import profileMenu from "./ProfileMenu/profile-menu.js";
@@ -18,7 +18,7 @@ export default {
   input,
   mainLink,
   restMetaInformation,
-  productMetaInformation,
+  dishMetaInformation,
   addRemoveButton,
   backButton,
   profileMenu,

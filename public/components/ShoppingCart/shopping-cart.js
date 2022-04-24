@@ -24,7 +24,7 @@ const shoppingCart = (restName, props) => {
     drawOrderPoint() {
       return UIKIT.orderPoint(
         this.imgPath,
-        this.productName,
+        this.dishName,
         this.weight,
         this.info,
         this.count,

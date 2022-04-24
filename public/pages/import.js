@@ -4,7 +4,7 @@ import registerPage from "./Register/register.js";
 import confirmCodePage from "./ConfirmCode/confirm-code.js";
 import profilePreviewPage from "./ProfilePreview/profile-preview.js";
 import profilePage from "./Profile/profile.js";
-import productsPage from "./Products/products.js";
+import dishesPage from "./Dishes/dishes.js";
 import shoppingCartPage from "./ShoppingCart/shopping-cart.js";
 import orderingPage from "./Ordering/ordering.js";
 import suggestsPage from "./Suggests/suggests.js";
@@ -45,8 +45,8 @@ const MENU = {
     isModal: false,
     authRequired: true,
   },
-  products: {
-    render: productsPage,
+  dishes: {
+    render: dishesPage,
     isModal: false,
     authRequired: false,
   },

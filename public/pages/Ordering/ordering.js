@@ -3,10 +3,10 @@ import components from "../../components/import.js";
 const ordering = (app, store) => {
   const currentRestName = store.getters.currentRestName();
 
-  let productObj = { restName: "", products: [] };
+  let dishObj = { restName: "", dishes: [] };
   if (currentRestName !== "") {
-    productObj = Object.values(store.getters.products()).find(
-      (product) => product.restName === currentRestName
+    dishObj = Object.values(store.getters.dishes()).find(
+      (dish) => dish.restName === currentRestName
     );
   }
 
@@ -15,13 +15,13 @@ const ordering = (app, store) => {
   const cart = store.getters.cart();
 
   const orderPoints = cart.map(({ id, count }) => {
-    const index = productObj.products.findIndex(
+    const index = dishObj.dishes.findIndex(
       (orderPoint) => orderPoint.id === id
     );
     if (index === -1) {
       return;
     }
-    return { ...productObj.products[index], count };
+    return { ...dishObj.dishes[index], count };
   });
 
   let total = orderPoints.reduce((prev, current) => {
@@ -48,7 +48,7 @@ const ordering = (app, store) => {
   const main = document.createElement("main");
   main.innerHTML = components.ordering({
     phone,
-    restName: productObj.restName,
+    restName: dishObj.restName,
     orderPoints,
     total,
     minPrice,
