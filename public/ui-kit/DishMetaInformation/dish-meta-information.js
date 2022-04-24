@@ -1,13 +1,13 @@
 /**
  * @function Создает html-строку для создания ui-kit компонента prMetaInf формы через шаблонатор Mustache.
- * @param {string} dishName - название товара.
+ * @param {string} productName - название товара.
  * @param {string} info - информация товара о калоариях и весе.
  * @param {string} description - описание товара.
  * @param {string} price - цена товара.
  * @return {string} HTML строка для отрисовки ui-kit компонента dishMetaInformation.
  */
 const dishMetaInformation = (
-  dishName,
+  productName,
   weight,
   info,
   description,
@@ -18,7 +18,7 @@ const dishMetaInformation = (
   const template = `
     <div class="dish-icon__meta-info-block">
       <div class="dish-icon__name">
-        {{dishName}}
+        {{productName}}
       </div>
       <div class="dish-icon__calories-info">
         {{weight}} г · {{info}} ккал
@@ -39,7 +39,7 @@ const dishMetaInformation = (
     </div>
   `;
   return Mustache.render(template, {
-    dishName,
+    productName,
     weight,
     info,
     description,
