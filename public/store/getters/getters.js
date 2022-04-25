@@ -22,4 +22,10 @@ export const getAvatar = () => {
   return STORE.user.avatar;
 };
 
+export const getCurrentSlug = () => {
+  const restaurants = STORE.restaurants;
+
+  return restaurants.find((restaurant) => restaurant.restName === STORE.currentRestName).slug;
+};
+
 export const token = () => STORE.token;
