@@ -99,6 +99,15 @@ export const render = (urn, storeUpdate = false) => {
   events.addListeners(APP, store);
 
   sessionStorage.setItem("page", section);
+
+  if (section === "suggests") {
+    const suggestsSearch = document.getElementById("suggestsSearch");
+
+    const end = suggestsSearch.value.length;
+
+    suggestsSearch.setSelectionRange(end, end);
+    suggestsSearch.focus();
+  }
 };
 
 export const renderAndUpdateURN = (urn, storeUpdate = false) => {
