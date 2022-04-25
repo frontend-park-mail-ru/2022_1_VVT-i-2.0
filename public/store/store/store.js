@@ -58,7 +58,7 @@ const STORE = {
   ],
   dishes: {
     // main: {
-    //   restName: "McDonalds",
+    //   restName: "Шоколадница",
     //   dishes: [
     //     {
     //       id: 1,
