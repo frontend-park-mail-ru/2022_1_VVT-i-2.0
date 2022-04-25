@@ -32,6 +32,7 @@ const dishMetaInformation = (
           class="dish-icon__button-add-to-order addToCart"
           data-id="{{id}}"
           data-rest="{{restName}}"
+          data-price="{{price}}"
         >
           В корзину
         </button>

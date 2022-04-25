@@ -93,7 +93,10 @@ const STORE = {
     //   ],
     // },
   },
-  cart: [],
+  cart: {
+    totalPrice: 0,
+    orderList: [],
+  },
   suggests: [
     // { address: "FIRST", end: false },
     // { address: "SECOND", end: true },
@@ -122,15 +125,24 @@ const STORE = {
     dishes[restName] = { dishes: result.dishes, restName: result.restName };
     this.dishes = dishes;
   },
-  addDishToCart(id, restName, count = 1) {
-    const cart = restName === this.currentRestName ? this.cart : [];
+  addDishToCart(id, restName, price, count = 1) {
+    const cart = restName === this.currentRestName ? this.cart :
+        {
+          totalPrice: 0,
+          order: [],
+        };
 
-    const index = cart.findIndex((orderPoint) => orderPoint.id === id);
+    const index = cart.order.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {
-      cart.push({ id, count: count });
+      cart.order.push({ id, price: price, count: count });
+      // cart.totalPrice += price * count;
     } else {
-      cart[index].count = cart[index].count + 1;
+      cart.order[index].count = cart.order[index].count + 1;
     }
+
+    cart.totalPrice += price * count;
+
+    console.log(cart);
 
     this.currentRestName = restName;
     this.cart = cart;
@@ -138,37 +150,45 @@ const STORE = {
   incrementDishCount(id) {
     const cart = this.cart;
 
-    const index = cart.findIndex((orderPoint) => orderPoint.id === id);
+    const index = cart.order.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {
       return;
     }
 
-    cart[index].count = cart[index].count + 1;
+    cart.order[index].count += 1;
+    cart.totalPrice += cart.order[index].price * 1;
 
+    console.log(cart);
     this.cart = cart;
   },
   decrementDishCount(id) {
     const cart = this.cart;
 
-    const index = cart.findIndex((orderPoint) => orderPoint.id === id);
+    const index = cart.order.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {
       return;
     }
 
-    cart[index].count = cart[index].count - 1;
-    if (cart[index].count < 1) {
-      cart.splice(index, 1);
+    cart.order[index].count -= 1;
+    cart.totalPrice -= cart.order[index].price * 1;
+
+    if (cart.order[index].count < 1) {
+      cart.order.splice(index, 1);
     }
 
+    console.log(cart);
     this.cart = cart;
 
-    if (this.cart.length === 0) {
+    if (this.cart.order.length === 0) {
       this.currentRestName = "";
     }
   },
   clearCart() {
     this.currentRestName = "";
-    this.cart = [];
+    this.cart = {
+      totalPrice: 0,
+      order: [],
+    };
   },
   addSuggests(result) {
     this.suggests = result.suggests.map((suggest) => {

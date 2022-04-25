@@ -1,6 +1,7 @@
 import { APP, render, renderAndUpdateURN } from "./render/render.js";
 import * as store from "./store/import";
 import "./index.scss";
+import {IsCartEmpty} from "./store/getters/getters";
 
 Object.entries(APP).forEach(([name, node]) =>
   node.addEventListener("click", (e) =>
@@ -42,9 +43,12 @@ window.onload = () => {
 
   if (stringCart) {
     const cart = JSON.parse(stringCart);
-    cart.forEach((dish) =>
-      store.actions.addDishToCart(dish.id, currentRestName, dish.count)
-    );
+    console.log(cart);
+    if (cart.totalPrice !== 0) {
+      cart.order.forEach((dish) =>
+          store.actions.addDishToCart(dish.id, currentRestName, dish.price, dish.count)
+      );
+    }
   }
 
   localStorage.removeItem("cart");
@@ -54,7 +58,7 @@ window.onload = () => {
 window.onbeforeunload = () => {
   const cart = store.getters.cart();
   if (
-    Object.keys(cart).length > 0 &&
+    !IsCartEmpty() &&
     Object.keys(store.getters.user()).length > 0
   ) {
     localStorage.setItem("cart", JSON.stringify(cart));

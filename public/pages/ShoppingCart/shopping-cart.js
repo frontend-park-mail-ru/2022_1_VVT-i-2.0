@@ -14,7 +14,7 @@ const shoppingCartPage = (app, store) => {
     );
   }
 
-  const properties = store.getters.cart().map(({ id, count }) => {
+  const properties = store.getters.cart().order.map(({ id, count }) => {
     const index = dishObj.dishes.findIndex(
       (orderPoint) => orderPoint.id === id
     );

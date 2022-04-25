@@ -8,7 +8,7 @@ export const dishes = () => STORE.dishes;
 
 export const cart = () => STORE.cart;
 
-export const IsCartEmpty = () => STORE.cart.length === 0;
+export const IsCartEmpty = () => STORE.cart.totalPrice === 0;
 
 export const currentRestName = () => STORE.currentRestName;
 

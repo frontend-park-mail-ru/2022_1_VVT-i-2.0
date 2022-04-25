@@ -11,30 +11,17 @@ const ordering = (app, store) => {
   }
 
   const phone = store.getters.user().phone;
-
   const cart = store.getters.cart();
 
-  const orderPoints = cart.map(({ id, count }) => {
+  const orderPoints = cart.order.map(({ id, price, count }) => {
     const index = dishObj.dishes.findIndex(
       (orderPoint) => orderPoint.id === id
     );
     if (index === -1) {
       return;
     }
-    return { ...dishObj.dishes[index], count };
+    return { ...dishObj.dishes[index], price, count };
   });
-
-  let total = orderPoints.reduce((prev, current) => {
-    const index = cart.findIndex((orderPoint) => orderPoint.id === current.id);
-    if (index === -1) {
-      return prev;
-    }
-    return prev + current.price * cart[index].count;
-  }, 0);
-
-  if (total) {
-    total += 1000;
-  }
 
   app.root.innerHTML = components.header(true);
 
@@ -50,7 +37,7 @@ const ordering = (app, store) => {
     phone,
     restName: dishObj.restName,
     orderPoints,
-    total,
+    total: cart.totalPrice,
     minPrice,
   });
 

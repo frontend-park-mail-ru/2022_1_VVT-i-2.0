@@ -7,8 +7,8 @@ export const dishEvents = () => {
         type: "click",
         selector: "class",
         listener(app, store, e) {
-          const { id, rest } = e.target.dataset;
-          store.actions.addDishToCart(parseInt(id, 10), rest);
+          const { id, rest, price } = e.target.dataset;
+          store.actions.addDishToCart(parseInt(id, 10), rest, price);
           renderAndUpdateURN("/shoppingCart", true);
         },
       },
