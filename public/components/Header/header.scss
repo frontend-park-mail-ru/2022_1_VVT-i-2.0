@@ -36,8 +36,19 @@
     margin-left: -1px;
 }
 
-.page-header__button-main {
+.page-header__main-button {
+    display: flex;
+    flex-direction: row;
     max-width: 161px;
+    justify-content: center;
+}
+
+.main-button__img {
+    height: 24px;
+}
+
+.main-button__controller {
+    margin-left: 3px;
 }
 
 .page-header__back-button {

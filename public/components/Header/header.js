@@ -10,9 +10,9 @@ const header = (isOrderingPage = false) => {
 
   const template = `
         <header class="page-header">
-            <nav class="page-header__button page-header__button-main" data-section="main">
-                <img src="/graphics/icons/delivery_icon.svg" data-section="main" alt="">
-                <a class="button__controller" data-section="main">Delivery Club</a>
+            <nav class="page-header__button page-header__main-button" data-section="main">
+                <img class="main-button__img" src="/graphics/images/fobringto.png" data-section="main" alt="">
+                <a class="main-button__controller" data-section="main">obringTo</a>
             </nav>
 
             {{#isOrderingPage}}
