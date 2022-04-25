@@ -13,10 +13,6 @@ body {
   background: theme.getColor("lightGrey");
 }
 
-body::-webkit-scrollbar-thumb {
-  background-color: #643ec2;
-}
-
 main {
   position: absolute;
   top: 68px;
