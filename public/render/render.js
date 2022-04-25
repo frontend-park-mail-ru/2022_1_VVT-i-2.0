@@ -43,7 +43,11 @@ export const render = (urn, storeUpdate = false) => {
   let section = path.replace("/", "");
   section = section === "" ? "main" : section;
 
-  if (!storeUpdate && section === 'suggests' && sessionStorage.getItem("page") === 'suggests') {
+  if (
+    !storeUpdate &&
+    section === "suggests" &&
+    sessionStorage.getItem("page") === "suggests"
+  ) {
     return;
   }
 
