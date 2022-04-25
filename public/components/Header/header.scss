@@ -52,6 +52,13 @@
 
 .button__controller {
     margin-left: 10px;
+
+    &_with-price {
+        margin-left: 15px;
+        font-size: 17px;
+        color: #000000;
+        //color: #323232;
+    }
 }
 
 .page-header__button-search {
@@ -74,4 +81,9 @@
 
 .page-header__button-cart {
     min-width: 160px;
+
+    &_green {
+        min-width: 160px;
+        background: #17d685;
+    }
 }
