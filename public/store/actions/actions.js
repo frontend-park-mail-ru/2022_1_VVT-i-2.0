@@ -43,8 +43,8 @@ export const clearSuggests = () => {
   return STORE.clearSuggests();
 };
 
-export const addDishToCart = (id, restName, count = 1) => {
-  return STORE.addDishToCart(id, restName, count);
+export const addDishToCart = (id, restName, price, count = 1) => {
+  return STORE.addDishToCart(id, restName, price, count);
 };
 
 export const incrementDishCount = (id) => {
