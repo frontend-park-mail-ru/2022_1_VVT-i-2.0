@@ -71,7 +71,7 @@ const personInfoForm = ({ name, phone, email }) => {
         "Изменить аватар",
         COLORS.grey,
         ELEMS_CONFIGURATION.buttons.SMALL,
-        "profile",
+        "",
         "changeAvatarButton",
         true
       );
@@ -104,7 +104,7 @@ const personInfoForm = ({ name, phone, email }) => {
         "Сохранить",
         COLORS.primary,
         ELEMS_CONFIGURATION.buttons.STANDARD,
-        "profile",
+        "",
         "personInfoSaveButton"
       );
     },
