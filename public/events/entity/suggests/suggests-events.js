@@ -26,7 +26,6 @@ export const suggests = () => {
           const { target } = e;
 
           if (target.getAttribute("default") === "true") {
-            store.actions.clearSuggests();
             return;
           }
 
