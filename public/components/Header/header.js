@@ -28,6 +28,7 @@ const header = (isOrderingPage = false) => {
                         <input
                             id="suggestsSearch"
                             class="page-header__suggests-input"
+                            data-section="suggests"
                             value="{{address}}"
                         >
                     </span>

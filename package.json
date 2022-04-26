@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --watch",
     "webpack-start": "webpack-dev-server",
-    "lint": "npx prettier --write 'public/**/*.js'"
+    "linter": "npx prettier --write 'public/**/*.js'"
   },
   "browserslist": [
     ">1%",
