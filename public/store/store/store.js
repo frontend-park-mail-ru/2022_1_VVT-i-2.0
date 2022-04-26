@@ -4,57 +4,57 @@ export let avatar = {};
 
 const STORE = {
   // State
-  user: { name: "Name", phone: "+7(915)000-11-22", email: "test@ya.ru" },
-  // user: {},
+  // user: { name: "Name", phone: "+7(915)000-11-22", email: "test@ya.ru" },
+  user: {},
   restaurants: [
-    {
-      slug: "main",
-      imgPath: "./graphics/images/img.png",
-      restName: "Шоколадница",
-      timeToDeliver: "20-35 мин",
-      price: "550 ₽",
-      rating: 4.8,
-    },
-    {
-      slug: "main",
-      imgPath: "./graphics/images/img.png",
-      restName: "Шоколадница",
-      timeToDeliver: "20-35 мин",
-      price: "550 ₽",
-      rating: 4.8,
-    },
-    {
-      slug: "main",
-      imgPath: "./graphics/images/img.png",
-      restName: "Шоколадница",
-      timeToDeliver: "20-35 мин",
-      price: "550 ₽",
-      rating: 4.8,
-    },
-    {
-      slug: "main",
-      imgPath: "./graphics/images/img.png",
-      restName: "Шоколадница",
-      timeToDeliver: "20-35 мин",
-      price: "550 ₽",
-      rating: 4.8,
-    },
-    {
-      slug: "main",
-      imgPath: "./graphics/images/img.png",
-      restName: "Шоколадница",
-      timeToDeliver: "20-35 мин",
-      price: "550 ₽",
-      rating: 4.8,
-    },
-    {
-      slug: "main",
-      imgPath: "./graphics/images/img.png",
-      restName: "Шоколадница",
-      timeToDeliver: "20-35 мин",
-      price: "550 ₽",
-      rating: 4.8,
-    },
+    // {
+    //   slug: "main",
+    //   imgPath: "./graphics/images/img.png",
+    //   restName: "Шоколадница",
+    //   timeToDeliver: "20-35 мин",
+    //   price: "550 ₽",
+    //   rating: 4.8,
+    // },
+    // {
+    //   slug: "main",
+    //   imgPath: "./graphics/images/img.png",
+    //   restName: "Шоколадница",
+    //   timeToDeliver: "20-35 мин",
+    //   price: "550 ₽",
+    //   rating: 4.8,
+    // },
+    // {
+    //   slug: "main",
+    //   imgPath: "./graphics/images/img.png",
+    //   restName: "Шоколадница",
+    //   timeToDeliver: "20-35 мин",
+    //   price: "550 ₽",
+    //   rating: 4.8,
+    // },
+    // {
+    //   slug: "main",
+    //   imgPath: "./graphics/images/img.png",
+    //   restName: "Шоколадница",
+    //   timeToDeliver: "20-35 мин",
+    //   price: "550 ₽",
+    //   rating: 4.8,
+    // },
+    // {
+    //   slug: "main",
+    //   imgPath: "./graphics/images/img.png",
+    //   restName: "Шоколадница",
+    //   timeToDeliver: "20-35 мин",
+    //   price: "550 ₽",
+    //   rating: 4.8,
+    // },
+    // {
+    //   slug: "main",
+    //   imgPath: "./graphics/images/img.png",
+    //   restName: "Шоколадница",
+    //   timeToDeliver: "20-35 мин",
+    //   price: "550 ₽",
+    //   rating: 4.8,
+    // },
   ],
   dishes: {
     // main: {
@@ -98,8 +98,8 @@ const STORE = {
     orderList: [],
   },
   suggests: [
-    { address: "FIRST", end: false },
-    { address: "SECOND", end: true },
+    // { address: "FIRST", end: false },
+    // { address: "SECOND", end: true },
   ],
   currentRestName: "",
   token: "",
@@ -126,11 +126,13 @@ const STORE = {
     this.dishes = dishes;
   },
   addDishToCart(id, restName, price, count = 1) {
-    const cart = restName === this.currentRestName ? this.cart :
-        {
-          totalPrice: 0,
-          order: [],
-        };
+    const cart =
+      restName === this.currentRestName
+        ? this.cart
+        : {
+            totalPrice: 0,
+            order: [],
+          };
 
     const index = cart.order.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {

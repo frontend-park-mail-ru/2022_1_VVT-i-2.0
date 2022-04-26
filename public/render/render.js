@@ -2,7 +2,11 @@ import * as events from "../events/events.js";
 import MENU from "../pages/import.js";
 import * as store from "../store/import.js";
 import { getters } from "../store/import.js";
-import {getCurrentSlug, IsCartEmpty, restaurants} from "../store/getters/getters";
+import {
+  getCurrentSlug,
+  IsCartEmpty,
+  restaurants,
+} from "../store/getters/getters";
 
 export const APP = {
   root: document.getElementById("root"),
@@ -128,13 +132,13 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     urn = `/${urn}`;
   }
 
-  if (urn === '/shoppingCart' && IsCartEmpty()) {
+  if (urn === "/shoppingCart" && IsCartEmpty()) {
     return;
   }
 
-  if (urn === '/shoppingCart' && sessionStorage.getItem("root") === 'main') {
-    history.pushState({}, null, '/dishes/' + getters.getCurrentSlug());
-    render('/dishes/' + getters.getCurrentSlug(), false);
+  if (urn === "/shoppingCart" && sessionStorage.getItem("root") === "main") {
+    history.pushState({}, null, "/dishes/" + getters.getCurrentSlug());
+    render("/dishes/" + getters.getCurrentSlug(), false);
     render(urn, true);
     return;
   }

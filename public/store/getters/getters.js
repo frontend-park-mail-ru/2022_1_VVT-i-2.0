@@ -25,7 +25,9 @@ export const getAvatar = () => {
 export const getCurrentSlug = () => {
   const restaurants = STORE.restaurants;
 
-  return restaurants.find((restaurant) => restaurant.restName === STORE.currentRestName).slug;
+  return restaurants.find(
+    (restaurant) => restaurant.restName === STORE.currentRestName
+  ).slug;
 };
 
 export const token = () => STORE.token;
