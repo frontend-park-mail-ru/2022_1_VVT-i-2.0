@@ -1,5 +1,5 @@
 import * as FORM from "../../common/status-form.js";
-import { hideEmptyInputs, showEmptyInputs } from "../../common/status-form.js";
+import { showEmptyInputs } from "../../common/status-form.js";
 import { renderAndUpdateURN } from "../../../render/render.js";
 import { avatar } from "../../../store/store/store";
 
@@ -35,7 +35,14 @@ export const getButtonEvents = () => {
 
           store.actions
             .sendCode(phone)
-            .then((result) => renderAndUpdateURN("/confirmCode"));
+            .then((result) => {
+              if (!result.registered) {
+                alert('Пользователь с таким номером не зарегистрирован');
+                return;
+              }
+
+              renderAndUpdateURN("/confirmCode");
+            });
         },
       },
     ],
@@ -89,7 +96,9 @@ export const getButtonEvents = () => {
 
           store.actions
             .sendCode(phone)
-            .then((result) => renderAndUpdateURN("/confirmCode"));
+            .then((result) =>  {
+              renderAndUpdateURN("/confirmCode");
+            });
         },
       },
     ],
@@ -144,7 +153,14 @@ export const getButtonEvents = () => {
 
           store.actions
             .sendCode(phone)
-            .then((result) => renderAndUpdateURN("/confirmCode"));
+            .then((result) => {
+              if (result.registered) {
+                alert('Пользователь с таким номером уже зарегистрирован');
+                return;
+              }
+
+              renderAndUpdateURN("/confirmCode");
+            });
         },
       },
     ],
@@ -208,11 +224,15 @@ export const getButtonEvents = () => {
 
           const comment = document.getElementById("orderingComment").innerText;
 
-          const cart = store.getters.cart();
+          const order = store.getters.cart().order;
 
-          store.actions.createOrder({ address, comment, cart }).then(() => {
-            renderAndUpdateURN("/");
-            alert("Заказ успешно создан");
+          store.actions.createOrder({ address, comment, cart: order }).then((result) => {
+            if (result.status === 200) {
+              renderAndUpdateURN("/");
+              alert("Заказ успешно создан");
+            } else {
+              alert('Ошибка на сервере');
+            }
           });
         },
       },

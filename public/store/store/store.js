@@ -95,7 +95,7 @@ const STORE = {
   },
   cart: {
     totalPrice: 0,
-    orderList: [],
+    order: [],
   },
   suggests: [
     // { address: "FIRST", end: false },

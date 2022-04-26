@@ -41,7 +41,7 @@ const loginForm = () => {
         "Войти",
         COLORS.primary,
         this.width,
-        "confirmCode",
+        "",
         "loginButton"
       );
     },

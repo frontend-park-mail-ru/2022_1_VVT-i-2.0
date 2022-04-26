@@ -40,7 +40,7 @@ const registerForm = () => {
         "Регистрация",
         COLORS.primary,
         this.width,
-        "confirmCode",
+        "",
         "registerButton"
       );
     },
