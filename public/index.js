@@ -1,6 +1,8 @@
 import { APP, render, renderAndUpdateURN } from "./render/render.js";
 import * as store from "./store/import";
 import "./index.scss";
+import {IsCartEmpty} from "./store/getters/getters";
+import {clearCart} from "./store/actions/actions";
 
 Object.entries(APP).forEach(([name, node]) =>
   node.addEventListener("click", (e) =>
@@ -39,42 +41,43 @@ if (!localStorage.getItem("address")) {
 window.onload = () => {
   const stringCart = localStorage.getItem("cart");
   const currentRestName = localStorage.getItem("currentRestName");
-  // const slug = localStorage.getItem("slug");
+  const slug = localStorage.getItem("slug");
 
   if (stringCart) {
-    // if (!store.getters.dishes().hasOwnProperty(slug)) {
-    //   store.actions.getDishes(slug);
-    // }
-
     const cart = JSON.parse(stringCart);
-    cart.forEach((dish) =>
-      store.actions.addDishToCart(dish.id, currentRestName, dish.count)
-    );
+
+    if (cart.totalPrice !== 0) {
+      if (!store.getters.dishes().hasOwnProperty(slug)) {
+        store.actions.getDishes(slug);
+      }
+
+      cart.order.forEach((dish) =>
+            store.actions.addDishToCart(dish.id, currentRestName, dish.price, dish.count)
+      );
+    }
   }
 
   localStorage.removeItem("cart");
   localStorage.removeItem("currentRestName");
-  // localStorage.removeItem("slug");
+  localStorage.removeItem("slug");
 };
 
 window.onbeforeunload = () => {
   const cart = store.getters.cart();
   if (
-    Object.keys(cart).length === 0 ||
-    Object.keys(store.getters.user()).length === 0
+    !IsCartEmpty() &&
+    Object.keys(store.getters.user()).length > 0
   ) {
-    return;
+    const currentRestName = store.getters.currentRestName();
+    const dishes = store.getters.dishes();
+    const slug = Object.keys(dishes).find(
+      (key) => dishes[key].restName === currentRestName
+    );
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("currentRestName", currentRestName);
+    localStorage.setItem("slug", slug);
   }
-
-  const currentRestName = store.getters.currentRestName();
-  // const dishes = store.getters.dishes();
-  // const slug = Object.keys(dishes).find(
-  //   (key) => dishes[key].restName === currentRestName
-  // );
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  localStorage.setItem("currentRestName", currentRestName);
-  // localStorage.setItem("slug", slug);
 };
 
 if ("serviceWorker" in navigator) {

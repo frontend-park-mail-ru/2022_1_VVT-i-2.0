@@ -5,12 +5,14 @@ const header = (isOrderingPage = false) => {
   const auth = Object.keys(getters.user()).length !== 0;
   const address = localStorage.getItem("address");
   const avatar = getters.getAvatar();
+  const emptyShopCart = getters.IsCartEmpty();
+  const totalOrderPrice = getters.cart().totalPrice;
 
   const template = `
         <header class="page-header">
-            <nav class="page-header__button page-header__button-main" data-section="main">
-                <img src="/graphics/icons/delivery_icon.svg" data-section="main" alt="">
-                <a class="button__controller" data-section="main">Delivery Club</a>
+            <nav class="page-header__button page-header__main-button" data-section="main">
+                <img class="main-button__img" src="/graphics/images/fobringto.png" data-section="main" alt="">
+                <a class="main-button__controller" data-section="main">obringTo</a>
             </nav>
 
             {{#isOrderingPage}}
@@ -43,10 +45,21 @@ const header = (isOrderingPage = false) => {
 
                         <a class="button__controller" data-section="profilePreview">Профиль</a>
                     </nav>
-                    <nav id="shoppingCartButton" class="page-header__button page-header__button-cart" data-section="shoppingCart">
-                        <img src="/graphics/icons/shopping_cart.svg" data-section="shoppingCart" alt="">
-                        <a class="button__controller" data-section="shoppingCart">Корзина</a>
-                    </nav>
+                    
+                    {{#emptyShopCart}}
+                        <nav id="shoppingCartButton" class="page-header__button page-header__button-cart" data-section="shoppingCart">
+                          <img src="/graphics/icons/shopping_cart.svg" data-section="shoppingCart" alt="">
+                          <a class="button__controller" data-section="shoppingCart">Корзина</a>
+                        </nav>
+                    {{/emptyShopCart}}
+                    
+                    {{^emptyShopCart}}
+                        <nav id="shoppingCartButton" class="page-header__button page-header__button-cart_green" data-section="shoppingCart">
+                            <img src="/graphics/icons/shopping_cart.svg" data-section="shoppingCart" alt="">
+                            <a class="button__controller_with-price" data-section="shoppingCart">{{totalOrderPrice}} ₽</a>
+                        </nav>
+                    {{/emptyShopCart}}
+                    
                 {{/auth}}
                 {{^auth}}
                     <nav class="page-header__button" data-section="login">
@@ -63,6 +76,8 @@ const header = (isOrderingPage = false) => {
     isOrderingPage,
     avatar,
     address,
+    emptyShopCart,
+    totalOrderPrice,
     backToMenu() {
       return UIKIT.backButton("Обратно в меню", "dishes");
     },

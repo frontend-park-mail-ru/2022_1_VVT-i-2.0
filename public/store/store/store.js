@@ -57,43 +57,46 @@ const STORE = {
     },
   ],
   dishes: {
-    main: {
-      restName: "Шоколадница",
-      dishes: [
-        {
-          id: 1,
-          imgPath:
-            "https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200",
-          productName: "Тестовое имя",
-          info: "172 г · 213 ккал",
-          description:
-            "Вкусный и самый настоящий. Всем несомненно он погнравится",
-          price: 296,
-        },
-        {
-          id: 2,
-          imgPath:
-            "https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200",
-          productName: "Тестовое имя",
-          info: "172 г · 213 ккал",
-          description:
-            "Вкусный и самый настоящий. Всем несомненно он погнравится",
-          price: 296,
-        },
-        {
-          id: 3,
-          imgPath:
-            "https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200",
-          productName: "Тестовое имя",
-          info: "172 г · 213 ккал",
-          description:
-            "Вкусный и самый настоящий. Всем несомненно он погнравится",
-          price: 296,
-        },
-      ],
-    },
+    // main: {
+    //   restName: "Шоколадница",
+    //   dishes: [
+    //     {
+    //       id: 1,
+    //       imgPath:
+    //         "https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200",
+    //       productName: "Тестовое имя",
+    //       info: "172 г · 213 ккал",
+    //       description:
+    //         "Вкусный и самый настоящий. Всем несомненно он погнравится",
+    //       price: 296,
+    //     },
+    //     {
+    //       id: 2,
+    //       imgPath:
+    //         "https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200",
+    //       productName: "Тестовое имя",
+    //       info: "172 г · 213 ккал",
+    //       description:
+    //         "Вкусный и самый настоящий. Всем несомненно он погнравится",
+    //       price: 296,
+    //     },
+    //     {
+    //       id: 3,
+    //       imgPath:
+    //         "https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200",
+    //       productName: "Тестовое имя",
+    //       info: "172 г · 213 ккал",
+    //       description:
+    //         "Вкусный и самый настоящий. Всем несомненно он погнравится",
+    //       price: 296,
+    //     },
+    //   ],
+    // },
   },
-  cart: [],
+  cart: {
+    totalPrice: 0,
+    orderList: [],
+  },
   suggests: [
     { address: "FIRST", end: false },
     { address: "SECOND", end: true },
@@ -122,15 +125,21 @@ const STORE = {
     dishes[restName] = { dishes: result.dishes, restName: result.restName };
     this.dishes = dishes;
   },
-  addDishToCart(id, restName, count = 1) {
-    const cart = restName === this.currentRestName ? this.cart : [];
+  addDishToCart(id, restName, price, count = 1) {
+    const cart = restName === this.currentRestName ? this.cart :
+        {
+          totalPrice: 0,
+          order: [],
+        };
 
-    const index = cart.findIndex((orderPoint) => orderPoint.id === id);
+    const index = cart.order.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {
-      cart.push({ id, count: count });
+      cart.order.push({ id, price: price, count: count });
     } else {
-      cart[index].count = cart[index].count + 1;
+      cart.order[index].count = cart.order[index].count + 1;
     }
+
+    cart.totalPrice += price * count;
 
     this.currentRestName = restName;
     this.cart = cart;
@@ -138,37 +147,43 @@ const STORE = {
   incrementDishCount(id) {
     const cart = this.cart;
 
-    const index = cart.findIndex((orderPoint) => orderPoint.id === id);
+    const index = cart.order.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {
       return;
     }
 
-    cart[index].count = cart[index].count + 1;
+    cart.order[index].count += 1;
+    cart.totalPrice += cart.order[index].price * 1;
 
     this.cart = cart;
   },
   decrementDishCount(id) {
     const cart = this.cart;
 
-    const index = cart.findIndex((orderPoint) => orderPoint.id === id);
+    const index = cart.order.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {
       return;
     }
 
-    cart[index].count = cart[index].count - 1;
-    if (cart[index].count < 1) {
-      cart.splice(index, 1);
+    cart.order[index].count -= 1;
+    cart.totalPrice -= cart.order[index].price * 1;
+
+    if (cart.order[index].count < 1) {
+      cart.order.splice(index, 1);
     }
 
     this.cart = cart;
 
-    if (this.cart.length === 0) {
+    if (this.cart.order.length === 0) {
       this.currentRestName = "";
     }
   },
   clearCart() {
     this.currentRestName = "";
-    this.cart = [];
+    this.cart = {
+      totalPrice: 0,
+      order: [],
+    };
   },
   addSuggests(result) {
     this.suggests = result.suggests.map((suggest) => {

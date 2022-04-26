@@ -8,20 +8,21 @@ const shoppingCartPage = (app, store) => {
   const currentRestName = store.getters.currentRestName();
 
   let dishObj = { restName: "", dishes: [] };
+
   if (currentRestName !== "") {
     dishObj = Object.values(store.getters.dishes()).find(
       (dish) => dish.restName === currentRestName
     );
   }
 
-  const properties = store.getters.cart().map(({ id, count }) => {
+  const properties = store.getters.cart().order.map(({ id, price, count }) => {
     const index = dishObj.dishes.findIndex(
       (orderPoint) => orderPoint.id === id
     );
     if (index === -1) {
       return;
     }
-    return { ...dishObj.dishes[index], count };
+    return { ...dishObj.dishes[index], price, count };
   });
 
   app.modal.innerHTML = components.shoppingCart(dishObj.restName, properties);
