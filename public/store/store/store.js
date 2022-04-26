@@ -126,11 +126,13 @@ const STORE = {
     this.dishes = dishes;
   },
   addDishToCart(id, restName, price, count = 1) {
-    const cart = restName === this.currentRestName ? this.cart :
-        {
-          totalPrice: 0,
-          order: [],
-        };
+    const cart =
+      restName === this.currentRestName
+        ? this.cart
+        : {
+            totalPrice: 0,
+            order: [],
+          };
 
     const index = cart.order.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {

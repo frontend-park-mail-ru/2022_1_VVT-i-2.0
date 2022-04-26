@@ -1,8 +1,8 @@
 import { APP, render, renderAndUpdateURN } from "./render/render.js";
 import * as store from "./store/import";
 import "./index.scss";
-import {IsCartEmpty} from "./store/getters/getters";
-import {clearCart} from "./store/actions/actions";
+import { IsCartEmpty } from "./store/getters/getters";
+import { clearCart } from "./store/actions/actions";
 
 Object.entries(APP).forEach(([name, node]) =>
   node.addEventListener("click", (e) =>
@@ -52,7 +52,12 @@ window.onload = () => {
       }
 
       cart.order.forEach((dish) =>
-            store.actions.addDishToCart(dish.id, currentRestName, dish.price, dish.count)
+        store.actions.addDishToCart(
+          dish.id,
+          currentRestName,
+          dish.price,
+          dish.count
+        )
       );
     }
   }
@@ -64,10 +69,7 @@ window.onload = () => {
 
 window.onbeforeunload = () => {
   const cart = store.getters.cart();
-  if (
-    !IsCartEmpty() &&
-    Object.keys(store.getters.user()).length > 0
-  ) {
+  if (!IsCartEmpty() && Object.keys(store.getters.user()).length > 0) {
     const currentRestName = store.getters.currentRestName();
     const dishes = store.getters.dishes();
     const slug = Object.keys(dishes).find(

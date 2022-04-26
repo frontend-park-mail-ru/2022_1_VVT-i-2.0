@@ -11,6 +11,16 @@ const suggestsForm = (props) => {
           <div></div>
         </div>
       {{/suggests}}
+      {{^suggests}}
+        <div class="suggest-form__suggest-row">
+          <div></div>
+          <div class="suggest-row__suggest-address suggestsRow" default="true">
+            Мы подберем для вас список доступных ресторанов
+          </div>
+          <div></div>
+          <div></div>
+        </div>
+      {{/suggests}}
     </form>
   `;
   return Mustache.render(template, { suggests: props.suggests });

@@ -25,6 +25,10 @@ export const suggests = () => {
         listener(app, store, e) {
           const { target } = e;
 
+          if (target.getAttribute("default") === "true") {
+            return;
+          }
+
           const address = target.innerText;
           const end = target.getAttribute("end") === "true";
 
