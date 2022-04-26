@@ -98,8 +98,8 @@ const STORE = {
     orderList: [],
   },
   suggests: [
-    { address: "FIRST", end: false },
-    { address: "SECOND", end: true },
+    // { address: "FIRST", end: false },
+    // { address: "SECOND", end: true },
   ],
   currentRestName: "",
   token: "",
