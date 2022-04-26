@@ -23,13 +23,6 @@ export const getPhoneFieldEvents = (elemID, statusForm) => {
           e.target.value = VALIDATION.NumberPhoneFormat.phoneBeginString;
           CURSOR.setCursorPosition(e, e.target.value.length);
         }
-        FORM.inputDataManager(
-          e,
-          elemID,
-          statusForm,
-          CONFIG.Regex.phoneNumber,
-          CONFIG.ErrorMsg.errorPhoneNumber
-        );
       },
     },
     {
