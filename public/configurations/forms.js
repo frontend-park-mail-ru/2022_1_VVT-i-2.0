@@ -30,7 +30,7 @@ const FORMS_CONFIGURATION = {
     confirmCodeForm: [
       {
         title: "Код",
-        placeholder: "Введите код",
+        placeholder: "Введите последние 4 цифры номера",
         id: "confirmCode",
       },
     ],

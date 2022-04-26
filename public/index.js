@@ -94,6 +94,7 @@ if ("serviceWorker" in navigator) {
 }
 
 if (Object.keys(store.getters.user()).length === 0) {
+  // render(location.pathname);
   store.actions.getUser(true).then(() => render(location.pathname));
 } else {
   render(location.pathname);
