@@ -112,17 +112,13 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
   }
 
   if (urn === '/shoppingCart' && IsCartEmpty()) {
-    console.log('shopcart empty');
     return;
   }
 
   if (urn === '/shoppingCart' && sessionStorage.getItem("root") === 'main') {
-    console.log(sessionStorage.getItem("root"));
-    console.log(getters.getCurrentSlug());
     history.pushState({}, null, '/dishes/' + getters.getCurrentSlug());
     render('/dishes/' + getters.getCurrentSlug(), false);
     render(urn, true);
-    // document.getElementById('shoppingCartButton').click();
     return;
   }
 

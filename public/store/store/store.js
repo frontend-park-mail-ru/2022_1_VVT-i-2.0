@@ -58,7 +58,7 @@ const STORE = {
   ],
   dishes: {
     // main: {
-    //   restName: "McDonalds",
+    //   restName: "Шоколадница",
     //   dishes: [
     //     {
     //       id: 1,
@@ -135,14 +135,11 @@ const STORE = {
     const index = cart.order.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {
       cart.order.push({ id, price: price, count: count });
-      // cart.totalPrice += price * count;
     } else {
       cart.order[index].count = cart.order[index].count + 1;
     }
 
     cart.totalPrice += price * count;
-
-    console.log(cart);
 
     this.currentRestName = restName;
     this.cart = cart;
@@ -158,7 +155,6 @@ const STORE = {
     cart.order[index].count += 1;
     cart.totalPrice += cart.order[index].price * 1;
 
-    console.log(cart);
     this.cart = cart;
   },
   decrementDishCount(id) {
@@ -176,7 +172,6 @@ const STORE = {
       cart.order.splice(index, 1);
     }
 
-    console.log(cart);
     this.cart = cart;
 
     if (this.cart.order.length === 0) {

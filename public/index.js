@@ -2,6 +2,7 @@ import { APP, render, renderAndUpdateURN } from "./render/render.js";
 import * as store from "./store/import";
 import "./index.scss";
 import {IsCartEmpty} from "./store/getters/getters";
+import {clearCart} from "./store/actions/actions";
 
 Object.entries(APP).forEach(([name, node]) =>
   node.addEventListener("click", (e) =>
@@ -40,19 +41,25 @@ if (!localStorage.getItem("address")) {
 window.onload = () => {
   const stringCart = localStorage.getItem("cart");
   const currentRestName = localStorage.getItem("currentRestName");
+  const slug = localStorage.getItem("slug");
 
   if (stringCart) {
     const cart = JSON.parse(stringCart);
-    console.log(cart);
+
     if (cart.totalPrice !== 0) {
+      if (!store.getters.dishes().hasOwnProperty(slug)) {
+        store.actions.getDishes(slug);
+      }
+
       cart.order.forEach((dish) =>
-          store.actions.addDishToCart(dish.id, currentRestName, dish.price, dish.count)
+            store.actions.addDishToCart(dish.id, currentRestName, dish.price, dish.count)
       );
     }
   }
 
   localStorage.removeItem("cart");
   localStorage.removeItem("currentRestName");
+  localStorage.removeItem("slug");
 };
 
 window.onbeforeunload = () => {
@@ -61,8 +68,15 @@ window.onbeforeunload = () => {
     !IsCartEmpty() &&
     Object.keys(store.getters.user()).length > 0
   ) {
+    const currentRestName = store.getters.currentRestName();
+    const dishes = store.getters.dishes();
+    const slug = Object.keys(dishes).find(
+      (key) => dishes[key].restName === currentRestName
+    );
+
     localStorage.setItem("cart", JSON.stringify(cart));
-    localStorage.setItem("currentRestName", store.getters.currentRestName());
+    localStorage.setItem("currentRestName", currentRestName);
+    localStorage.setItem("slug", slug);
   }
 };
 
