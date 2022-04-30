@@ -1,11 +1,11 @@
 .register-form {
     @media screen and (orientation:portrait) and (min-width: 438px),
-           screen and (orientation:landscape) and (min-height: 438px) {
+    screen and (orientation:landscape) and (min-height: 438px) {
         position: relative;
         width: 300px;
     }
     @media screen and (orientation:portrait) and (max-width: 438px),
-           screen and (orientation:landscape) and (max-height: 438px) {
+    screen and (orientation:landscape) and (max-height: 438px) {
         margin: 4.68% auto;
         max-height: calc(100% - 2 * 4.68%);
         width: 100%;
@@ -43,7 +43,7 @@
 }
 
 @media screen and (orientation:portrait) and (min-width: 438px),
-       screen and (orientation:landscape) and (min-height: 438px) {
+screen and (orientation:landscape) and (min-height: 438px) {
     .preview__close-img:hover {
         cursor: pointer;
         filter: invert(100%) sepia(0%) saturate(1569%) hue-rotate(174deg) brightness(106%) contrast(74%);

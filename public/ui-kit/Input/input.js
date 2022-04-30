@@ -13,7 +13,6 @@ import ELEMS_CONFIGURATION from "../../configurations/elems.js";
 const input = (
   title,
   type,
-  // width = ELEMS_CONFIGURATION.inputs.STANDARD,
   placeholder,
   id,
   name,
@@ -42,7 +41,6 @@ const input = (
   return Mustache.render(template, {
     title,
     type,
-    // width,
     placeholder,
     id,
     name,
