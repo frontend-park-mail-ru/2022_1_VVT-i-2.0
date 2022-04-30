@@ -20,7 +20,7 @@ const restMetaInformation = (restName, timeToDeliver, price, rating) => {
                 </div>
                 <div class="meta-info__param">
                     <div class="meta-info__param-value">
-                        {{price}} ₽
+                        от {{price}} ₽
                     </div>
                 </div>
                 <div class="meta-info__param">
