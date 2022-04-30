@@ -12,26 +12,34 @@ const loginForm = () => {
 
   const template = `
         <div id="login-form" class="login-form">
-            <img id="closeImg" class="login-form__close-img" src="/graphics/icons/close.svg" alt="">
-            <h2 class="login-form__title">Войти в аккаунт</h2>
-            <div class="login-form__indication">Для авторизации заполните поле телефон</div>
-                {{#inputConfigurations}}
-                    <div class="login-form__input">
-                        {{&input}}
-                    </div>
-                {{/inputConfigurations}}
-            <div id="login-button" class="login-form__button-login">{{&login}}</div>
-            {{&register}}
-        </di>
+            <div class="login-form__main-content">
+                <div class="main-content__preview">
+                  <h2 class="preview__title">Войти в аккаунт</h2>
+                  <img id="closeImg" class="preview__close-img" src="/graphics/icons/close.svg" alt="">
+                </div>
+                <div>
+                  <div class="login-form__indication">Для авторизации заполните поле телефон</div>
+                  {{#inputConfigurations}}
+                      <div class="login-form__input">
+                          {{&input}}
+                      </div>
+                  {{/inputConfigurations}}
+                </div>  
+            </div>
+            
+            <div class="login-form__buttons">
+                <div id="login-button" class="login-form__button-login">{{&login}}</div>
+                {{&register}}
+            </div>
+        </div>
     `;
 
   return Mustache.render(template, {
     inputConfigurations: inputConfigurations,
     input() {
       return UIKIT.input(
-        this.underlinedTitle,
+        this.title,
         this.type,
-        this.width,
         this.placeholder,
         this.id
       );

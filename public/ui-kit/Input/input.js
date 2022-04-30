@@ -13,7 +13,7 @@ import ELEMS_CONFIGURATION from "../../configurations/elems.js";
 const input = (
   title,
   type,
-  width = ELEMS_CONFIGURATION.inputs.STANDARD,
+  // width = ELEMS_CONFIGURATION.inputs.STANDARD,
   placeholder,
   id,
   name,
@@ -26,7 +26,6 @@ const input = (
             <div class="input-block__title">{{title}}</div>
             <div {{#id}} id={{id}} {{/id}}>
                 <input
-                    style="width: {{width}}px"
                     {{#readonly}} class="input-block__input-readonly" {{/readonly}}
                     {{^readonly}} class="input-block__input" {{/readonly}}
                     placeholder="{{placeholder}}"
@@ -43,7 +42,7 @@ const input = (
   return Mustache.render(template, {
     title,
     type,
-    width,
+    // width,
     placeholder,
     id,
     name,

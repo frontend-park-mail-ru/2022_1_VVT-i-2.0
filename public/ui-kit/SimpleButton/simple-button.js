@@ -21,7 +21,7 @@ const simpleButton = (
         <button
             {{#id}} id={{id}} {{/id}}
             class="simple-button"
-            style="background-color: {{color}}; width: {{width}}px;"
+            style="background-color: {{color}}; max-width: {{width}}px;"
             data-section="{{href}}"
             type="button"
         >

@@ -107,6 +107,11 @@ export const render = (urn, storeUpdate = false) => {
     sessionStorage.setItem("root", section);
   }
 
+  // Block for mobile version
+  if (['login', 'confirmCode', 'register'].includes(section) && window.screen.width < 438) {
+    APP.root.innerHTML = '';
+  }
+
   page.render(APP, store);
 
   events.addListeners(APP, store);
