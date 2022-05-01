@@ -1,0 +1,57 @@
+.order-info {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  justify-items: center;
+  text-align: center;
+
+  max-width: 700px;
+  height: 60px;
+
+  font-size: 20px;
+  font-weight: 500;
+  border: 1px solid grey;
+}
+
+.order-info > div {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.order-info__order-number,
+.order-info__order-date,
+.status__text {
+  color: #BEB6AE;
+}
+
+.order-info__status {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 135px;
+}
+
+.status__img {
+  width: 22px;
+  height: 22px;
+  border-radius: 11px;
+
+  &_in-processing {
+    background: #F66628;
+    @extend .status__img;
+  }
+  &_cooking {
+    background: #FF9F47;
+    @extend .status__img;
+  }
+  &_in-way {
+    background: #EEFF2B;
+    @extend .status__img;
+  }
+  &_received {
+    background: #7EE340;
+    @extend .status__img;
+  }
+}
