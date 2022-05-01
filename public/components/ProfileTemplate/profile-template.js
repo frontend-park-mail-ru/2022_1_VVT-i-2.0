@@ -1,103 +1,51 @@
 import UIKIT from "../../ui-kit/import.js";
-import COLORS from "../../configurations/colors/colors.js";
-import FORMS_CONFIGURATION from "../../configurations/forms.js";
-import ELEMS_CONFIGURATION from "../../configurations/elems.js";
-import { NumberPhoneFormat } from "../../events/entity/phone/phone-src";
-import { getters } from "../../store/import";
 
-const orderStatusForm = ({ name, phone, email }) => {
-    const inputConfigurations = FORMS_CONFIGURATION.inputs.personInfoForm;
-    let avatar = getters.getAvatar();
-
+const profileTemplate = (title, content, IsPersonInfoForm = false) => {
     const template = `
-        <form id="person-info-form" class="person-info-form" method="POST" enctype="multipart/form-data">
+        {{#IsPersonInfoForm}}
+        <form id="person-info-form" class="profile-template-form" method="POST" enctype="multipart/form-data">
+        {{/IsPersonInfoForm}}
+        
+        {{^IsPersonInfoForm}}
+        <div class="profile-template-form">
+        {{/IsPersonInfoForm}}
+        
             {{&backButton}}
 
             {{&title}}
 
-            <div class="person-info-form__sets-nav-block">
-                <div class="sets-nav-block__settings-block">
-                    <div class="settings-block__profile-header">
-                        Профиль
-                    </div>
-                    <div class="settings-block__settings">
-                        <div class="settings__avatar-change-block">
-                            <div class="avatar-change-block__description">Ваш аватар:</div>
-                            <div class="avatar-change-block__avatar">
-                                <img id="user-avatar-preview" src="{{avatar}}" class="avatar__img" alt="avatar">
-                            </div>
-                            <div class="avatar-choice-block__button-change">
-                                {{&buttonChangeAvatar}}
-                            </div>
-                        </div>
-                        {{#inputConfigurations}}
-                            <div class="settings-block__input">{{&input}}</div>
-                        {{/inputConfigurations}}
-                        <div id="button-save-settings" class="settings-block__button-save-settings">
-                            {{&savePersonInfoChanges}}
-                        </div>
-                    </div>
+            <div class="form__content-nav-block">
+                <div class="content-nav-block__content-block">
+                    {{{content}}}
                 </div>
 
-                <div class="sets-nav-block__navigation-block">
+                <div class="content-nav-block__navigation-block">
                     {{&menu}}
                 </div>
             </div>
-        </form>
+            
+        {{^IsPersonInfoForm}}
+        <div>
+        {{/IsPersonInfoForm}}
+        
+        {{#IsPersonInfoForm}}
+        <form>
+        {{/IsPersonInfoForm}}
     `;
 
     return Mustache.render(template, {
-        inputConfigurations,
-        avatar,
+        IsPersonInfoForm,
+        content,
         backButton() {
             return UIKIT.backButton("Все рестораны", "main");
         },
         title() {
-            return UIKIT.underlinedTitle("Личные данные");
-        },
-        buttonChangeAvatar() {
-            return UIKIT.simpleButton(
-                "Изменить аватар",
-                COLORS.grey,
-                ELEMS_CONFIGURATION.buttons.SMALL,
-                "",
-                "changeAvatarButton",
-                true
-            );
-        },
-        input() {
-            let value = name;
-            if (this.id === "profilePhone") {
-                value = NumberPhoneFormat.formatPhone(phone);
-            } else if (this.id === "profileEmail") {
-                value = email;
-            }
-            const readonly = this.id === "profilePhone";
-
-            return UIKIT.input(
-                this.title,
-                this.type,
-                this,width,
-                this.placeholder,
-                this.id,
-                this.name,
-                value,
-                readonly
-            );
+            return UIKIT.underlinedTitle(title);
         },
         menu() {
             return UIKIT.profileMenu();
         },
-        savePersonInfoChanges() {
-            return UIKIT.simpleButton(
-                "Сохранить",
-                COLORS.primary,
-                ELEMS_CONFIGURATION.buttons.STANDARD,
-                "",
-                "personInfoSaveButton"
-            );
-        },
     });
 };
 
-export default orderStatusForm;
+export default profileTemplate;

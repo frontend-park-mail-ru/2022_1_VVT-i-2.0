@@ -1,30 +1,6 @@
 @use 'public/configurations/colors/colors.scss' as theme;
 
-.person-info-form {
-    display: flex;
-    flex-direction: column;
-
-    height: 100%;
-    margin: 0 10.5% 25px 10%
-}
-
-.person-info-form__sets-nav-block {
-    display: inline-flex;
-    justify-content: space-between;
-}
-
-.sets-nav-block__settings-block {
-    width: 646px;
-    height: 529px;
-
-    box-sizing: border-box;
-    border-radius: 10px;
-
-    background: theme.getColor('white');
-    border: 1px solid theme.getColor('grey');
-}
-
-.settings-block__profile-header {
+.content-block__profile-header {
     font-size: 20px;
     font-weight: 700;
     color: #212121;
@@ -32,17 +8,17 @@
     margin: 32px auto 13px 43px;
 }
 
-.settings-block__settings {
+.content-block__content {
     margin: 22px 71px 24px 73px;
 }
 
 
-.settings__avatar-change-block {
+.content__avatar-change-block {
     display: inline-flex;
     width: 100%;
 }
 
-.settings__avatar-change-block :nth-child(n) {
+.content__avatar-change-block :nth-child(n) {
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -69,29 +45,12 @@
     margin-left: auto;
 }
 
-.settings-block__input {
+.content-block__input {
     margin-bottom: 15px;
     margin-top: 10px;
 }
 
-.settings-block__button-save-settings {
+.content-block__button-save-content {
     text-align: center;
     margin-top: 43px;
-}
-
-.sets-nav-block__navigation-block {
-    display: flex;
-    flex-direction: column;
-    background: theme.getColor("white");
-    border-radius: 5px;
-    margin-left: 10%;
-}
-
-.person-info-form__mail-notification {
-    font-size: 22px;
-    margin: 47px auto 27px 0;
-}
-
-.person-info-form input {
-    width: 500px;
 }

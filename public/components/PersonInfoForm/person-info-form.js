@@ -10,59 +10,31 @@ const personInfoForm = ({ name, phone, email }) => {
   let avatar = getters.getAvatar();
 
   const template = `
-        <form id="person-info-form" class="person-info-form" method="POST" enctype="multipart/form-data">
-            {{&backButton}}
-
-            {{&title}}
-
-            <div class="person-info-form__sets-nav-block">
-                <div class="sets-nav-block__settings-block">
-                    <div class="settings-block__profile-header">
-                        Профиль
-                    </div>
-                    <div class="settings-block__settings">
-                        <div class="settings__avatar-change-block">
-                            <div class="avatar-change-block__description">Ваш аватар:</div>
-                            <div class="avatar-change-block__avatar">
-                                <img id="user-avatar-preview" src="{{avatar}}" class="avatar__img" alt="avatar">
-                            </div>
-                            <div class="avatar-choice-block__button-change">
-                                {{&buttonChangeAvatar}}
-                            </div>
-                        </div>
-                        {{#inputConfigurations}}
-                            <div class="settings-block__input">{{&input}}</div>
-                        {{/inputConfigurations}}
-                        <div id="button-save-settings" class="settings-block__button-save-settings">
-                            {{&savePersonInfoChanges}}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sets-nav-block__navigation-block">
-                    {{&menu}}
-                </div>
-            </div>
-
-<!--            <div class="person-info-form__mail-notification">-->
-<!--                Информация о заказах-->
-<!--            </div>-->
-
-<!--            <div>-->
-<!--                {{&switcherElement}}-->
-<!--            </div>-->
-        </form>
-    `;
+      <div class="content-block__profile-header">
+          Профиль
+      </div>
+      <div class="content-block__content">
+          <div class="content__avatar-change-block">
+              <div class="avatar-change-block__description">Ваш аватар:</div>
+              <div class="avatar-change-block__avatar">
+                  <img id="user-avatar-preview" src="{{avatar}}" class="avatar__img" alt="avatar">
+              </div>
+              <div class="avatar-choice-block__button-change">
+                  {{&buttonChangeAvatar}}
+              </div>
+          </div>
+          {{#inputConfigurations}}
+              <div class="content-block__input">{{&input}}</div>
+          {{/inputConfigurations}}
+          <div id="button-save-content" class="content-block__button-save-content">
+              {{&savePersonInfoChanges}}
+          </div>
+      </div>
+  `;
 
   return Mustache.render(template, {
     inputConfigurations,
     avatar,
-    backButton() {
-      return UIKIT.backButton("Все рестораны", "main");
-    },
-    title() {
-      return UIKIT.underlinedTitle("Личные данные");
-    },
     buttonChangeAvatar() {
       return UIKIT.simpleButton(
         "Изменить аватар",
@@ -85,16 +57,13 @@ const personInfoForm = ({ name, phone, email }) => {
       return UIKIT.input(
         this.title,
         this.type,
-        this,width,
+        this.width,
         this.placeholder,
         this.id,
         this.name,
         value,
         readonly
       );
-    },
-    menu() {
-      return UIKIT.profileMenu();
     },
     savePersonInfoChanges() {
       return UIKIT.simpleButton(
@@ -105,9 +74,6 @@ const personInfoForm = ({ name, phone, email }) => {
         "personInfoSaveButton"
       );
     },
-    // switcherElement () {
-    //     return UIKIT.switcher();
-    // },
   });
 };
 

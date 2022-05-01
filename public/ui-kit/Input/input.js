@@ -22,16 +22,6 @@ const input = (
   readonly,
   error = "Ошибка"
 ) => {
-
-  console.log(title,
-      type,
-      width,
-      placeholder,
-      id,
-      name,
-      value,
-      readonly,
-      error = "Ошибка");
   const template = `
         <div class="input-block">
             <div class="input-block__title">{{title}}</div>

@@ -201,7 +201,6 @@ export const getButtonEvents = () => {
         type: "click",
         selector: "id",
         listener(app, store, e) {
-          console.log('CLICK');
           let phone =
             document.getElementById("orderingPhone").children[0].value;
 
