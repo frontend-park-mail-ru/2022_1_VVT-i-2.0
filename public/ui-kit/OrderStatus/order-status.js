@@ -19,16 +19,16 @@ const orderStatus = (props) => {
     const template = `
         <div class="order-info">
             <div class="order-info__order-number">
-                #2342
+                #{{orderNumber}}
             </div>
             <div class="order-info__rest-name">
-                Макдональдс
+                {{restName}}
             </div>
             <div class="order-info__order-date">
-                28.01.2022
+                {{date}}
             </div>
             <div class="order-info__order-price">
-                298 ₽
+                {{price}} ₽
             </div>
             <div class="order-info__status">
                 <div class="{{statusClass}}"></div>
@@ -37,7 +37,7 @@ const orderStatus = (props) => {
                 </div>
             </div>
             <div>
-                <img src="arrow-down.svg" alt="">
+                <img class="button-open-close" src="/graphics/icons/arrow_back.svg" alt="">
             </div>
         </div>
     `;

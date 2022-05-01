@@ -3,11 +3,9 @@ import COLORS from "../../configurations/colors/colors.js";
 import FORMS_CONFIGURATION from "../../configurations/forms.js";
 import ELEMS_CONFIGURATION from "../../configurations/elems.js";
 import { NumberPhoneFormat } from "../../events/entity/phone/phone-src";
-import { getters } from "../../store/import";
 
-const personInfoForm = ({ name, phone, email }) => {
+const personInfoForm = ({ name, phone, email }, avatar) => {
   const inputConfigurations = FORMS_CONFIGURATION.inputs.personInfoForm;
-  let avatar = getters.getAvatar();
 
   const template = `
       <div class="content-block__profile-header">

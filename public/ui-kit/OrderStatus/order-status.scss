@@ -1,17 +1,20 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
 .order-info {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
 
   justify-content: space-between;
   justify-items: center;
   text-align: center;
 
-  max-width: 700px;
+  width: 700px;
   height: 60px;
 
   font-size: 20px;
   font-weight: 500;
-  border: 1px solid grey;
+  border: 1px solid theme.getColor('grey');
 }
 
 .order-info > div {
@@ -37,6 +40,7 @@
   width: 22px;
   height: 22px;
   border-radius: 11px;
+  margin-right: 5px;
 
   &_in-processing {
     background: #F66628;
@@ -54,4 +58,8 @@
     background: #7EE340;
     @extend .status__img;
   }
+}
+
+.button-open-close {
+  width: 34px;
 }

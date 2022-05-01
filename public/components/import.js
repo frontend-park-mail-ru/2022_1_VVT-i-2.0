@@ -12,6 +12,7 @@ import ordering from "./Ordering/ordering.js";
 import suggestsForm from "./SuggestsForm/suggests-form.js";
 import infoAboutOrder from "./InfoAboutOrder/info-about-order";
 import profileTemplate from "./ProfileTemplate/profile-template";
+import orderStatusList from "./OrderStatusList/order-status-list";
 import NetworkErrorForm from "./NetworkErrorForm/network-error-form.js";
 
 export default {
@@ -27,6 +28,7 @@ export default {
   paymentChoice,
   shoppingCart,
   ordering,
+  orderStatusList,
   infoAboutOrder,
   suggestsForm,
   NetworkErrorForm,
