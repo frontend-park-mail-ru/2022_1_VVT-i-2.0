@@ -1,8 +1,10 @@
 import * as API from "../../api/api.js";
 import STORE from "../store/store.js";
 
-export const getRestaurants = () => {
-  return API.getRestaurants().then((result) => STORE.addRestaurants(result));
+export const getRestaurants = (options = {}) => {
+  return API.getRestaurants(options).then((result) =>
+    STORE.addRestaurants(result)
+  );
 };
 
 export const getDishes = (restName) => {

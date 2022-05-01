@@ -75,8 +75,13 @@ const request = (url, options = DEFAULT_OPTIONS) => {
  * @function Осуществляет отправку запроса на получение ресторанов.
  * @return {Promise} - возвращает Promise на отправку запроса.
  */
-export const getRestaurants = () => {
-  return request("/restaurants");
+export const getRestaurants = (options) => {
+  return request(
+    "/restaurant?" +
+      Object.entries(options)
+        .map(([key, value]) => `${key}=${value}`)
+        .join("&")
+  );
 };
 
 export const getDishes = (restName) => {
