@@ -11,7 +11,7 @@ const mainPage = (app, store) => {
 
   const main = document.createElement("main");
   main.innerHTML =
-    UIKIT.mainLink("Рестораны") +
+    UIKIT.mainLink("Рестораны") + components.categories(store.getters.categories()) +
     components.restIcons(store.getters.restaurants);
 
   app.root.appendChild(main);

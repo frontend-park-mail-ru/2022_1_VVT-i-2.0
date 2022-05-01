@@ -103,6 +103,10 @@ const STORE = {
   ],
   currentRestName: "",
   token: "",
+  categories: [
+    "Завтрак", "Выпечка", "Мексиканская", "Шашлыки",
+    "Суши", "Бургеры", "Рыба", "Мясо", "Premium", "Здоровая еда", "Наборы еды", "Пицца"
+  ],
 
   // Mutations
   addUser(user, isFirstUpdate) {
