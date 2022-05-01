@@ -38,7 +38,7 @@ export const logout = () => {
 export const suggest = (query) => {
   return API.suggest(query).then((result) => {
     if (result) {
-      STORE.addSuggests(result)
+      STORE.addSuggests(result);
     } else {
       STORE.clearSuggests();
     }
