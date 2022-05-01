@@ -16,7 +16,7 @@ export const suggests = () => STORE.suggests;
 
 export const getAvatar = () => {
   if (!STORE.user.avatar) {
-    return "";
+    return "/graphics/icons/profile.svg";
   }
 
   return STORE.user.avatar;

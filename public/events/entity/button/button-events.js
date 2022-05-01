@@ -201,6 +201,7 @@ export const getButtonEvents = () => {
         type: "click",
         selector: "id",
         listener(app, store, e) {
+          console.log('CLICK');
           let phone =
             document.getElementById("orderingPhone").children[0].value;
 
@@ -226,14 +227,14 @@ export const getButtonEvents = () => {
 
           const order = store.getters.cart().order;
 
-          store.actions.createOrder({ address, comment, cart: order }).then((result) => {
-            if (result.status === 200) {
-              renderAndUpdateURN("/");
-              alert("Заказ успешно создан");
-            } else {
-              alert('Ошибка на сервере');
-            }
-          });
+          // store.actions.createOrder({ address, comment, cart: order }).then((result) => {
+          //   if (result.status === 200) {
+              renderAndUpdateURN("/orderHistory");
+              // alert("Заказ успешно создан");
+            // } else {
+            //   alert('Ошибка на сервере');
+            // }
+          // });
         },
       },
     ],

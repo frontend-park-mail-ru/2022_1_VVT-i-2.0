@@ -5,11 +5,11 @@ import ELEMS_CONFIGURATION from "../../configurations/elems.js";
 import { NumberPhoneFormat } from "../../events/entity/phone/phone-src";
 import { getters } from "../../store/import";
 
-const personInfoForm = ({ name, phone, email }) => {
-  const inputConfigurations = FORMS_CONFIGURATION.inputs.personInfoForm;
-  let avatar = getters.getAvatar();
+const orderStatusForm = ({ name, phone, email }) => {
+    const inputConfigurations = FORMS_CONFIGURATION.inputs.personInfoForm;
+    let avatar = getters.getAvatar();
 
-  const template = `
+    const template = `
         <form id="person-info-form" class="person-info-form" method="POST" enctype="multipart/form-data">
             {{&backButton}}
 
@@ -43,72 +43,61 @@ const personInfoForm = ({ name, phone, email }) => {
                     {{&menu}}
                 </div>
             </div>
-
-<!--            <div class="person-info-form__mail-notification">-->
-<!--                Информация о заказах-->
-<!--            </div>-->
-
-<!--            <div>-->
-<!--                {{&switcherElement}}-->
-<!--            </div>-->
         </form>
     `;
 
-  return Mustache.render(template, {
-    inputConfigurations,
-    avatar,
-    backButton() {
-      return UIKIT.backButton("Все рестораны", "main");
-    },
-    title() {
-      return UIKIT.underlinedTitle("Личные данные");
-    },
-    buttonChangeAvatar() {
-      return UIKIT.simpleButton(
-        "Изменить аватар",
-        COLORS.grey,
-        ELEMS_CONFIGURATION.buttons.SMALL,
-        "",
-        "changeAvatarButton",
-        true
-      );
-    },
-    input() {
-      let value = name;
-      if (this.id === "profilePhone") {
-        value = NumberPhoneFormat.formatPhone(phone);
-      } else if (this.id === "profileEmail") {
-        value = email;
-      }
-      const readonly = this.id === "profilePhone";
+    return Mustache.render(template, {
+        inputConfigurations,
+        avatar,
+        backButton() {
+            return UIKIT.backButton("Все рестораны", "main");
+        },
+        title() {
+            return UIKIT.underlinedTitle("Личные данные");
+        },
+        buttonChangeAvatar() {
+            return UIKIT.simpleButton(
+                "Изменить аватар",
+                COLORS.grey,
+                ELEMS_CONFIGURATION.buttons.SMALL,
+                "",
+                "changeAvatarButton",
+                true
+            );
+        },
+        input() {
+            let value = name;
+            if (this.id === "profilePhone") {
+                value = NumberPhoneFormat.formatPhone(phone);
+            } else if (this.id === "profileEmail") {
+                value = email;
+            }
+            const readonly = this.id === "profilePhone";
 
-      return UIKIT.input(
-        this.title,
-        this.type,
-        this,width,
-        this.placeholder,
-        this.id,
-        this.name,
-        value,
-        readonly
-      );
-    },
-    menu() {
-      return UIKIT.profileMenu();
-    },
-    savePersonInfoChanges() {
-      return UIKIT.simpleButton(
-        "Сохранить",
-        COLORS.primary,
-        ELEMS_CONFIGURATION.buttons.STANDARD,
-        "",
-        "personInfoSaveButton"
-      );
-    },
-    // switcherElement () {
-    //     return UIKIT.switcher();
-    // },
-  });
+            return UIKIT.input(
+                this.title,
+                this.type,
+                this,width,
+                this.placeholder,
+                this.id,
+                this.name,
+                value,
+                readonly
+            );
+        },
+        menu() {
+            return UIKIT.profileMenu();
+        },
+        savePersonInfoChanges() {
+            return UIKIT.simpleButton(
+                "Сохранить",
+                COLORS.primary,
+                ELEMS_CONFIGURATION.buttons.STANDARD,
+                "",
+                "personInfoSaveButton"
+            );
+        },
+    });
 };
 
-export default personInfoForm;
+export default orderStatusForm;

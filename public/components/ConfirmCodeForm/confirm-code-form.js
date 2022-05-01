@@ -44,6 +44,7 @@ const confirmCodeForm = (phone) => {
       return UIKIT.input(
         this.title,
         this.type,
+        this.width,
         this.placeholder,
         this.id
       );

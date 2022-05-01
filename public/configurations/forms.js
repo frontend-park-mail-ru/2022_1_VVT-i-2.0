@@ -7,6 +7,7 @@ const FORMS_CONFIGURATION = {
       {
         title: "Телефон",
         placeholder: "+7(",
+        width: ELEMS_CONFIGURATION.inputs.STANDARD,
         id: "loginPhone",
       },
     ],
@@ -14,16 +15,19 @@ const FORMS_CONFIGURATION = {
       {
         title: "Телефон",
         placeholder: "+7(",
+        width: ELEMS_CONFIGURATION.inputs.STANDARD,
         id: "registerPhone",
       },
       {
         title: "Имя",
         placeholder: "Введите имя",
+        width: ELEMS_CONFIGURATION.inputs.STANDARD,
         id: "registerName",
       },
       {
         title: "Электронная почта",
         placeholder: "Введите электронную почту",
+        width: ELEMS_CONFIGURATION.inputs.STANDARD,
         id: "registerEmail",
       },
     ],
@@ -31,6 +35,7 @@ const FORMS_CONFIGURATION = {
       {
         title: "Код",
         placeholder: "Введите последние 4 цифры номера",
+        width: ELEMS_CONFIGURATION.inputs.STANDARD,
         id: "confirmCode",
       },
     ],
@@ -38,21 +43,21 @@ const FORMS_CONFIGURATION = {
       {
         title: "Имя",
         placeholder: "Введите имя",
-        width: ELEMS_CONFIGURATION.inputs.LARGE,
+        // width: ELEMS_CONFIGURATION.inputs.LARGE,
         id: "profileName",
         name: "name",
       },
       {
         title: "Телефон",
         placeholder: "+7(",
-        width: ELEMS_CONFIGURATION.inputs.LARGE,
+        // width: ELEMS_CONFIGURATION.inputs.LARGE,
         id: "profilePhone",
       },
       {
         title: "Электронная почта",
         type: "email",
         placeholder: "Введите почту",
-        width: ELEMS_CONFIGURATION.inputs.LARGE,
+        // width: ELEMS_CONFIGURATION.inputs.LARGE,
         id: "profileEmail",
         name: "email",
       },

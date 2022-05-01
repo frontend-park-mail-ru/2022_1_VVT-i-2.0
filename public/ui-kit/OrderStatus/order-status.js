@@ -1,7 +1,7 @@
-const orderStatus = (props, status) => {
+const orderStatus = (props) => {
     let statusClass = '';
 
-    switch (status) {
+    switch (props.status) {
         case 'В обработке':
             statusClass = 'status__img_in-processing';
             break;
@@ -48,7 +48,7 @@ const orderStatus = (props, status) => {
         date: props.date,
         price: props.price,
         statusClass,
-        status
+        status: props.status,
     });
 };
 

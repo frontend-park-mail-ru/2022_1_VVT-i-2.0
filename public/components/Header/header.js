@@ -8,6 +8,8 @@ const header = (isOrderingPage = false) => {
   const emptyShopCart = getters.IsCartEmpty();
   const totalOrderPrice = getters.cart().totalPrice;
 
+  console.log(auth, address, avatar, emptyShopCart, totalOrderPrice);
+
   const template = `
         <header class="page-header">
             <nav class="page-header__button page-header__main-button" data-section="main">
