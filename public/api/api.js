@@ -76,8 +76,12 @@ const request = (url, options = DEFAULT_OPTIONS) => {
  * @return {Promise} - возвращает Promise на отправку запроса.
  */
 export const getRestaurants = (options) => {
+  if (Object.keys(options).length === 0) {
+    return request("/restaurants");
+  }
+
   return request(
-    "/restaurant?" +
+    "/restaurants?" +
       Object.entries(options)
         .map(([key, value]) => `${key}=${value}`)
         .join("&")
