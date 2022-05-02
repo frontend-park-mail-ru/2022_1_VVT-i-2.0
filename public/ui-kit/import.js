@@ -13,6 +13,7 @@ import buttonPay from "./ButtonPay/button-pay.js";
 import underlinedTitle from "./UnderlinedTitle/underlined-title.js";
 import simpleTitle from "./SimpleTitle/simple-title";
 import orderStatus from "./OrderStatus/order-status";
+import orderCheck from "./OrderCheck/order-check";
 
 export default {
   simpleButton,
@@ -30,4 +31,5 @@ export default {
   underlinedTitle,
   simpleTitle,
   orderStatus,
+  orderCheck,
 };

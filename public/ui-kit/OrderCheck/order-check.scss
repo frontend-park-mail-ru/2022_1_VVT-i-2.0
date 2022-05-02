@@ -1,0 +1,59 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
+.ordering-page__shopping-cart {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 330px;
+  margin-left: 20%;
+  margin-right: auto;
+  text-align: center;
+}
+
+.shopping-cart__preview-rest {
+  width: 60%;
+  max-width: 312px;
+
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shopping-cart__rest-main-info {
+  padding: 10px;
+}
+
+.shopping-cart_order-points {
+  min-width: 330px;
+  max-height: 400px;
+  min-height: 130px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.shopping-cart__space-block {
+  height: 30px;
+}
+
+.shopping-cart__payment-info {
+  display: flex;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.payment-info__price {
+  margin-left: auto;
+}
+
+.shopping-cart__payment-notify {
+  margin-top: 30px;
+}
+
+.shopping-cart__summary-payment {
+  display: flex;
+  font-weight: bold;
+
+  font-size: 24px;
+  margin-top: 30px;
+}
