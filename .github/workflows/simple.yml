@@ -29,8 +29,8 @@ jobs:
         run: |
           mkdir ./public/build
           cp -r ./public/bundle ./public/build
-          cp -r ./public/graphics ./public/bundle
-          cp -r ./public/index.html ./public/bundle
+          cp -r ./public/graphics ./public/build
+          cp -r ./public/index.html ./public/build
 
 
       - name: Upload build result
