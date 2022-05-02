@@ -9,8 +9,14 @@ export const categories = () => {
         listener(app, store, e) {
           const { title } = e.target.dataset;
 
-          store.actions.clearRestaurants();
-          renderAndUpdateURN(`/main/${title}`);
+          const params = sessionStorage.getItem("params");
+          if (title === params) {
+            sessionStorage.removeItem("params");
+            renderAndUpdateURN("/");
+          } else {
+            store.actions.clearRestaurants();
+            renderAndUpdateURN(`/main/${title}`);
+          }
         }
       }
     ]
