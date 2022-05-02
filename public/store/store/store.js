@@ -122,7 +122,7 @@ const STORE = {
   },
   addDishes(restName, result) {
     const dishes = this.dishes;
-    dishes[restName] = { dishes: result.dishes, restName: result.restName };
+    dishes[restName] = { dishes: result.dishes, restName: result.restName, rating: result.rating, count: result.count };
     this.dishes = dishes;
   },
   addDishToCart(id, restName, price, count = 1) {
