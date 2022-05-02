@@ -41,6 +41,7 @@
 }
 
 .ordering-page__ordering-block {
+  margin-right: 20%;
   padding: 30px 64px 0 58px;
   box-sizing: border-box;
 
@@ -120,8 +121,6 @@
   flex-direction: column;
 
   min-width: 330px;
-  margin-left: 20%;
-  margin-right: auto;
   text-align: center;
 }
 
@@ -140,7 +139,7 @@
 
 .shopping-cart_order-points {
   min-width: 330px;
-  max-height: 400px;
+  max-height: 300px;
   min-height: 130px;
 
   overflow-x: hidden;

@@ -1,7 +1,9 @@
 import UIKIT from "../../ui-kit/import.js";
 
-const orderCheck = (props) => {
+const orderCheck = (props, toShowNotify = true) => {
     const isEmpty = props.total === 0;
+
+    console.log(props.orderPoints);
 
     const template = `        
         <div class="ordering-page__shopping-cart">
@@ -27,7 +29,9 @@ const orderCheck = (props) => {
             <div class="payment-info__price">500 ₽</div>
           </div>
     
+          {{#toShowNotify}}
           <div class="shopping-cart__payment-notify">{{&paymentNotification}}</div>
+          {{/toShowNotify}}
     
           <div class="shopping-cart__summary-payment">
             <div>Итого</div>
@@ -43,6 +47,7 @@ const orderCheck = (props) => {
         total: props.total,
         minPrice: props.minPrice,
         isEmpty,
+        toShowNotify,
         drawOrderPoint() {
             return UIKIT.orderPoint(
                 this.imgPath,

@@ -4,6 +4,10 @@
   justify-content: space-between;
 
   width: 100%;
+  height: 520px;
+
+  text-align: center;
+  justify-items: center;
 }
 
 .order__main-content {
@@ -11,6 +15,18 @@
   flex-direction: row;
 
   max-height: 514px;
+}
+
+.main-content__order-list {
+  max-width: 50%;
+}
+
+.main-content__comment-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  max-width: 95%;
 }
 
 .comment-block__address {

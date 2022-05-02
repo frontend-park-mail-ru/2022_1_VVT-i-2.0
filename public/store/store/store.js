@@ -97,6 +97,7 @@ const STORE = {
     totalPrice: 0,
     order: [],
   },
+  orderList: [],
   suggests: [
     // { address: "FIRST", end: false },
     // { address: "SECOND", end: true },
@@ -158,7 +159,6 @@ const STORE = {
     cart.totalPrice += cart.order[index].price * 1;
 
     this.cart = cart;
-    // console.log(this.cart);/
   },
   decrementDishCount(id) {
     const cart = this.cart;
@@ -198,6 +198,9 @@ const STORE = {
   },
   setToken(token) {
     this.token = token;
+  },
+  addOrderList(orderList) {
+    this.orderList = orderList;
   },
 };
 

@@ -68,3 +68,11 @@ export const createOrder = (order) => {
 export const setToken = (token) => {
   return STORE.setToken(token);
 };
+
+export const getOrderList = () => {
+  return API.getOrderList().then((result) => STORE.addOrderList(result.orderList));
+}
+
+// export const getStatusOrders = () => {
+//   return API.getStatusOrders().then((result) =>
+// }

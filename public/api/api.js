@@ -126,3 +126,15 @@ export const suggest = (query) => {
 export const createOrder = (order) => {
   return request("/order", { method: METHODS.POST, body: order });
 };
+
+export const getOrderList = () => {
+  return request('/orders', { method: METHODS.GET });
+}
+
+export const getStatusOrders = () => {
+  return request('/status_orders', { method: METHODS.GET });
+}
+
+export const getOrderInfo = (orderNumber) => {
+  return request(`/order/${orderNumber}`);
+};

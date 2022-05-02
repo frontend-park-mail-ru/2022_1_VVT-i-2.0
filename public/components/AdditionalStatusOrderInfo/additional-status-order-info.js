@@ -1,13 +1,14 @@
 import UIKIT from "../../ui-kit/import.js";
 import COLORS from "../../configurations/colors/colors";
 
-const infoAboutOrder = (statusInfo, props) => {
+const additionalStatusOrderInfo = (props) => {
     const template = `
         <div class="order">
-<!--            {{{statusInfo}}}-->
             <div class="order__main-content">
-                {{&order}}
-                <div class="comment-block">
+                <div class="main-content__order-list">
+                    {{&order}}
+                </div>
+                <div class="main-content__comment-block">
                     <div class="comment-block__address">
                         Адрес ресторана:
                         Москва, Улица Маршала Полубоярова, дом 51
@@ -26,13 +27,7 @@ const infoAboutOrder = (statusInfo, props) => {
     return Mustache.render(template, {
         // statusInfo,
         order() {
-            const prop = {
-                restName: props.restName,
-                orderPoints: props.cart,
-                total: props.totalPrice,
-                minPrice: 1500,
-        }
-            return UIKIT.orderCheck(prop);
+            return UIKIT.orderCheck(props, false);
         },
         commentButton() {
             return UIKIT.simpleButton('Оставить комментарий', COLORS.primary,
@@ -41,4 +36,4 @@ const infoAboutOrder = (statusInfo, props) => {
     });
 };
 
-export default infoAboutOrder;
+export default additionalStatusOrderInfo;
