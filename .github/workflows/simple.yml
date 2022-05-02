@@ -45,6 +45,6 @@ jobs:
           host: 95.163.180.8
           username: ubuntu
           key: ${{ secrets.PRIVATE_KEY }}
-          source: "./public/bundle/*"
+          source: "build/*"
           target: "/home/ubuntu/frontend"
           strip_components: 1
