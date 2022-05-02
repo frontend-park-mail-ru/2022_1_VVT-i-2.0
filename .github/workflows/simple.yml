@@ -25,11 +25,17 @@ jobs:
       - name: Build
         run: npm run build-prod
 
+      - name: Copy
+        run: |
+          cp -r ./public/graphics ./public/bundle
+          cp -r ./public/index.html ./public/bundle
+
+
       - name: Upload build result
         uses: actions/upload-artifact@v1
         with:
           name: build
-          path: ./public
+          path: ./public/bundle
 
   deploy:
     runs-on: ubuntu-latest
