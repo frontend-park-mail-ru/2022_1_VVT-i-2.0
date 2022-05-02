@@ -1,0 +1,22 @@
+.order {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.order__main-content {
+  display: flex;
+  flex-direction: row;
+
+  max-height: 514px;
+}
+
+.comment-block__address {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 220px;
+}

@@ -158,6 +158,7 @@ const STORE = {
     cart.totalPrice += cart.order[index].price * 1;
 
     this.cart = cart;
+    // console.log(this.cart);/
   },
   decrementDishCount(id) {
     const cart = this.cart;

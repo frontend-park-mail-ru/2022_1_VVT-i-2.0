@@ -1,5 +1,7 @@
 import {renderAndUpdateURN} from "../../../render/render.js";
 import {scrollTo} from "./frame-src";
+import components from '../../../components/import';
+import {getters} from "../../../store/import";
 
 export const getFrameEvents = () => {
   return {
@@ -23,13 +25,38 @@ export const getFrameEvents = () => {
           type: "click",
           selector: "class",
           listener(app, store, e) {
-            e.target.style.transition = 'height ease-in-out 2s';
+            const elem = document.getElementById(e.target.dataset.id);
+            const topPos = elem.offsetTop;
 
-            const topPos = e.target.offsetTop;
-            scrollTo(document.getElementsByClassName('content-nav-block__content-block'), topPos-30, 600);
+            const container = document.getElementsByClassName('content-nav-block__content-block');
 
-            e.target.style.height = '561px';
-            e.target.style.transition = '';
+            console.log(container);
+
+            scrollTo(container, topPos, 600);
+
+            console.log(elem.outerHTML);
+
+            const cart = {
+              order: [
+                {id: 175, price: '249', count: 1},
+                {id: 176, price: '249', count: 3},
+                {id: 165, price: '469', count: 1},
+                {id: 168, price: '289', count: 1},
+                {id: 167, price: '149', count: 1},
+                {id: 166, price: '139', count: 1},
+                {id: 170, price: '249', count: 1},
+                {id: 171, price: '269', count: 1},
+                {id: 174, price: '279', count: 1},
+                {id: 173, price: '269', count: 1},
+                {id: 172, price: '309', count: 1},
+              ],
+              totalPrice: 3417,
+            };
+
+            const restName = 'Dostaевский';
+
+            elem.outerHTML = components.infoAboutOrder(elem, restName, cart);
+            // e.target.style.height = '561px';
           },
         },
     ]

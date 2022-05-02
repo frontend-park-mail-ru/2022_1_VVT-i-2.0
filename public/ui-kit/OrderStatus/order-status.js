@@ -17,7 +17,7 @@ const orderStatus = (props) => {
     }
 
     const template = `
-        <div class="order-info">
+        <div id="{{orderNumber}}" class="order-info">
             <div class="order-info__order-number">
                 #{{orderNumber}}
             </div>
@@ -37,7 +37,7 @@ const orderStatus = (props) => {
                 </div>
             </div>
             <div class="order-info__move-controller">
-                <img id="{{orderNumber}}" class="buttonOpenClose" src="/graphics/icons/keyboard_arrow_down.svg" alt="">
+                <img data-id="{{orderNumber}}" class="buttonOpenClose" src="/graphics/icons/keyboard_arrow_down.svg" alt="">
             </div>
         </div>
     `;

@@ -41,6 +41,7 @@ const ordering = (props) => {
           {{&paymentChoices}}
           {{&buttonPay}}
         </div>
+        
         <div class="ordering-page__shopping-cart">
           {{^isEmpty}}
           <div class="shopping-cart__rest-main-info shopping-cart__order-point">

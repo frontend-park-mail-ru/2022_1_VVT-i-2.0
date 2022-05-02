@@ -18,6 +18,8 @@
   //padding-right: 10px;
   //padding-left: 5px;
 
+  transition: height ease-in-out 2s;
+
   font-size: 20px;
   font-weight: 500;
   border: 1px solid theme.getColor('grey');
@@ -78,5 +80,5 @@
   width: 33px;
 
   margin-bottom: auto;
-  margin-top: 30%;
+  margin-top: 25%;
 }

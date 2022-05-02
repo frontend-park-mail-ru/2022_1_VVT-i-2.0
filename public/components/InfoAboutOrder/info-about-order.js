@@ -2,11 +2,11 @@ import UIKIT from "../../ui-kit/import.js";
 import component from '../import';
 import COLORS from "../../configurations/colors/colors";
 
-const infoAboutOrder = (restName, props) => {
+const infoAboutOrder = (statusInfo, restName, cart) => {
     const template = `
-        <div class="order-info">
-            {{&statusOrder}}
-            <div class="order-info__main-content">
+        <div class="order">
+<!--            {{{statusInfo}}}-->
+            <div class="order__main-content">
                 {{&order}}
                 <div class="comment-block">
                     <div class="comment-block__address">
@@ -25,11 +25,9 @@ const infoAboutOrder = (restName, props) => {
     `;
 
     return Mustache.render(template, {
-        statusOrder() {
-            return UIKIT.orderStatus(props);
-        },
+        // statusInfo,
         order() {
-            return component.shoppingCart(restName, props);
+            return component.shoppingCart(restName, cart.order);
         },
         commentButton() {
             return UIKIT.simpleButton('Оставить комментарий', COLORS.primary,
