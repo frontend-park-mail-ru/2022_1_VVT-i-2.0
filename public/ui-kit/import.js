@@ -13,6 +13,7 @@ import buttonPay from "./ButtonPay/button-pay.js";
 import underlinedTitle from "./UnderlinedTitle/underlined-title.js";
 import simpleTitle from "./SimpleTitle/simple-title";
 import commentsBlock from "./CommentsBlock/comments-block.js";
+import comment from "./Comment/comment.js";
 
 export default {
   simpleButton,
@@ -29,5 +30,6 @@ export default {
   buttonPay,
   underlinedTitle,
   simpleTitle,
-  commentsBlock
+  commentsBlock,
+  comment
 };

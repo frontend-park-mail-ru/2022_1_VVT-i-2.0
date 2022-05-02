@@ -135,3 +135,7 @@ export const suggest = (query) => {
 export const createOrder = (order) => {
   return request("/order", { method: METHODS.POST, body: order });
 };
+
+export const getComments = (restName) => {
+  return request(`/comments/${restName}`);
+};

@@ -103,6 +103,30 @@ const STORE = {
   ],
   currentRestName: "",
   token: "",
+  comments: {
+    foodband: {
+      comments: [
+        // {
+        //   stars: 4.8,
+        //   text: 'Тут я оставил вот такой крутой отзыв на ресторан',
+        //   author: 'Иван',
+        //   date: '29 апреля 2022, 17:09'
+        // },
+        // {
+        //   stars: 4.8,
+        //   text: 'Тут я оставил вот такой крутой отзыв на ресторан',
+        //   author: 'Иван',
+        //   date: '29 апреля 2022, 17:09'
+        // },
+        // {
+        //   stars: 4.8,
+        //   text: 'Тут я оставил вот такой крутой отзыв на ресторан',
+        //   author: 'Иван',
+        //   date: '29 апреля 2022, 17:09'
+        // },
+      ]
+    }
+  },
 
   // Mutations
   addUser(user, isFirstUpdate) {
@@ -197,6 +221,11 @@ const STORE = {
   },
   setToken(token) {
     this.token = token;
+  },
+  addComments(restName, result) {
+    const comments = this.comments;
+    comments[restName] = { comments: result };
+    this.comments = comments;
   },
 };
 
