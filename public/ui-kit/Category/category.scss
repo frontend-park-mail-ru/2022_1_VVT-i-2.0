@@ -12,8 +12,6 @@
 
   margin-top: 10px;
 
-  cursor: pointer;
-
   &__title {
     display: flex;
     justify-content: center;
@@ -28,4 +26,9 @@
   &_selected {
     background: theme.getColor('greyBrown');
   }
+}
+
+.category:hover {
+  cursor: pointer;
+  opacity: 0.5;
 }
