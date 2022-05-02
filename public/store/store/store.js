@@ -146,7 +146,7 @@ const STORE = {
   },
   addDishes(restName, result) {
     const dishes = this.dishes;
-    dishes[restName] = { dishes: result.dishes, restName: result.restName, rating: result.rating, count: result.reviewCount };
+    dishes[restName] = { dishes: result.dishes, restName: result.restName, rating: result.rating, reviewCount: result.reviewCount };
     this.dishes = dishes;
   },
   addDishToCart(id, restName, price, count = 1) {

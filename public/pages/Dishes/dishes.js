@@ -24,7 +24,7 @@ const dishesPage = (app, store) => {
   const main = document.createElement("main");
   main.innerHTML =
     UIKIT.backButton("Все рестораны", "main") +
-    UIKIT.simpleTitle(restName) + UIKIT.commentsBlock(params, dishObj.rating, dishObj.count) +
+    UIKIT.simpleTitle(restName) + UIKIT.commentsBlock(params, dishObj.rating, dishObj.reviewCount) +
     components.dishesIcons(dishObj.dishes, restName);
 
   app.root.appendChild(main);
