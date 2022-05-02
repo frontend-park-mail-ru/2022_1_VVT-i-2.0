@@ -11,7 +11,7 @@ const categories = (categories) => {
   return Mustache.render(template, {
     categories,
     category() {
-      return UIKIT.category(this);
+      return UIKIT.category(this.title, this.selected);
     }
   });
 };

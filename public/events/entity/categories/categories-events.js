@@ -1,3 +1,5 @@
+import { renderAndUpdateURN } from "../../../render/render";
+
 export const categories = () => {
   return {
     category: [
@@ -7,7 +9,8 @@ export const categories = () => {
         listener(app, store, e) {
           const { title } = e.target.dataset;
 
-          store.actions.getRestaurants({ category: title });
+          store.actions.clearRestaurants();
+          renderAndUpdateURN(`/main/${title}`);
         }
       }
     ]

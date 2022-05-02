@@ -7,6 +7,10 @@ export const getRestaurants = (options = {}) => {
   );
 };
 
+export const clearRestaurants = () => {
+  return STORE.clearRestaurants();
+}
+
 export const getDishes = (restName) => {
   return API.getDishes(restName).then((result) =>
     STORE.addDishes(restName, result)

@@ -7,7 +7,7 @@
 
   border-radius: 16px;
 
-  min-width: 120px;
+  min-width: 100px;
   height: 28px;
 
   margin-top: 10px;
@@ -18,5 +18,14 @@
     display: flex;
     justify-content: center;
     margin: auto;
+
+    font-size: 12px;
+    line-height: 16px;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  &_selected {
+    background: theme.getColor('greyBrown');
   }
 }

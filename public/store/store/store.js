@@ -104,8 +104,9 @@ const STORE = {
   currentRestName: "",
   token: "",
   categories: [
-    "Завтрак", "Выпечка", "Мексиканская", "Шашлыки",
-    "Суши", "Бургеры", "Рыба", "Мясо", "Premium", "Здоровая еда", "Наборы еды", "Пицца"
+    { title: "Завтрак" }, { title: "Выпечка" }, { title: "Мексиканская" }, { title: "Шашлыки" },
+    { title: "Суши" }, { title: "Бургеры" }, { title: "Рыба" }, { title: "Мясо" },
+    { title: "Premium" }, { title: "Здоровая еда" }, { title: "Наборы еды" }, { title: "Пицца" }
   ],
 
   // Mutations
@@ -123,6 +124,9 @@ const STORE = {
   },
   addRestaurants(restaurants) {
     this.restaurants = restaurants;
+  },
+  clearRestaurants() {
+    this.restaurants = [];
   },
   addDishes(restName, result) {
     const dishes = this.dishes;
