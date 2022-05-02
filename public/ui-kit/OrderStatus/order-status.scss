@@ -9,8 +9,14 @@
   justify-items: center;
   text-align: center;
 
-  width: 700px;
-  height: 60px;
+  max-width: 700px;
+  max-height: 65px;
+
+  width: 698px;
+  height: 65px;
+
+  //padding-right: 10px;
+  //padding-left: 5px;
 
   font-size: 20px;
   font-weight: 500;
@@ -33,7 +39,8 @@
   flex-direction: row;
   justify-content: space-between;
 
-  width: 135px;
+  max-width: 155px;
+  width: 155px;
 }
 
 .status__img {
@@ -60,6 +67,16 @@
   }
 }
 
-.button-open-close {
-  width: 34px;
+.order-info__move-controller {
+  width: 50px;
+  height: 100%;
+
+  padding-right: 10px;
+}
+
+.buttonOpenClose {
+  width: 33px;
+
+  margin-bottom: auto;
+  margin-top: 30%;
 }

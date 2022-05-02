@@ -36,8 +36,8 @@ const orderStatus = (props) => {
                     {{status}}
                 </div>
             </div>
-            <div>
-                <img class="button-open-close" src="/graphics/icons/arrow_back.svg" alt="">
+            <div class="order-info__move-controller">
+                <img id="{{orderNumber}}" class="buttonOpenClose" src="/graphics/icons/keyboard_arrow_down.svg" alt="">
             </div>
         </div>
     `;
