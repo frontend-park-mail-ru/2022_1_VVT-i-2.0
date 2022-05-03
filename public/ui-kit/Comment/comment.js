@@ -5,7 +5,7 @@ const comment = (stars, text, author, date) => {
       <span class="comment__stars">{{stars}}</span>
       <div>
         <div class="comment__text">{{text}}</div>
-        <div>
+        <div class="comment__information">
           <span class="comment__author">{{author}}</span>
           <span class="comment__date">{{date}}</span>
         </div>

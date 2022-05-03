@@ -7,7 +7,6 @@
   border-radius: 16px;
 
   min-width: 760px;
-  height: 60px;
 
   margin-bottom: 30px;
 
@@ -33,7 +32,11 @@
     font-style: normal;
     font-weight: 700;
     margin-top: 10px;
-    margin-bottom: 7px;
+  }
+
+  &__information {
+    margin-top: 7px;
+    margin-bottom: 10px;
   }
 
   &__author {
