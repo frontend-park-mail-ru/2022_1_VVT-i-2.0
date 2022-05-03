@@ -3,7 +3,7 @@ import * as store from "../store/import.js";
 
 const METHODS = { GET: "GET", POST: "POST", PUT: "PUT", DELETE: "DELETE" };
 
-const BASE_URI = "https://tavide.xyz";
+const BASE_URI = "https://tavide.xyz:8080";
 
 const DEFAULT_OPTIONS = {
   method: METHODS.GET,
