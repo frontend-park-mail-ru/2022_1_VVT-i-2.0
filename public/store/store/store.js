@@ -200,6 +200,7 @@ const STORE = {
     this.token = token;
   },
   addOrderList(orderList) {
+    console.log(orderList);
     this.orderList = orderList;
   },
 };
