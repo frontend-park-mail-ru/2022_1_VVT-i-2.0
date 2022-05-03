@@ -31,5 +31,3 @@ export const getCurrentSlug = () => {
 };
 
 export const token = () => STORE.token;
-
-export const comments = () => STORE.comments;
