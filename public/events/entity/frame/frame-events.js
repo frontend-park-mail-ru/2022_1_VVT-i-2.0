@@ -19,11 +19,15 @@ export const getFrameEvents = () => {
           },
         },
     ],
-    buttonOpenOrder: [
+    buttonOpenClose: [
         {
           type: "click",
           selector: "class",
           listener(app, store, e) {
+            if ((e.target.dataset.id)[0] === '#') {
+              console.log('close');
+              return;
+            }
             const statusLine = document.getElementById(e.target.dataset.id);
             const topPos = statusLine.offsetTop;
 
@@ -79,8 +83,8 @@ export const getFrameEvents = () => {
             [...buttonImages].forEach((buttonImage) => {
               if (buttonImage.getAttribute('data-id') === e.target.dataset.id) {
                 buttonImage.src = './graphics/icons/keyboard_arrow_up.svg';
-                buttonImage.classList.remove('buttonOpenOrder');
-                buttonImage.classList.add('buttonCloseOrder');
+                // buttonImage.classList.remove('buttonOpenOrder');
+                // buttonImage.classList.add('buttonCloseOrder');
                 buttonImage.dataset.id = '#'+String(e.target.dataset.id);
               }
             });
@@ -93,21 +97,21 @@ export const getFrameEvents = () => {
           },
         },
     ],
-    buttonCloseOrder: [
-      {
-        type: "click",
-        selector: "class",
-        listener(app, store, e) {
-          console.log('UTAAA');
-          // console.log(e.target.dataset.id);
-
-          // const statusOrderInfo = document.getElementById(e.target.dataset.id);
-
-          // console.log(statusOrderInfo);
-
-          // statusOrderInfo.outerHTML = '';
-        },
-      },
-    ]
+    // buttonCloseOrder: [
+    //   {
+    //     type: "click",
+    //     selector: "class",
+    //     listener(app, store, e) {
+    //       console.log('UTAAA');
+    //       // console.log(e.target.dataset.id);
+    //
+    //       // const statusOrderInfo = document.getElementById(e.target.dataset.id);
+    //
+    //       // console.log(statusOrderInfo);
+    //
+    //       // statusOrderInfo.outerHTML = '';
+    //     },
+    //   },
+    // ]
   };
 };

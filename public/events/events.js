@@ -4,8 +4,7 @@ import * as FORM from "./common/status-form.js";
 
 const EVENTS = {
   closeImg: Event.getFrameEvents().closeImg,
-  buttonOpenOrder: Event.getFrameEvents().buttonOpenOrder,
-  buttonCloseOrder: Event.getFrameEvents().buttonCloseOrder,
+  buttonOpenClose: Event.getFrameEvents().buttonOpenClose,
   avatarUpload: Event.getInputEvents(),
   suggestsSearch: Event.suggests().suggestsSearch,
   suggestsRow: Event.suggests().suggestsRow,
