@@ -8,6 +8,7 @@
     "start": "DEBUG=server node server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --watch",
+    "build-prod": "webpack",
     "webpack-start": "webpack-dev-server",
     "linter": "npx prettier --write 'public/**/*.js'"
   },

@@ -108,6 +108,30 @@ const STORE = {
     { title: "Русская" }, { title: "Японская" }, { title: "Паназиатская" }, { title: "Завтраки" },
     { title: "Обеды" }, { title: "Сэндвичи" }, { title: "Китайская" }, { title: "Здоровая еда" }
   ],
+  comments: {
+    // foodband: {
+    //   comments: [
+    //     {
+    //       stars: 4.8,
+    //       text: 'Тут я оставил вот такой крутой отзыв на ресторан',
+    //       author: 'Иван',
+    //       date: '29 апреля 2022, 17:09'
+    //     },
+    //     {
+    //       stars: 4.8,
+    //       text: 'Тут я оставил вот такой крутой отзыв на ресторан',
+    //       author: 'Иван',
+    //       date: '29 апреля 2022, 17:09'
+    //     },
+    //     {
+    //       stars: 4.8,
+    //       text: 'Тут я оставил вот такой крутой отзыв на ресторан',
+    //       author: 'Иван',
+    //       date: '29 апреля 2022, 17:09'
+    //     },
+    //   ]
+    // }
+  },
 
   // Mutations
   addUser(user, isFirstUpdate) {
@@ -130,7 +154,7 @@ const STORE = {
   },
   addDishes(restName, result) {
     const dishes = this.dishes;
-    dishes[restName] = { dishes: result.dishes, restName: result.restName };
+    dishes[restName] = { dishes: result.dishes, restName: result.restName, rating: result.rating, reviewCount: result.reviewCount };
     this.dishes = dishes;
   },
   addDishToCart(id, restName, price, count = 1) {
@@ -205,6 +229,11 @@ const STORE = {
   },
   setToken(token) {
     this.token = token;
+  },
+  addComments(restName, result) {
+    const comments = this.comments;
+    comments[restName] = { comments: result };
+    this.comments = comments;
   },
 };
 

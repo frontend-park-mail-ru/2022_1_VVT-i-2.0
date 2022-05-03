@@ -74,3 +74,9 @@ export const createOrder = (order) => {
 export const setToken = (token) => {
   return STORE.setToken(token);
 };
+
+export const getComments = (restName) => {
+  return API.getComments(restName).then((result) =>
+    STORE.addComments(restName, result)
+  );
+}
