@@ -26,6 +26,8 @@ export const getFrameEvents = () => {
           listener(app, store, e) {
             if ((e.target.dataset.id)[0] === '#') {
               console.log('close');
+              const orderElem = document.getElementById('#'+e.target.dataset.id);
+              orderElem.innerHTML = '';
               return;
             }
             const statusLine = document.getElementById(e.target.dataset.id);
@@ -77,7 +79,8 @@ export const getFrameEvents = () => {
               minPrice: 1300,
             };
 
-            statusLine.outerHTML += components.additionalStatusOrderInfo(props, '#'+String(e.target.dataset.id));
+            const orderElem = document.getElementById('#'+e.target.dataset.id);
+            orderElem.innerHTML += components.additionalStatusOrderInfo(props);
             const buttonImages = document.querySelectorAll('img[data-id]');
 
             [...buttonImages].forEach((buttonImage) => {
@@ -88,6 +91,8 @@ export const getFrameEvents = () => {
                 buttonImage.dataset.id = '#'+String(e.target.dataset.id);
               }
             });
+
+
             //
             // e.target.src = "./graphics/icons/keyboard_arrow_up.svg";
             // e.target.classList.remove('buttonOpenOrder');

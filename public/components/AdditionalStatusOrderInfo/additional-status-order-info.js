@@ -1,9 +1,9 @@
 import UIKIT from "../../ui-kit/import.js";
 import COLORS from "../../configurations/colors/colors";
 
-const additionalStatusOrderInfo = (props, newElementID) => {
+const additionalStatusOrderInfo = (props) => {
     const template = `
-        <div id="{{newElementID}}" class="order">
+        <div class="order">
             <div class="order__main-content">
                 <div class="main-content__order-list">
                     {{&order}}
@@ -25,7 +25,6 @@ const additionalStatusOrderInfo = (props, newElementID) => {
     `;
 
     return Mustache.render(template, {
-        newElementID,
         order() {
             return UIKIT.orderCheck(props, false);
         },
