@@ -12,10 +12,10 @@ const commentsPage = (app, store) => {
     return;
   }
 
-  // if (!store.getters.comments().hasOwnProperty(params)) {
-  //   store.actions.getComments(params);
-  //   return;
-  // }
+  if (!store.getters.comments().hasOwnProperty(params)) {
+    store.actions.getComments(params);
+    return;
+  }
 
   const dishObj = store.getters.dishes()[params];
   const restName = dishObj.restName;
