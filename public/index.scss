@@ -17,8 +17,16 @@ main {
   position: absolute;
   top: 68px;
   padding-top: 1%;
-  padding-left: 8%;
-  padding-right: 8%;
+
+  @media screen and (orientation: portrait) and (max-width: 815px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  @media screen and (orientation: landscape) and (min-width: 815px) {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
 }
 
 .shown {

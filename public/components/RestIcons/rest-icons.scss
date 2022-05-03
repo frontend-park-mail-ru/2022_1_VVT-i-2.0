@@ -5,6 +5,14 @@
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 50px;
+
+    @media screen and (orientation: portrait) and (max-width: 815px) {
+        margin-top: 0px;
+    }
+
+    @media screen and (orientation: landscape) and (min-width: 815px) {
+        margin-top: 50px;
+    }
 }
 
 .restaurants-form__rest_icon {
@@ -14,11 +22,12 @@
 
     align-content: center;
 
-    @media screen and (orientation: landscape) and (max-width: 815px) {
+    @media screen and (orientation: portrait) and (max-width: 815px) {
+        margin: auto;
         margin-bottom: 24px;
     }
 
-    @media screen and (orientation: portrait) and (min-width: 815px) {
+    @media screen and (orientation: landscape) and (min-width: 815px) {
         margin-bottom: 70px;
     }
 

@@ -1,12 +1,13 @@
 @use 'public/configurations/colors/colors.scss' as theme;
 
 .links_block__location {
-    @media screen and (orientation: landscape) and (max-width: 815px) {
-        margin-top: 18px;
-        margin-bottom: 24px;
+    width: 343px;
+
+    @media screen and (orientation: portrait) and (max-width: 815px) {
+        margin: 18px auto 30px auto;
     }
 
-    @media screen and (orientation: portrait) and (min-width: 815px) {
+    @media screen and (orientation: landscape) and (min-width: 815px) {
         margin-top: 50px;
         margin-bottom: 50px;
     }

@@ -40,6 +40,10 @@ export const dishEvents = () => {
           }
 
           store.actions.decrementDishCount(parseInt(id, 10));
+
+          if (store.getters.IsCartEmpty()) {
+            renderAndUpdateURN("/dishes/" + store.getters.getCurrentSlug());
+          }
         },
       },
     ],
