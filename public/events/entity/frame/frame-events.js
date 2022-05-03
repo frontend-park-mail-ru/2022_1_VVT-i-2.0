@@ -19,35 +19,18 @@ export const getFrameEvents = () => {
           },
         },
     ],
-    buttonOpenClose: [
+    buttonOpenOrder: [
         {
           type: "click",
           selector: "class",
           listener(app, store, e) {
-            const elem = document.getElementById(e.target.dataset.id);
-            const topPos = elem.offsetTop;
+            const statusLine = document.getElementById(e.target.dataset.id);
+            const topPos = statusLine.offsetTop;
 
-            const container = document.getElementsByClassName('content-nav-block__content-block');
-            scrollTo(container, topPos, 600);
+            const container = document.getElementsByClassName('content-nav-block__content-block')[0];
+            scrollTo(container, topPos-186, 600);
 
             // store.actions.getOrderList().then(() => renderAndUpdateURN("/orderHistory"));
-
-            // const cart = {
-            //   order: [
-            //     {id: 175, price: '249', count: 1},
-            //     {id: 176, price: '249', count: 3},
-            //     {id: 165, price: '469', count: 1},
-            //     {id: 168, price: '289', count: 1},
-            //     {id: 167, price: '149', count: 1},
-            //     {id: 166, price: '139', count: 1},
-            //     {id: 170, price: '249', count: 1},
-            //     {id: 171, price: '269', count: 1},
-            //     {id: 174, price: '279', count: 1},
-            //     {id: 173, price: '269', count: 1},
-            //     {id: 172, price: '309', count: 1},
-            //   ],
-            //   totalPrice: 3417,
-            // };
 
             const props = {
               restName: 'Макдональдс',
@@ -61,6 +44,7 @@ export const getFrameEvents = () => {
                   productName: "Кока-кола",
                   restaurant: 62893,
                   weight: 350,
+                  count: 3,
                 },
                 {
                   description: "Все будет coca-cola.",
@@ -71,6 +55,7 @@ export const getFrameEvents = () => {
                   productName: "Кока-кола",
                   restaurant: 62893,
                   weight: 350,
+                  count: 3,
                 },
                 {
                   description: "Все будет coca-cola.",
@@ -81,20 +66,48 @@ export const getFrameEvents = () => {
                   productName: "Кока-кола",
                   restaurant: 62893,
                   weight: 350,
+                  count: 3,
                 },
               ],
               total: 26000,
               minPrice: 1300,
             };
 
-            const restName = 'Dostaевский';
+            statusLine.outerHTML += components.additionalStatusOrderInfo(props, '#'+String(e.target.dataset.id));
+            const buttonImages = document.querySelectorAll('img[data-id]');
 
-           elem.outerHTML += components.additionalStatusOrderInfo(props);
-
-            console.log(elem.outerHTML);
-            // e.target.style.height = '561px';
+            [...buttonImages].forEach((buttonImage) => {
+              if (buttonImage.getAttribute('data-id') === e.target.dataset.id) {
+                buttonImage.src = './graphics/icons/keyboard_arrow_up.svg';
+                buttonImage.classList.remove('buttonOpenOrder');
+                buttonImage.classList.add('buttonCloseOrder');
+                buttonImage.dataset.id = '#'+String(e.target.dataset.id);
+              }
+            });
+            //
+            // e.target.src = "./graphics/icons/keyboard_arrow_up.svg";
+            // e.target.classList.remove('buttonOpenOrder');
+            // e.target.classList.add('buttonCloseOrder');
+            //
+            // console.log(e.target, e.target.src);
           },
         },
+    ],
+    buttonCloseOrder: [
+      {
+        type: "click",
+        selector: "class",
+        listener(app, store, e) {
+          console.log('UTAAA');
+          // console.log(e.target.dataset.id);
+
+          // const statusOrderInfo = document.getElementById(e.target.dataset.id);
+
+          // console.log(statusOrderInfo);
+
+          // statusOrderInfo.outerHTML = '';
+        },
+      },
     ]
   };
 };

@@ -76,8 +76,10 @@
   padding-right: 10px;
 }
 
-.buttonOpenClose {
+.buttonOpenOrder,
+.buttonCloseOrder {
   width: 33px;
+  cursor: pointer;
 
   margin-bottom: auto;
   margin-top: 25%;

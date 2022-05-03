@@ -5,6 +5,7 @@ const orderStatusList = (props) => {
         {{#props}}
             {{&statusInfo}}
         {{/props}}
+        <div class="empty-block"></div>
   `;
 
     return Mustache.render(template, {

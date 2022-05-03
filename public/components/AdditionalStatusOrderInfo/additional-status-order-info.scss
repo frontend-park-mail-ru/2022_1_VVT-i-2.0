@@ -4,7 +4,8 @@
   justify-content: space-between;
 
   width: 100%;
-  height: 520px;
+  height: 583px;
+  padding-top: 5px;
 
   text-align: center;
   justify-items: center;
@@ -15,6 +16,11 @@
   flex-direction: row;
 
   max-height: 514px;
+}
+
+.comment-block__address {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .main-content__order-list {
