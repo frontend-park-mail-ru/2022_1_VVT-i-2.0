@@ -26,8 +26,10 @@ export const getFrameEvents = () => {
           listener(app, store, e) {
             if ((e.target.dataset.id)[0] === '#') {
               console.log('close');
-              const orderElem = document.getElementById('#'+e.target.dataset.id);
+              const orderElem = document.getElementById(e.target.dataset.id);
               orderElem.innerHTML = '';
+              e.target.dataset.id = e.target.dataset.id.replace('#', '');
+              e.target.src = './graphics/icons/keyboard_arrow_down.svg';
               return;
             }
             const statusLine = document.getElementById(e.target.dataset.id);
@@ -81,16 +83,18 @@ export const getFrameEvents = () => {
 
             const orderElem = document.getElementById('#'+e.target.dataset.id);
             orderElem.innerHTML += components.additionalStatusOrderInfo(props);
-            const buttonImages = document.querySelectorAll('img[data-id]');
+            // const buttonImages = document.querySelectorAll('img[data-id]');
 
-            [...buttonImages].forEach((buttonImage) => {
-              if (buttonImage.getAttribute('data-id') === e.target.dataset.id) {
-                buttonImage.src = './graphics/icons/keyboard_arrow_up.svg';
-                // buttonImage.classList.remove('buttonOpenOrder');
-                // buttonImage.classList.add('buttonCloseOrder');
-                buttonImage.dataset.id = '#'+String(e.target.dataset.id);
-              }
-            });
+            // [...buttonImages].forEach((buttonImage) => {
+            //   if (buttonImage.getAttribute('data-id') === e.target.dataset.id) {
+            //     buttonImage.src = './graphics/icons/keyboard_arrow_up.svg';
+            //     // buttonImage.classList.remove('buttonOpenOrder');
+            //     // buttonImage.classList.add('buttonCloseOrder');
+            //     buttonImage.dataset.id = '#'+String(e.target.dataset.id);
+            //   }
+            // });
+            e.target.dataset.id = '#'+String(e.target.dataset.id);
+            e.target.src = './graphics/icons/keyboard_arrow_up.svg';
 
 
             //
