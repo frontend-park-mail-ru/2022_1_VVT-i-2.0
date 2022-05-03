@@ -104,9 +104,9 @@ const STORE = {
   currentRestName: "",
   token: "",
   categories: [
-    { title: "Завтрак" }, { title: "Выпечка" }, { title: "Мексиканская" }, { title: "Шашлыки" },
-    { title: "Суши" }, { title: "Бургеры" }, { title: "Рыба" }, { title: "Мясо" },
-    { title: "Premium" }, { title: "Здоровая еда" }, { title: "Наборы еды" }, { title: "Пицца" }
+    { title: "Суши" }, { title: "Пицца" }, { title: "Бургеры" }, { title: "Фастфуд" },
+    { title: "Русская" }, { title: "Японская" }, { title: "Паназиатская" }, { title: "Завтраки" },
+    { title: "Обеды" }, { title: "Сэндвичи" }, { title: "Китайская" }, { title: "Здоровая еда" }
   ],
 
   // Mutations
