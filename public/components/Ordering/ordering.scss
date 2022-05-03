@@ -112,10 +112,9 @@
 .ordering-block__comment-block {
   @include flex-left ();
   height: 65px;
-  max-width: 515px;
 
   @media screen and (orientation: portrait) and (max-width: 920px) {
-    width: 263px;
+    max-width: 263px;
     padding: 10px 25px 10px 55px;
   }
 
