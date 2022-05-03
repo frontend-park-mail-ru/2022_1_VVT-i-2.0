@@ -103,6 +103,11 @@ const STORE = {
   ],
   currentRestName: "",
   token: "",
+  categories: [
+    { title: "Суши" }, { title: "Пицца" }, { title: "Бургеры" }, { title: "Фастфуд" },
+    { title: "Русская" }, { title: "Японская" }, { title: "Паназиатская" }, { title: "Завтраки" },
+    { title: "Обеды" }, { title: "Сэндвичи" }, { title: "Китайская" }, { title: "Здоровая еда" }
+  ],
   comments: {
     // foodband: {
     //   comments: [
@@ -143,6 +148,9 @@ const STORE = {
   },
   addRestaurants(restaurants) {
     this.restaurants = restaurants;
+  },
+  clearRestaurants() {
+    this.restaurants = [];
   },
   addDishes(restName, result) {
     const dishes = this.dishes;
