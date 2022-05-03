@@ -8,7 +8,7 @@ const header = (isOrderingPage = false) => {
     const emptyShopCart = getters.IsCartEmpty();
     const totalOrderPrice = getters.cart().totalPrice;
 
-    const isMobile = window.screen.width < 900;
+    const isMobile = window.screen.width < 920;
 
     const template = `
         <header class="page-header">

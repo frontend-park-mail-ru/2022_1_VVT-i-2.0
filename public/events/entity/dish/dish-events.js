@@ -9,7 +9,9 @@ export const dishEvents = () => {
         listener(app, store, e) {
           const { id, rest, price } = e.target.dataset;
           store.actions.addDishToCart(parseInt(id, 10), rest, price);
-          renderAndUpdateURN("/shoppingCart", true);
+          if (window.screen.width >= 920) {
+            renderAndUpdateURN("/shoppingCart", true);
+          }
         },
       },
     ],

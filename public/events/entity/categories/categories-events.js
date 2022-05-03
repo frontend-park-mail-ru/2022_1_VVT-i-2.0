@@ -19,6 +19,26 @@ export const categories = () => {
           }
         }
       }
+    ],
+    categoriesSelect: [
+      {
+        type: "change",
+        selector: "id",
+        listener(app, store, e) {
+          const title = e.target.value;
+
+          if (title === 'Все') {
+            sessionStorage.removeItem("params");
+            renderAndUpdateURN("/");
+          }
+
+          const params = sessionStorage.getItem("params");
+          if (title !== params) {
+            store.actions.clearRestaurants();
+            renderAndUpdateURN(`/main/${title}`);
+          }
+        }
+      }
     ]
   };
 };
