@@ -9,6 +9,7 @@ import shoppingCartPage from "./ShoppingCart/shopping-cart.js";
 import orderingPage from "./Ordering/ordering.js";
 import suggestsPage from "./Suggests/suggests.js";
 import networkErrors from "./NetworkErrors/network-errors.js";
+import commentsPage from "./Comments/comments.js"
 
 const MENU = {
   main: {
@@ -66,13 +67,18 @@ const MENU = {
     render: suggestsPage,
     isModal: true,
     position: "modal-top",
-    authRequired: true,
+    authRequired: false,
   },
   networkErrors: {
     render: networkErrors,
     isModal: false,
     authRequired: false,
   },
+  comments: {
+    render: commentsPage,
+    isModal: false,
+    authRequired: false,
+  }
 };
 
 export default MENU;

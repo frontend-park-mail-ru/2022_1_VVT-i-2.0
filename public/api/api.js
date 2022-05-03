@@ -3,7 +3,7 @@ import * as store from "../store/import.js";
 
 const METHODS = { GET: "GET", POST: "POST", PUT: "PUT", DELETE: "DELETE" };
 
-const BASE_URI = "https://tavide.xyz:8080";
+const BASE_URI = "http://tavide.xyz:8080";
 
 const DEFAULT_OPTIONS = {
   method: METHODS.GET,
@@ -134,4 +134,8 @@ export const suggest = (query) => {
 
 export const createOrder = (order) => {
   return request("/order", { method: METHODS.POST, body: order });
+};
+
+export const getComments = (restName) => {
+  return request(`/comments/${restName}`);
 };
