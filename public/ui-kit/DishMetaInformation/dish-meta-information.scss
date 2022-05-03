@@ -11,13 +11,13 @@
 
     @media screen and (orientation: portrait) and (max-width: 540px) {
         width: 343px;
+
     }
 
     @media screen and (orientation: landscape) and (min-width: 540px) {
         width: 270px;
+        height: 50%;
     }
-
-    height: 50%;
 }
 
 .dish-icon__name {
@@ -87,7 +87,10 @@
     width: 90%;
     font-weight: bold;
     bottom: 15px;
-    margin-right: 15px;
+
+    @media screen and (orientation: landscape) and (min-width: 540px) {
+        margin-right: 15px;
+    }
 
     :nth-child(1) {
         width: 40%;
