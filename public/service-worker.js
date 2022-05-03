@@ -8,8 +8,8 @@ const URI_ARRAY = [
   "http://localhost:8080/static",
 
   // Production environment
-  "https://tavide.xyz:3000/graphics",
-  "https://tavide.xyz:8080/static",
+  "https://tavide.xyz/graphics",
+  "https://tavide.xyz/static",
 ];
 
 const CACHE = "cache-v3";
