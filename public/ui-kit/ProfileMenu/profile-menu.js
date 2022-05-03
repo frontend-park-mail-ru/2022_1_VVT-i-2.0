@@ -1,11 +1,11 @@
-import { profileMenuPoints } from '../../pages/Profile/profile.js';
+import { profileMenuPoints } from "../../pages/Profile/profile.js";
 
 /**
  * @function Создает html-строку для создания ui-kit компонента metaInf формы через шаблонатор Mustache.
  * @return {string} HTML строка для отрисовки ui-kit компонента metaInf.
  */
 const profileMenu = () => {
-    const template = `
+  const template = `
         <section class="profile-menu">
             {{#profileMenuPoints}}
                 <div id="{{id}}" data-section="{{dataSection}}" class="profile-menu__point">
@@ -14,7 +14,7 @@ const profileMenu = () => {
             {{/profileMenuPoints}}
         </section>
     `;
-    return Mustache.render(template, { profileMenuPoints });
+  return Mustache.render(template, { profileMenuPoints });
 };
 
 export default profileMenu;

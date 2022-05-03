@@ -1,4 +1,4 @@
-import ELEMS_CONFIGURATION from '../../configurations/elems.js';
+import ELEMS_CONFIGURATION from "../../configurations/elems.js";
 
 /**
  * @function Создает html-строку для создания ui-kit компонента input формы через шаблонатор Mustache.
@@ -10,17 +10,28 @@ import ELEMS_CONFIGURATION from '../../configurations/elems.js';
  * @param {string} error - текст ошибки валидации входных данных.
  * @return {string} HTML строка для отрисовки ui-kit компонента input.
  */
-const input = (title, type, width = ELEMS_CONFIGURATION.inputs.STANDARD,
-               placeholder, id, value, readonly, error = 'Ошибка') => {
-    const template = `
+const input = (
+  title,
+  type,
+  width = ELEMS_CONFIGURATION.inputs.STANDARD,
+  placeholder,
+  id,
+  name,
+  value,
+  readonly,
+  error = "Ошибка"
+) => {
+  const template = `
         <div class="input-block">
             <div class="input-block__title">{{title}}</div>
             <div {{#id}} id={{id}} {{/id}}>
                 <input
                     style="width: {{width}}px"
-                    class="input-block__input"
+                    {{#readonly}} class="input-block__input-readonly" {{/readonly}}
+                    {{^readonly}} class="input-block__input" {{/readonly}}
                     placeholder="{{placeholder}}"
                     type="{{type}}"
+                    name="{{name}}"
                     value="{{value}}"
                     {{#readonly}} readonly {{/readonly}}
                 >
@@ -29,16 +40,17 @@ const input = (title, type, width = ELEMS_CONFIGURATION.inputs.STANDARD,
         </div>
     `;
 
-    return Mustache.render(template, {
-        title,
-        type,
-        width,
-        placeholder,
-        id,
-        value,
-        readonly,
-        error
-    });
+  return Mustache.render(template, {
+    title,
+    type,
+    width,
+    placeholder,
+    id,
+    name,
+    value,
+    readonly,
+    error,
+  });
 };
 
 export default input;

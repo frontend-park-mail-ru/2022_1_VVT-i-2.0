@@ -8,7 +8,7 @@
     border: 1px solid theme.getColor('grey');
     border-radius: 10px;
 
-    margin: 5px auto;
+    margin: 5px 0;
     padding: 10px 5px 10px 15px;
 }
 
@@ -33,6 +33,16 @@
     display: inline-flex;
     margin-top: 4px;
     margin-bottom: 6px;
+    color: theme.getColor('black');
+
+    :first-child {
+        width: 70%;
+        text-align: left;
+    }
+
+    &:nth-child(n) {
+        font-weight: bold;
+    }
 }
 
 .dish-info__price-bold {
@@ -40,13 +50,9 @@
     width: 30%;
 }
 
-//.point-info__dish-info:nth-child(n) {
-//    font-weight: bold;
-//}
-
 .point-info__ingredients {
     display: inline-flex;
-    color: theme.getColor('grey');
+    color: #C3C3C3;
 
     margin-top: 5px;
     margin-bottom: 15px;

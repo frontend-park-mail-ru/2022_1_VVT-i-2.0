@@ -4,6 +4,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-top: 50px;
 }
 
 .restaurants-form__rest_icon {
@@ -14,8 +15,8 @@
     align-content: center;
     margin-bottom: 70px;
 
-    width: 460px;
-    height: 370px;
+    width: 343px;
+    height: 278px;
 
     background: theme.getColor('white');
     border-radius: 14px;
@@ -28,7 +29,7 @@
 }
 
 .rest-icon__rest_img {
-    width: 460px;
-    height: 215px;
+    width: 343px;
+    //height: 160px;
     border-radius: 14px 14px 0 0;
 }

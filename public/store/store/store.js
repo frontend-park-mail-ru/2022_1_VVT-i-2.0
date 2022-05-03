@@ -1,53 +1,117 @@
-import { render } from '../../render/render';
+import { render } from "../../render/render";
+
+export let avatar = {};
 
 const STORE = {
-  // State,
-  // user: { name: 'Name', phone: '+7(915)000-11-22', email: 'test@ya.ru' },
+  // State
+  // user: { name: "Name", phone: "+7(915)000-11-22", email: "test@ya.ru" },
   user: {},
   restaurants: [
     // {
-    //   slug: 'main',
-    //   imgPath: 'https://citrusfoto.ru/sites/default/files/styles/work_samples/public/1000-vasiliy_malykhin-4dfd2881e419f552c3fa1208ff4e8535.jpg?itok=ZE_5-a43',
-    //   restName: 'Шоколадница', timeToDeliver: '20-35 мин', price: '550₽', rating: 4.8
-    // }
+    //   slug: "main",
+    //   imgPath: "./graphics/images/img.png",
+    //   restName: "Шоколадница",
+    //   timeToDeliver: "20-35 мин",
+    //   price: "550 ₽",
+    //   rating: 4.8,
+    // },
+    // {
+    //   slug: "main",
+    //   imgPath: "./graphics/images/img.png",
+    //   restName: "Шоколадница",
+    //   timeToDeliver: "20-35 мин",
+    //   price: "550 ₽",
+    //   rating: 4.8,
+    // },
+    // {
+    //   slug: "main",
+    //   imgPath: "./graphics/images/img.png",
+    //   restName: "Шоколадница",
+    //   timeToDeliver: "20-35 мин",
+    //   price: "550 ₽",
+    //   rating: 4.8,
+    // },
+    // {
+    //   slug: "main",
+    //   imgPath: "./graphics/images/img.png",
+    //   restName: "Шоколадница",
+    //   timeToDeliver: "20-35 мин",
+    //   price: "550 ₽",
+    //   rating: 4.8,
+    // },
+    // {
+    //   slug: "main",
+    //   imgPath: "./graphics/images/img.png",
+    //   restName: "Шоколадница",
+    //   timeToDeliver: "20-35 мин",
+    //   price: "550 ₽",
+    //   rating: 4.8,
+    // },
+    // {
+    //   slug: "main",
+    //   imgPath: "./graphics/images/img.png",
+    //   restName: "Шоколадница",
+    //   timeToDeliver: "20-35 мин",
+    //   price: "550 ₽",
+    //   rating: 4.8,
+    // },
   ],
-  products: {
-    // 'main': {
-    //   restName: 'McDonalds',
-    //   products: [
+  dishes: {
+    // main: {
+    //   restName: "Шоколадница",
+    //   dishes: [
     //     {
     //       id: 1,
-    //       imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-    //       productName: 'Тестовое имя',
-    //       info: '172 г · 213 ккал',
-    //       description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-    //       price: 296
+    //       imgPath:
+    //         "https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200",
+    //       productName: "Тестовое имя",
+    //       info: "172 г · 213 ккал",
+    //       description:
+    //         "Вкусный и самый настоящий. Всем несомненно он погнравится",
+    //       price: 296,
     //     },
     //     {
     //       id: 2,
-    //       imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-    //       productName: 'Тестовое имя',
-    //       info: '172 г · 213 ккал',
-    //       description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-    //       price: 296
+    //       imgPath:
+    //         "https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200",
+    //       productName: "Тестовое имя",
+    //       info: "172 г · 213 ккал",
+    //       description:
+    //         "Вкусный и самый настоящий. Всем несомненно он погнравится",
+    //       price: 296,
     //     },
     //     {
     //       id: 3,
-    //       imgPath: 'https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200',
-    //       productName: 'Тестовое имя',
-    //       info: '172 г · 213 ккал',
-    //       description: 'Вкусный и самый настоящий. Всем несомненно он погнравится',
-    //       price: 296
+    //       imgPath:
+    //         "https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200",
+    //       productName: "Тестовое имя",
+    //       info: "172 г · 213 ккал",
+    //       description:
+    //         "Вкусный и самый настоящий. Всем несомненно он погнравится",
+    //       price: 296,
     //     },
-    //   ]
-    // }
+    //   ],
+    // },
   },
-  cart: [],
-  suggests: [],
-  currentRestName: '',
+  cart: {
+    totalPrice: 0,
+    orderList: [],
+  },
+  suggests: [
+    // { address: "FIRST", end: false },
+    // { address: "SECOND", end: true },
+  ],
+  currentRestName: "",
+  token: "",
 
   // Mutations
-  addUser(user) {
+  addUser(user, isFirstUpdate) {
+    if (isFirstUpdate) {
+      Object.entries(user).forEach(([key, value]) => {
+        this.user[key] = value;
+      });
+      return;
+    }
     this.user = user;
   },
   removeUser() {
@@ -56,56 +120,72 @@ const STORE = {
   addRestaurants(restaurants) {
     this.restaurants = restaurants;
   },
-  addProducts(restName, result) {
-    this.products[restName] = { products: result.products, restName: result.restName };
+  addDishes(restName, result) {
+    const dishes = this.dishes;
+    dishes[restName] = { dishes: result.dishes, restName: result.restName };
+    this.dishes = dishes;
   },
-  addProductToCart(id, restName) {
-    const cart = (restName === this.currentRestName) ? this.cart : [];
+  addDishToCart(id, restName, price, count = 1) {
+    const cart =
+      restName === this.currentRestName
+        ? this.cart
+        : {
+            totalPrice: 0,
+            order: [],
+          };
 
-    const index = cart.findIndex((orderPoint) => orderPoint.id === id);
+    const index = cart.order.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {
-      cart.push({ id, count: 1 });
+      cart.order.push({ id, price: price, count: count });
     } else {
-      cart[index].count = cart[index].count + 1;
+      cart.order[index].count = cart.order[index].count + 1;
     }
+
+    cart.totalPrice += price * count;
 
     this.currentRestName = restName;
     this.cart = cart;
   },
-  incrementProductCount(id) {
+  incrementDishCount(id) {
     const cart = this.cart;
 
-    const index = cart.findIndex((orderPoint) => orderPoint.id === id);
+    const index = cart.order.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {
       return;
     }
 
-    cart[index].count = cart[index].count + 1;
+    cart.order[index].count += 1;
+    cart.totalPrice += cart.order[index].price * 1;
 
     this.cart = cart;
   },
-  decrementProductCount(id) {
+  decrementDishCount(id) {
     const cart = this.cart;
 
-    const index = cart.findIndex((orderPoint) => orderPoint.id === id);
+    const index = cart.order.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {
       return;
     }
 
-    cart[index].count = cart[index].count - 1;
-    if (cart[index].count < 1) {
-      cart.splice(index, 1);
+    cart.order[index].count -= 1;
+    cart.totalPrice -= cart.order[index].price * 1;
+
+    if (cart.order[index].count < 1) {
+      cart.order.splice(index, 1);
     }
 
     this.cart = cart;
 
-    if (this.cart.length === 0) {
-      this.currentRestName = '';
+    if (this.cart.order.length === 0) {
+      this.currentRestName = "";
     }
   },
   clearCart() {
-    this.currentRestName = '';
-    this.cart = [];
+    this.currentRestName = "";
+    this.cart = {
+      totalPrice: 0,
+      order: [],
+    };
   },
   addSuggests(result) {
     this.suggests = result.suggests.map((suggest) => {
@@ -114,18 +194,21 @@ const STORE = {
   },
   clearSuggests() {
     this.suggests = [];
-  }
+  },
+  setToken(token) {
+    this.token = token;
+  },
 };
 
 const PROXY_STORE = new Proxy(STORE, {
   set(target, prop, value) {
     target[prop] = value;
 
-    const page = sessionStorage.getItem('page');
-    render(page);
+    const page = sessionStorage.getItem("page");
+    render(page, true);
 
     return true;
-  }
+  },
 });
 
 export default PROXY_STORE;

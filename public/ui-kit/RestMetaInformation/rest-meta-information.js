@@ -7,7 +7,7 @@
  * @return {string} HTML строка для отрисовки ui-kit компонента restMetaInformation.
  */
 const restMetaInformation = (restName, timeToDeliver, price, rating) => {
-    const template = `
+  const template = `
         <div class="rest-icon__rest-meta-info-block">
             <div class="rest-icon__rest-name">
                 {{restName}}
@@ -15,12 +15,12 @@ const restMetaInformation = (restName, timeToDeliver, price, rating) => {
             <div class="rest-icon__meta-info">
                 <div class="meta-info__param">
                     <div class="meta-info__param-value">
-                        {{timeToDeliver}}
+                        {{timeToDeliver}} мин 
                     </div>
                 </div>
                 <div class="meta-info__param">
                     <div class="meta-info__param-value">
-                        {{price}}
+                        от {{price}} ₽
                     </div>
                 </div>
                 <div class="meta-info__param">
@@ -32,7 +32,7 @@ const restMetaInformation = (restName, timeToDeliver, price, rating) => {
             </div>
         </div>
     `;
-    return Mustache.render(template, {restName, timeToDeliver, price, rating});
+  return Mustache.render(template, { restName, timeToDeliver, price, rating });
 };
 
 export default restMetaInformation;

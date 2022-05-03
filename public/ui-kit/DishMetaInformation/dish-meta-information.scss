@@ -1,0 +1,108 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
+@mixin paddings () {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.dish-icon__meta-info-block {
+    display: flex;
+    flex-direction: column;
+
+    width: 270px;
+    height: 50%;
+}
+
+.dish-icon__name {
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include paddings();
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 21px;
+
+    //max-height: 48px;
+    //height: auto;
+
+    color: #2E2E33;
+}
+
+@media (-webkit-min-device-pixel-ratio: 0) {
+    .dish-icon__name {
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+}
+
+.dish-icon__calories-info {
+    color: #C3C3C3;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    @include paddings();
+
+    font-size: 14px;
+}
+
+.dish-icon__description {
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include paddings();
+
+    //width: 90%;
+    //height: 50px;
+
+    font-size: 14px;
+    color: theme.getColor('warm');
+}
+
+@media (-webkit-min-device-pixel-ratio: 0) {
+    .dish-icon__description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+}
+
+.dish-icon__price-bar {
+    display: inline-flex;
+    text-align: center;
+    position: absolute;
+
+    @include paddings();
+
+    width: 90%;
+    font-weight: bold;
+    bottom: 15px;
+    margin-right: 15px;
+
+    :nth-child(1) {
+        width: 40%;
+        text-align: left;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}
+
+.dish-icon__button-add-to-order {
+    margin-left: auto;
+    width: 87px;
+    height: 28px;
+    background-color: theme.getColor('primary');
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+
+    margin-right: 10px;
+}
+
+.dish-icon__button-add-to-order:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}

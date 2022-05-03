@@ -1,13 +1,19 @@
-import UIKIT from '../../ui-kit/import.js';
-import COLORS from '../../configurations/colors/colors.js';
-import FORMS_CONFIGURATION from '../../configurations/forms.js';
-import ELEMS_CONFIGURATION from '../../configurations/elems.js';
+import UIKIT from "../../ui-kit/import.js";
+import COLORS from "../../configurations/colors/colors.js";
+import FORMS_CONFIGURATION from "../../configurations/forms.js";
+import ELEMS_CONFIGURATION from "../../configurations/elems.js";
+import { NumberPhoneFormat } from "../../events/entity/phone/phone-src";
+import { getters } from "../../store/import";
 
 const personInfoForm = ({ name, phone, email }) => {
-    const inputConfigurations = FORMS_CONFIGURATION.inputs.personInfoForm;
+  const inputConfigurations = FORMS_CONFIGURATION.inputs.personInfoForm;
+  let avatar = getters.getAvatar();
+  if (avatar === "") {
+    avatar = "/graphics/icons/profile.svg";
+  }
 
-    const template = `
-        <section id="person-info-form" class="person-info-form">
+  const template = `
+        <form id="person-info-form" class="person-info-form" method="POST" enctype="multipart/form-data">
             {{&backButton}}
 
             {{&title}}
@@ -21,7 +27,7 @@ const personInfoForm = ({ name, phone, email }) => {
                         <div class="settings__avatar-change-block">
                             <div class="avatar-change-block__description">Ваш аватар:</div>
                             <div class="avatar-change-block__avatar">
-                                <img id="user-avatar" class="avatar__img" src="/graphics/images/avatar.jpg" alt="">
+                                <img id="user-avatar-preview" src="{{avatar}}" class="avatar__img" alt="avatar">
                             </div>
                             <div class="avatar-choice-block__button-change">
                                 {{&buttonChangeAvatar}}
@@ -48,43 +54,64 @@ const personInfoForm = ({ name, phone, email }) => {
 <!--            <div>-->
 <!--                {{&switcherElement}}-->
 <!--            </div>-->
-        </section>
+        </form>
     `;
 
-    return Mustache.render(template, {
-        inputConfigurations,
-        backButton() {
-            return UIKIT.backButton('Все рестораны', 'main');
-        },
-        title() {
-            return UIKIT.title('Личные данные');
-        },
-        buttonChangeAvatar() {
-            return UIKIT.simpleButton('Изменить аватар', COLORS.grey,
-                ELEMS_CONFIGURATION.buttons.SMALL, 'profile', 'changeAvatarButton');
-        },
-        input() {
-            let value = name;
-            if (this.id === 'profilePhone') {
-                value = phone;
-            } else if (this.id === 'profileEmail') {
-                value = email;
-            }
-            const readonly = (this.id === 'profilePhone');
+  return Mustache.render(template, {
+    inputConfigurations,
+    avatar,
+    backButton() {
+      return UIKIT.backButton("Все рестораны", "main");
+    },
+    title() {
+      return UIKIT.underlinedTitle("Личные данные");
+    },
+    buttonChangeAvatar() {
+      return UIKIT.simpleButton(
+        "Изменить аватар",
+        COLORS.grey,
+        ELEMS_CONFIGURATION.buttons.SMALL,
+        "profile",
+        "changeAvatarButton",
+        true
+      );
+    },
+    input() {
+      let value = name;
+      if (this.id === "profilePhone") {
+        value = NumberPhoneFormat.formatPhone(phone);
+      } else if (this.id === "profileEmail") {
+        value = email;
+      }
+      const readonly = this.id === "profilePhone";
 
-            return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id, value, readonly);
-        },
-        menu () {
-            return UIKIT.profileMenu();
-        },
-        savePersonInfoChanges () {
-            return UIKIT.simpleButton('Сохранить', COLORS.primary,
-                ELEMS_CONFIGURATION.buttons.STANDARD, 'profile', 'personInfoSaveButton');
-        },
-        // switcherElement () {
-        //     return UIKIT.switcher();
-        // },
-    });
+      return UIKIT.input(
+        this.title,
+        this.type,
+        this.width,
+        this.placeholder,
+        this.id,
+        this.name,
+        value,
+        readonly
+      );
+    },
+    menu() {
+      return UIKIT.profileMenu();
+    },
+    savePersonInfoChanges() {
+      return UIKIT.simpleButton(
+        "Сохранить",
+        COLORS.primary,
+        ELEMS_CONFIGURATION.buttons.STANDARD,
+        "profile",
+        "personInfoSaveButton"
+      );
+    },
+    // switcherElement () {
+    //     return UIKIT.switcher();
+    // },
+  });
 };
 
 export default personInfoForm;

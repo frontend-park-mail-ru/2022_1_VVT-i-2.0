@@ -10,6 +10,7 @@
     font-weight: bold;
 }
 
+
 .rest-icon__rest-meta-info-block {
     display: flex;
     flex-direction: column;
@@ -18,22 +19,16 @@
     height: 60px;
 
     padding-left: 20px;
-    padding-top: 30px;
+    padding-top: 22px;
     background: theme.getColor('white');
 }
 
 .rest-icon__rest-name {
     display: flex;
     align-items: center;
-    position: static;
-
-    width: 460px;
-
-    left: 0;
-    top: 0;
-    bottom: 44px;
 
     @include font-normal-bold ();
+
     font-size: 21px;
     line-height: 16px;
     color: #2E2E33;
@@ -41,6 +36,7 @@
 
 .rest-icon__meta-info {
     @include flex-row ();
+
     justify-content: space-between;
 
     width: 248px;
@@ -49,14 +45,15 @@
 
 .meta-info__param {
     @include flex-row ();
+
     align-items: center;
 
-    min-width: 58px;
+    min-width: 62px;
     height: 18px;
 
     background: theme.getColor('lightGrey');
     border-radius: 50px;
-    margin: 20px 5px;
+    margin: 20px 9px 20px 0;
     padding: 6px 14px 6px 12px;
 }
 
@@ -65,8 +62,10 @@
     justify-content: center;
 
     @include font-normal-bold ();
+
     font-size: 12px;
     line-height: 16px;
+    font-weight: bolder;
     margin: auto;
 }
 

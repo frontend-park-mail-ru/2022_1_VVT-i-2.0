@@ -4,26 +4,35 @@
  * @param {string} info - информация товара о калоариях и весе.
  * @param {string} description - описание товара.
  * @param {string} price - цена товара.
- * @return {string} HTML строка для отрисовки ui-kit компонента productMetaInformation.
+ * @return {string} HTML строка для отрисовки ui-kit компонента dishMetaInformation.
  */
-const productMetaInformation = (productName, info, description, price, id, restName) => {
+const dishMetaInformation = (
+  productName,
+  weight,
+  info,
+  description,
+  price,
+  id,
+  restName
+) => {
   const template = `
-    <div class="prod-icon__meta-info-block">
-      <div class="prod-icon__name">
+    <div class="dish-icon__meta-info-block">
+      <div class="dish-icon__name">
         {{productName}}
       </div>
-      <div class="prod-icon__calories-info">
-        {{info}}
+      <div class="dish-icon__calories-info">
+        {{weight}} г · {{info}} ккал
       </div>
-      <div class="prod-icon__description">
+      <div class="dish-icon__description">
         {{description}}
       </div>
-      <div class="prod-icon__price-bar">
+      <div class="dish-icon__price-bar">
         <div>{{price}} ₽</div>
         <button
-          class="prod-icon__button-add-to-order addToCart"
+          class="dish-icon__button-add-to-order addToCart"
           data-id="{{id}}"
           data-rest="{{restName}}"
+          data-price="{{price}}"
         >
           В корзину
         </button>
@@ -31,8 +40,14 @@ const productMetaInformation = (productName, info, description, price, id, restN
     </div>
   `;
   return Mustache.render(template, {
-    productName, info, description, price, id, restName
+    productName,
+    weight,
+    info,
+    description,
+    price,
+    id,
+    restName,
   });
 };
 
-export default productMetaInformation;
+export default dishMetaInformation;

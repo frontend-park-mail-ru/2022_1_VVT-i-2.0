@@ -14,7 +14,7 @@
 }
 
 .shopping-cart__preview-rest {
-    width: 80%;
+    width: 60%;
     max-width: 312px;
 
     text-align: center;
@@ -24,6 +24,7 @@
 
 .shopping-cart__info-about-rest {
     padding: 10px;
+    margin-left: 4px;
 }
 
 .shopping-cart__order-points {
@@ -33,9 +34,7 @@
     overflow-x: hidden;
     margin-right: auto;
     margin-left: auto;
-    //margin-left: calc(100vw - 100%) / 2;
-    //margin-right: 0;
-    //flex-wrap: wrap;
+
     &::-webkit-scrollbar {
         display: none;
     }

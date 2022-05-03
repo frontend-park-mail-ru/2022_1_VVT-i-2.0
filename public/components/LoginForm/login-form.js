@@ -1,6 +1,6 @@
-import UIKIT from '../../ui-kit/import.js';
-import COLORS from '../../configurations/colors/colors.js';
-import FORMS_CONFIGURATION from '../../configurations/forms.js';
+import UIKIT from "../../ui-kit/import.js";
+import COLORS from "../../configurations/colors/colors.js";
+import FORMS_CONFIGURATION from "../../configurations/forms.js";
 
 /**
  * @function Создает html-строку для создания компонента формы авторизации
@@ -8,10 +8,10 @@ import FORMS_CONFIGURATION from '../../configurations/forms.js';
  * @return {string} HTML строка для отрисовки компонента registerForm.
  */
 const loginForm = () => {
-    const inputConfigurations = FORMS_CONFIGURATION.inputs.loginForm;
+  const inputConfigurations = FORMS_CONFIGURATION.inputs.loginForm;
 
-    const template = `
-        <form id="login-form" class="login-form">
+  const template = `
+        <div id="login-form" class="login-form">
             <img id="closeImg" class="login-form__close-img" src="/graphics/icons/close.svg" alt="">
             <h2 class="login-form__title">Войти в аккаунт</h2>
             <div class="login-form__indication">Для авторизации заполните поле телефон</div>
@@ -22,21 +22,39 @@ const loginForm = () => {
                 {{/inputConfigurations}}
             <div id="login-button" class="login-form__button-login">{{&login}}</div>
             {{&register}}
-        </form>
+        </di>
     `;
 
-    return Mustache.render(template, {
-        inputConfigurations: inputConfigurations,
-        input () {
-            return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id);
-        },
-        login () {
-            return UIKIT.simpleButton('Войти', COLORS.primary, this.width, 'confirmCode', 'loginButton');
-        },
-        register () {
-            return UIKIT.simpleButton('Регистрация', COLORS.grey, this.width,'register','registerButton');
-        }
-    });
+  return Mustache.render(template, {
+    inputConfigurations: inputConfigurations,
+    input() {
+      return UIKIT.input(
+        this.underlinedTitle,
+        this.type,
+        this.width,
+        this.placeholder,
+        this.id
+      );
+    },
+    login() {
+      return UIKIT.simpleButton(
+        "Войти",
+        COLORS.primary,
+        this.width,
+        "confirmCode",
+        "loginButton"
+      );
+    },
+    register() {
+      return UIKIT.simpleButton(
+        "Регистрация",
+        COLORS.grey,
+        this.width,
+        "register",
+        "registerButton"
+      );
+    },
+  });
 };
 
 export default loginForm;

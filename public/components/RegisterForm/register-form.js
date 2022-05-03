@@ -1,6 +1,6 @@
-import UIKIT from '../../ui-kit/import.js';
-import COLORS from '../../configurations/colors/colors.js';
-import FORMS_CONFIGURATION from '../../configurations/forms.js';
+import UIKIT from "../../ui-kit/import.js";
+import COLORS from "../../configurations/colors/colors.js";
+import FORMS_CONFIGURATION from "../../configurations/forms.js";
 
 /**
  * @function Создает html-строку для создания компонента формы регистрации
@@ -8,10 +8,10 @@ import FORMS_CONFIGURATION from '../../configurations/forms.js';
  * @return {string} HTML строка для отрисовки компонента registerForm.
  */
 const registerForm = () => {
-    const inputConfigurations = FORMS_CONFIGURATION.inputs.registerForm;
+  const inputConfigurations = FORMS_CONFIGURATION.inputs.registerForm;
 
-    const template = `
-        <form id="register-form" class="register-form">
+  const template = `
+        <div id="register-form" class="register-form">
             <img id="closeImg" class="register-form__close-img" src="/graphics/icons/close.svg">
             <h2 class="register-form__title">Создать аккаунт</h2>
             {{#inputConfigurations}}
@@ -21,21 +21,39 @@ const registerForm = () => {
             {{/inputConfigurations}}
             <div id="register-button" class="register-form__button-register">{{&register}}</div>
             {{&login}}
-        </form>
+        </div>
     `;
 
-    return Mustache.render(template, {
-        inputConfigurations: inputConfigurations,
-        input() {
-            return UIKIT.input(this.title, this.type, this.width, this.placeholder, this.id);
-        },
-        register() {
-            return UIKIT.simpleButton('Регистрация', COLORS.primary, this.width,'confirmCode', 'registerButton');
-        },
-        login() {
-            return UIKIT.simpleButton('Уже есть аккаунт?', COLORS.grey, this.width, 'login', '');
-        }
-    });
+  return Mustache.render(template, {
+    inputConfigurations: inputConfigurations,
+    input() {
+      return UIKIT.input(
+        this.underlinedTitle,
+        this.type,
+        this.width,
+        this.placeholder,
+        this.id
+      );
+    },
+    register() {
+      return UIKIT.simpleButton(
+        "Регистрация",
+        COLORS.primary,
+        this.width,
+        "confirmCode",
+        "registerButton"
+      );
+    },
+    login() {
+      return UIKIT.simpleButton(
+        "Уже есть аккаунт?",
+        COLORS.grey,
+        this.width,
+        "login",
+        ""
+      );
+    },
+  });
 };
 
 export default registerForm;

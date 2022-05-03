@@ -1,17 +1,15 @@
-import components from '../../components/import.js';
-import FORMS_CONFIGURATION from '../../configurations/forms.js';
+import components from "../../components/import.js";
+import FORMS_CONFIGURATION from "../../configurations/forms.js";
 
 export const profileMenuPoints = FORMS_CONFIGURATION.menu.profilePoints;
 
 const profilePage = (app, store) => {
-    app.root.innerHTML = components.header(
-        Object.keys(store.getters.user()).length !== 0, '/graphics/images/avatar.jpg'
-    );
+  app.root.innerHTML = components.header();
 
-    const main = document.createElement('main');
-    main.innerHTML = components.personInfoForm(store.getters.user());
+  const main = document.createElement("main");
+  main.innerHTML = components.personInfoForm(store.getters.user());
 
-    app.root.appendChild(main);
+  app.root.appendChild(main);
 };
 
 export default profilePage;

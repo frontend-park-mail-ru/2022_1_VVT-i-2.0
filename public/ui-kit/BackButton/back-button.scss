@@ -7,11 +7,12 @@
 .back-button {
   cursor: pointer;
   font-weight: bold;
-  position: relative;
+
   @include flex-left-center ();
 
   width: 200px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-top: 25px;
 }
 
 .back-button__img {

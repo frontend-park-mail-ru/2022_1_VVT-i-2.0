@@ -1,44 +1,49 @@
-import { renderAndUpdateURN } from '../../../render/render.js';
+import { renderAndUpdateURN } from "../../../render/render.js";
 
 export const suggests = () => {
   return {
     suggestsSearch: [
       {
-        type: 'keyup',
-        selector: 'id',
+        type: "keyup",
+        selector: "id",
         listener(app, store, e) {
-          if (e.key !== 'Enter' && e.keyCode !== 13) {
+          if (e.key !== "Enter" && e.keyCode !== 13) {
             return;
           }
 
           const query = e.target.value;
+          localStorage.setItem("address", query);
 
           store.actions.suggest(query);
-        }
-      }
+        },
+      },
     ],
     suggestsRow: [
       {
-        type: 'click',
-        selector: 'class',
+        type: "click",
+        selector: "class",
         listener(app, store, e) {
           const { target } = e;
 
+          if (target.getAttribute("default") === "true") {
+            return;
+          }
+
           const address = target.innerText;
-          const end = target.getAttribute('end') === 'true';
+          const end = target.getAttribute("end") === "true";
 
-          document.getElementById('suggestsSearch').value = address;
+          document.getElementById("suggestsSearch").value = address;
 
-          localStorage.setItem('address', address);
+          localStorage.setItem("address", address);
 
           if (end) {
-            renderAndUpdateURN('/');
+            renderAndUpdateURN("/");
             return;
           }
 
           store.actions.suggest(address);
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  };
 };
