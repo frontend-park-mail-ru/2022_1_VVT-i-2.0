@@ -1,13 +1,28 @@
 @use 'public/configurations/colors/colors.scss' as theme;
 
 .form-title {
-  margin-top: -20px;
-  margin-bottom: 35px;
-  max-width: 500px;
+  @media screen and (orientation: portrait) and (max-width: 920px) {
+    max-width: 343px;
+    margin-bottom: 30px;
+  }
+
+  @media screen and (orientation: landscape) and (min-width: 920px) {
+    max-width: 500px;
+    margin-top: -20px;
+    margin-bottom: 35px;
+  }
 }
 
 .form-title__title-name {
-  margin-bottom: 20px;
-  font-size: 36px;
+  @media screen and (orientation: portrait) and (max-width: 920px) {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (orientation: landscape) and (min-width: 920px) {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
   color: theme.getColor('greyBrown');
 }

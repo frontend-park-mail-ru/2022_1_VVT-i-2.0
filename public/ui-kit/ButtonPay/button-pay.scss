@@ -9,8 +9,17 @@
 .button-pay {
     @include flex-center ();
 
-    width: 516px;
-    height: 63px;
+    @media screen and (orientation: portrait) and (max-width: 920px) {
+        width: 343px;
+        height: 45px;
+        margin-bottom: 20px;
+    }
+
+    @media screen and (orientation: landscape) and (min-width: 920px) {
+        width: 516px;
+        height: 63px;
+    }
+
     background: #000000;
     border-radius: 5px;
 

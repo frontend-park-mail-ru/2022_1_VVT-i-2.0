@@ -21,14 +21,8 @@
 }
 
 .shopping-cart__preview-rest {
-    @media screen and (orientation: portrait) and (max-width: 920px) {
-        width: 100%;
-    }
-
-    @media screen and (orientation: landscape) and (min-width: 920px) {
-        width: 60%;
-        max-width: 312px;
-    }
+    width: 60%;
+    max-width: 312px;
 
     text-align: center;
     margin-left: auto;
