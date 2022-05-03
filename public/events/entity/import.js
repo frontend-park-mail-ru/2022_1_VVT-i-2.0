@@ -7,6 +7,7 @@ import { dishEvents } from "./dish/dish-events.js";
 import { suggests } from "./suggests/suggests-events.js";
 import { getConfirmCodeFieldEvents } from "./confirmCode/confirm-code-events.js";
 import { getInputEvents } from "./input/input-events";
+import { categories } from "./categories/categories-events.js";
 
 const Event = {
   getFrameEvents,
@@ -18,6 +19,7 @@ const Event = {
   suggests,
   getConfirmCodeFieldEvents,
   getInputEvents,
+  categories
 };
 
 export default Event;
