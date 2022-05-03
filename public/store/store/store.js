@@ -4,8 +4,8 @@ export let avatar = {};
 
 const STORE = {
   // State
-  // user: { name: "Name", phone: "+7(915)000-11-22", email: "test@ya.ru" },
-  user: {},
+  user: { name: "Name", phone: "+7(915)000-11-22", email: "test@ya.ru" },
+  // user: {},
   restaurants: [
     // {
     //   slug: "main",
@@ -207,10 +207,6 @@ const STORE = {
     }
 
     this.cart = cart;
-
-    if (this.cart.order.length === 0) {
-      this.currentRestName = "";
-    }
   },
   clearCart() {
     this.currentRestName = "";

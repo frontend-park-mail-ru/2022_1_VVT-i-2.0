@@ -51,7 +51,8 @@ const EVENTS = {
   orderingComment: Event.dishEvents().orderingComment,
   buttonPay: Event.getButtonEvents().buttonPay,
 
-  categories: Event.categories().category
+  categories: Event.categories().category,
+  categoriesSelect: Event.categories().categoriesSelect
 };
 
 /**

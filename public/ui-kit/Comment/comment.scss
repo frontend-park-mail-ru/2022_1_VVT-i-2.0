@@ -6,8 +6,17 @@
 
   border-radius: 16px;
 
-  min-width: 800px;
-  max-width: 800px;
+  @media screen and (max-width: 920px) {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 343px;
+    max-width: 343px;
+  }
+
+  @media screen and (min-width: 920px) {
+    min-width: 800px;
+    max-width: 800px;
+  }
 
   margin-bottom: 18px;
 

@@ -23,11 +23,12 @@ export const getAvatar = () => {
 };
 
 export const getCurrentSlug = () => {
-  const restaurants = STORE.restaurants;
+  const currentRestName = STORE.currentRestName;
+  const dishes = STORE.dishes;
 
-  return restaurants.find(
-    (restaurant) => restaurant.restName === STORE.currentRestName
-  ).slug;
+  return Object.keys(dishes).find(
+    (key) => dishes[key].restName === currentRestName
+  );
 };
 
 export const token = () => STORE.token;

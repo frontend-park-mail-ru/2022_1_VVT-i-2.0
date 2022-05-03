@@ -1,7 +1,14 @@
 @use 'public/configurations/colors/colors.scss' as theme;
 
 .simple-title {
-  margin-bottom: 30px;
+  @media screen and (orientation: portrait) and (max-width: 540px) {
+    margin: 24px auto 24px auto;
+    width: 343px;
+  }
+
+  @media screen and (orientation: landscape) and (min-width: 540px) {
+    margin-bottom: 30px;
+  }
 
   font-size: 36px;
   color: theme.getColor('black');

@@ -7,8 +7,17 @@
 
     border-radius: 16px;
 
-    min-width: 800px;
-    height: 60px;
+    @media screen and (max-width: 920px) {
+      margin-left: auto;
+      margin-right: auto;
+      min-width: 343px;
+      max-width: 343px;
+    }
+
+    @media screen and (min-width: 920px) {
+      min-width: 800px;
+      max-width: 800px;
+    }
 
     margin-bottom: 18px;
   }
@@ -37,5 +46,14 @@
     font-style: normal;
     font-weight: 700;
     margin-top: 21px;
+    margin-right: 15px;
+
+    @media screen and (max-width: 920px) {
+      margin-top: 5px;
+    }
+
+    @media screen and (min-width: 920px) {
+      margin-top: 21px;
+    }
   }
 }
