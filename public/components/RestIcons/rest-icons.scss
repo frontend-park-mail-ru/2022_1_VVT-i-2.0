@@ -13,7 +13,14 @@
     flex-wrap: wrap;
 
     align-content: center;
-    margin-bottom: 70px;
+
+    @media screen and (orientation: landscape) and (max-width: 815px) {
+        margin-bottom: 24px;
+    }
+
+    @media screen and (orientation: portrait) and (min-width: 815px) {
+        margin-bottom: 70px;
+    }
 
     width: 343px;
     height: 278px;
