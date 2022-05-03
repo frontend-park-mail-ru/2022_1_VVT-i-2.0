@@ -16,7 +16,10 @@
   display: flex;
 
   div {
-    @include flex-center ();
+    @media screen and (orientation: landscape) and (min-width: 920px) {
+      @include flex-center ();
+    }
+
     flex: 1 1 auto;
     cursor: pointer;
 
@@ -38,5 +41,9 @@
 
   &:hover {
     background: theme.getColor('grey') !important;
+  }
+
+  @media screen and (orientation: portrait) and (max-width: 920px) {
+    padding: 18px;
   }
 }
