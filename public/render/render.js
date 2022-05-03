@@ -150,4 +150,6 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
 
   history.pushState({}, null, urn);
   render(urn, storeUpdate);
+
+  window.scrollTo(0, 0);
 };
