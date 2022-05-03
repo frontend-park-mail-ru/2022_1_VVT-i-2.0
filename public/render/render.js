@@ -141,6 +141,8 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     return;
   }
 
+  window.scrollTo(0, 0);
+
   if (urn === "/shoppingCart" && sessionStorage.getItem("root") === "main") {
     history.pushState({}, null, "/dishes/" + getters.getCurrentSlug());
     render("/dishes/" + getters.getCurrentSlug(), false);
@@ -150,6 +152,4 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
 
   history.pushState({}, null, urn);
   render(urn, storeUpdate);
-
-  window.scrollTo(0, 0);
 };
