@@ -56,7 +56,8 @@ const orderCheck = (props, toShowNotify = true) => {
                 this.info,
                 this.count,
                 this.price,
-                this.id
+                this.id,
+                this.toShowNotify,
             );
         },
         paymentNotification() {

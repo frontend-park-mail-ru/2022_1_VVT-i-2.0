@@ -1,6 +1,6 @@
 import UIKIT from "../import.js";
 
-const orderPoint = (imgPath, productName, weight, info, count, price, id) => {
+const orderPoint = (imgPath, productName, weight, info, count, price, id, toShowButtons = false) => {
   const template = `
         <section class="shopping-cart__order-point">
             <div class="order-point__img-block">
@@ -14,10 +14,19 @@ const orderPoint = (imgPath, productName, weight, info, count, price, id) => {
                 <div class="point-info__ingredients">
                     {{weight}} г · {{info}} ккал
                 </div>
+                
+                {{#toShowButtons}}
                 <div class="point-info__edit-quantity">
                     {{&removeButton}}
                     <div class="point-info__count-current-point">{{count}}</div>
                     {{&addButton}}
+                {{/toShowButtons}}
+                
+                {{^toShowButtons}}
+                <div class="point-info__edit-quantity">
+                    <div>Количество: {{count}}</div>
+                {{/toShowButtons}}
+                
                 </div>
             </div>
         </section>
@@ -30,6 +39,7 @@ const orderPoint = (imgPath, productName, weight, info, count, price, id) => {
     info,
     count,
     price,
+    toShowButtons,
     addButton() {
       return UIKIT.addRemoveButton("addPoint", "incrementDishCount", id);
     },
