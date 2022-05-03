@@ -67,7 +67,7 @@ const MENU = {
     render: suggestsPage,
     isModal: true,
     position: "modal-top",
-    authRequired: true,
+    authRequired: false,
   },
   networkErrors: {
     render: networkErrors,

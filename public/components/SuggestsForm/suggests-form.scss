@@ -23,7 +23,7 @@
     flex: 1 1 auto;
     cursor: pointer;
 
-    min-width: 161px;
+    width: 160px;
     // max-width: 161px;
     background: transparent;
   }
@@ -36,8 +36,8 @@
 
   background: theme.getColor('white') !important;
   border-bottom: 1px solid #b9b9b9;
-  // border-left: 1px solid #b9b9b9;
-  // border-right: 1px solid #b9b9b9;
+  border-left: 1px solid #b9b9b9;
+  border-right: 1px solid #b9b9b9;
 
   &:hover {
     background: theme.getColor('grey') !important;

@@ -9,7 +9,11 @@ const suggestsForm = (props) => {
           <div class="suggest-row__suggest-address suggestsRow" end="{{end}}">
             {{address}}
           </div>
-          {{^isMobile}}<div></div>{{/isMobile}}
+          {{^isMobile}}
+            {{#auth}}
+              <div></div>
+            {{/auth}}
+          {{/isMobile}}
           {{^isMobile}}<div></div>{{/isMobile}}
         </div>
       {{/suggests}}
@@ -19,13 +23,17 @@ const suggestsForm = (props) => {
           <div class="suggest-row__suggest-address suggestsRow" default="true">
             Мы подберем для вас список доступных ресторанов
           </div>
-          {{^isMobile}}<div></div>{{/isMobile}}
+          {{^isMobile}}
+            {{#auth}}
+              <div></div>
+            {{/auth}}
+          {{/isMobile}}
           {{^isMobile}}<div></div>{{/isMobile}}
         </div>
       {{/suggests}}
     </form>
   `;
-  return Mustache.render(template, { isMobile, suggests: props.suggests });
+  return Mustache.render(template, { isMobile, auth: props.auth, suggests: props.suggests });
 };
 
 export default suggestsForm;
