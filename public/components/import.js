@@ -11,6 +11,7 @@ import shoppingCart from "./ShoppingCart/shopping-cart.js";
 import ordering from "./Ordering/ordering.js";
 import suggestsForm from "./SuggestsForm/suggests-form.js";
 import NetworkErrorForm from "./NetworkErrorForm/network-error-form.js";
+import comments from "./Comments/comments.js";
 
 export default {
   header,
@@ -26,4 +27,5 @@ export default {
   ordering,
   suggestsForm,
   NetworkErrorForm,
+  comments
 };
