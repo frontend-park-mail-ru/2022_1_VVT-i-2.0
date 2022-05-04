@@ -1,7 +1,7 @@
 @use 'public/configurations/colors/colors.scss'as theme;
 
 .notification {
-  height: 62px;
+  min-height: 62px;
 
   position: relative;
 
@@ -33,7 +33,7 @@
     font-weight: 700;
 
     position: absolute;
-    padding-top: 24px;
+    padding-top: 16px;
   }
 
   &__close-img {
