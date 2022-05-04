@@ -23,14 +23,13 @@
 }
 
 .view__text-content {
-    width: 100%;
-
     @media screen and (orientation: portrait) and (max-width: 920px) {
         padding-left: 10px;
         padding-right: 10px;
     }
 
     @media screen and (orientation: landscape) and (min-width: 1460px) {
+        width: 100%;
         max-width: 930px;
         min-width: 320px;
         margin-left: 10%;
@@ -82,7 +81,7 @@
     background-color: #ffd919;
 
     @media screen and (orientation: portrait) and (max-width: 920px) {
-        max-width: 353px;
+        max-width: 100%;
     }
 
     @media screen and (orientation: landscape) and (min-width: 1460px) {
