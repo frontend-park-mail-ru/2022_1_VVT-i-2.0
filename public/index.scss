@@ -17,13 +17,21 @@ main {
   position: absolute;
   top: 68px;
   padding-top: 1%;
-  padding-left: 8%;
-  padding-right: 8%;
+
+  @media screen and (orientation: portrait) and (max-width: 815px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  @media screen and (orientation: landscape) and (min-width: 815px) {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
 }
 
 .shown {
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
@@ -72,4 +80,22 @@ main {
   flex-direction: column;
   padding: 0;
   border: none;
+}
+
+#notification {
+  z-index: 9999;
+  background: theme.getColor("white");
+  position: fixed;
+
+  @media screen and (orientation: portrait) and (max-width: 540px) {
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+  }
+
+  @media screen and (orientation: landscape) and (min-width: 540px) {
+    left: 42%;
+    right: 58%;
+    bottom: 50px;
+  }
 }

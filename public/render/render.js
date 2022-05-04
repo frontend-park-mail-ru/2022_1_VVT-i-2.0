@@ -7,6 +7,7 @@ import {
   IsCartEmpty,
   restaurants,
 } from "../store/getters/getters";
+import UIKIT from "../ui-kit/import.js";
 
 export const APP = {
   root: document.getElementById("root"),
@@ -15,6 +16,8 @@ export const APP = {
 
 const AUTH_PAGES = ["login", "register", "confirmCode"];
 const CLOSED_PAGES = ["shoppingCart", "profilePreview"];
+
+const notification = document.getElementById('notification');
 
 const setModalPosition = (page) => {
   if (page.position) {
@@ -48,13 +51,13 @@ export const render = (urn, storeUpdate = false) => {
   let section = path.replace("/", "");
   section = section === "" ? "main" : section;
 
-  // if (
-  //   !storeUpdate &&
-  //   section === "suggests" &&
-  //   sessionStorage.getItem("page") === "suggests"
-  // ) {
-  //   return;
-  // }
+  if (
+    !storeUpdate &&
+    section === "suggests" &&
+    sessionStorage.getItem("page") === "suggests"
+  ) {
+    return;
+  }
 
   if (
     !storeUpdate &&
@@ -137,9 +140,16 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     urn = `/${urn}`;
   }
 
+  if (urn === "/" || urn === "/main") {
+    store.actions.clearRestaurants();
+    sessionStorage.removeItem("params");
+  }
+
   if (urn === "/shoppingCart" && IsCartEmpty()) {
     return;
   }
+
+  window.scrollTo(0, 0);
 
   if (urn === "/shoppingCart" && sessionStorage.getItem("root") === "main") {
     history.pushState({}, null, "/dishes/" + getters.getCurrentSlug());
@@ -150,4 +160,25 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
 
   history.pushState({}, null, urn);
   render(urn, storeUpdate);
+};
+
+const hideNotification = () => {
+  notification.getElementsByClassName('notification__close-img')[0].removeEventListener('click', hideNotification);
+  notification.innerHTML = '';
+}
+
+export const renderNotification = (message, error = false) => {
+  notification.innerHTML = UIKIT.notification(message, error);
+
+  notification.getElementsByClassName('notification__close-img')[0].addEventListener('click', hideNotification);
+
+  const timeout = error ? 5000 : 3000;
+  setTimeout(() => {
+    if (notification.innerHTML === '') {
+      return;
+    }
+
+    notification.getElementsByClassName('notification__close-img')[0].removeEventListener('click', hideNotification);
+    notification.innerHTML = '';
+  }, timeout);
 };

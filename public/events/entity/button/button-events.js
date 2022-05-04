@@ -1,6 +1,6 @@
 import * as FORM from "../../common/status-form.js";
 import { showEmptyInputs } from "../../common/status-form.js";
-import { renderAndUpdateURN } from "../../../render/render.js";
+import { renderAndUpdateURN, renderNotification } from "../../../render/render.js";
 import { avatar } from "../../../store/store/store";
 import {getSearchStatus} from "../../../store/getters/getters";
 import {changeSearchStatus} from "../../../store/actions/actions";
@@ -239,13 +239,9 @@ export const getButtonEvents = () => {
 
           const order = store.getters.cart().order;
 
-          store.actions.createOrder({ address, comment, cart: order }).then((result) => {
-            if (result.status === 200) {
-              renderAndUpdateURN("/orderHistory", true);
-              alert("Заказ успешно создан");
-            } else {
-              alert('Ошибка на сервере');
-            }
+          store.actions.createOrder({ address, comment, cart: order }).then(() => {
+            renderAndUpdateURN("/orderHistory", true);
+            renderNotification("Заказ успешно создан");
           });
         },
       },

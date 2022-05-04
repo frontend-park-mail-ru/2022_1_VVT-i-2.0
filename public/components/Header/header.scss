@@ -37,9 +37,17 @@
     flex: 1 1 auto;
     cursor: pointer;
 
-    min-width: 159px;
     border-left: 1px solid #b9b9b9;
     border-right: 1px solid #b9b9b9;
+
+    @media screen and (orientation: portrait) and (max-width: 920px) {
+        width: 80px;
+        flex-direction: column;
+    }
+
+    @media screen and (orientation: landscape) and (min-width: 920px) {
+        width: 160px;
+    }
 }
 
 .page-header__button:nth-child(n+1) {
@@ -49,7 +57,6 @@
 .page-header__main-button {
     display: flex;
     flex-direction: row;
-    max-width: 161px;
     justify-content: center;
 }
 
@@ -72,13 +79,18 @@
 }
 
 .button__controller {
-    margin-left: 10px;
+    @media screen and (orientation: landscape) and (min-width: 920px) {
+        margin-left: 10px;
+    }
 
     &_with-price {
-        margin-left: 15px;
         font-size: 17px;
         color: #000000;
         //color: #323232;
+
+        @media screen and (orientation: landscape) and (min-width: 920px) {
+            margin-left: 15px;
+        }
     }
 }
 
@@ -88,8 +100,15 @@
 
 .page-header__suggests-input {
     all: unset;
-    margin-left: 15px;
-    width: 500px;
+
+    @media screen and (orientation: portrait) and (max-width: 920px) {
+        width: 170px;
+    }
+
+    @media screen and (orientation: landscape) and (min-width: 920px) {
+        width: 500px;
+        margin-left: 15px;
+    }
 }
 
 .button__avatar-img {
@@ -102,11 +121,24 @@
 }
 
 .page-header__button-cart {
-    min-width: 160px;
-
     &_green {
-        min-width: 160px;
         background: #17d685;
+
+        @media screen and (orientation: portrait) and (max-width: 920px) {
+            width: 80px;
+        }
+
+        @media screen and (orientation: landscape) and (min-width: 920px) {
+            min-width: 160px;
+        }
+    }
+
+    @media screen and (orientation: portrait) and (max-width: 920px) {
+        width: 80px;
+    }
+
+    @media screen and (orientation: landscape) and (min-width: 920px) {
+        min-width: 160px;
     }
 }
 

@@ -1,0 +1,27 @@
+@use 'public/configurations/colors/colors.scss'as theme;
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__select {
+    all: unset;
+
+    display: flex;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 333px;
+    margin-bottom: 18px;
+    background: theme.getColor('grey');
+    padding: 12px 0px 12px 12px;
+    border-radius: 12px;
+
+    font-size: 14px;
+    line-height: 16px;
+    font-style: normal;
+    font-weight: 700;
+  }
+}

@@ -11,7 +11,11 @@
     height: 100vh;
 
     color: theme.getColor('white');
-    padding: 0 40px;
+
+    @media screen and (orientation: landscape) and (min-width: 1460px) {
+        padding: 0 40px;
+    }
+
     overflow: hidden;
     background: #a34ca6;
     background-size: cover;
@@ -19,18 +23,34 @@
 }
 
 .view__text-content {
-    width: 100%;
-    max-width: 930px;
-    min-width: 320px;
-    margin-left: 10%;
-    margin-right: 10%;
+    @media screen and (orientation: portrait) and (max-width: 920px) {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    @media screen and (orientation: landscape) and (min-width: 1460px) {
+        width: 100%;
+        max-width: 930px;
+        min-width: 320px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }
 
 .text-content__header {
     max-width: 42rem;
-    font: 600 10rem/7.5rem "fregat", "Arial", sans-serif;
     letter-spacing: -0.01em;
     text-transform: uppercase;
+
+    @media screen and (orientation: portrait) and (max-width: 920px) {
+        font: 600 4.5rem/6rem "fregat", "Arial", sans-serif;
+        margin-top: 0px;
+        margin-bottom: 15px;
+    }
+
+    @media screen and (orientation: landscape) and (min-width: 1460px) {
+        font: 600 10rem/7.5rem "fregat", "Arial", sans-serif;
+    }
 }
 
 .text-content__text_error {
@@ -38,6 +58,10 @@
     margin: 0 0 4.5rem 0;
     font: 400 2rem/2.8rem "Roboto", "Arial", sans-serif;
     color: #cec2e5;
+
+    @media screen and (orientation: portrait) and (max-width: 920px) {
+        margin-bottom: 30px;
+    }
 }
 
 .text-content__button-to-main {
@@ -55,6 +79,14 @@
 
     color: #2a364d;
     background-color: #ffd919;
+
+    @media screen and (orientation: portrait) and (max-width: 920px) {
+        max-width: 100%;
+    }
+
+    @media screen and (orientation: landscape) and (min-width: 1460px) {
+        max-width: 200px;
+    }
 }
 
 .view__graphic-content {

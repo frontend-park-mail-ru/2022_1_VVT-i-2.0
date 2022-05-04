@@ -1,0 +1,54 @@
+@use 'public/configurations/colors/colors.scss'as theme;
+
+.notification {
+  min-height: 62px;
+
+  position: relative;
+
+  filter: drop-shadow(4px 4px 4px rgba(26, 26, 26, 0.25));
+
+  @media screen and (orientation: portrait) and (max-width: 540px) {
+    width: 100%;
+  }
+
+  @media screen and (orientation: landscape) and (min-width: 540px) {
+    width: 343px;
+  }
+
+  background: theme.getColor('lightGrey');
+  border-radius: 10px;
+  border: theme.getColor('grey') 1px solid;
+
+  &__img {
+    display: inline-flex;
+    justify-items: center;
+
+    padding: 16px;
+  }
+
+  &__message {
+    font-size: 14px;
+    line-height: 16px;
+    font-style: normal;
+    font-weight: 700;
+
+    position: absolute;
+    padding-top: 22px;
+    padding-bottom: 16px;
+
+    max-width: 230px;
+
+    word-wrap: break-word;
+  }
+
+  &__close-img {
+    position: absolute;
+    right: 0px;
+    padding: 16px;
+  }
+
+  &__close-img:hover {
+    cursor: pointer;
+    filter: invert(100%) sepia(0%) saturate(1569%) hue-rotate(174deg) brightness(106%) contrast(74%);
+  }
+}

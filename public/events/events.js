@@ -52,6 +52,11 @@ const EVENTS = {
   decrementDishCount: Event.dishEvents().decrementDishCount,
   orderingComment: Event.dishEvents().orderingComment,
   buttonPay: Event.getButtonEvents().buttonPay,
+
+  categories: Event.categories().category,
+  categoriesSelect: Event.categories().categoriesSelect,
+
+  searchInput: Event.search().searchInput
 };
 
 /**

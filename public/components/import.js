@@ -14,6 +14,8 @@ import additionalStatusOrderInfo from "./AdditionalStatusOrderInfo/additional-st
 import profileTemplate from "./ProfileTemplate/profile-template";
 import orderStatusList from "./OrderStatusList/order-status-list";
 import NetworkErrorForm from "./NetworkErrorForm/network-error-form.js";
+import categories from "./Categories/categories.js";
+import comments from "./Comments/comments.js";
 
 export default {
   header,
@@ -32,4 +34,6 @@ export default {
   additionalStatusOrderInfo,
   suggestsForm,
   NetworkErrorForm,
+  categories,
+  comments
 };

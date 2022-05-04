@@ -93,9 +93,11 @@ if ("serviceWorker" in navigator) {
     .catch((err) => console.log(err));
 }
 
+const decodedPathname = decodeURI(location.pathname);
+
 if (Object.keys(store.getters.user()).length === 0) {
-  // render(location.pathname);
-  store.actions.getUser(true).then(() => render(location.pathname));
+  // render(decodedPathname);
+  store.actions.getUser(true).then(() => render(decodedPathname));
 } else {
-  render(location.pathname);
+  render(decodedPathname);
 }

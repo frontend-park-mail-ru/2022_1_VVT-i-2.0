@@ -6,7 +6,7 @@ const shoppingCart = (restName, props) => {
   const template = `
         <div class="shopping-cart">
             <div class="shopping-cart__info-about-rest shopping-cart__order-point">
-                <div class="shopping-cart__preview-rest">Ваш заказ в ресторане: {{restName}}</div>
+              <div class="shopping-cart__preview-rest">Ваш заказ в ресторане: {{restName}}</div>
             </div>
             <div class="shopping-cart__order-points">
                 {{#props}}

@@ -106,6 +106,35 @@ const STORE = {
   currentRestName: "",
   isSearchActivated: false,
   token: "",
+  categories: [
+    { title: "Суши" }, { title: "Пицца" }, { title: "Бургеры" }, { title: "Фастфуд" },
+    { title: "Русская" }, { title: "Японская" }, { title: "Паназиатская" }, { title: "Завтраки" },
+    { title: "Обеды" }, { title: "Сэндвичи" }, { title: "Китайская" }, { title: "Здоровая еда" }
+  ],
+  comments: {
+    // foodband: {
+    //   comments: [
+    //     {
+    //       stars: 4.8,
+    //       text: 'Тут я оставил вот такой крутой отзыв на ресторан',
+    //       author: 'Иван',
+    //       date: '29 апреля 2022, 17:09'
+    //     },
+    //     {
+    //       stars: 4.8,
+    //       text: 'Тут я оставил вот такой крутой отзыв на ресторан',
+    //       author: 'Иван',
+    //       date: '29 апреля 2022, 17:09'
+    //     },
+    //     {
+    //       stars: 4.8,
+    //       text: 'Тут я оставил вот такой крутой отзыв на ресторан',
+    //       author: 'Иван',
+    //       date: '29 апреля 2022, 17:09'
+    //     },
+    //   ]
+    // }
+  },
 
   // Mutations
   addUser(user, isFirstUpdate) {
@@ -123,9 +152,12 @@ const STORE = {
   addRestaurants(restaurants) {
     this.restaurants = restaurants;
   },
+  clearRestaurants() {
+    this.restaurants = [];
+  },
   addDishes(restName, result) {
     const dishes = this.dishes;
-    dishes[restName] = { dishes: result.dishes, restName: result.restName };
+    dishes[restName] = { dishes: result.dishes, restName: result.restName, rating: result.rating, reviewCount: result.reviewCount };
     this.dishes = dishes;
   },
   addDishToCart(id, restName, price, count = 1) {
@@ -178,10 +210,6 @@ const STORE = {
     }
 
     this.cart = cart;
-
-    if (this.cart.order.length === 0) {
-      this.currentRestName = "";
-    }
   },
   clearCart() {
     this.currentRestName = "";
@@ -212,13 +240,17 @@ const STORE = {
   },
   setSearchStatus(status) {
     this.isSearchActivated = status;
-  }
+  },
+  addComments(restName, result) {
+    const comments = this.comments;
+    comments[restName] = { comments: result };
+    this.comments = comments;
+  },
 };
 
 const PROXY_STORE = new Proxy(STORE, {
   set(target, prop, value) {
     target[prop] = value;
-
     const page = sessionStorage.getItem("page");
     render(page, true);
 

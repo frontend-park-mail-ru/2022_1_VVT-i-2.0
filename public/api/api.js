@@ -1,9 +1,9 @@
-import { renderAndUpdateURN } from "../render/render.js";
+import { renderAndUpdateURN, renderNotification } from "../render/render.js";
 import * as store from "../store/import.js";
 
 const METHODS = { GET: "GET", POST: "POST", PUT: "PUT", DELETE: "DELETE" };
 
-const BASE_URI = "http://localhost:8080";
+const BASE_URI = "https://tavide.xyz";
 
 const DEFAULT_OPTIONS = {
   method: METHODS.GET,
@@ -49,7 +49,7 @@ const request = (url, options = DEFAULT_OPTIONS) => {
 
       if (Number(result.headers.get("Content-Length")) === 0) {
         if (result.status !== 200) {
-          alert(ERROR_MESSAGE);
+          renderNotification(ERROR_MESSAGE, true);
           return Promise.reject();
         }
 
@@ -60,9 +60,9 @@ const request = (url, options = DEFAULT_OPTIONS) => {
 
       if (result.status !== 200) {
         if (data.error) {
-          alert(data.error);
+          renderNotification(data.error, true);
         } else {
-          alert(ERROR_MESSAGE);
+          renderNotification(ERROR_MESSAGE, true);
         }
         return Promise.reject();
       }
@@ -75,8 +75,17 @@ const request = (url, options = DEFAULT_OPTIONS) => {
  * @function Осуществляет отправку запроса на получение ресторанов.
  * @return {Promise} - возвращает Promise на отправку запроса.
  */
-export const getRestaurants = () => {
-  return request("/restaurants");
+export const getRestaurants = (options) => {
+  if (Object.keys(options).length === 0) {
+    return request("/restaurants");
+  }
+
+  return request(
+    "/restaurants?" +
+      Object.entries(options)
+        .map(([key, value]) => `${key}=${value}`)
+        .join("&")
+  );
 };
 
 export const getDishes = (restName) => {
@@ -129,12 +138,16 @@ export const createOrder = (order) => {
 
 export const getOrderList = () => {
   return request('/orders', { method: METHODS.GET });
-}
+};
 
 export const getStatusOrders = () => {
   return request('/status_orders', { method: METHODS.GET });
-}
+};
 
 export const getCertainOrder = (orderNumber) => {
   return request(`/order/${orderNumber}`);
+};
+
+export const getComments = (restName) => {
+  return request(`/comments/${restName}`);
 };

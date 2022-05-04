@@ -5,7 +5,14 @@
     flex-direction: column;
     position: relative;
 
-    width: 321px;
+    @media screen and (orientation: portrait) and (max-width: 920px) {
+        width: 100%;
+    }
+
+    @media screen and (orientation: landscape) and (min-width: 920px) {
+        width: 321px;
+    }
+
     height: 100%;
 
     background: theme.getColor('white');
@@ -23,8 +30,15 @@
 }
 
 .shopping-cart__info-about-rest {
-    padding: 10px;
-    margin-left: 4px;
+    @media screen and (orientation: portrait) and (max-width: 920px) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media screen and (orientation: landscape) and (min-width: 920px) {
+        padding: 10px;
+        margin-left: 4px;
+    }
 }
 
 .shopping-cart__order-points {
@@ -45,4 +59,10 @@
     left: 5px;
     right: auto;
     bottom: 5px;
+
+    @media screen and (orientation: portrait) and (max-width: 920px) {
+        position: static;
+        margin: auto;
+        margin-bottom: 30px;
+    }
 }

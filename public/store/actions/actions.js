@@ -1,9 +1,15 @@
 import * as API from "../../api/api.js";
 import STORE from "../store/store.js";
 
-export const getRestaurants = () => {
-  return API.getRestaurants().then((result) => STORE.addRestaurants(result));
+export const getRestaurants = (options = {}) => {
+  return API.getRestaurants(options).then((result) =>
+    STORE.addRestaurants(result)
+  );
 };
+
+export const clearRestaurants = () => {
+  return STORE.clearRestaurants();
+}
 
 export const getDishes = (restName) => {
   return API.getDishes(restName).then((result) =>
@@ -38,7 +44,7 @@ export const logout = () => {
 export const suggest = (query) => {
   return API.suggest(query).then((result) => {
     if (result) {
-      STORE.addSuggests(result)
+      STORE.addSuggests(result);
     } else {
       STORE.clearSuggests();
     }
@@ -89,6 +95,8 @@ export const setSearchStatus = (status) => {
   STORE.setSearchStatus(status);
 }
 
-// export const getStatusOrders = () => {
-//   return API.getStatusOrders().then((result) =>
-// }
+export const getComments = (restName) => {
+  return API.getComments(restName).then((result) =>
+    STORE.addComments(restName, result)
+  );
+}

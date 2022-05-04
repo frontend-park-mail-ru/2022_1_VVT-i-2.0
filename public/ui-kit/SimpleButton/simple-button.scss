@@ -1,3 +1,5 @@
+@use 'public/configurations/colors/colors.scss'as theme;
+
 .simple-button {
     min-height: 45px;
     //width: 90%;
@@ -5,6 +7,8 @@
     border: none;
     border-radius: 14px;
     font-weight: bold;
+
+    color: theme.getColor('black');
 
     &:hover {
         cursor: pointer;

@@ -1,0 +1,59 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
+.comments {
+  &__header {
+    display: flex;
+    background: theme.getColor('grey');
+
+    border-radius: 16px;
+
+    @media screen and (max-width: 920px) {
+      margin-left: auto;
+      margin-right: auto;
+      min-width: 343px;
+      max-width: 343px;
+    }
+
+    @media screen and (min-width: 920px) {
+      min-width: 800px;
+      max-width: 800px;
+    }
+
+    margin-bottom: 18px;
+  }
+
+  &__img {
+    width: 30px;
+    height: 30px;
+    margin: 15px 7px 15px 15px;
+
+    filter: invert(69%) sepia(63%) saturate(958%) hue-rotate(326deg) brightness(104%) contrast(101%);
+  }
+
+  &__rating {
+    color: #ff9f47;
+    font-size: 25px;
+    line-height: 60px;
+    font-style: normal;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  &__description {
+    color: #a4a4a4;
+    font-size: 14px;
+    line-height: 16px;
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 21px;
+    margin-right: 15px;
+
+    @media screen and (max-width: 920px) {
+      margin-top: 5px;
+    }
+
+    @media screen and (min-width: 920px) {
+      margin-top: 21px;
+    }
+  }
+}

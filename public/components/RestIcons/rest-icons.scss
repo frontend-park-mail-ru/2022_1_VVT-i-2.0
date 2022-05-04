@@ -5,6 +5,14 @@
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 50px;
+
+    @media screen and (orientation: portrait) and (max-width: 815px) {
+        margin-top: 0px;
+    }
+
+    @media screen and (orientation: landscape) and (min-width: 815px) {
+        margin-top: 50px;
+    }
 }
 
 .restaurants-form__rest_icon {
@@ -13,10 +21,18 @@
     flex-wrap: wrap;
 
     align-content: center;
-    margin-bottom: 70px;
+
+    @media screen and (orientation: portrait) and (max-width: 815px) {
+        margin: auto;
+        margin-bottom: 24px;
+    }
+
+    @media screen and (orientation: landscape) and (min-width: 815px) {
+        margin-bottom: 70px;
+    }
 
     width: 343px;
-    height: 348px;
+    height: 278px;
 
     background: theme.getColor('white');
     border-radius: 14px;
