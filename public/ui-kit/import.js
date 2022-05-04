@@ -15,6 +15,7 @@ import simpleTitle from "./SimpleTitle/simple-title";
 import category from "./Category/category.js";
 import commentsBlock from "./CommentsBlock/comments-block.js";
 import comment from "./Comment/comment.js";
+import notification from "./Notification/notification.js";
 
 export default {
   simpleButton,
@@ -33,5 +34,6 @@ export default {
   simpleTitle,
   category,
   commentsBlock,
-  comment
+  comment,
+  notification
 };
