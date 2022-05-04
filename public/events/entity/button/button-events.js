@@ -179,14 +179,17 @@ export const getButtonEvents = () => {
         type: "click",
         selector: "id",
         listener(app, store, e) {
+          console.log('ACTI');
           const header = document.getElementById('header');
           if (header.classList.contains('page-header__color-white')) {
             header.classList.add('page-header__color-grey');
             header.classList.remove('page-header__color-white');
+            sessionStorage.setItem('isSearchActivated', 'true');
             return;
           }
           header.classList.add('page-header__color-white');
           header.classList.remove('page-header__color-grey');
+          sessionStorage.setItem('isSearchActivated', 'false');
         },
       },
     ],

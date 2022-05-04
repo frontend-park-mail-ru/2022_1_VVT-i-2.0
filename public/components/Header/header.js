@@ -7,6 +7,7 @@ const header = (isOrderingPage = false) => {
   const avatar = getters.getAvatar();
   const emptyShopCart = getters.IsCartEmpty();
   const totalOrderPrice = getters.cart().totalPrice;
+  const isSearchActivated = sessionStorage.getItem('isSearchActivated') === 'true';
 
   const template = `
         <header id="header" class="page-header page-header__color-white">
@@ -22,6 +23,24 @@ const header = (isOrderingPage = false) => {
             {{/isOrderingPage}}
 
             {{^isOrderingPage}}
+            
+                {{#isSearchActivated}}
+                <nav id="searchActivatedAria" class="page-header__button">
+                    <div class="search-block">
+                        <div class="search-block__block-img">
+                            <img class="block-img__image" src="/graphics/icons/search.svg" alt="">
+                        </div>
+                        <div class="search-block__input">
+                            <input type="text">
+                        </div>
+                        <div class="search-block__block-img">
+                            <img class="block-img__image" src="/graphics/icons/close.svg" alt="">
+                        </div>
+                    </div>
+                </nav>
+                {{/isSearchActivated}}
+            
+                {{^isSearchActivated}}
                 <nav id="search" class="page-header__button page-header__button-search" data-section="suggests">
                     <img src="/graphics/icons/address.svg" data-section="suggests" alt="">
                     <span data-section="suggests">
@@ -33,11 +52,16 @@ const header = (isOrderingPage = false) => {
                         >
                     </span>
                 </nav>
+                {{/isSearchActivated}}
+                
                 {{#auth}}
-                    <nav id="searchButton" class="page-header__button" data-section="search">
-                        <img src="/graphics/icons/search.svg" data-section="search" alt="">
-                        <a class="button__controller" data-section="search">Поиск</a>
+                    
+                    {{^isSearchActivated}}
+                    <nav id="searchButton" class="page-header__button">
+                        <img src="/graphics/icons/search.svg" alt="">
+                        <a class="button__controller"r>Поиск</a>
                     </nav>
+                    {{/isSearchActivated}}
                         
                     <nav id="profilePreviewButton" class="page-header__button" data-section="profilePreview">
                         {{#avatar}}
@@ -83,6 +107,7 @@ const header = (isOrderingPage = false) => {
     address,
     emptyShopCart,
     totalOrderPrice,
+    isSearchActivated,
     backToMenu() {
       return UIKIT.backButton("Обратно в меню", "dishes");
     },
