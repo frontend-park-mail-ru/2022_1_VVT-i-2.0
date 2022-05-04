@@ -77,9 +77,16 @@ export const getOrderList = () => {
 
 export const getCertainOrder = (orderNumber) => {
   return API.getCertainOrder(orderNumber).then((result) => {
-    console.log(result);
     STORE.addCertainOrder(result);
   });
+}
+
+export const changeSearchStatus = () => {
+  return STORE.changeSearchStatus();
+}
+
+export const setSearchStatus = (status) => {
+  STORE.setSearchStatus(status);
 }
 
 // export const getStatusOrders = () => {

@@ -35,3 +35,5 @@ export const token = () => STORE.token;
 export const getOrderList = () => STORE.orderList;
 
 export const getCertainOrder = () => STORE.certainOrder;
+
+export const getSearchStatus = () => STORE.isSearchActivated;

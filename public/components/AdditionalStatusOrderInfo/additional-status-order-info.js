@@ -2,8 +2,6 @@ import UIKIT from "../../ui-kit/import.js";
 import COLORS from "../../configurations/colors/colors";
 
 const additionalStatusOrderInfo = (props) => {
-    console.log('additional', props);
-
     const template = `
         <div class="order">
             <div class="order__main-content">
@@ -29,7 +27,6 @@ const additionalStatusOrderInfo = (props) => {
     return Mustache.render(template, {
         address: props.address,
         order() {
-            console.log('orderCheck', props);
             let orderPoints = [];
             props.cart.forEach((obj) => {
                 let orderPoint = {};
@@ -44,8 +41,6 @@ const additionalStatusOrderInfo = (props) => {
             });
 
             props.orderPoints = orderPoints;
-
-            console.log('PROPS', props.orderPoints);
 
             return UIKIT.orderCheck(props, false, false);
         },

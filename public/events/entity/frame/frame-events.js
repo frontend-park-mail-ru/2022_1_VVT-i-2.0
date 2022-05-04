@@ -16,6 +16,7 @@ export const getFrameEvents = () => {
            */
           listener(app, store, e) {
             const root = sessionStorage.getItem("root") || "main";
+            store.actions.setSearchStatus(false);
             renderAndUpdateURN(root);
           },
         },

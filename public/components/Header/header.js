@@ -7,10 +7,12 @@ const header = (isOrderingPage = false) => {
   const avatar = getters.getAvatar();
   const emptyShopCart = getters.IsCartEmpty();
   const totalOrderPrice = getters.cart().totalPrice;
-  const isSearchActivated = sessionStorage.getItem('isSearchActivated') === 'true';
+  const isSearchActivated = getters.getSearchStatus();
+
+  console.log(isSearchActivated);
 
   const template = `
-        <header id="header" class="page-header page-header__color-white">
+        <header id="header" class="page-header {{#isSearchActivated}}page-header__color-grey{{/isSearchActivated}}{{^isSearchActivated}}page-header__color-white{{/isSearchActivated}}">
             <nav class="page-header__button page-header__main-button" data-section="main">
                 <img class="main-button__img" src="/graphics/images/fobringto.png" data-section="main" alt="">
                 <a class="main-button__controller" data-section="main">obringTo</a>
@@ -25,16 +27,16 @@ const header = (isOrderingPage = false) => {
             {{^isOrderingPage}}
             
                 {{#isSearchActivated}}
-                <nav id="searchActivatedAria" class="page-header__button">
+                <nav id="searchActivatedAria" class="searchActivatedAria">
                     <div class="search-block">
                         <div class="search-block__block-img">
-                            <img class="block-img__image" src="/graphics/icons/search.svg" alt="">
+                            <img class="block-img__image" src="/graphics/icons/search_grey.svg" alt="">
                         </div>
-                        <div class="search-block__input">
-                            <input type="text">
+                        <div class="search-block__input-block">
+                            <input id="searchInput" class="input-block__input" type="text">
                         </div>
                         <div class="search-block__block-img">
-                            <img class="block-img__image" src="/graphics/icons/close.svg" alt="">
+                            <img id="closeImg" class="block-img__image" src="/graphics/icons/close.svg" alt="">
                         </div>
                     </div>
                 </nav>
@@ -58,7 +60,7 @@ const header = (isOrderingPage = false) => {
                     
                     {{^isSearchActivated}}
                     <nav id="searchButton" class="page-header__button">
-                        <img src="/graphics/icons/search.svg" alt="">
+                        <img src="/graphics/icons/search_black.svg" alt="">
                         <a class="button__controller">Поиск</a>
                     </nav>
                     {{/isSearchActivated}}

@@ -104,6 +104,7 @@ const STORE = {
     // { address: "SECOND", end: true },
   ],
   currentRestName: "",
+  isSearchActivated: false,
   token: "",
 
   // Mutations
@@ -205,6 +206,12 @@ const STORE = {
   },
   addCertainOrder(order) {
     this.certainOrder = order;
+  },
+  changeSearchStatus() {
+    this.isSearchActivated = !this.isSearchActivated;
+  },
+  setSearchStatus(status) {
+    this.isSearchActivated = status;
   }
 };
 

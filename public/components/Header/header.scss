@@ -28,6 +28,10 @@
     }
 }
 
+.searchActivatedAria {
+    width: 90%;
+}
+
 .page-header__button {
     @include flex-center ();
     flex: 1 1 auto;
@@ -91,6 +95,7 @@
 .button__avatar-img {
     width: 30px;
     height: 30px;
+    cursor: pointer;
 
     border-radius: 15px;
     border: 1px solid theme.getColor('warm');
@@ -109,7 +114,10 @@
     display: flex;
     flex-direction: row;
 
-    max-width: 840px;
+    margin-top: 14px;
+    margin-left: 33px;
+
+    max-width: 1300px;
     max-height: 50px;
 
     border-radius: 20px;
@@ -124,4 +132,13 @@
 .block-img__image {
     width: 40px;
     height: 40px;
+    cursor: pointer;
+}
+
+.search-block__input-block {
+    width: 100%;
+}
+
+.input-block__input {
+    width: 100%;
 }

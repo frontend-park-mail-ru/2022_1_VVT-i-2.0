@@ -35,6 +35,27 @@ const confirmCodeForm = (phone) => {
         </div>
     `;
 
+  // <div id="confirm-code-form" className="confirm-code-form">
+  //   <div className="confirm-code-form__main-content">
+  //     <div className="main-content__preview">
+  //       <h2 className="preview__title">Подтвердите телефон</h2>
+  //       <img id="closeImg" className="preview__close-img" src="/graphics/icons/close.svg" alt="">
+  //     </div>
+  //     <div>
+  //       <div className="confirm-code-form__indication">Вам позвонят на номер <strong>{{phone}}</strong></div>
+  //       {{#inputConfigurations}}
+  //       <div className="confirm-code-form__input">
+  //         {{ & input}}
+  //       </div>
+  //       {{/inputConfigurations}}
+  //         </div>
+  //         </div>
+  //
+  //         <div class="confirm-code-form__buttons">
+  //         <div id="confirm-code-button" class="confirm-code-form__button-confirm-code">{{&confirm}}</div>
+  //       {{&sendAgain}}
+  //         </div>
+  //         </div>
 
 
   return Mustache.render(template, {
