@@ -98,6 +98,7 @@ const STORE = {
     order: [],
   },
   orderList: [],
+  certainOrder: {},
   suggests: [
     // { address: "FIRST", end: false },
     // { address: "SECOND", end: true },
@@ -200,9 +201,11 @@ const STORE = {
     this.token = token;
   },
   addOrderList(orderList) {
-    console.log(orderList);
     this.orderList = orderList;
   },
+  addCertainOrder(order) {
+    this.certainOrder = order;
+  }
 };
 
 const PROXY_STORE = new Proxy(STORE, {

@@ -1,9 +1,7 @@
 import UIKIT from "../../ui-kit/import.js";
 
-const orderCheck = (props, toShowNotify = true) => {
-    const isEmpty = props.total === 0;
-
-    console.log(props.orderPoints);
+const orderCheck = (props, toShowNotify = true, toShowButtons = true) => {
+    const isEmpty = (props.total || props.totalPrice) === 0;
 
     const template = `        
         <div class="ordering-page__shopping-cart">
@@ -43,11 +41,12 @@ const orderCheck = (props, toShowNotify = true) => {
 
     return Mustache.render(template, {
         restName: props.restName,
+        total: props.total || props.totalPrice,
         orderPoints: props.orderPoints,
-        total: props.total,
-        minPrice: props.minPrice,
+        minPrice: props.minPrice || 0,
         isEmpty,
         toShowNotify,
+        toShowButtons,
         drawOrderPoint() {
             return UIKIT.orderPoint(
                 this.imgPath,
@@ -57,7 +56,7 @@ const orderCheck = (props, toShowNotify = true) => {
                 this.count,
                 this.price,
                 this.id,
-                this.toShowNotify,
+                toShowButtons
             );
         },
         paymentNotification() {

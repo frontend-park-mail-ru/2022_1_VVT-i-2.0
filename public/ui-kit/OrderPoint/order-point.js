@@ -1,6 +1,6 @@
 import UIKIT from "../import.js";
 
-const orderPoint = (imgPath, productName, weight, info, count, price, id, toShowButtons = false) => {
+const orderPoint = (imgPath, productName, weight, info, count, price, id, toShowButtons = true) => {
   const template = `
         <section class="shopping-cart__order-point">
             <div class="order-point__img-block">

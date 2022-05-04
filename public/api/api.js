@@ -135,6 +135,6 @@ export const getStatusOrders = () => {
   return request('/status_orders', { method: METHODS.GET });
 }
 
-export const getOrderInfo = (orderNumber) => {
+export const getCertainOrder = (orderNumber) => {
   return request(`/order/${orderNumber}`);
 };

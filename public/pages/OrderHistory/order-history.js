@@ -25,7 +25,6 @@ const orderHistoryPage = (app, store) => {
     // ];
 
     const main = document.createElement("main");
-    console.log('getters', store.getters.getOrderList());
     main.innerHTML = components.profileTemplate('Мои заказы',
         components.orderStatusList(store.getters.getOrderList()));
     app.root.appendChild(main);

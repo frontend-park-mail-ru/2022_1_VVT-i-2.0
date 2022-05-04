@@ -71,8 +71,14 @@ export const setToken = (token) => {
 
 export const getOrderList = () => {
   return API.getOrderList().then((result) => {
-    console.log('1', result);
     STORE.addOrderList(result.orderList);
+  });
+}
+
+export const getCertainOrder = (orderNumber) => {
+  return API.getCertainOrder(orderNumber).then((result) => {
+    console.log(result);
+    STORE.addCertainOrder(result);
   });
 }
 

@@ -1,12 +1,9 @@
 export const scrollTo = (element, to, duration) => {
-    console.log(element.scrollTop);
 
     let start = element.scrollTop,
         change = to - start,
         currentTime = 0,
         increment = 20;
-
-    console.log(start, change, currentTime, increment);
 
     const animateScroll = function() {
         currentTime += increment;

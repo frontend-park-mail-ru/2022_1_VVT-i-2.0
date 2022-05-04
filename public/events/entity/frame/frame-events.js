@@ -1,6 +1,7 @@
 import {renderAndUpdateURN} from "../../../render/render.js";
 import {scrollTo} from "./frame-src";
 import components from '../../../components/import';
+import {getCertainOrder} from "../../../store/actions/actions";
 
 export const getFrameEvents = () => {
   return {
@@ -25,22 +26,27 @@ export const getFrameEvents = () => {
           selector: "class",
           listener(app, store, e) {
             if ((e.target.dataset.id)[0] === '#') {
-              console.log('close');
               const orderElem = document.getElementById(e.target.dataset.id);
               orderElem.innerHTML = '';
               e.target.dataset.id = e.target.dataset.id.replace('#', '');
               e.target.src = './graphics/icons/keyboard_arrow_down.svg';
               return;
             }
+
             const statusLine = document.getElementById(e.target.dataset.id);
             const topPos = statusLine.offsetTop;
 
             const container = document.getElementsByClassName('content-nav-block__content-block')[0];
             scrollTo(container, topPos-186, 600);
 
-            let props;
+            store.actions.getCertainOrder(e.target.dataset.id).then(() => {
+              const orderElem = document.getElementById('#'+e.target.dataset.id);
+              orderElem.innerHTML += components.additionalStatusOrderInfo(store.getters.getCertainOrder());
 
-            store.actions.getOrderList().then((result) => props = result);
+              e.target.dataset.id = '#'+String(e.target.dataset.id);
+              e.target.src = './graphics/icons/keyboard_arrow_up.svg';
+            });
+            // console.log(props);
 
             // const props = {
             //   restName: 'Макдональдс',
@@ -82,12 +88,6 @@ export const getFrameEvents = () => {
             //   total: 26000,
             //   minPrice: 1300,
             // };
-
-            const orderElem = document.getElementById('#'+e.target.dataset.id);
-            orderElem.innerHTML += components.additionalStatusOrderInfo(props);
-
-            e.target.dataset.id = '#'+String(e.target.dataset.id);
-            e.target.src = './graphics/icons/keyboard_arrow_up.svg';
           },
         },
     ],

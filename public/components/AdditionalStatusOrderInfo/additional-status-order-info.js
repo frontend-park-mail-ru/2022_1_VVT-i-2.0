@@ -2,6 +2,8 @@ import UIKIT from "../../ui-kit/import.js";
 import COLORS from "../../configurations/colors/colors";
 
 const additionalStatusOrderInfo = (props) => {
+    console.log('additional', props);
+
     const template = `
         <div class="order">
             <div class="order__main-content">
@@ -11,7 +13,7 @@ const additionalStatusOrderInfo = (props) => {
                 <div class="main-content__comment-block">
                     <div class="comment-block__address">
                         Адрес ресторана:
-                        Москва, Улица Маршала Полубоярова, дом 51
+                        {{address}}
                     </div>
                     <div class="comment__comment-explanation">
                         Вы можете оставить комментарий, в случае, если уже получили заказ
@@ -25,8 +27,27 @@ const additionalStatusOrderInfo = (props) => {
     `;
 
     return Mustache.render(template, {
+        address: props.address,
         order() {
-            return UIKIT.orderCheck(props, false);
+            console.log('orderCheck', props);
+            let orderPoints = [];
+            props.cart.forEach((obj) => {
+                let orderPoint = {};
+                orderPoint.imgPath = obj.imgPath;
+                orderPoint.productName = obj.name;
+                orderPoint.weight = obj.weight;
+                orderPoint.info = obj.calories;
+                orderPoint.count = obj.count;
+                orderPoint.price = obj.price;
+                orderPoint.id = "";
+                orderPoints.push(orderPoint);
+            });
+
+            props.orderPoints = orderPoints;
+
+            console.log('PROPS', props.orderPoints);
+
+            return UIKIT.orderCheck(props, false, false);
         },
         commentButton() {
             return UIKIT.simpleButton('Оставить комментарий', COLORS.primary,
