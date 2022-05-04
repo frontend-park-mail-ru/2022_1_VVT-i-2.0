@@ -1,4 +1,4 @@
-import { APP, render, renderAndUpdateURN, renderNotification } from "./render/render.js";
+import { APP, render, renderAndUpdateURN } from "./render/render.js";
 import * as store from "./store/import";
 import "./index.scss";
 import { IsCartEmpty } from "./store/getters/getters";

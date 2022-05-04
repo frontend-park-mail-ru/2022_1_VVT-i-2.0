@@ -12,7 +12,7 @@
   }
 
   @media screen and (orientation: landscape) and (min-width: 540px) {
-    width: 300px;
+    width: 343px;
   }
 
   background: theme.getColor('lightGrey');
@@ -33,7 +33,12 @@
     font-weight: 700;
 
     position: absolute;
-    padding-top: 16px;
+    padding-top: 22px;
+    padding-bottom: 16px;
+
+    max-width: 230px;
+
+    word-wrap: break-word;
   }
 
   &__close-img {
