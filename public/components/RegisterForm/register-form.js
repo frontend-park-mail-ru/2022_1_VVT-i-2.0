@@ -39,7 +39,7 @@ const registerForm = () => {
       return UIKIT.input(
         this.title,
         this.type,
-        // this.width,
+        this.width,
         this.placeholder,
         this.id
       );

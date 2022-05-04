@@ -18,8 +18,14 @@
 
     z-index: 1;
     font-weight: bold;
-    background: theme.getColor('white');
     border-bottom: 1px solid #b9b9b9;
+
+    &__color-white {
+        background: theme.getColor('white');
+    }
+    &__color-grey {
+        background: theme.getColor('grey');
+    }
 }
 
 .page-header__button {

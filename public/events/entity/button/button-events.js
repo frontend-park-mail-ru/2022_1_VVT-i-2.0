@@ -174,6 +174,22 @@ export const getButtonEvents = () => {
         },
       },
     ],
+    searchButton: [
+      {
+        type: "click",
+        selector: "id",
+        listener(app, store, e) {
+          const header = document.getElementById('header');
+          if (header.classList.contains('page-header__color-white')) {
+            header.classList.add('page-header__color-grey');
+            header.classList.remove('page-header__color-white');
+            return;
+          }
+          header.classList.add('page-header__color-white');
+          header.classList.remove('page-header__color-grey');
+        },
+      },
+    ],
     personInfoSaveButton: [
       {
         type: "click",

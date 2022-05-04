@@ -9,7 +9,7 @@ const header = (isOrderingPage = false) => {
   const totalOrderPrice = getters.cart().totalPrice;
 
   const template = `
-        <header class="page-header">
+        <header id="header" class="page-header page-header__color-white">
             <nav class="page-header__button page-header__main-button" data-section="main">
                 <img class="main-button__img" src="/graphics/images/fobringto.png" data-section="main" alt="">
                 <a class="main-button__controller" data-section="main">obringTo</a>
