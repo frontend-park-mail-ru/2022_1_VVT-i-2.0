@@ -59,7 +59,7 @@ const header = (isOrderingPage = false) => {
                     {{^isSearchActivated}}
                     <nav id="searchButton" class="page-header__button">
                         <img src="/graphics/icons/search.svg" alt="">
-                        <a class="button__controller"r>Поиск</a>
+                        <a class="button__controller">Поиск</a>
                     </nav>
                     {{/isSearchActivated}}
                         

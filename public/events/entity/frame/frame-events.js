@@ -43,17 +43,14 @@ export const getFrameEvents = () => {
               const orderElem = document.getElementById('#'+e.target.dataset.id);
               orderElem.innerHTML = components.additionalStatusOrderInfo(store.getters.getCertainOrder());
 
-            //   const buttonImages = document.querySelectorAll('img[data-id]');
+              const buttonImages = document.querySelectorAll('img[data-id]');
 
-              // [...buttonImages].forEach((buttonImage) => {
-              //   if (buttonImage.getAttribute('data-id') === e.target.dataset.id) {
-              //     buttonImage.src = './graphics/icons/keyboard_arrow_up.svg';
-              //     buttonImage.dataset.id = '#'+String(e.target.dataset.id);
-              //   }
-              // });
-
-              e.target.dataset.id = '#'+String(e.target.dataset.id);
-              e.target.src = './graphics/icons/keyboard_arrow_up.svg';
+              [...buttonImages].forEach((buttonImage) => {
+                if (buttonImage.getAttribute('data-id') === e.target.dataset.id) {
+                  buttonImage.src = './graphics/icons/keyboard_arrow_up.svg';
+                  buttonImage.dataset.id = '#'+String(e.target.dataset.id);
+                }
+              });
             });
             // console.log(props);
 
