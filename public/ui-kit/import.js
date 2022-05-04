@@ -12,6 +12,8 @@ import paymentNotification from "./PaymentNotification/payment-notification.js";
 import buttonPay from "./ButtonPay/button-pay.js";
 import underlinedTitle from "./UnderlinedTitle/underlined-title.js";
 import simpleTitle from "./SimpleTitle/simple-title";
+import orderStatus from "./OrderStatus/order-status";
+import orderCheck from "./OrderCheck/order-check";
 import category from "./Category/category.js";
 import commentsBlock from "./CommentsBlock/comments-block.js";
 import comment from "./Comment/comment.js";
@@ -32,6 +34,8 @@ export default {
   buttonPay,
   underlinedTitle,
   simpleTitle,
+  orderStatus,
+  orderCheck,
   category,
   commentsBlock,
   comment,

@@ -9,6 +9,7 @@ import shoppingCartPage from "./ShoppingCart/shopping-cart.js";
 import orderingPage from "./Ordering/ordering.js";
 import suggestsPage from "./Suggests/suggests.js";
 import networkErrors from "./NetworkErrors/network-errors.js";
+import orderHistoryPage from "./OrderHistory/order-history";
 import commentsPage from "./Comments/comments.js"
 
 const MENU = {
@@ -60,6 +61,11 @@ const MENU = {
   },
   ordering: {
     render: orderingPage,
+    isModal: false,
+    authRequired: true,
+  },
+  orderHistory: {
+    render: orderHistoryPage,
     isModal: false,
     authRequired: true,
   },

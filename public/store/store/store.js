@@ -95,13 +95,16 @@ const STORE = {
   },
   cart: {
     totalPrice: 0,
-    orderList: [],
+    order: [],
   },
+  orderList: [],
+  certainOrder: {},
   suggests: [
     // { address: "FIRST", end: false },
     // { address: "SECOND", end: true },
   ],
   currentRestName: "",
+  isSearchActivated: false,
   token: "",
   categories: [
     { title: "Суши" }, { title: "Пицца" }, { title: "Бургеры" }, { title: "Фастфуд" },
@@ -226,6 +229,18 @@ const STORE = {
   setToken(token) {
     this.token = token;
   },
+  addOrderList(orderList) {
+    this.orderList = orderList;
+  },
+  addCertainOrder(order) {
+    this.certainOrder = order;
+  },
+  changeSearchStatus() {
+    this.isSearchActivated = !this.isSearchActivated;
+  },
+  setSearchStatus(status) {
+    this.isSearchActivated = status;
+  },
   addComments(restName, result) {
     const comments = this.comments;
     comments[restName] = { comments: result };
@@ -236,7 +251,6 @@ const STORE = {
 const PROXY_STORE = new Proxy(STORE, {
   set(target, prop, value) {
     target[prop] = value;
-
     const page = sessionStorage.getItem("page");
     render(page, true);
 

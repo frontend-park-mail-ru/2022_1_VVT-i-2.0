@@ -13,27 +13,57 @@ const confirmCodeForm = (phone) => {
 
   const template = `
         <div id="confirm-code-form" class="confirm-code-form">
-            <img id="closeImg" class="confirm-code-form__close-img" src="/graphics/icons/close.svg" alt="">
-            <h2 class="confirm-code-form__title">Подтвердите телефон</h2>
-            <div class="confirm-code-form__indication">Вам позвонят на номер
-              <strong>{{phone}}</strong>
-            </div>
-            {{#inputConfigurations}}
-                <div class="confirm-code-form__input">
-                    {{&input}}
+            <div class="confirm-code-form__main-content">
+                <div class="main-content__preview">
+                  <h2 class="preview__title">Подтвердите телефон</h2>
+                  <img id="closeImg" class="preview__close-img" src="/graphics/icons/close.svg" alt="">
                 </div>
-            {{/inputConfigurations}}
-            <div id="confirm-code-button" class="confirm-code-form__button-confirm-code">{{&confirm}}</div>
-            {{&sendAgain}}
+                <div>
+                  <div class="confirm-code-form__indication">Вам позвонят на номер <strong>{{phone}}</strong></div>
+                  {{#inputConfigurations}}
+                      <div class="confirm-code-form__input">
+                          {{&input}}
+                      </div>
+                  {{/inputConfigurations}}
+                </div>  
+            </div>
+            
+            <div class="confirm-code-form__buttons">
+                <div id="confirm-code-button" class="confirm-code-form__button-confirm-code">{{&confirm}}</div>
+                {{&sendAgain}}
+            </div>
         </div>
     `;
+
+  // <div id="confirm-code-form" className="confirm-code-form">
+  //   <div className="confirm-code-form__main-content">
+  //     <div className="main-content__preview">
+  //       <h2 className="preview__title">Подтвердите телефон</h2>
+  //       <img id="closeImg" className="preview__close-img" src="/graphics/icons/close.svg" alt="">
+  //     </div>
+  //     <div>
+  //       <div className="confirm-code-form__indication">Вам позвонят на номер <strong>{{phone}}</strong></div>
+  //       {{#inputConfigurations}}
+  //       <div className="confirm-code-form__input">
+  //         {{ & input}}
+  //       </div>
+  //       {{/inputConfigurations}}
+  //         </div>
+  //         </div>
+  //
+  //         <div class="confirm-code-form__buttons">
+  //         <div id="confirm-code-button" class="confirm-code-form__button-confirm-code">{{&confirm}}</div>
+  //       {{&sendAgain}}
+  //         </div>
+  //         </div>
+
 
   return Mustache.render(template, {
     phone,
     inputConfigurations,
     input() {
       return UIKIT.input(
-        this.underlinedTitle,
+        this.title,
         this.type,
         this.width,
         this.placeholder,
@@ -44,7 +74,7 @@ const confirmCodeForm = (phone) => {
       return UIKIT.simpleButton(
         "Подтвердить",
         COLORS.primary,
-        ELEMS_CONFIGURATION.buttons.STANDARD,
+        this.width,
         "main",
         "confirmCodeButton"
       );
@@ -53,7 +83,7 @@ const confirmCodeForm = (phone) => {
       return UIKIT.simpleButton(
         "Отправить код повторно",
         COLORS.grey,
-        ELEMS_CONFIGURATION.buttons.STANDARD,
+        this.width,
         "confirmCode",
         "sendCodeButton"
       );

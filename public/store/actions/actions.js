@@ -75,6 +75,26 @@ export const setToken = (token) => {
   return STORE.setToken(token);
 };
 
+export const getOrderList = () => {
+  return API.getOrderList().then((result) => {
+    STORE.addOrderList(result.orderList);
+  });
+}
+
+export const getCertainOrder = (orderNumber) => {
+  return API.getCertainOrder(orderNumber).then((result) => {
+    STORE.addCertainOrder(result);
+  });
+}
+
+export const changeSearchStatus = () => {
+  return STORE.changeSearchStatus();
+}
+
+export const setSearchStatus = (status) => {
+  STORE.setSearchStatus(status);
+}
+
 export const getComments = (restName) => {
   return API.getComments(restName).then((result) =>
     STORE.addComments(restName, result)

@@ -18,8 +18,18 @@
 
     z-index: 1;
     font-weight: bold;
-    background: theme.getColor('white');
     border-bottom: 1px solid #b9b9b9;
+
+    &__color-white {
+        background: theme.getColor('white');
+    }
+    &__color-grey {
+        background: theme.getColor('grey');
+    }
+}
+
+.searchActivatedAria {
+    width: 90%;
 }
 
 .page-header__button {
@@ -104,6 +114,7 @@
 .button__avatar-img {
     width: 30px;
     height: 30px;
+    cursor: pointer;
 
     border-radius: 15px;
     border: 1px solid theme.getColor('warm');
@@ -129,4 +140,37 @@
     @media screen and (orientation: landscape) and (min-width: 920px) {
         min-width: 160px;
     }
+}
+
+.search-block {
+    display: flex;
+    flex-direction: row;
+
+    margin-top: 14px;
+    margin-left: 33px;
+
+    max-width: 1300px;
+    max-height: 50px;
+
+    border-radius: 20px;
+    background: theme.getColor('white');
+}
+
+.search-block__img {
+    max-width: 65px;
+    text-align: center;
+}
+
+.block-img__image {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.search-block__input-block {
+    width: 100%;
+}
+
+.input-block__input {
+    width: 100%;
 }
