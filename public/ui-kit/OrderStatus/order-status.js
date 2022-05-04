@@ -49,7 +49,7 @@ const orderStatus = (props) => {
         orderNumber: props.orderNumber,
         restName: props.restName,
         date: props.date,
-        price: props.price,
+        price: props.totalPrice,
         statusClass,
         status: props.status,
         orderID: '#'+String(props.orderNumber)

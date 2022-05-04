@@ -70,7 +70,10 @@ export const setToken = (token) => {
 };
 
 export const getOrderList = () => {
-  return API.getOrderList().then((result) => STORE.addOrderList(result.orderList));
+  return API.getOrderList().then((result) => {
+    console.log('1', result);
+    STORE.addOrderList(result.orderList);
+  });
 }
 
 // export const getStatusOrders = () => {

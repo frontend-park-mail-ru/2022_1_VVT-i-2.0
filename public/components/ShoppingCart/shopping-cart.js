@@ -29,7 +29,8 @@ const shoppingCart = (restName, props) => {
         this.info,
         this.count,
         this.price,
-        this.id
+        this.id,
+        true,
       );
     },
     buttonOrder() {

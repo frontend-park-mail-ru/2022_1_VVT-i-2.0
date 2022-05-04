@@ -226,14 +226,14 @@ export const getButtonEvents = () => {
 
           const order = store.getters.cart().order;
 
-          // store.actions.createOrder({ address, comment, cart: order }).then((result) => {
-          //   if (result.status === 200) {
-              renderAndUpdateURN("/orderHistory");
-              // alert("Заказ успешно создан");
-            // } else {
-            //   alert('Ошибка на сервере');
-            // }
-          // });
+          store.actions.createOrder({ address, comment, cart: order }).then((result) => {
+            if (result.status === 200) {
+              renderAndUpdateURN("/orderHistory", true);
+              alert("Заказ успешно создан");
+            } else {
+              alert('Ошибка на сервере');
+            }
+          });
         },
       },
     ],

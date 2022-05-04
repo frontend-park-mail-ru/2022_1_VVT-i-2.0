@@ -31,3 +31,5 @@ export const getCurrentSlug = () => {
 };
 
 export const token = () => STORE.token;
+
+export const getOrderList = () => STORE.orderList;

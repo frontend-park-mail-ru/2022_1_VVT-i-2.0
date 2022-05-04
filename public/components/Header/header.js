@@ -34,6 +34,11 @@ const header = (isOrderingPage = false) => {
                     </span>
                 </nav>
                 {{#auth}}
+                    <nav id="searchButton" class="page-header__button" data-section="search">
+                        <img src="/graphics/icons/search.svg" data-section="search" alt="">
+                        <a class="button__controller" data-section="search">Поиск</a>
+                    </nav>
+                        
                     <nav id="profilePreviewButton" class="page-header__button" data-section="profilePreview">
                         {{#avatar}}
                             <img class="button__avatar-img" src="{{avatar}}" data-section="profilePreview" alt="">
