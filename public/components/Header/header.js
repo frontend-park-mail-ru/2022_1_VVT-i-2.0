@@ -26,7 +26,7 @@ const header = (isOrderingPage = false) => {
             {{/isOrderingPage}}
 
             {{^isOrderingPage}}
-            
+
                 {{#isSearchActivated}}
                 <nav id="searchActivatedAria" class="searchActivatedAria">
                     <div class="search-block">
@@ -42,7 +42,7 @@ const header = (isOrderingPage = false) => {
                     </div>
                 </nav>
                 {{/isSearchActivated}}
-            
+
                 {{^isSearchActivated}}
                 <nav id="search" class="page-header__button page-header__button-search" data-section="suggests">
                     {{^isMobile}}<img src="/graphics/icons/address.svg" data-section="suggests" alt="">{{/isMobile}}
@@ -56,16 +56,16 @@ const header = (isOrderingPage = false) => {
                     </span>
                 </nav>
                 {{/isSearchActivated}}
-                
+
                 {{#auth}}
-                    
+
                     {{^isSearchActivated}}
                     <nav id="searchButton" class="page-header__button">
                         <img src="/graphics/icons/search_black.svg" alt="">
                         <a class="button__controller">Поиск</a>
                     </nav>
                     {{/isSearchActivated}}
-                        
+
                     <nav id="profilePreviewButton" class="page-header__button" data-section="profilePreview">
                         {{#avatar}}
                             <img class="button__avatar-img" src="{{avatar}}" data-section="profilePreview" alt="">
@@ -86,7 +86,7 @@ const header = (isOrderingPage = false) => {
                     {{/emptyShopCart}}
 
                     {{^emptyShopCart}}
-                        <nav id="shoppingCartButton" class="page-header__button page-header__button-cart_green" data-section="shoppingCart"><<<<<<< mobile_vers
+                        <nav id="shoppingCartButton" class="page-header__button page-header__button-cart_green" data-section="shoppingCart">
                             <img src="/graphics/icons/shopping_cart.svg" data-section="shoppingCart" alt="">
                             <a class="button__controller_with-price" data-section="shoppingCart">{{totalOrderPrice}} ₽</a>
                         </nav>

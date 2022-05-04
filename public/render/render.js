@@ -140,7 +140,7 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     urn = `/${urn}`;
   }
 
-  if (urn === "/" || urn === "/main") {
+  if ((urn === "/" || urn === "/main") && store.getters.restaurants().length === 0) {
     store.actions.clearRestaurants();
     sessionStorage.removeItem("params");
   }
