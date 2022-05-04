@@ -1,6 +1,6 @@
 import * as FORM from "../../common/status-form.js";
 import { hideEmptyInputs, showEmptyInputs } from "../../common/status-form.js";
-import { renderAndUpdateURN } from "../../../render/render.js";
+import { renderAndUpdateURN, renderNotification } from "../../../render/render.js";
 import { avatar } from "../../../store/store/store";
 
 export const getButtonEvents = () => {
@@ -212,7 +212,7 @@ export const getButtonEvents = () => {
 
           store.actions.createOrder({ address, comment, cart }).then(() => {
             renderAndUpdateURN("/");
-            alert("Заказ успешно создан");
+            renderNotification("Заказ успешно создан");
           });
         },
       },

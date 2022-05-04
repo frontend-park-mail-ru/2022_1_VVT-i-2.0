@@ -95,8 +95,6 @@ if ("serviceWorker" in navigator) {
 
 const decodedPathname = decodeURI(location.pathname);
 
-renderNotification('Тестовое сообщение', false);
-
 if (Object.keys(store.getters.user()).length === 0) {
   // render(decodedPathname);
   store.actions.getUser(true).then(() => render(decodedPathname));

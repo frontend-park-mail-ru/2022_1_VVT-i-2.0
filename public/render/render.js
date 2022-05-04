@@ -7,6 +7,7 @@ import {
   IsCartEmpty,
   restaurants,
 } from "../store/getters/getters";
+import UIKIT from "../ui-kit/import.js";
 
 export const APP = {
   root: document.getElementById("root"),
@@ -156,6 +157,23 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
   render(urn, storeUpdate);
 };
 
+const hideNotification = () => {
+  notification.getElementsByClassName('notification__close-img')[0].removeEventListener('click', hideNotification);
+  notification.innerHTML = '';
+}
+
 export const renderNotification = (message, error = false) => {
-  notification.innerHTML = `${message}`;
+  notification.innerHTML = UIKIT.notification(message, error);
+
+  notification.getElementsByClassName('notification__close-img')[0].addEventListener('click', hideNotification);
+
+  const timeout = error ? 5000 : 3000;
+  setTimeout(() => {
+    if (notification.innerHTML === '') {
+      return;
+    }
+
+    notification.getElementsByClassName('notification__close-img')[0].removeEventListener('click', hideNotification);
+    notification.innerHTML = '';
+  }, timeout);
 };

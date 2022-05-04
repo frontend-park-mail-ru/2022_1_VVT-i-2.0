@@ -1,4 +1,4 @@
-import { renderAndUpdateURN } from "../render/render.js";
+import { renderAndUpdateURN, renderNotification } from "../render/render.js";
 import * as store from "../store/import.js";
 
 const METHODS = { GET: "GET", POST: "POST", PUT: "PUT", DELETE: "DELETE" };
@@ -49,7 +49,7 @@ const request = (url, options = DEFAULT_OPTIONS) => {
 
       if (Number(result.headers.get("Content-Length")) === 0) {
         if (result.status !== 200) {
-          alert(ERROR_MESSAGE);
+          renderNotification(ERROR_MESSAGE, true);
           return Promise.reject();
         }
 
@@ -60,9 +60,9 @@ const request = (url, options = DEFAULT_OPTIONS) => {
 
       if (result.status !== 200) {
         if (data.error) {
-          alert(data.error);
+          renderNotification(data.error, true);
         } else {
-          alert(ERROR_MESSAGE);
+          renderNotification(ERROR_MESSAGE, true);
         }
         return Promise.reject();
       }

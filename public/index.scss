@@ -79,6 +79,14 @@ main {
   background: theme.getColor("white");
   position: fixed;
   bottom: 50px;
-  left: 50%;
-  right: 50%;
+
+  @media screen and (orientation: portrait) and (max-width: 540px) {
+    left: 15px;
+    right: 15px;
+  }
+
+  @media screen and (orientation: landscape) and (min-width: 540px) {
+    left: 42%;
+    right: 58%;
+  }
 }
