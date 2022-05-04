@@ -52,7 +52,9 @@ const EVENTS = {
   buttonPay: Event.getButtonEvents().buttonPay,
 
   categories: Event.categories().category,
-  categoriesSelect: Event.categories().categoriesSelect
+  categoriesSelect: Event.categories().categoriesSelect,
+
+  searchInput: Event.search().searchInput
 };
 
 /**

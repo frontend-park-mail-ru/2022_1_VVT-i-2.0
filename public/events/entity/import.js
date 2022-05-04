@@ -8,6 +8,7 @@ import { suggests } from "./suggests/suggests-events.js";
 import { getConfirmCodeFieldEvents } from "./confirmCode/confirm-code-events.js";
 import { getInputEvents } from "./input/input-events";
 import { categories } from "./categories/categories-events.js";
+import { search } from "./search/search-events.js";
 
 const Event = {
   getFrameEvents,
@@ -19,7 +20,8 @@ const Event = {
   suggests,
   getConfirmCodeFieldEvents,
   getInputEvents,
-  categories
+  categories,
+  search
 };
 
 export default Event;
