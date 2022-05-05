@@ -17,7 +17,8 @@ const shoppingCart = (restName, props) => {
                 {{&buttonOrder}}
             </div>
         </div>
-    `;
+  `;
+
   return Mustache.render(template, {
     restName,
     props: props,
@@ -29,7 +30,8 @@ const shoppingCart = (restName, props) => {
         this.info,
         this.count,
         this.price,
-        this.id
+        this.id,
+        true,
       );
     },
     buttonOrder() {

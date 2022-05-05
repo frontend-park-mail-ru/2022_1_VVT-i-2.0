@@ -95,13 +95,17 @@ const STORE = {
   },
   cart: {
     totalPrice: 0,
-    orderList: [],
+    order: [],
   },
+  orderList: [],
+  certainOrder: {},
   suggests: [
     // { address: "FIRST", end: false },
     // { address: "SECOND", end: true },
   ],
   currentRestName: "",
+  // updateStatusTimerID: null,
+  isSearchActivated: false,
   token: "",
   categories: [
     { title: "Суши" }, { title: "Пицца" }, { title: "Бургеры" }, { title: "Фастфуд" },
@@ -226,17 +230,47 @@ const STORE = {
   setToken(token) {
     this.token = token;
   },
+  addOrderList(orderList) {
+    this.orderList = orderList;
+  },
+  addCertainOrder(order) {
+    this.certainOrder = order;
+  },
+  changeSearchStatus() {
+    this.isSearchActivated = !this.isSearchActivated;
+  },
+  setSearchStatus(status) {
+    this.isSearchActivated = status;
+  },
   addComments(restName, result) {
     const comments = this.comments;
     comments[restName] = { comments: result };
     this.comments = comments;
   },
+  // setUpdateStatusTimerID(timerID) {
+  //   this.updateStatusTimerID = timerID;
+  // },
+  // clearUpdateStatusTimerID() {
+  //   if (this.updateStatusTimerID !== null) {
+  //     console.log(this.updateStatusTimerID);
+  //     clearInterval(this.clearUpdateStatusTimerID);
+  //     this.updateStatusTimerID = null;
+  //   }
+  // },
+  setOrderStatuses(newStatuses) {
+    const orderList = this.orderList;
+    for (let i = 0; i < orderList.length; ++i) {
+      if (orderList[i].orderNumber === newStatuses[i].id) {
+        orderList[i].status = newStatuses[i].status;
+      }
+    }
+    this.orderList = orderList;
+  }
 };
 
 const PROXY_STORE = new Proxy(STORE, {
   set(target, prop, value) {
     target[prop] = value;
-
     const page = sessionStorage.getItem("page");
     render(page, true);
 

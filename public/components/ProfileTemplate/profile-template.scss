@@ -1,0 +1,44 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
+.profile-template-form {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  width: 100%;
+  margin: 0 10.5% 25px 10%;
+}
+
+.form__content-nav-block {
+  display: inline-flex;
+  justify-content: space-between;
+
+  width: 1200px;
+  height: 595px;
+}
+
+.content-nav-block__content-block {
+  //display: flex;
+  //flex-direction: column;
+
+  max-width: 700px;
+  max-height: 595px;
+
+  width: 700px;
+  height: 595px;
+
+  box-sizing: border-box;
+  //overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 10px;
+
+  background: theme.getColor('white');
+  border: 1px solid theme.getColor('grey');
+}
+
+.content-nav-block__navigation-block {
+  display: flex;
+  flex-direction: column;
+  background: theme.getColor("white");
+  border-radius: 5px;
+}

@@ -1,4 +1,5 @@
 import ELEMS_CONFIGURATION from "../../configurations/elems.js";
+import FORMS_CONFIGURATION from "../../configurations/forms";
 
 /**
  * @function Создает html-строку для создания ui-kit компонента input формы через шаблонатор Mustache.
@@ -26,7 +27,7 @@ const input = (
             <div class="input-block__title">{{title}}</div>
             <div {{#id}} id={{id}} {{/id}}>
                 <input
-                    style="width: {{width}}px"
+                    style="width: {{width}}px;"
                     {{#readonly}} class="input-block__input-readonly" {{/readonly}}
                     {{^readonly}} class="input-block__input" {{/readonly}}
                     placeholder="{{placeholder}}"

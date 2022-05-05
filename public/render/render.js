@@ -110,6 +110,11 @@ export const render = (urn, storeUpdate = false) => {
     sessionStorage.setItem("root", section);
   }
 
+  // Block for mobile version
+  if (['login', 'confirmCode', 'register'].includes(section) && window.screen.width < 438) {
+    APP.root.innerHTML = '';
+  }
+
   page.render(APP, store);
 
   events.addListeners(APP, store);
@@ -135,16 +140,21 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     urn = `/${urn}`;
   }
 
-  if (urn === "/" || urn === "/main") {
-    store.actions.clearRestaurants();
-    sessionStorage.removeItem("params");
+  if (sessionStorage.getItem('page') === 'orderHistory') {
+    console.log('delete timeout');
+    store.actions.clearUpdateTimeout();
   }
+
+  // if ((urn === "/" || urn === "/main") && store.getters.restaurants().length === 0) {
+  //   store.actions.clearRestaurants();
+  //   sessionStorage.removeItem("params");
+  // }
 
   if (urn === "/shoppingCart" && IsCartEmpty()) {
     return;
   }
 
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
 
   if (urn === "/shoppingCart" && sessionStorage.getItem("root") === "main") {
     history.pushState({}, null, "/dishes/" + getters.getCurrentSlug());

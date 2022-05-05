@@ -48,6 +48,7 @@
 .ordering-page__ordering-block {
   @media screen and (orientation: landscape) and (min-width: 920px) {
     padding: 30px 64px 0 58px;
+    margin-right: 20%;
     box-sizing: border-box;
 
     height: 722px;
@@ -149,7 +150,7 @@
 .ordering-page__shopping-cart {
   display: flex;
   flex-direction: column;
-
+  
   @media screen and (orientation: portrait) and (max-width: 920px) {
     width: 100%;
     margin-left: auto;
@@ -166,7 +167,7 @@
 
 .shopping-cart_order-points {
   min-width: 330px;
-  max-height: 400px;
+  max-height: 300px;
   min-height: 130px;
 
   overflow-x: hidden;

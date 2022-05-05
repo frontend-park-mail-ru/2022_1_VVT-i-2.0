@@ -1,0 +1,44 @@
+.order {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 520px;
+  padding-top: 5px;
+
+  text-align: center;
+  justify-items: center;
+}
+
+.order__main-content {
+  display: flex;
+  flex-direction: row;
+
+  max-height: 514px;
+}
+
+.comment-block__address {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-content__order-list {
+  max-width: 50%;
+}
+
+.main-content__comment-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  max-width: 95%;
+}
+
+.comment-block__address {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 220px;
+}

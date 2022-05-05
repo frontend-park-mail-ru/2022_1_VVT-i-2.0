@@ -75,8 +75,48 @@ export const setToken = (token) => {
   return STORE.setToken(token);
 };
 
+export const getOrderList = () => {
+  return API.getOrderList().then((result) => {
+    STORE.addOrderList(result.orderList);
+  });
+}
+
+export const getCertainOrder = (orderNumber) => {
+  return API.getCertainOrder(orderNumber).then((result) => {
+    STORE.addCertainOrder(result);
+  });
+}
+
+export const changeSearchStatus = () => {
+  return STORE.changeSearchStatus();
+}
+
+export const setSearchStatus = (status) => {
+  STORE.setSearchStatus(status);
+}
+
 export const getComments = (restName) => {
   return API.getComments(restName).then((result) =>
     STORE.addComments(restName, result)
   );
+}
+
+export const setUpdateTimeout = (timeout = 5000) => {
+  // console.log('id = ', STORE.updateStatusTimerID);
+  if (sessionStorage.getItem('UpdateTimeoutID') === null) {
+    const timerID = window.setInterval(() => {
+      API.getStatusOrders().then((result) => {
+        STORE.setOrderStatuses(result.statuses);
+      })
+    }, timeout);
+    // STORE.setUpdateStatusTimerID(timerId);
+    sessionStorage.setItem('UpdateTimeoutID', String(timerID));
+  }
+}
+
+export const clearUpdateTimeout = () => {
+  // STORE.clearUpdateStatusTimerID();
+  clearInterval(Number(sessionStorage.getItem('UpdateTimeoutID')));
+  sessionStorage.removeItem('UpdateTimeoutID');
+  console.log(sessionStorage.getItem('UpdateTimeoutID'));
 }

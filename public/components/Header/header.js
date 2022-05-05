@@ -2,16 +2,16 @@ import UIKIT from "../../ui-kit/import.js";
 import { getters } from "../../store/import";
 
 const header = (isOrderingPage = false) => {
-    const auth = Object.keys(getters.user()).length !== 0;
-    const address = localStorage.getItem("address");
-    const avatar = getters.getAvatar();
-    const emptyShopCart = getters.IsCartEmpty();
-    const totalOrderPrice = getters.cart().totalPrice;
+  const auth = Object.keys(getters.user()).length !== 0;
+  const address = localStorage.getItem("address");
+  const avatar = getters.getAvatar();
+  const emptyShopCart = getters.IsCartEmpty();
+  const totalOrderPrice = getters.cart().totalPrice;
+  const isSearchActivated = getters.getSearchStatus();
+  const isMobile = window.screen.width < 920;
 
-    const isMobile = window.screen.width < 920;
-
-    const template = `
-        <header class="page-header">
+  const template = `
+        <header id="header" class="page-header {{#isSearchActivated}}page-header__color-grey{{/isSearchActivated}}{{^isSearchActivated}}page-header__color-white{{/isSearchActivated}}">
             {{^isMobile}}
             <nav class="page-header__button page-header__main-button" data-section="main">
                 <img class="main-button__img" src="/graphics/images/fobringto.png" data-section="main" alt="">
@@ -26,6 +26,24 @@ const header = (isOrderingPage = false) => {
             {{/isOrderingPage}}
 
             {{^isOrderingPage}}
+
+                {{#isSearchActivated}}
+                <nav id="searchActivatedAria" class="searchActivatedAria">
+                    <div class="search-block">
+                        <div class="search-block__block-img">
+                            <img class="block-img__image" src="/graphics/icons/search_grey.svg" alt="">
+                        </div>
+                        <div class="search-block__input-block">
+                            <input id="searchInput" class="input-block__input" type="text">
+                        </div>
+                        <div class="search-block__block-img">
+                            <img id="closeImg" class="block-img__image" src="/graphics/icons/close.svg" alt="">
+                        </div>
+                    </div>
+                </nav>
+                {{/isSearchActivated}}
+
+                {{^isSearchActivated}}
                 <nav id="search" class="page-header__button page-header__button-search" data-section="suggests">
                     {{^isMobile}}<img src="/graphics/icons/address.svg" data-section="suggests" alt="">{{/isMobile}}
                     <span data-section="suggests">
@@ -37,7 +55,17 @@ const header = (isOrderingPage = false) => {
                         >
                     </span>
                 </nav>
+                {{/isSearchActivated}}
+
                 {{#auth}}
+
+                    {{^isSearchActivated}}
+                    <nav id="searchButton" class="page-header__button">
+                        <img src="/graphics/icons/search_black.svg" alt="">
+                        <a class="button__controller">Поиск</a>
+                    </nav>
+                    {{/isSearchActivated}}
+
                     <nav id="profilePreviewButton" class="page-header__button" data-section="profilePreview">
                         {{#avatar}}
                             <img class="button__avatar-img" src="{{avatar}}" data-section="profilePreview" alt="">
@@ -75,18 +103,19 @@ const header = (isOrderingPage = false) => {
         </header>
     `;
 
-    return Mustache.render(template, {
-        isMobile,
-        auth,
-        isOrderingPage,
-        avatar,
-        address,
-        emptyShopCart,
-        totalOrderPrice,
-        backToMenu() {
-        return UIKIT.backButton("Обратно в меню", "dishes");
-        },
-    });
+  return Mustache.render(template, {
+    isMobile,
+    auth,
+    isOrderingPage,
+    avatar,
+    address,
+    emptyShopCart,
+    totalOrderPrice,
+    isSearchActivated,
+    backToMenu() {
+      return UIKIT.backButton("Обратно в меню", "dishes");
+    },
+  });
 };
 
 export default header;

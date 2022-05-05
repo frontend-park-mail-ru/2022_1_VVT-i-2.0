@@ -6,9 +6,6 @@ import ELEMS_CONFIGURATION from "../../configurations/elems.js";
 
 const ordering = (props) => {
   const inputConfigurations = FORMS_CONFIGURATION.inputs.ordering;
-
-  const isEmpty = props.total === 0;
-
   const isMobile = window.screen.width < 920;
 
   const template = `
@@ -49,37 +46,7 @@ const ordering = (props) => {
             {{&buttonPay}}
           {{/isMobile}}
         </div>
-        <div class="ordering-page__shopping-cart">
-          {{^isEmpty}}
-          <div class="shopping-cart__info-about-rest shopping-cart__order-point">
-            <div class="shopping-cart__preview-rest">Ваш заказ в ресторане: {{restName}}</div>
-          </div>
-
-          <div class="shopping-cart_order-points">
-            {{#orderPoints}}
-              {{&drawOrderPoint}}
-            {{/orderPoints}}
-          </div>
-
-          <div class="shopping-cart__space-block"></div>
-
-          <div class="shopping-cart__payment-info">
-            <div>Доставка</div>
-            <div class="payment-info__price">500 ₽</div>
-          </div>
-          <div class="shopping-cart__payment-info">
-            <div>Сервисный сбор</div>
-            <div class="payment-info__price">500 ₽</div>
-          </div>
-
-          <div class="shopping-cart__payment-notify">{{&paymentNotification}}</div>
-
-          <div class="shopping-cart__summary-payment">
-            <div>Итого</div>
-            <div class="payment-info__price">{{total}} ₽</div>
-          </div>
-          {{/isEmpty}}
-        </div>
+        {{&summaryCheck}}
       </div>
 
       {{#isMobile}}
@@ -94,10 +61,6 @@ const ordering = (props) => {
     isMobile,
     restName: props.restName,
     inputConfigurations: inputConfigurations,
-    orderPoints: props.orderPoints,
-    total: props.total,
-    minPrice: props.minPrice,
-    isEmpty,
     title() {
       return UIKIT.underlinedTitle("Оформление заказа");
     },
@@ -134,31 +97,9 @@ const ordering = (props) => {
     buttonPay() {
       return UIKIT.buttonPay();
     },
-    drawOrderPoint() {
-      return UIKIT.orderPoint(
-        this.imgPath,
-        this.productName,
-        this.weight,
-        this.info,
-        this.count,
-        this.price,
-        this.id
-      );
-    },
-    paymentNotification() {
-      if (this.total - 1000 < this.minPrice) {
-        return UIKIT.paymentNotification(
-          "Закажите ещё на " +
-            String(this.minPrice - (this.total - 1000)) +
-            " ₽ для бесплатной доставки",
-          false
-        );
-      }
-      return UIKIT.paymentNotification(
-        "Ваш заказ будет доставлен бесплатно!",
-        true
-      );
-    },
+    summaryCheck () {
+      return UIKIT.orderCheck(props);
+    }
   });
 };
 

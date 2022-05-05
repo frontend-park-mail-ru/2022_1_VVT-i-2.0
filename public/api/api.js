@@ -136,6 +136,18 @@ export const createOrder = (order) => {
   return request("/order", { method: METHODS.POST, body: order });
 };
 
+export const getOrderList = () => {
+  return request('/orders', { method: METHODS.GET });
+};
+
+export const getStatusOrders = () => {
+  return request('/order_statuses', { method: METHODS.GET });
+};
+
+export const getCertainOrder = (orderNumber) => {
+  return request(`/order/${orderNumber}`);
+};
+
 export const getComments = (restName) => {
   return request(`/comments/${restName}`);
 };

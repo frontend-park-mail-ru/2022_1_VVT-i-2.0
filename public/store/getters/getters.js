@@ -16,7 +16,7 @@ export const suggests = () => STORE.suggests;
 
 export const getAvatar = () => {
   if (!STORE.user.avatar) {
-    return "";
+    return "/graphics/icons/profile.svg";
   }
 
   return STORE.user.avatar;
@@ -32,6 +32,12 @@ export const getCurrentSlug = () => {
 };
 
 export const token = () => STORE.token;
+
+export const getOrderList = () => STORE.orderList;
+
+export const getCertainOrder = () => STORE.certainOrder;
+
+export const getSearchStatus = () => STORE.isSearchActivated;
 
 export const categories = () => STORE.categories;
 
