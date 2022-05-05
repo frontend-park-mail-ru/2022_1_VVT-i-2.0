@@ -100,3 +100,18 @@ export const getComments = (restName) => {
     STORE.addComments(restName, result)
   );
 }
+
+export const setUpdateTimeout = (timeout = 15000) => {
+  if (!STORE.requestUpdateStatusTimer) {
+    const timerId = setInterval(() => {
+      API.getStatusOrders().then((result) => {
+        STORE.setOrderStatuses(result.statuses);
+      })
+    }, timeout);
+    STORE.setRequestUpdateStatusTimer(timerId);
+  }
+}
+
+export const clearUpdateTimeout = () => {
+  STORE.clearRequestUpdateStatusTimer();
+}

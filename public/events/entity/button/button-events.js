@@ -181,8 +181,6 @@ export const getButtonEvents = () => {
         type: "click",
         selector: "id",
         listener(app, store, e) {
-          const header = document.getElementById('header');
-          console.log(header, header.classList);
           store.actions.changeSearchStatus();
         },
       },
@@ -240,7 +238,8 @@ export const getButtonEvents = () => {
           const order = store.getters.cart().order;
 
           store.actions.createOrder({ address, comment, cart: order }).then(() => {
-            renderAndUpdateURN("/orderHistory", true);
+            // renderAndUpdateURN("/orderHistory");
+            // renderAndUpdateURN("/");
             renderNotification("Заказ успешно создан");
           });
         },

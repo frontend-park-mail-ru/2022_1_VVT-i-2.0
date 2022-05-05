@@ -1,8 +1,11 @@
 import components from "../../components/import.js";
 import {renderAndUpdateURN} from "../../render/render";
 import {getOrderList} from "../../store/getters/getters";
+import { setUpdateTimeout } from "../../store/actions/actions";
 
 const orderHistoryPage = (app, store) => {
+    store.actions.setUpdateTimeout();
+
     if (!store.getters.getOrderList().length) {
         store.actions.getOrderList();
     }
@@ -28,7 +31,6 @@ const orderHistoryPage = (app, store) => {
     main.innerHTML = components.profileTemplate('Мои заказы',
         components.orderStatusList(store.getters.getOrderList()));
     app.root.appendChild(main);
-
 };
 
 export default orderHistoryPage;

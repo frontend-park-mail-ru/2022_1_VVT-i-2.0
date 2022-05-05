@@ -104,6 +104,7 @@ const STORE = {
     // { address: "SECOND", end: true },
   ],
   currentRestName: "",
+  requestUpdateStatusTimer: 0,
   isSearchActivated: false,
   token: "",
   categories: [
@@ -246,6 +247,26 @@ const STORE = {
     comments[restName] = { comments: result };
     this.comments = comments;
   },
+  setRequestUpdateStatusTimer(timer) {
+    this.requestUpdateStatusTimer = timer;
+  },
+  clearRequestUpdateStatusTimer() {
+    if (this.requestUpdateStatusTimer) {
+      clearInterval(this.clearRequestUpdateStatusTimer);
+      this.requestUpdateStatusTimer = 0;
+    }
+  },
+  setOrderStatuses(newStatuses) {
+    console.log('newstat: ', newStatuses);
+    const orderList = this.orderList;
+    for (let i = 0; i < orderList.length; ++i) {
+      if (orderList[i].orderNumber === newStatuses[i].id) {
+        orderList[i].status = newStatuses[i].status;
+      }
+    }
+    this.orderList = orderList;
+    console.log('curr', this.orderList);
+  }
 };
 
 const PROXY_STORE = new Proxy(STORE, {

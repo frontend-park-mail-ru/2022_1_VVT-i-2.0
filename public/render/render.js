@@ -140,10 +140,14 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     urn = `/${urn}`;
   }
 
-  if ((urn === "/" || urn === "/main") && store.getters.restaurants().length === 0) {
-    store.actions.clearRestaurants();
-    sessionStorage.removeItem("params");
+  if (sessionStorage.getItem('page') === 'orderHistory') {
+    store.actions.clearUpdateTimeout();
   }
+
+  // if ((urn === "/" || urn === "/main") && store.getters.restaurants().length === 0) {
+  //   store.actions.clearRestaurants();
+  //   sessionStorage.removeItem("params");
+  // }
 
   if (urn === "/shoppingCart" && IsCartEmpty()) {
     return;
