@@ -18,7 +18,7 @@ const ordering = (app, store) => {
       (orderPoint) => orderPoint.id === id
     );
     if (index === -1) {
-      return;
+      return [];
     }
     return { ...dishObj.dishes[index], price, count };
   });

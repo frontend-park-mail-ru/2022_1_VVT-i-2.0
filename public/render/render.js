@@ -141,6 +141,7 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
   }
 
   if (sessionStorage.getItem('page') === 'orderHistory') {
+    console.log('delete timeout');
     store.actions.clearUpdateTimeout();
   }
 
@@ -153,7 +154,7 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     return;
   }
 
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
 
   if (urn === "/shoppingCart" && sessionStorage.getItem("root") === "main") {
     history.pushState({}, null, "/dishes/" + getters.getCurrentSlug());

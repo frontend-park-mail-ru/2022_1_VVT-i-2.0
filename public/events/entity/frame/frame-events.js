@@ -53,7 +53,6 @@ export const getFrameEvents = () => {
                 }
               });
             });
-            // console.log(props);
 
             // const props = {
             //   restName: 'Макдональдс',

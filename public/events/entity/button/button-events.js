@@ -238,8 +238,7 @@ export const getButtonEvents = () => {
           const order = store.getters.cart().order;
 
           store.actions.createOrder({ address, comment, cart: order }).then(() => {
-            // renderAndUpdateURN("/orderHistory");
-            // renderAndUpdateURN("/");
+            renderAndUpdateURN("/orderHistory");
             renderNotification("Заказ успешно создан");
           });
         },

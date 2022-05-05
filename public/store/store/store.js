@@ -104,7 +104,7 @@ const STORE = {
     // { address: "SECOND", end: true },
   ],
   currentRestName: "",
-  requestUpdateStatusTimer: 0,
+  // updateStatusTimerID: null,
   isSearchActivated: false,
   token: "",
   categories: [
@@ -247,17 +247,17 @@ const STORE = {
     comments[restName] = { comments: result };
     this.comments = comments;
   },
-  setRequestUpdateStatusTimer(timer) {
-    this.requestUpdateStatusTimer = timer;
-  },
-  clearRequestUpdateStatusTimer() {
-    if (this.requestUpdateStatusTimer) {
-      clearInterval(this.clearRequestUpdateStatusTimer);
-      this.requestUpdateStatusTimer = 0;
-    }
-  },
+  // setUpdateStatusTimerID(timerID) {
+  //   this.updateStatusTimerID = timerID;
+  // },
+  // clearUpdateStatusTimerID() {
+  //   if (this.updateStatusTimerID !== null) {
+  //     console.log(this.updateStatusTimerID);
+  //     clearInterval(this.clearUpdateStatusTimerID);
+  //     this.updateStatusTimerID = null;
+  //   }
+  // },
   setOrderStatuses(newStatuses) {
-    console.log('newstat: ', newStatuses);
     const orderList = this.orderList;
     for (let i = 0; i < orderList.length; ++i) {
       if (orderList[i].orderNumber === newStatuses[i].id) {
@@ -265,7 +265,6 @@ const STORE = {
       }
     }
     this.orderList = orderList;
-    console.log('curr', this.orderList);
   }
 };
 
