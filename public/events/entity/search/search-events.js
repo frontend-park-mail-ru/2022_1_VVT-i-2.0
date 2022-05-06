@@ -11,10 +11,13 @@ export const search = () => {
             return;
           }
 
+          console.log('SEND SEARCH');
+
           const query = e.target.value;
           store.actions.getRestaurants({ q: query }).then(() => renderAndUpdateURN("/"));
         }
       }
-    ]
+    ],
+
   };
 };
