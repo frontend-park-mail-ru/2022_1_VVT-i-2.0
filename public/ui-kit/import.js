@@ -18,6 +18,7 @@ import category from "./Category/category.js";
 import commentsBlock from "./CommentsBlock/comments-block.js";
 import comment from "./Comment/comment.js";
 import notification from "./Notification/notification.js";
+import searchBlock from "./SearchBlock/search-block";
 
 export default {
   simpleButton,
@@ -39,5 +40,6 @@ export default {
   category,
   commentsBlock,
   comment,
-  notification
+  notification,
+  searchBlock
 };
