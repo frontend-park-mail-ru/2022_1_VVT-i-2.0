@@ -37,7 +37,7 @@ const personInfoForm = ({ name, phone, email }, avatar) => {
       return UIKIT.simpleButton(
         "Изменить аватар",
         COLORS.grey,
-        ELEMS_CONFIGURATION.buttons.SMALL,
+        '',
         "",
         "changeAvatarButton",
         true
