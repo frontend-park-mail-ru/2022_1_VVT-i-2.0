@@ -11,7 +11,7 @@
   @include flex-left-center ();
 
   @media screen and (max-width: 540px) {
-    margin-left: auto;
+    margin-left: 0;
     margin-right: auto;
     width: 343px;
   }
