@@ -10,7 +10,8 @@ import orderingPage from "./Ordering/ordering.js";
 import suggestsPage from "./Suggests/suggests.js";
 import networkErrors from "./NetworkErrors/network-errors.js";
 import orderHistoryPage from "./OrderHistory/order-history";
-import commentsPage from "./Comments/comments.js"
+import commentsPage from "./Comments/comments.js";
+import createCommentPage from "./CreateComment/create-comment.js";
 
 const MENU = {
   main: {
@@ -84,6 +85,11 @@ const MENU = {
     render: commentsPage,
     isModal: false,
     authRequired: false,
+  },
+  createComment: {
+    render: createCommentPage,
+    isModal: false,
+    authRequired: true
   }
 };
 
