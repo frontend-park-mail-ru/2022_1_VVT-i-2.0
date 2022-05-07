@@ -24,24 +24,31 @@
 
     @media screen and (orientation:portrait) and (min-width: 438px),
     screen and (orientation:landscape) and (min-height: 438px) {
-        width: 100%;
+        width: 500px;
+    }
+    @media screen and (orientation:portrait) and (max-width: 438px),
+    screen and (orientation:landscape) and (max-height: 438px) {
+        margin-top: 10px;
     }
 }
 
 @media screen and (orientation:portrait) and (min-width: 438px),
 screen and (orientation:landscape) and (min-height: 438px) {
     .content__avatar-change-block :nth-child(n) {
-            width: 50%;
+            //width: 50%;
             margin-top: auto;
             margin-bottom: auto;
     }
 }
 
 .avatar-change-block__description {
-    width: 30%;
-
+    @media screen and (orientation:portrait) and (min-width: 438px),
+    screen and (orientation:landscape) and (min-height: 438px) {
+        width: 22%;
+    }
     @media screen and (orientation:portrait) and (max-width: 438px),
     screen and (orientation:landscape) and (max-height: 438px) {
+        width: 30%;
         margin-top: auto;
         margin-bottom: auto;
     }
@@ -52,7 +59,7 @@ screen and (orientation:landscape) and (min-height: 438px) {
 
     @media screen and (orientation:portrait) and (min-width: 438px),
     screen and (orientation:landscape) and (min-height: 438px) {
-        width: 14.45%;
+        width: auto;
     }
     @media screen and (orientation:portrait) and (max-width: 438px),
     screen and (orientation:landscape) and (max-height: 438px) {
@@ -61,29 +68,44 @@ screen and (orientation:landscape) and (min-height: 438px) {
 }
 
 .avatar__img {
-    height: 100%;
+    @media screen and (orientation:portrait) and (min-width: 438px),
+    screen and (orientation:landscape) and (min-height: 438px) {
+        width: 80px;
+        height: 80px;
+        border-radius: 40px;
+    }
+    @media screen and (orientation:portrait) and (max-width: 438px),
+    screen and (orientation:landscape) and (max-height: 438px) {
+        height: 100%;
+        border-radius: 50%;
+    }
 
     border: 1px solid #BEB6AE;
-    border-radius: 40px;
 }
 
 .avatar-choice-block__button-change {
     margin-right: 0;
     margin-left: auto;
 
-    @media screen and (orientation:portrait) and (min-width: 438px),
-    screen and (orientation:landscape) and (min-height: 438px) {
-        width: 63.55%;
-    }
+    //@media screen and (orientation:portrait) and (min-width: 438px),
+    //screen and (orientation:landscape) and (min-height: 438px) {
+    //    width: 63.55%;
+    //}
     @media screen and (orientation:portrait) and (max-width: 438px),
     screen and (orientation:landscape) and (max-height: 438px) {
         width: 30%;
+        margin-right: 10px;
     }
 }
 
 .content-block__input {
     margin-bottom: 15px;
     margin-top: 10px;
+
+    @media screen and (orientation:portrait) and (max-width: 438px),
+    screen and (orientation:landscape) and (max-height: 438px) {
+        width: 90%;
+    }
 }
 
 .content-block__button-save-content {

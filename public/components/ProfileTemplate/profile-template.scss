@@ -14,19 +14,21 @@
 }
 
 .form__content-nav-block {
-  display: flex;
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 80%;
 
   @media screen and (orientation:portrait) and (min-width: 438px),
   screen and (orientation:landscape) and (min-height: 438px) {
-    width: 110%;
+    display: inline-flex;
+    width: 1200px;
+    height: 495px;
   }
   @media screen and (orientation:portrait) and (max-width: 438px),
   screen and (orientation:landscape) and (max-height: 438px) {
+    display: flex;
     width: 50%;
+    height: 80%;
   }
 }
 
@@ -35,7 +37,7 @@
   max-height: 595px;
 
   width: 700px;
-  height: 595px;
+  height: 540px;
 
   box-sizing: border-box;
   //overflow-y: auto;
@@ -50,6 +52,7 @@
     padding-left: 10px;
     padding-top: 10px;
     margin-bottom: 40px;
+    height: 480px;
   }
 }
 
