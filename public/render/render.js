@@ -146,8 +146,8 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
   }
 
   if ((urn === "/" || urn === "/main") && store.getters.restaurants().length === 0) {
-    store.actions.clearRestaurants();
     sessionStorage.removeItem("params");
+    store.actions.clearRestaurants();
   }
 
   if (urn === "/shoppingCart" && IsCartEmpty()) {
