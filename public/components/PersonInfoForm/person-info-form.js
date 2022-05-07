@@ -34,10 +34,14 @@ const personInfoForm = ({ name, phone, email }, avatar) => {
     inputConfigurations,
     avatar,
     buttonChangeAvatar() {
+      let width = '';
+      if (window.screen.width >= 438) {
+        width = 240;
+      }
       return UIKIT.simpleButton(
         "Изменить аватар",
         COLORS.grey,
-        '',
+        width,
         "",
         "changeAvatarButton",
         true
@@ -55,7 +59,7 @@ const personInfoForm = ({ name, phone, email }, avatar) => {
       return UIKIT.input(
         this.title,
         this.type,
-        this.width,
+        window.screen.width >= 438 ? this.width : '',
         this.placeholder,
         this.id,
         this.name,
