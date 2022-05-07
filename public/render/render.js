@@ -145,7 +145,7 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     store.actions.clearUpdateTimeout();
   }
 
-  if ((urn === "/" || urn === "/main") && store.getters.restaurants().length === 0) {
+  if (urn === "/" || urn === "/main") {
     sessionStorage.removeItem("params");
     store.actions.clearRestaurants();
   }
