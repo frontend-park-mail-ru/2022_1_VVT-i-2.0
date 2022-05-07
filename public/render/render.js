@@ -145,10 +145,10 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     store.actions.clearUpdateTimeout();
   }
 
-  // if ((urn === "/" || urn === "/main") && store.getters.restaurants().length === 0) {
-  //   store.actions.clearRestaurants();
-  //   sessionStorage.removeItem("params");
-  // }
+  if ((urn === "/" || urn === "/main") && store.getters.restaurants().length === 0) {
+    store.actions.clearRestaurants();
+    sessionStorage.removeItem("params");
+  }
 
   if (urn === "/shoppingCart" && IsCartEmpty()) {
     return;
