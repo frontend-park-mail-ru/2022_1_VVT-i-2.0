@@ -16,8 +16,7 @@ export const search = () => {
           const query = e.target.value;
           store.actions.getRestaurants({ q: query }).then(() => renderAndUpdateURN("/"));
         }
-      }
+      },
     ],
-
   };
 };
