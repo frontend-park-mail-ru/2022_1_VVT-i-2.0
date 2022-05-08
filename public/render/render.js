@@ -140,16 +140,6 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     urn = `/${urn}`;
   }
 
-  // if (sessionStorage.getItem('searchQuery')) {
-  //   const input = document.getElementById('searchInput');
-  //   console.log(input);
-  //   if (input) {
-  //     input.value = sessionStorage.getItem('searchQuery');
-  //     sessionStorage.removeItem('searchQuery');
-  //     renderAndUpdateURN(sessionStorage.getItem('page'));
-  //   }
-  // }
-
   if (sessionStorage.getItem('page') === 'orderHistory') {
     console.log('delete timeout');
     store.actions.clearUpdateTimeout();
