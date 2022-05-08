@@ -15,9 +15,12 @@ export const getFrameEvents = () => {
            * @param {Event} e - Событие.
            */
           listener(app, store, e) {
-            const root = sessionStorage.getItem("root") || "main";
+            // const root = sessionStorage.getItem("root") || "main";
             store.actions.setSearchStatus(false);
-            renderAndUpdateURN(root);
+
+            store.actions.clearRestaurants();
+            renderAndUpdateURN("/");
+            // renderAndUpdateURN(root);
           },
         },
     ],
