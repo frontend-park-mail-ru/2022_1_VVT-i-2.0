@@ -12,9 +12,10 @@ export const search = () => {
           }
 
           const query = e.target.value;
+          sessionStorage.setItem('searchQuery', query);
           store.actions.getRestaurants({ q: query }).then(() => renderAndUpdateURN("/"));
         }
-      }
-    ]
+      },
+    ],
   };
 };

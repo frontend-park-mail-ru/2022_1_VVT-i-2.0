@@ -1,28 +1,19 @@
 @use 'public/configurations/colors/colors.scss' as theme;
 
+@mixin grey-color () {
+  color: #BEB6AE;
+}
+
+@mixin align-left () {
+  text-align: left;
+}
+
 .order-info {
   display: flex;
   flex-direction: column;
-  //flex-wrap: nowrap;
-
-  //justify-content: center;
-  //justify-items: center;
-  //text-align: center;
 
   max-width: 700px;
   max-height: 650px;
-
-  //width: 698px;
-  //height: 65px;
-
-  //padding-right: 10px;
-  //padding-left: 5px;
-
-  //transition: height ease-in-out 2s;
-
-  //font-size: 20px;
-  //font-weight: 500;
-  //border: 1px solid theme.getColor('grey');
 }
 
 .order-info__status-block > div {
@@ -35,7 +26,6 @@
   flex-direction: row;
   flex-wrap: nowrap;
 
-  justify-content: space-between;
   justify-items: center;
   text-align: center;
 
@@ -45,38 +35,38 @@
   width: 698px;
   height: 65px;
 
-  //padding-right: 10px;
-  //padding-left: 5px;
-
-  transition: height ease-in-out 2s;
+  padding-left: 5px;
 
   font-size: 20px;
   font-weight: 500;
   border: 1px solid theme.getColor('grey');
 }
 
-.order-info__order-block {
-  display: flex;
-  flex-direction: column;
-  //width: 100%;
-  height: 100%;
-  max-height: 583px;
-  //height: 0;
+.order-info__order-number {
+  width: 70px;
+  @include align-left ();
+  @include grey-color ();
 }
 
-.order-info__order-number,
-.order-info__order-date,
-.status__text {
-  color: #BEB6AE;
+.order-info__rest-name {
+  width: 140px;
+  @include align-left ();
+}
+
+.order-info__order-date {
+  width: 140px;
+  @include grey-color ();
+}
+
+.order-info__order-price {
+  width: 100px;
+  @include align-left ();
 }
 
 .order-info__status {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-
-  max-width: 155px;
-  width: 155px;
+  width: 180px;
 }
 
 .status__img {
@@ -103,6 +93,10 @@
   }
 }
 
+.status__text {
+  @include grey-color ();
+}
+
 .order-info__move-controller {
   width: 50px;
   height: 100%;
@@ -116,4 +110,11 @@
 
   margin-bottom: auto;
   margin-top: 25%;
+}
+
+.order-info__order-block {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 583px;
 }

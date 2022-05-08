@@ -46,7 +46,7 @@ const additionalStatusOrderInfo = (props) => {
         },
         commentButton() {
             return UIKIT.simpleButton('Оставить комментарий', COLORS.primary,
-                null, '', 'commentButton');
+                null, '/comment', 'commentButton');
         }
     });
 };

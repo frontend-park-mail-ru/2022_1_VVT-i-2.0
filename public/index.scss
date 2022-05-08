@@ -67,11 +67,21 @@ main {
 
   position: fixed;
   top: 68px;
-  right: 0;
+
   height: 93vh;
 
   border: none;
   background: theme.getColor("white");
+
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    right: 0;
+    width: 20.83%;
+  }
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    width: 100vw;
+  }
 }
 
 .modal-top > * {

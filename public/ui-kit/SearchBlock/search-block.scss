@@ -1,0 +1,55 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
+.searchActivatedAria {
+  width: 68.7%;
+}
+
+.search-block {
+  display: flex;
+  flex-direction: row;
+
+  margin-top: 10px;
+  margin-left: 33px;
+  margin-right: 10px;
+
+  padding-left: 5px;
+  padding-right: 5px;
+
+  max-width: 1300px;
+  max-height: 50px;
+
+  border-radius: 20px;
+  background: theme.getColor('white');
+}
+
+.search-block__block-img {
+  max-width: 65px;
+  text-align: center;
+}
+
+.block-img__image {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-bottom: auto;
+}
+
+.search-block__input-block {
+  width: 100%;
+  margin: auto 5px;
+}
+
+.input-block__input-without-border {
+  all: unset;
+  font-weight: bold;
+  width: 100%;
+  border: none;
+
+  &:focus-visible {
+    border: none;
+  }
+}
+
+
+

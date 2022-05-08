@@ -1,5 +1,6 @@
 import * as API from "../../api/api.js";
 import STORE from "../store/store.js";
+import { renderNotification } from "../../render/render";
 
 export const getRestaurants = (options = {}) => {
   return API.getRestaurants(options).then((result) =>
@@ -77,6 +78,9 @@ export const setToken = (token) => {
 
 export const getOrderList = () => {
   return API.getOrderList().then((result) => {
+    if (result.orderList.length === 0) {
+      renderNotification('Ваш список заказов пуст', true);
+    }
     STORE.addOrderList(result.orderList);
   });
 }
@@ -101,7 +105,7 @@ export const getComments = (restName) => {
   );
 }
 
-export const setUpdateTimeout = (timeout = 5000) => {
+export const setUpdateTimeout = (timeout = 15000) => {
   // console.log('id = ', STORE.updateStatusTimerID);
   if (sessionStorage.getItem('UpdateTimeoutID') === null) {
     const timerID = window.setInterval(() => {
