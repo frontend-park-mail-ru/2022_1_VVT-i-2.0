@@ -11,9 +11,8 @@ export const search = () => {
             return;
           }
 
-          console.log('SEND SEARCH');
-
           const query = e.target.value;
+          sessionStorage.setItem('searchQuery', query);
           store.actions.getRestaurants({ q: query }).then(() => renderAndUpdateURN("/"));
         }
       },
