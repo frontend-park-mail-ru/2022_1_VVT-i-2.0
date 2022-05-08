@@ -11,6 +11,7 @@ export const categories = () => {
 
           const params = sessionStorage.getItem("params");
           if (title === params) {
+            sessionStorage.removeItem("params");
             renderAndUpdateURN("/");
           } else {
             store.actions.clearRestaurants();
@@ -27,6 +28,7 @@ export const categories = () => {
           const title = e.target.value;
 
           if (title === 'Все') {
+            sessionStorage.removeItem("params");
             renderAndUpdateURN("/");
           }
 
