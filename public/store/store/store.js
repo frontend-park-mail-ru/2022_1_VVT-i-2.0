@@ -247,16 +247,6 @@ const STORE = {
     comments[restName] = { comments: result };
     this.comments = comments;
   },
-  // setUpdateStatusTimerID(timerID) {
-  //   this.updateStatusTimerID = timerID;
-  // },
-  // clearUpdateStatusTimerID() {
-  //   if (this.updateStatusTimerID !== null) {
-  //     console.log(this.updateStatusTimerID);
-  //     clearInterval(this.clearUpdateStatusTimerID);
-  //     this.updateStatusTimerID = null;
-  //   }
-  // },
   setOrderStatuses(newStatuses) {
     const orderList = this.orderList;
     for (let i = 0; i < orderList.length; ++i) {
