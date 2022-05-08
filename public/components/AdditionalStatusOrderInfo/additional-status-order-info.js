@@ -1,6 +1,5 @@
 import UIKIT from "../../ui-kit/import.js";
 import COLORS from "../../configurations/colors/colors";
-import { getters } from "../../store/import";
 
 const additionalStatusOrderInfo = (props) => {
     const template = `
@@ -47,7 +46,7 @@ const additionalStatusOrderInfo = (props) => {
         },
         commentButton() {
             return UIKIT.simpleButton('Оставить комментарий', COLORS.primary,
-                null, '/comment/' + getters.getCurrentSlug(), 'commentButton');
+                null, '/comment', 'commentButton');
         }
     });
 };
