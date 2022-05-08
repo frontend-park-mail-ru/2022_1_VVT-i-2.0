@@ -1,7 +1,7 @@
 import UIKIT from "../../ui-kit/import.js";
 
 const orderStatusList = (props) => {
-    const template = `
+  const template = `        
         {{#props}}
             {{&statusInfo}}
         {{/props}}
