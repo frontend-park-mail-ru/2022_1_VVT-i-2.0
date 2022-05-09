@@ -249,12 +249,20 @@ const STORE = {
   },
   setOrderStatuses(newStatuses) {
     const orderList = this.orderList;
+    let countChangesInStatuses = 0;
     for (let i = 0; i < orderList.length; ++i) {
       if (orderList[i].orderNumber === newStatuses[i].id) {
-        orderList[i].status = newStatuses[i].status;
+        if (orderList[i].status !== newStatuses[i].status) {
+          orderList[i].status = newStatuses[i].status;
+          countChangesInStatuses++;
+        }
       }
     }
-    this.orderList = orderList;
+
+    if (countChangesInStatuses) {
+      console.log('have changes');
+      this.orderList = orderList;
+    }
   }
 };
 

@@ -105,14 +105,15 @@ export const getComments = (restName) => {
   );
 }
 
-export const setUpdateTimeout = (timeout = 15000) => {
+export const setUpdateTimeout = (timeout = 30000) => {
   // console.log('id = ', STORE.updateStatusTimerID);
-  if (sessionStorage.getItem('UpdateTimeoutID') === null) {
+  if (!sessionStorage.getItem('UpdateTimeoutID')) {
     const timerID = window.setInterval(() => {
       API.getStatusOrders().then((result) => {
         STORE.setOrderStatuses(result.statuses);
       })
     }, timeout);
+    console.log('timer iD', timerID);
     // STORE.setUpdateStatusTimerID(timerId);
     sessionStorage.setItem('UpdateTimeoutID', String(timerID));
   }
@@ -122,5 +123,4 @@ export const clearUpdateTimeout = () => {
   // STORE.clearUpdateStatusTimerID();
   clearInterval(Number(sessionStorage.getItem('UpdateTimeoutID')));
   sessionStorage.removeItem('UpdateTimeoutID');
-  console.log(sessionStorage.getItem('UpdateTimeoutID'));
 }
