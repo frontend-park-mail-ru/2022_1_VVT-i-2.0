@@ -77,7 +77,6 @@ main {
   screen and (orientation:landscape) and (min-height: 438px) {
     right: 0;
     width: 20.83%;
-    height: 100vh;
   }
   @media screen and (orientation:portrait) and (max-width: 438px),
   screen and (orientation:landscape) and (max-height: 438px) {

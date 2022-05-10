@@ -105,7 +105,7 @@ export const getComments = (restName) => {
   );
 }
 
-export const setUpdateTimeout = (timeout = 15000) => {
+export const setUpdateTimeout = (timeout = 1500000) => {
   if (sessionStorage.getItem('UpdateTimeoutID') === null) {
     const timerID = window.setInterval(() => {
       API.getStatusOrders().then((result) => {

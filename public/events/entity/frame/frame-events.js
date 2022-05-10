@@ -38,7 +38,7 @@ export const getFrameEvents = () => {
             }
 
             sessionStorage.setItem('openedAdditionalOrderInfo', e.target.dataset.id);
-            console.log('set and click', e.target.dataset.id);
+            console.log('set openedAdditionalOrderInfo in', e.target.dataset.id);
 
             const statusLine = document.getElementById(e.target.dataset.id);
             const topPos = statusLine.offsetTop;
