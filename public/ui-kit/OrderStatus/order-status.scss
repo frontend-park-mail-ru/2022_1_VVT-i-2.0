@@ -7,33 +7,61 @@
 @mixin align-left () {
   text-align: left;
 }
+@mixin vert-center () {
+  margin-top: auto;
+  margin-bottom: auto;
+}
 
 .order-info {
   display: flex;
   flex-direction: column;
 
-  max-width: 700px;
-  max-height: 650px;
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    max-width: 700px;
+    max-height: 650px;
+  }
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    max-width: 95%;
+    max-height: 110px;
+  }
+  @include vert-center();
 }
 
-.order-info__status-block > div {
-  margin-top: auto;
-  margin-bottom: auto;
-}
+//.order-info__status-block > div {
+//  margin-top: auto;
+//  margin-bottom: auto;
+//}
 
 .order-info__status-block {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 
   justify-items: center;
   text-align: center;
 
-  max-width: 700px;
-  max-height: 65px;
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    max-width: 100%;
+    max-height: 65px;
 
-  width: 698px;
-  height: 65px;
+    flex-direction: row;
+
+    width: 698px;
+    height: 10%;
+  }
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    max-width: 100%;
+    max-height: 110px;
+
+    flex-direction:column;
+    justify-content: space-around;
+
+    width: 100%;
+    height: 110px;
+  }
 
   padding-left: 5px;
 
@@ -42,31 +70,84 @@
   border: 1px solid theme.getColor('grey');
 }
 
+.status-block__elem {
+    &_first,
+    &_second {
+      display: flex;
+      flex-direction: row;
+      @media screen and (orientation:portrait) and (min-width: 438px),
+      screen and (orientation:landscape) and (min-height: 438px) {
+        width: 50%;
+      }
+      @media screen and (orientation:portrait) and (max-width: 438px),
+      screen and (orientation:landscape) and (max-height: 438px) {
+        justify-content: space-between;
+      }
+    }
+}
+
 .order-info__order-number {
-  width: 70px;
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    width: 65px;
+  }
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    width: 65px;
+  }
   @include align-left ();
   @include grey-color ();
+  @include vert-center();
 }
 
 .order-info__rest-name {
-  width: 140px;
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    width: 145px;
+  }
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    width: 145px;
+  }
   @include align-left ();
+  @include vert-center();
 }
 
 .order-info__order-date {
-  width: 140px;
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    width: 140px;
+  }
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    margin-right: 5px;
+  }
+  @include align-left ();
   @include grey-color ();
+  @include vert-center();
 }
 
 .order-info__order-price {
-  width: 100px;
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    width: 100px;
+  }
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    width: 100px;
+  }
   @include align-left ();
+  @include vert-center();
 }
 
 .order-info__status {
   display: flex;
   flex-direction: row;
-  width: 180px;
+
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    width: 180px;
+  }
 }
 
 .status__img {
@@ -74,6 +155,7 @@
   height: 22px;
   border-radius: 11px;
   margin-right: 5px;
+  @include vert-center();
 
   &_in-processing {
     background: #F66628;
@@ -94,7 +176,11 @@
 }
 
 .status__text {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5px;
   @include grey-color ();
+  @include vert-center();
 }
 
 .order-info__move-controller {
@@ -102,6 +188,7 @@
   height: 100%;
 
   padding-right: 10px;
+  @include vert-center();
 }
 
 .buttonOpenClose {

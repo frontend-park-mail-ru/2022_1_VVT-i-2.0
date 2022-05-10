@@ -19,26 +19,30 @@ const orderStatus = (props) => {
     const template = `
         <div id="{{orderNumber}}" class="order-info">
             <div class="order-info__status-block">
-                <div class="order-info__order-number">
-                    #{{orderNumber}}
-                </div>
-                <div class="order-info__rest-name">
-                    {{restName}}
-                </div>
-                <div class="order-info__order-date">
-                    {{date}}
-                </div>
-                <div class="order-info__order-price">
-                    {{price}} ₽
-                </div>
-                <div class="order-info__status">
-                    <div class="{{statusClass}}"></div>
-                    <div class="status__text">
-                        {{status}}
+                <div class="status-block__elem_first">
+                    <div class="order-info__order-number">
+                        #{{orderNumber}}
+                    </div>
+                    <div class="order-info__rest-name">
+                        {{restName}}
+                    </div>
+                    <div class="order-info__order-date">
+                        {{date}}
                     </div>
                 </div>
-                <div class="order-info__move-controller">
-                    <img data-id="{{orderNumber}}" class="buttonOpenClose" src="/graphics/icons/keyboard_arrow_down.svg" alt="">
+                <div class="status-block__elem_second">
+                    <div class="order-info__order-price">
+                        {{price}} ₽
+                    </div>
+                    <div class="order-info__status">
+                        <div class="{{statusClass}}"></div>
+                        <div class="status__text">
+                            {{status}}
+                        </div>
+                    </div>
+                    <div class="order-info__move-controller">
+                        <img data-id="{{orderNumber}}" class="buttonOpenClose" src="/graphics/icons/keyboard_arrow_down.svg" alt="">
+                    </div>
                 </div>
             </div>
             <div id="{{orderID}}" class="order-info__order-block"></div>

@@ -13,9 +13,15 @@
 
 .order__main-content {
   display: flex;
-  flex-direction: row;
-
-  max-height: 514px;
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    flex-direction: row;
+    max-height: 514px;
+  }
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    flex-direction: column;
+  }
 }
 
 .comment-block__address {
@@ -24,7 +30,14 @@
 }
 
 .main-content__order-list {
-  max-width: 50%;
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    max-width: 50%;
+  }
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    max-width: 100%;
+  }
 }
 
 .main-content__comment-block {
@@ -41,4 +54,16 @@
   justify-content: space-between;
 
   width: 220px;
+}
+
+@media screen and (orientation:portrait) and (max-width: 438px),
+screen and (orientation:landscape) and (max-height: 438px) {
+  .comment__comment-explanation {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .comment-button {
+    margin-bottom: 20px;
+  }
 }
