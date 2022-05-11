@@ -47,10 +47,6 @@ window.onload = () => {
     const cart = JSON.parse(stringCart);
 
     if (cart.totalPrice !== 0) {
-      if (!store.getters.dishes().hasOwnProperty(slug)) {
-        store.actions.getDishes(slug);
-      }
-
       cart.order.forEach((dish) =>
         store.actions.addDishToCart(
           dish.id,
@@ -59,6 +55,10 @@ window.onload = () => {
           dish.count
         )
       );
+
+      if (!store.getters.dishes().hasOwnProperty(slug)) {
+        store.actions.getDishes(slug);
+      }
     }
   }
 
@@ -69,17 +69,19 @@ window.onload = () => {
 
 window.onbeforeunload = () => {
   const cart = store.getters.cart();
-  if (!IsCartEmpty() && Object.keys(store.getters.user()).length > 0) {
-    const currentRestName = store.getters.currentRestName();
-    const dishes = store.getters.dishes();
-    const slug = Object.keys(dishes).find(
-      (key) => dishes[key].restName === currentRestName
-    );
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-    localStorage.setItem("currentRestName", currentRestName);
-    localStorage.setItem("slug", slug);
+  if (IsCartEmpty() || Object.keys(store.getters.user()).length === 0) {
+    return;
   }
+
+  const currentRestName = store.getters.currentRestName();
+  const dishes = store.getters.dishes();
+  const slug = Object.keys(dishes).find(
+    (key) => dishes[key].restName === currentRestName
+  );
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("currentRestName", currentRestName);
+  localStorage.setItem("slug", slug);
 };
 
 if ("serviceWorker" in navigator) {
