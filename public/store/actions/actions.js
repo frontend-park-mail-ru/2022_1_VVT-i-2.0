@@ -12,9 +12,9 @@ export const clearRestaurants = () => {
   return STORE.clearRestaurants();
 }
 
-export const getDishes = (restName) => {
-  return API.getDishes(restName).then((result) =>
-    STORE.addDishes(restName, result)
+export const getDishes = (slug, isFirstUpdate = false) => {
+  return API.getDishes(slug).then((result) =>
+    STORE.addDishes(slug, result, isFirstUpdate)
   );
 };
 
@@ -59,6 +59,10 @@ export const clearSuggests = () => {
 export const addDishToCart = (id, restName, price, count = 1) => {
   return STORE.addDishToCart(id, restName, price, count);
 };
+
+export const addCart = (cart, restName) => {
+  return STORE.addCart(cart, restName);
+}
 
 export const incrementDishCount = (id) => {
   return STORE.incrementDishCount(id);

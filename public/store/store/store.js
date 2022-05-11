@@ -156,9 +156,20 @@ const STORE = {
   clearRestaurants() {
     this.restaurants = [];
   },
-  addDishes(restName, result) {
+  addDishes(slug, result, isFirstUpdate = false) {
+    if (isFirstUpdate) {
+      this.dishes[slug] = {
+        dishes: result.dishes, restName: result.restName,
+        rating: result.rating, reviewCount: result.reviewCount
+      };
+      return;
+    }
+
     const dishes = this.dishes;
-    dishes[restName] = { dishes: result.dishes, restName: result.restName, rating: result.rating, reviewCount: result.reviewCount };
+    dishes[slug] = {
+      dishes: result.dishes, restName: result.restName,
+      rating: result.rating, reviewCount: result.reviewCount
+    };
     this.dishes = dishes;
   },
   addDishToCart(id, restName, price, count = 1) {
@@ -181,6 +192,12 @@ const STORE = {
 
     this.currentRestName = restName;
     this.cart = cart;
+  },
+  addCart(cart, restName) {
+    Object.entries(cart).forEach(([key, value]) => {
+      this.cart[key] = value;
+    });
+    this.currentRestName = restName;
   },
   incrementDishCount(id) {
     const cart = this.cart;
@@ -261,8 +278,11 @@ const STORE = {
 const PROXY_STORE = new Proxy(STORE, {
   set(target, prop, value) {
     target[prop] = value;
+
     const page = sessionStorage.getItem("page");
-    render(page, true);
+    if (page) {
+      render(page, true);
+    }
 
     return true;
   },

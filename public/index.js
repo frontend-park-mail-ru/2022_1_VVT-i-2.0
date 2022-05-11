@@ -38,36 +38,42 @@ if (!localStorage.getItem("address")) {
   localStorage.setItem("address", "город Москва, улица Ленина, 21");
 }
 
-window.onload = () => {
+const handleOnload = () => {
   const stringCart = localStorage.getItem("cart");
   const currentRestName = localStorage.getItem("currentRestName");
   const slug = localStorage.getItem("slug");
 
-  if (stringCart) {
-    const cart = JSON.parse(stringCart);
-
-    if (cart.totalPrice !== 0) {
-      cart.order.forEach((dish) =>
-        store.actions.addDishToCart(
-          dish.id,
-          currentRestName,
-          dish.price,
-          dish.count
-        )
-      );
-
-      if (!store.getters.dishes().hasOwnProperty(slug)) {
-        store.actions.getDishes(slug);
-      }
-    }
-  }
-
   localStorage.removeItem("cart");
   localStorage.removeItem("currentRestName");
   localStorage.removeItem("slug");
+
+  const defaultPromise = new Promise((resolve) => resolve());
+
+  if (!stringCart) {
+    return defaultPromise;
+  }
+
+  const cart = JSON.parse(stringCart);
+  if (cart.totalPrice === 0) {
+    return defaultPromise;
+  }
+
+  store.actions.addCart(cart, currentRestName);
+
+  return store
+    .actions
+    .getDishes(slug, decodedPathname !== "/ordering")
+    .then(() => {
+      if (decodedPathname === "/shoppingCart") {
+        sessionStorage.setItem("root", "dishes");
+        sessionStorage.setItem("params", slug);
+      }
+    })
 };
 
 window.onbeforeunload = () => {
+  sessionStorage.clear();
+
   const cart = store.getters.cart();
   if (IsCartEmpty() || Object.keys(store.getters.user()).length === 0) {
     return;
@@ -75,9 +81,11 @@ window.onbeforeunload = () => {
 
   const currentRestName = store.getters.currentRestName();
   const dishes = store.getters.dishes();
-  const slug = Object.keys(dishes).find(
-    (key) => dishes[key].restName === currentRestName
-  );
+  const slug = Object.keys(dishes).find((key) => dishes[key].restName === currentRestName);
+
+  if (!slug) {
+    return;
+  }
 
   localStorage.setItem("cart", JSON.stringify(cart));
   localStorage.setItem("currentRestName", currentRestName);
@@ -97,9 +105,11 @@ if ("serviceWorker" in navigator) {
 
 const decodedPathname = decodeURI(location.pathname);
 
-if (Object.keys(store.getters.user()).length === 0) {
-  // render(decodedPathname);
-  store.actions.getUser(true).then(() => render(decodedPathname));
-} else {
-  render(decodedPathname);
-}
+handleOnload().then(() => {
+  if (Object.keys(store.getters.user()).length === 0) {
+    // render(decodedPathname);
+    store.actions.getUser(true).then(() => render(decodedPathname));
+  } else {
+    render(decodedPathname);
+  }
+});
