@@ -81,6 +81,7 @@ screen and (orientation:landscape) and (min-height: 438px) {
     }
 
     border: 1px solid #BEB6AE;
+    object-fit: cover;
 }
 
 .avatar-choice-block__button-change {
