@@ -13,20 +13,18 @@
 .rest-menu__dish-icon {
   display: flex;
   flex-direction: column;
-
   position: relative;
-
   align-content: center;
-
-  @media screen and (orientation: portrait) and (max-width: 540px) {
-    margin: auto;
-    margin-bottom: 24px;
-    width: 343px;
-  }
 
   @media screen and (orientation: landscape) and (min-width: 540px) {
     margin-bottom: 70px;
     width: 270px;
+    height: 480px;
+  }
+  @media screen and (orientation: portrait) and (max-width: 540px) {
+    margin: auto;
+    margin-bottom: 24px;
+    width: 343px;
   }
 
   height: 440px;
@@ -42,6 +40,7 @@
 
 .dish-icon__img-block {
   height: 230px;
+  padding-bottom: 40px;
 }
 
 .dish-icon__img {

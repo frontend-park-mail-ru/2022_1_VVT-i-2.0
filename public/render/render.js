@@ -172,8 +172,11 @@ const hideNotification = () => {
 }
 
 export const renderNotification = (message, error = false) => {
-  notification.innerHTML = UIKIT.notification(message, error);
+  if (notification.innerHTML !== '') {
+    notification.getElementsByClassName('notification__close-img')[0].removeEventListener('click', hideNotification);
+  }
 
+  notification.innerHTML = UIKIT.notification(message, error);
   notification.getElementsByClassName('notification__close-img')[0].addEventListener('click', hideNotification);
 
   const timeout = error ? 5000 : 3000;
