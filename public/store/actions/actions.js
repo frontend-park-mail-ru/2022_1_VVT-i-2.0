@@ -105,7 +105,7 @@ export const getComments = (restName) => {
   );
 }
 
-export const setUpdateTimeout = (store, timeout = 15000) => {
+export const setUpdateTimeout = (store, timeout = 1500000) => {
   if (sessionStorage.getItem('UpdateTimeoutID') === null &&
     store.getters.getOrderList().length) {
       const timerID = window.setInterval(() => {
