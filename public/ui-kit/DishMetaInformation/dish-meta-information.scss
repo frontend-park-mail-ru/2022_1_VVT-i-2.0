@@ -13,7 +13,6 @@
         width: 343px;
 
     }
-
     @media screen and (orientation: landscape) and (min-width: 540px) {
         width: 270px;
         height: 50%;
@@ -31,8 +30,7 @@
     font-weight: bold;
     font-size: 21px;
 
-    //max-height: 48px;
-    //height: auto;
+    margin-top: 15px;
 
     color: #2E2E33;
 }
@@ -115,5 +113,5 @@
 
 .dish-icon__button-add-to-order:hover {
     cursor: pointer;
-    opacity: 0.5;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }

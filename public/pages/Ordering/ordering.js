@@ -1,6 +1,10 @@
 import components from "../../components/import.js";
 
 const ordering = (app, store) => {
+  if (Object.keys(store.getters.dishes()).length === 0) {
+    return;
+  }
+
   const currentRestName = store.getters.currentRestName();
 
   let dishObj = { restName: "", dishes: [] };

@@ -38,9 +38,9 @@ const shoppingCart = (restName, props) => {
       return UIKIT.simpleButton(
         "Заказать",
         COLORS.primary,
-        ELEMS_CONFIGURATION.buttons.LARGE,
+        ELEMS_CONFIGURATION.buttons.ORDERING,
         "ordering",
-        "orderButton"
+        "orderButton",
       );
     },
   });

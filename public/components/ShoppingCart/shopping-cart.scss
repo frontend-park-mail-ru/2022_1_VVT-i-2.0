@@ -18,7 +18,7 @@
     background: theme.getColor('white');
     border: 1px solid theme.getColor('grey');
     box-sizing: border-box;
-}
+}<<<<<<< new_shop_cart
 
 .shopping-cart__preview-rest {
     width: 60%;
@@ -40,7 +40,7 @@
 
 .shopping-cart__order-points {
     height: 800px;
-    width: 314px;
+    width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     margin-right: auto;
@@ -53,9 +53,9 @@
 
 .shopping-cart__button-order {
     position: absolute;
-    left: 37px;
+    left: 11px;
     right: auto;
-    bottom: 5px;
+    bottom: 10px;
 
     @media screen and (orientation: portrait) and (max-width: 920px) {
         position: static;
