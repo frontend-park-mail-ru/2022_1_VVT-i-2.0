@@ -13,19 +13,36 @@ body {
   background: theme.getColor("lightGrey");
 }
 
+.root {
+  width: 98vw;
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    height: 100vh;
+  }
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    min-height: 100vh;
+  }
+}
+
 main {
   position: absolute;
   top: 68px;
   padding-top: 1%;
 
-  @media screen and (orientation: portrait) and (max-width: 815px) {
-    padding-left: 15px;
-    padding-right: 15px;
+  //min-height: 100%;
+  @media screen and (orientation:portrait) and (min-width: 820px),
+  screen and (orientation:landscape) and (min-height: 820px) {
+    width: 85%;
+    margin-left: 7.5%;
+    margin-right: auto;
   }
-
-  @media screen and (orientation: landscape) and (min-width: 815px) {
-    padding-left: 8%;
-    padding-right: 8%;
+  @media screen and (orientation:portrait) and (max-width: 438px),/*820*/
+  screen and (orientation:landscape) and (max-height: 438px) {
+    width: 100%;
+    //margin-left: 5%;
+    //margin-right: auto;
+    min-height: 100%;
   }
 }
 

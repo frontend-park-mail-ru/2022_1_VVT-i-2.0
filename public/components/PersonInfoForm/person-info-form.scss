@@ -21,6 +21,7 @@
 
 .content__avatar-change-block {
     display: inline-flex;
+    width: 100%;
 
     @media screen and (orientation:portrait) and (min-width: 438px),
     screen and (orientation:landscape) and (min-height: 438px) {
@@ -29,15 +30,21 @@
     @media screen and (orientation:portrait) and (max-width: 438px),
     screen and (orientation:landscape) and (max-height: 438px) {
         margin-top: 10px;
+        margin-bottom: 10px;
     }
 }
 
 @media screen and (orientation:portrait) and (min-width: 438px),
 screen and (orientation:landscape) and (min-height: 438px) {
-    .content__avatar-change-block :nth-child(n) {
-            //width: 50%;
+    .content__avatar-change-block {
+        & :nth-child(n) {
             margin-top: auto;
             margin-bottom: auto;
+        }
+        & :last-child {
+        margin-right: 0;
+        margin-left: auto
+        }
     }
 }
 
@@ -63,7 +70,7 @@ screen and (orientation:landscape) and (min-height: 438px) {
     }
     @media screen and (orientation:portrait) and (max-width: 438px),
     screen and (orientation:landscape) and (max-height: 438px) {
-        width: 40.45%;
+        width: 20%;
     }
 }
 
@@ -83,20 +90,16 @@ screen and (orientation:landscape) and (min-height: 438px) {
     border: 1px solid #BEB6AE;
 }
 
-.avatar-choice-block__button-change {
-    margin-right: 0;
-    margin-left: auto;
-
-    //@media screen and (orientation:portrait) and (min-width: 438px),
-    //screen and (orientation:landscape) and (min-height: 438px) {
-    //    width: 63.55%;
-    //}
-    @media screen and (orientation:portrait) and (max-width: 438px),
-    screen and (orientation:landscape) and (max-height: 438px) {
-        width: 30%;
-        margin-right: 10px;
-    }
-}
+//.avatar-choice-block__button-change {
+//    margin-right: 0;
+//    margin-left: auto;
+//
+//    @media screen and (orientation:portrait) and (max-width: 438px),
+//    screen and (orientation:landscape) and (max-height: 438px) {
+//        width: 30%;
+//        margin-right: 10px;
+//    }
+//}
 
 .content-block__input {
     margin-bottom: 15px;
