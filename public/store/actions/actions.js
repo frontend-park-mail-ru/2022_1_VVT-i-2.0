@@ -105,14 +105,15 @@ export const getComments = (restName) => {
   );
 }
 
-export const setUpdateTimeout = (timeout = 1500000) => {
-  if (sessionStorage.getItem('UpdateTimeoutID') === null) {
-    const timerID = window.setInterval(() => {
-      API.getStatusOrders().then((result) => {
-        STORE.setOrderStatuses(result.statuses);
-      })
-    }, timeout);
-    sessionStorage.setItem('UpdateTimeoutID', String(timerID));
+export const setUpdateTimeout = (store, timeout = 15000) => {
+  if (sessionStorage.getItem('UpdateTimeoutID') === null &&
+    store.getters.getOrderList().length) {
+      const timerID = window.setInterval(() => {
+        API.getStatusOrders().then((result) => {
+          STORE.setOrderStatuses(result.statuses);
+        })
+      }, timeout);
+      sessionStorage.setItem('UpdateTimeoutID', String(timerID));
   }
 }
 
