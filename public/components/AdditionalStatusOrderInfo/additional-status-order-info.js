@@ -10,8 +10,9 @@ const additionalStatusOrderInfo = (props) => {
                 </div>
                 <div class="main-content__comment-block">
                     <div class="comment-block__address">
-                        Адрес ресторана:
-                        {{address}}
+                        <strong>Адрес доставки:</strong>
+                        <br>
+                        <div>{{address}}</div>
                     </div>
                     <div class="comment__comment-explanation">
                         Вы можете оставить комментарий, в случае, если уже получили заказ

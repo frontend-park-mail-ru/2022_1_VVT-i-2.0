@@ -11,7 +11,7 @@ const profileMenu = () => {
         <section class="profile-menu">
             {{#profileMenuPoints}}
                 <div id="{{id}}" data-section="{{dataSection}}" class="profile-menu__point">
-                    <a data-section="{{dataSection}}">{{point}}</a>
+                    <a class="point__text" data-section="{{dataSection}}">{{point}}</a>
                 </div>
             {{/profileMenuPoints}}
         </section>

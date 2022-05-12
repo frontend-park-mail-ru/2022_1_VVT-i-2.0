@@ -37,6 +37,9 @@ export const getFrameEvents = () => {
               return;
             }
 
+            sessionStorage.setItem('openedAdditionalOrderInfo', e.target.dataset.id);
+            console.log('set openedAdditionalOrderInfo in', e.target.dataset.id);
+
             const statusLine = document.getElementById(e.target.dataset.id);
             const topPos = statusLine.offsetTop;
 
@@ -56,47 +59,6 @@ export const getFrameEvents = () => {
                 }
               });
             });
-
-            // const props = {
-            //   restName: 'Макдональдс',
-            //   orderPoints: [
-            //     {
-            //       description: "Все будет coca-cola.",
-            //       id: 245,
-            //       imgPath: "http://localhost:8080/static/dishes/345390311.jpeg",
-            //       info: 622,
-            //       price: "142",
-            //       productName: "Кока-кола",
-            //       restaurant: 62893,
-            //       weight: 350,
-            //       count: 3,
-            //     },
-            //     {
-            //       description: "Все будет coca-cola.",
-            //       id: 245,
-            //       imgPath: "http://localhost:8080/static/dishes/345390311.jpeg",
-            //       info: 622,
-            //       price: "142",
-            //       productName: "Кока-кола",
-            //       restaurant: 62893,
-            //       weight: 350,
-            //       count: 3,
-            //     },
-            //     {
-            //       description: "Все будет coca-cola.",
-            //       id: 245,
-            //       imgPath: "http://localhost:8080/static/dishes/345390311.jpeg",
-            //       info: 622,
-            //       price: "142",
-            //       productName: "Кока-кола",
-            //       restaurant: 62893,
-            //       weight: 350,
-            //       count: 3,
-            //     },
-            //   ],
-            //   total: 26000,
-            //   minPrice: 1300,
-            // };
           },
         },
     ],

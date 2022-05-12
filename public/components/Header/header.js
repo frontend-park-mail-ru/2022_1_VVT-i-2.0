@@ -32,32 +32,28 @@ const header = (isOrderingPage = false) => {
             {{^isOrderingPage}}
 
                 {{#isSearchActivated}}
-                {{&searchBlockAriaActivated}}
+                  {{&searchBlockAriaActivated}}
                 {{/isSearchActivated}}
 
                 {{^isSearchActivated}}
-                <nav id="search" class="page-header__button page-header__button-search" data-section="suggests">
-                    {{^isMobile}}<img src="/graphics/icons/address.svg" data-section="suggests" alt="">{{/isMobile}}
-                    <span data-section="suggests">
-                        <input
-                            id="suggestsSearch"
-                            class="page-header__suggests-input"
-                            data-section="suggests"
-                            value="{{address}}"
-                        >
-                    </span>
-                </nav>
-                {{/isSearchActivated}}
-
-                {{#auth}}
-
-                    {{^isSearchActivated}}
+                    <nav id="search" class="page-header__button page-header__button-search" data-section="suggests">
+                        {{^isMobile}}<img src="/graphics/icons/address.svg" data-section="suggests" alt="">{{/isMobile}}
+                        <span data-section="suggests">
+                            <input
+                                id="suggestsSearch"
+                                class="page-header__suggests-input"
+                                data-section="suggests"
+                                value="{{address}}"
+                            >
+                        </span>
+                    </nav>
                     <nav id="searchButton" class="page-header__button">
                         <img src="/graphics/icons/search_black.svg" alt="">
                         <a class="button__controller">Поиск</a>
                     </nav>
-                    {{/isSearchActivated}}
+                {{/isSearchActivated}}
 
+                {{#auth}}
                     <nav id="profilePreviewButton" class="page-header__button" data-section="profilePreview">
                         {{#avatar}}
                             <img class="button__avatar-img" src="{{avatar}}" data-section="profilePreview" alt="">

@@ -141,7 +141,6 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
   }
 
   if (sessionStorage.getItem('page') === 'orderHistory') {
-    console.log('delete timeout');
     store.actions.clearUpdateTimeout();
   }
 

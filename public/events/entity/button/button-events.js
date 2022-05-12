@@ -183,7 +183,6 @@ export const getButtonEvents = () => {
         listener(app, store, e) {
           store.actions.changeSearchStatus();
           const searchInput = document.getElementById('searchInput');
-          console.log(searchInput);
           searchInput.focus();
         },
       },

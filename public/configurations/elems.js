@@ -10,6 +10,7 @@ const ELEMS_CONFIGURATION = {
     STANDARD: 300,
     LARGE: 312,
     VERY_LARGE: 515,
+    ORDERING: 365,
   },
 };
 

@@ -2,31 +2,28 @@
 
 .shopping-cart__order-point {
     display: inline-flex;
-    width: 292px;
+    width: 90%;
 
     background: theme.getColor('white');
     border: 1px solid theme.getColor('grey');
     border-radius: 10px;
 
-    margin: 5px 0;
+    margin: 5px auto 5px 10px;
     padding: 10px 5px 10px 15px;
 }
 
 .order-point__img-block {
-    width: 13%;
+    width: 42%;
 }
 
 .order-point__dish-img {
-    width: 28px;
-    height: 28px;
-    margin-top: 2px;
-    margin-right: 7px;
+    width: 120px;
 }
 
 .order-point__point-info {
     display: flex;
     flex-direction: column;
-    width: 87%;
+    width: 58%;
 }
 
 .point-info__dish-info {

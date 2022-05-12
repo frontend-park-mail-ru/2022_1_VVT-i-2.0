@@ -1,14 +1,11 @@
 import components from "../../components/import.js";
-import {renderAndUpdateURN} from "../../render/render";
-import {getOrderList} from "../../store/getters/getters";
-import { setUpdateTimeout } from "../../store/actions/actions";
 
 const orderHistoryPage = (app, store) => {
-    store.actions.setUpdateTimeout();
-
     if (!store.getters.getOrderList().length) {
         store.actions.getOrderList();
     }
+
+    store.actions.setUpdateTimeout();
 
     app.root.innerHTML = components.header();
 
@@ -31,6 +28,22 @@ const orderHistoryPage = (app, store) => {
     main.innerHTML = /*components.statusPreview() + */components.profileTemplate('Мои заказы',
         components.orderStatusList(store.getters.getOrderList()));
     app.root.appendChild(main);
+
+    if (sessionStorage.getItem('openedAdditionalOrderInfo') !== null) {
+        console.log('item openedAdditionalOrderInfo already setted, good');
+        const buttonFrames = document.querySelectorAll('[data-id]');
+        console.log(buttonFrames, 'buttonFrames to click, need one');
+        [...buttonFrames].forEach((buttonFrame) => {
+            // console.log(buttonFrame, buttonFrame.getAttribute('data-id'), buttonFrame.attributes, buttonFrame.attributes['data-id'].value);
+            if (buttonFrame.getAttribute('data-id') === sessionStorage.getItem('openedAdditionalOrderInfo')) {
+                // console.log(buttonFrame.getAttribute('data-id').value, '=', sessionStorage.getItem('openedAdditionalOrderInfo'));
+                buttonFrame.click();
+                console.log(buttonFrame, 'CLICKED!!!');
+            }
+        });
+    } else {
+        console.log('item openedAdditionalOrderInfo not setted');
+    }
 };
 
 export default orderHistoryPage;
