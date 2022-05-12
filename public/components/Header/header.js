@@ -2,15 +2,19 @@ import UIKIT from "../../ui-kit/import.js";
 import { getters } from "../../store/import";
 
 const header = (isOrderingPage = false) => {
-  const auth = Object.keys(getters.user()).length !== 0;
-  const address = localStorage.getItem("address");
-  const avatar = getters.getAvatar();
-  const emptyShopCart = getters.IsCartEmpty();
-  const totalOrderPrice = getters.cart().totalPrice;
-  const isSearchActivated = getters.getSearchStatus();
-  const isMobile = window.screen.width < 920;
+    const auth = Object.keys(getters.user()).length !== 0;
+    const address = localStorage.getItem("address");
+    const avatar = getters.getAvatar();
+    const emptyShopCart = getters.IsCartEmpty();
+    const totalOrderPrice = getters.cart().totalPrice;
+    const isSearchActivated = getters.getSearchStatus();
 
-  const template = `
+    const currentRestName = getters.currentRestName();
+    const dishes = getters.dishes();
+    const slug = Object.keys(dishes).find((key) => dishes[key].restName === currentRestName);
+    const isMobile = window.screen.width < 920;
+
+    const template = `
         <header id="header" class="page-header {{#isSearchActivated}}page-header__color-grey{{/isSearchActivated}}{{^isSearchActivated}}page-header__color-white{{/isSearchActivated}}">
             {{^isMobile}}
             <nav class="page-header__button page-header__main-button" data-section="main">
@@ -64,8 +68,8 @@ const header = (isOrderingPage = false) => {
 
                     {{#emptyShopCart}}
                         <nav id="shoppingCartButton" class="page-header__button page-header__button-cart" data-section="shoppingCart">
-                          <img src="/graphics/icons/shopping_cart.svg" data-section="shoppingCart" alt="">
-                          <a class="button__controller" data-section="shoppingCart">Корзина</a>
+                        <img src="/graphics/icons/shopping_cart.svg" data-section="shoppingCart" alt="">
+                        <a class="button__controller" data-section="shoppingCart">Корзина</a>
                         </nav>
                     {{/emptyShopCart}}
 
@@ -97,7 +101,7 @@ const header = (isOrderingPage = false) => {
     totalOrderPrice,
     isSearchActivated,
     backToMenu() {
-      return UIKIT.backButton("Обратно в меню", "dishes");
+      return UIKIT.backButton("Обратно в меню", `/dishes/${slug}`);
     },
     searchBlockAriaActivated() {
       return UIKIT.searchBlock();
