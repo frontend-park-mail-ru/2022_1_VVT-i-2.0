@@ -277,7 +277,6 @@ const STORE = {
     }
 
     if (countChangesInStatuses) {
-      console.log('have changes');
       this.orderList = orderList;
     }
   }

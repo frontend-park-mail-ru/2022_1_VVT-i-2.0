@@ -19,19 +19,19 @@ const orderHistoryPage = (app, store) => {
     setTimeout(() => {sessionStorage.removeItem('statusRequestSent')}, 50);
 
     if (sessionStorage.getItem('openedAdditionalOrderInfo') !== null) {
-        console.log('item openedAdditionalOrderInfo already setted, good');
+        // console.log('item openedAdditionalOrderInfo already setted, good');
         const buttonFrames = document.querySelectorAll('[data-id]');
-        console.log(buttonFrames, 'buttonFrames to click, need one');
+        // console.log(buttonFrames, 'buttonFrames to click, need one');
         [...buttonFrames].forEach((buttonFrame) => {
             // console.log(buttonFrame, buttonFrame.getAttribute('data-id'), buttonFrame.attributes, buttonFrame.attributes['data-id'].value);
             if (buttonFrame.getAttribute('data-id') === sessionStorage.getItem('openedAdditionalOrderInfo')) {
                 // console.log(buttonFrame.getAttribute('data-id').value, '=', sessionStorage.getItem('openedAdditionalOrderInfo'));
                 buttonFrame.click();
-                console.log(buttonFrame, 'CLICKED!!!');
+                // console.log(buttonFrame, 'CLICKED!!!');
             }
         });
     } else {
-        console.log('item openedAdditionalOrderInfo not setted');
+        // console.log('item openedAdditionalOrderInfo not setted');
     }
 };
 

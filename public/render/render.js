@@ -172,6 +172,10 @@ const hideNotification = () => {
 }
 
 export const renderNotification = (message, error = false) => {
+  console.log(message);
+
+  message = message || "В ходе обработки запроса произошла ошибка";
+
   if (notification.innerHTML !== '') {
     notification.getElementsByClassName('notification__close-img')[0].removeEventListener('click', hideNotification);
   }
