@@ -13,7 +13,7 @@ const orderHistoryPage = (app, store) => {
     app.root.innerHTML = components.header();
     const main = document.createElement("main");
     main.innerHTML = components.profileTemplate('Мои заказы',
-        components.orderStatusList(store.getters.getOrderList()));
+        components.orderStatusList(store.getters.getOrderList() || '<div>Ваш список заказов пуст</div>'));
     app.root.appendChild(main);
 
     setTimeout(() => {sessionStorage.removeItem('statusRequestSent')}, 50);
