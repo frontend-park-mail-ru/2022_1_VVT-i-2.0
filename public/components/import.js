@@ -38,5 +38,6 @@ export default {
   NetworkErrorForm,
   categories,
   comments,
-  statusPreview
+  statusPreview,
+  createCommentForm
 };

@@ -126,7 +126,7 @@ export const login = (user) => {
  * @return {Promise} - возвращает Promise на отправку запроса.
  */
 export const logout = () => {
-  return request("/logout", { method: METHODS.GET });
+  return request("/logout");
 };
 
 export const suggest = (query) => {
@@ -138,17 +138,21 @@ export const createOrder = (order) => {
 };
 
 export const getOrderList = () => {
-  return request('/orders', { method: METHODS.GET });
+  return request('/orders');
 };
 
 export const getStatusOrders = () => {
-  return request('/order_statuses', { method: METHODS.GET });
+  return request('/order_statuses');
 };
 
 export const getCertainOrder = (orderNumber) => {
   return request(`/order/${orderNumber}`);
 };
 
-export const getComments = (restName) => {
-  return request(`/comments/${restName}`);
+export const getComments = (slug) => {
+  return request(`/comments/${slug}`);
+};
+
+export const createComment = (comment) => {
+  return request("/comment", { method: METHODS.POST, body: comment });
 };
