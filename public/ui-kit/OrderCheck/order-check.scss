@@ -1,6 +1,10 @@
 @use 'public/configurations/colors/colors.scss' as theme;
 
-.ordering-page__shopping-cart {
+@mixin padding-left() {
+  padding-left: 5px;
+}
+
+.ordering-page__order-check {
   display: flex;
   flex-direction: column;
 
@@ -17,7 +21,7 @@
   text-align: center;
 }
 
-.shopping-cart__preview-rest {
+.order-check__preview-rest {
   width: 60%;
   max-width: 312px;
 
@@ -26,20 +30,19 @@
   margin-right: auto;
 }
 
-.shopping-cart__rest-main-info {
+.order-check__rest-main-info {
   padding: 10px;
   margin-right: auto;
-  margin-left: 13px;
   @media screen and (orientation:portrait) and (max-width: 820px),
   screen and (orientation:landscape) and (max-height: 820px) {
     margin-left: auto;
   }
 }
 
-.shopping-cart__order-points {
+.order-check__order-points {
   @media screen and (orientation:portrait) and (min-width: 438px),
   screen and (orientation:landscape) and (min-height: 438px) {
-    min-width: 330px;
+    min-width: 360px;
     min-height: 130px;
 
     &_large {
@@ -59,25 +62,27 @@
   }
 }
 
-.shopping-cart__space-block {
+.order-check__space-block {
   height: 30px;
 }
 
-.shopping-cart__payment-info {
+.order-check__payment-info {
   display: flex;
   font-weight: bold;
   margin-top: 10px;
+
+  @include padding-left();
 }
 
 .payment-info__price {
   margin-left: auto;
 }
 
-.shopping-cart__payment-notify {
+.order-check__payment-notify {
   margin-top: 30px;
 }
 
-.shopping-cart__summary-payment {
+.order-check__summary-payment {
   display: flex;
   font-weight: bold;
 
@@ -87,4 +92,6 @@
   screen and (orientation:landscape) and (max-height: 438px) {
     margin-bottom: 20px;
   }
+
+  @include padding-left();
 }
