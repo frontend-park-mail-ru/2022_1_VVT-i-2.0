@@ -2,7 +2,8 @@ import { APP, render, renderAndUpdateURN } from "./render/render.js";
 import * as store from "./store/import";
 import "./index.scss";
 import { IsCartEmpty } from "./store/getters/getters";
-import { clearCart } from "./store/actions/actions";
+
+const NOT_CLOSED_PAGES = ["shoppingCart", "confirmCode",];
 
 Object.entries(APP).forEach(([name, node]) =>
   node.addEventListener("click", (e) =>
@@ -26,7 +27,7 @@ document.addEventListener("click", (e) => {
   }
 
   const page = sessionStorage.getItem("page");
-  if (page === "shoppingCart") {
+  if (NOT_CLOSED_PAGES.includes(page)) {
     return;
   }
 

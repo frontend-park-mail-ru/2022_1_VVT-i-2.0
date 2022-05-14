@@ -56,6 +56,7 @@ const request = (url, options = DEFAULT_OPTIONS) => {
       }
 
       const data = result.json();
+
       if (result.status === 200) {
         return data;
       }
