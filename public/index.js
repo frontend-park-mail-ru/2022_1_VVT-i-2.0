@@ -3,7 +3,7 @@ import * as store from "./store/import";
 import "./index.scss";
 import { IsCartEmpty } from "./store/getters/getters";
 
-const NOT_CLOSED_PAGES = ["shoppingCart", "confirmCode"];
+const NOT_CLOSED_PAGES_BY_CLICK_OUT = ["shoppingCart", "confirmCode"];
 export const DEFAULT_ADDRESS = 'Адрес доставки';
 
 Object.entries(APP).forEach(([name, node]) =>
@@ -28,7 +28,7 @@ document.addEventListener("click", (e) => {
   }
 
   const page = sessionStorage.getItem("page");
-  if (NOT_CLOSED_PAGES.includes(page)) {
+  if (NOT_CLOSED_PAGES_BY_CLICK_OUT.includes(page)) {
     return;
   }
 

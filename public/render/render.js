@@ -28,6 +28,9 @@ const setModalPosition = (page) => {
 };
 
 const IsAddressNotCorrect = () => {
+  if (!document.getElementById('suggestsSearch')) {
+    return false;
+  }
   return document.getElementById('suggestsSearch').value === DEFAULT_ADDRESS;
 }
 
