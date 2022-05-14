@@ -1,6 +1,6 @@
 import UIKIT from "../../ui-kit/import.js";
 
-const orderCheck = (props, toShowNotify = true, toShowButtons = true) => {
+const orderCheck = (props, toShowNotify = true, IsOrderingPage = true) => {
     const isEmpty = (props.total || props.totalPrice) === 0;
 
     const template = `        
@@ -10,7 +10,9 @@ const orderCheck = (props, toShowNotify = true, toShowButtons = true) => {
               <div class="shopping-cart__preview-rest">Ваш заказ в ресторане: {{restName}}</div>
           </div>
     
-          <div class="shopping-cart_order-points">
+          <div class="shopping-cart__order-points
+            {{#IsOrderingPage}}shopping-cart__order-points_large{{/IsOrderingPage}}
+            {{^IsOrderingPage}}shopping-cart__order-points_small{{/IsOrderingPage}}">
             {{#orderPoints}}
               {{&drawOrderPoint}}
             {{/orderPoints}}
@@ -46,7 +48,7 @@ const orderCheck = (props, toShowNotify = true, toShowButtons = true) => {
         minPrice: props.minPrice || 0,
         isEmpty,
         toShowNotify,
-        toShowButtons,
+        IsOrderingPage,
         drawOrderPoint() {
             return UIKIT.orderPoint(
                 this.imgPath,
@@ -56,7 +58,7 @@ const orderCheck = (props, toShowNotify = true, toShowButtons = true) => {
                 this.count,
                 this.price,
                 this.id,
-                toShowButtons
+                IsOrderingPage
             );
         },
         paymentNotification() {

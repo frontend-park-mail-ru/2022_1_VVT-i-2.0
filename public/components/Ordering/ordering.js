@@ -46,7 +46,9 @@ const ordering = (props) => {
             {{&buttonPay}}
           {{/isMobile}}
         </div>
+        
         {{&summaryCheck}}
+        
       </div>
 
       {{#isMobile}}

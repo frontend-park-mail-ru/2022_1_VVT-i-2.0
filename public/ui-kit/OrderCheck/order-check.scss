@@ -39,12 +39,19 @@
   }
 }
 
-.shopping-cart_order-points {
+.shopping-cart__order-points {
   @media screen and (orientation:portrait) and (min-width: 438px),
   screen and (orientation:landscape) and (min-height: 438px) {
     min-width: 330px;
-    max-height: 260px;
     min-height: 130px;
+
+    &_large {
+      max-height: 415px;
+    }
+
+    &_small {
+      max-height: 260px;
+    }
 
     overflow-x: hidden;
     overflow-y: scroll;
