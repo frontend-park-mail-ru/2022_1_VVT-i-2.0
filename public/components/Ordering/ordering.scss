@@ -31,8 +31,15 @@
 
   height: 100%;
 
+
   @media screen and (orientation: landscape) and (min-width: 920px) {
     margin-right: 22%;
+  }
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
@@ -143,6 +150,14 @@
 
 .ordering-block__order-header {
   font-size: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   margin-top: 40px;
+
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    text-align: center;
+    font-size: 25px;
+    //margin-bottom: 20px;
+    font-weight: bold;
+  }
 }
