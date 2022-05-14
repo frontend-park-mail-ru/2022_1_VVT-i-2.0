@@ -9,6 +9,7 @@ import { getConfirmCodeFieldEvents } from "./confirmCode/confirm-code-events.js"
 import { getInputEvents } from "./input/input-events";
 import { categories } from "./categories/categories-events.js";
 import { search } from "./search/search-events.js";
+import { getAdditionalAddressEvents } from "./additionalAddress/additional-address-events";
 
 const Event = {
   getFrameEvents,
@@ -21,7 +22,8 @@ const Event = {
   getConfirmCodeFieldEvents,
   getInputEvents,
   categories,
-  search
+  search,
+  getAdditionalAddressEvents
 };
 
 export default Event;

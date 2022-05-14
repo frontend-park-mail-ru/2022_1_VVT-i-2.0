@@ -39,7 +39,6 @@ const EVENTS = {
     "profileName",
     FORM.statusPersonInfoForm
   ),
-  // profilePhone: Event.getPhoneFieldEvents('profilePhone', FORM.statusPersonInfoForm),
   profileEmail: Event.getEmailFieldEvents(
     "profileEmail",
     FORM.statusPersonInfoForm
@@ -50,7 +49,13 @@ const EVENTS = {
   addToCart: Event.dishEvents().addToCart,
   incrementDishCount: Event.dishEvents().incrementDishCount,
   decrementDishCount: Event.dishEvents().decrementDishCount,
+
+  orderingEntrance: Event.getAdditionalAddressEvents('entrance'),
+  orderingIntercom: Event.getAdditionalAddressEvents('intercom'),
+  orderingFloor: Event.getAdditionalAddressEvents('floor'),
+  orderingFlat: Event.getAdditionalAddressEvents('flat'),
   orderingComment: Event.dishEvents().orderingComment,
+
   buttonPay: Event.getButtonEvents().buttonPay,
 
   categories: Event.categories().category,
