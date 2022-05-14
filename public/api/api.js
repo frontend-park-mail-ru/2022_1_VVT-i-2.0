@@ -3,16 +3,14 @@ import * as store from "../store/import.js";
 
 const METHODS = { GET: "GET", POST: "POST", PUT: "PUT", DELETE: "DELETE" };
 
-const BASE_URI = "https://tavide.xyz";
-// const BASE_URI = "http://localhost:8080";
+// const BASE_URI = "https://tavide.xyz";
+const BASE_URI = "http://localhost:8080";
 
 const DEFAULT_OPTIONS = {
   method: METHODS.GET,
   headers: { "Content-Type": "application/json" },
   credentials: "include",
 };
-
-const ERROR_MESSAGE = "В ходе обработки запроса произошла ошибка";
 
 /**
  * @function Осуществляет отправку запроса.
@@ -50,7 +48,7 @@ const request = (url, options = DEFAULT_OPTIONS) => {
 
       if (Number(result.headers.get("Content-Length")) === 0) {
         if (result.status !== 200) {
-          renderNotification(ERROR_MESSAGE, true);
+          renderNotification(null, true);
           return Promise.reject();
         }
 
@@ -58,13 +56,13 @@ const request = (url, options = DEFAULT_OPTIONS) => {
       }
 
       const data = result.json();
-
-      if (result.status !== 200) {
-        renderNotification(data.error, true);
-        return Promise.reject();
+      if (result.status === 200) {
+        return data;
       }
 
-      return data;
+      data.then((d) => renderNotification(d.error, true));
+
+      return Promise.reject();
     });
 };
 
