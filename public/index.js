@@ -3,7 +3,8 @@ import * as store from "./store/import";
 import "./index.scss";
 import { IsCartEmpty } from "./store/getters/getters";
 
-const NOT_CLOSED_PAGES = ["shoppingCart", "confirmCode",];
+const NOT_CLOSED_PAGES = ["shoppingCart", "confirmCode"];
+export const DEFAULT_ADDRESS = 'Адрес доставки';
 
 Object.entries(APP).forEach(([name, node]) =>
   node.addEventListener("click", (e) =>
@@ -36,7 +37,7 @@ document.addEventListener("click", (e) => {
 });
 
 if (!localStorage.getItem("address")) {
-  localStorage.setItem("address", "город Москва, улица Ленина, 21");
+  localStorage.setItem("address", DEFAULT_ADDRESS);
 }
 
 const handleOnload = () => {

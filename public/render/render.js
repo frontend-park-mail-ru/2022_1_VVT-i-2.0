@@ -2,6 +2,7 @@ import * as events from "../events/events.js";
 import MENU from "../pages/import.js";
 import * as store from "../store/import.js";
 import { getters } from "../store/import.js";
+import { DEFAULT_ADDRESS } from "../index";
 import {
   getCurrentSlug,
   IsCartEmpty,
@@ -16,6 +17,7 @@ export const APP = {
 
 const AUTH_PAGES = ["login", "register", "confirmCode"];
 const CLOSED_PAGES = ["shoppingCart", "profilePreview"];
+const NEED_CORRECT_ADDRESS_PAGES = ["/shoppingCart", "/ordering"];
 
 const notification = document.getElementById('notification');
 
@@ -24,6 +26,10 @@ const setModalPosition = (page) => {
     APP.modal.classList.add(page.position);
   }
 };
+
+const IsAddressNotCorrect = () => {
+  return document.getElementById('suggestsSearch').value === DEFAULT_ADDRESS;
+}
 
 /**
  * @function Рендерит страницу по входящему section. Если section нет, рендер не производится.
@@ -142,6 +148,11 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
 
   if (sessionStorage.getItem('page') === 'orderHistory') {
     store.actions.clearUpdateTimeout();
+  }
+
+  if (IsAddressNotCorrect() && NEED_CORRECT_ADDRESS_PAGES.includes(urn)) {
+    renderNotification('Для этого действия необходимо выбрать адрес доставки', true);
+    return;
   }
 
   // if ((urn === "/" || urn === "/main") && store.getters.restaurants().length === 0) {
