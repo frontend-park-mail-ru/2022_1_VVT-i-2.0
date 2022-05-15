@@ -153,8 +153,8 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     return;
   }
 
-  const page = `/${sessionStorage.getItem("page")}`;
-  if (!urn.startsWith(page)) {
+  const page = sessionStorage.getItem("page");
+  if (!urn.startsWith(`/${page}`) || page !== 'dishes' && urn !== '/shoppingCart') {
     window.scrollTo(0, 0);
   }
 
