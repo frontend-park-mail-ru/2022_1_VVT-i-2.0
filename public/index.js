@@ -9,7 +9,7 @@ export const DEFAULT_ADDRESS = 'Адрес доставки';
 const searchOnClickOutHandler = () => {
   if (!sessionStorage.getItem('searchBlockClicked')
     && !sessionStorage.getItem('searchButtonClicked')
-    && document.getElementById('closeImg')) {
+    && document.getElementById('searchBlock')) {
     document.getElementById('closeImg').click();
   }
   sessionStorage.removeItem('searchBlockClicked');
