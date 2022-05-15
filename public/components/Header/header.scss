@@ -36,7 +36,8 @@
     border-left: 1px solid #b9b9b9;
     border-right: 1px solid #b9b9b9;
 
-    @media screen and (orientation: portrait) and (max-width: 920px) {
+    @media screen and (orientation: portrait) and (max-width: 1375px),
+    screen and (orientation: landscape) and (max-width: 920px) {
         width: 80px;
         flex-direction: column;
     }
@@ -55,7 +56,7 @@
     flex-direction: row;
     justify-content: center;
 
-    @media screen and (orientation: portrait) and (max-width: 920px) {
+    @media screen and (max-width: 920px) {
         display: none;
     }
     // max-width: 160px;
@@ -80,7 +81,7 @@
 }
 
 .button__controller {
-    @media screen and (orientation: landscape) and (min-width: 920px) {
+    @media screen and (orientation: landscape) and (min-width: 1230px) {
         margin-left: 10px;
     }
 
@@ -89,7 +90,7 @@
         color: #000000;
         //color: #323232;
 
-        @media screen and (orientation: landscape) and (min-width: 920px) {
+        @media screen and (orientation: landscape) and (min-width: 1230px) {
             margin-left: 15px;
         }
     }
@@ -100,7 +101,7 @@
 }
 
 .page-header__address-img {
-    @media screen and (orientation: portrait) and (max-width: 920px) {
+    @media screen and (orientation: portrait) and (max-width: 620px) {
         display: none;
     }
 }
@@ -108,11 +109,11 @@
 .page-header__suggests-input {
     all: unset;
 
-    @media screen and (orientation: portrait) and (max-width: 920px) {
+    @media screen and (orientation: portrait) and (max-width: 620px) {
         width: 110px;
     }
 
-    @media screen and (orientation: landscape) and (min-width: 920px) {
+    @media screen and (orientation: landscape) and (min-width: 1230px) {
         width: 500px;
         margin-left: 15px;
     }
@@ -131,20 +132,20 @@
     &_green {
         background: #17d685;
 
-        @media screen and (orientation: portrait) and (max-width: 920px) {
+        @media screen and (orientation: portrait) and (max-width: 620px) {
             width: 80px;
         }
 
-        @media screen and (orientation: landscape) and (min-width: 920px) {
+        @media screen and (orientation: landscape) and (min-width: 1230px) {
             min-width: 160px;
         }
     }
 
-    @media screen and (orientation: portrait) and (max-width: 920px) {
+    @media screen and (orientation: portrait) and (max-width: 620px) {
         width: 80px;
     }
 
-    @media screen and (orientation: landscape) and (min-width: 920px) {
+    @media screen and (orientation: landscape) and (min-width: 1230px) {
         min-width: 160px;
     }
 }
