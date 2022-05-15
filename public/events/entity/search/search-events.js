@@ -1,4 +1,5 @@
 import { renderAndUpdateURN } from "../../../render/render.js";
+import { setCursorPosition } from "../../common/cursor";
 
 export const search = () => {
   return {
@@ -14,6 +15,15 @@ export const search = () => {
           const query = e.target.value;
           sessionStorage.setItem('searchQuery', query);
           store.actions.getRestaurants({ q: query }).then(() => renderAndUpdateURN("/"));
+        }
+      },
+    ],
+    searchBlock: [
+      {
+        type: "click",
+        selector: "id",
+        listener(app, store, e) {
+          sessionStorage.setItem('searchBlockClicked', 'true');
         }
       },
     ],

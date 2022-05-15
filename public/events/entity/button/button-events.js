@@ -184,7 +184,14 @@ export const getButtonEvents = () => {
           store.actions.changeSearchStatus();
           const searchInput = document.getElementById('searchInput');
           searchInput.focus();
-        },
+        }
+      },
+      {
+        type: "click",
+        selector: "id",
+        listener(app, store, e) {
+          sessionStorage.setItem('searchButtonClicked', 'true');
+        }
       },
     ],
     personInfoSaveButton: [

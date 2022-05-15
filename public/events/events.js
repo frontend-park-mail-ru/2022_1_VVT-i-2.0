@@ -1,6 +1,7 @@
 // import * as api from '../api/api.js';
 import Event from "./entity/import.js";
 import * as FORM from "./common/status-form.js";
+import * as events from "events";
 
 const EVENTS = {
   closeImg: Event.getFrameEvents().closeImg,
@@ -61,7 +62,8 @@ const EVENTS = {
   categories: Event.categories().category,
   categoriesSelect: Event.categories().categoriesSelect,
 
-  searchInput: Event.search().searchInput
+  searchInput: Event.search().searchInput,
+  searchBlock: Event.search().searchBlock,
 };
 
 /**

@@ -6,6 +6,16 @@ import { IsCartEmpty } from "./store/getters/getters";
 const NOT_CLOSED_PAGES_BY_CLICK_OUT = ["shoppingCart", "confirmCode"];
 export const DEFAULT_ADDRESS = 'Адрес доставки';
 
+const searchOnClickOutHandler = () => {
+  if (!sessionStorage.getItem('searchBlockClicked')
+    && !sessionStorage.getItem('searchButtonClicked')
+    && document.getElementById('closeImg')) {
+    document.getElementById('closeImg').click();
+  }
+  sessionStorage.removeItem('searchBlockClicked');
+  sessionStorage.removeItem('searchButtonClicked');
+}
+
 Object.entries(APP).forEach(([name, node]) =>
   node.addEventListener("click", (e) =>
     renderAndUpdateURN(e.target.dataset.section)
@@ -15,6 +25,8 @@ Object.entries(APP).forEach(([name, node]) =>
 window.onpopstate = () => render(location.pathname);
 
 document.addEventListener("click", (e) => {
+  searchOnClickOutHandler();
+
   if (APP.modal.children.length === 0) {
     return;
   }
