@@ -4,7 +4,9 @@ const orderCheck = (props, toShowNotify = true, IsOrderingPage = true) => {
     const isEmpty = (props.total || props.totalPrice) === 0;
 
     const template = `        
-        <div class="ordering-page__order-check">
+        <div class="ordering-page__order-check
+          {{#IsOrderingPage}}ordering-page__order-check_large{{/IsOrderingPage}}
+          {{^IsOrderingPage}}ordering-page__order-check_small{{/IsOrderingPage}}">
           {{^isEmpty}}
           <div class="order-check__rest-main-info shopping-cart__order-point">
               <div class="order-check__preview-rest">Ваш заказ в ресторане: {{restName}}</div>

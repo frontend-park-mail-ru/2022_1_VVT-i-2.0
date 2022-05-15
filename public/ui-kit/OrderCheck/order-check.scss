@@ -14,7 +14,12 @@
   }
 
   @media screen and (orientation: landscape) and (min-width: 920px) {
-    min-width: 360px;
+    &_large {
+      min-width: 400px;
+    }
+    &_small {
+      min-width: 100%;
+    }
   }
 
   margin-right: auto;
@@ -42,14 +47,15 @@
 .order-check__order-points {
   @media screen and (orientation:portrait) and (min-width: 438px),
   screen and (orientation:landscape) and (min-height: 438px) {
-    min-width: 360px;
     min-height: 130px;
 
     &_large {
+      min-width: 400px;
       max-height: 415px;
     }
 
     &_small {
+      min-width: 360px;
       max-height: 260px;
     }
 
@@ -80,6 +86,7 @@
 
 .order-check__payment-notify {
   margin-top: 30px;
+  padding-left: 5px;
 }
 
 .order-check__summary-payment {
