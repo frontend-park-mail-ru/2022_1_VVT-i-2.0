@@ -16,6 +16,10 @@
   display: flex;
 
   div {
+    @media screen and (orientation: portrait) and (max-width: 920px) {
+      display: none;
+    }
+
     @media screen and (orientation: landscape) and (min-width: 920px) {
       @include flex-center ();
     }
@@ -31,6 +35,10 @@
 
 .suggest-row__suggest-address {
   flex: 30 1 auto !important;
+
+  @media screen and (orientation: portrait) and (max-width: 920px) {
+    display: block !important;
+  }
 
   font-weight: bold;
 
