@@ -14,7 +14,7 @@
     }
     @media screen and (orientation:portrait) and (max-width: 438px),
     screen and (orientation:landscape) and (max-height: 438px) {
-        margin: 5px auto 5px auto;
+        margin: 5px 2.7%;
     }
     padding: 10px 5px 10px 15px;
 }
@@ -30,9 +30,9 @@
     }
     @media screen and (orientation:portrait) and (max-width: 438px),
     screen and (orientation:landscape) and (max-height: 438px) {
-        width: 100px;
-        margin-right: 10px;
-        margin-top: 5px;
+        width: 120px;
+        //margin-right: 10px;
+        //margin-top: 5px;
     }
 }
 
