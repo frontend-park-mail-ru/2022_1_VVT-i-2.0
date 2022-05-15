@@ -15,6 +15,7 @@ const suggestsForm = (props) => {
             {{/auth}}
           {{/isMobile}}
           {{^isMobile}}<div></div>{{/isMobile}}
+          {{^isMobile}}<div></div>{{/isMobile}}
         </div>
       {{/suggests}}
       {{^suggests}}
@@ -28,6 +29,7 @@ const suggestsForm = (props) => {
               <div></div>
             {{/auth}}
           {{/isMobile}}
+          {{^isMobile}}<div></div>{{/isMobile}}
           {{^isMobile}}<div></div>{{/isMobile}}
         </div>
       {{/suggests}}
