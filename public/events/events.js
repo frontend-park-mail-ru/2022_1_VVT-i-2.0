@@ -56,7 +56,10 @@ const EVENTS = {
   categories: Event.categories().category,
   categoriesSelect: Event.categories().categoriesSelect,
 
-  searchInput: Event.search().searchInput
+  searchInput: Event.search().searchInput,
+
+  createComment: Event.getButtonEvents().createComment,
+  star: Event.comment().star
 };
 
 /**

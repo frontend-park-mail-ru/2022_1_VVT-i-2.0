@@ -103,9 +103,9 @@ export const setSearchStatus = (status) => {
   STORE.setSearchStatus(status);
 }
 
-export const getComments = (restName) => {
-  return API.getComments(restName).then((result) =>
-    STORE.addComments(restName, result)
+export const getComments = (slug) => {
+  return API.getComments(slug).then((result) =>
+    STORE.addComments(slug, result)
   );
 }
 
@@ -126,4 +126,8 @@ export const clearUpdateTimeout = () => {
     clearInterval(Number(sessionStorage.getItem('UpdateTimeoutID')));
     sessionStorage.removeItem('UpdateTimeoutID');
   }
-}
+};
+
+export const createComment = (comment) => {
+  return API.createComment(comment);
+};
