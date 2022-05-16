@@ -221,7 +221,10 @@ export const getButtonEvents = () => {
           input.files = dt.files;
 
           const obj = new FormData(personInfoForm);
-          store.actions.updateUser(obj).then(() => renderAndUpdateURN("/profile"));
+          store.actions.updateUser(obj).then(() => {
+            renderAndUpdateURN("/profile");
+            renderNotification("Изменения успешно сохранены");
+          });
         },
       },
     ],
