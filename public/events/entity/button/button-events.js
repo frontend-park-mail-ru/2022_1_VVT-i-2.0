@@ -4,6 +4,7 @@ import { renderAndUpdateURN, renderNotification } from "../../../render/render.j
 import { avatar } from "../../../store/store/store";
 import {getSearchStatus} from "../../../store/getters/getters";
 import {changeSearchStatus} from "../../../store/actions/actions";
+import { confirmCodeError } from "../confirmCode/confirm-code-src";
 
 export const getButtonEvents = () => {
   return {
@@ -54,10 +55,8 @@ export const getButtonEvents = () => {
         selector: "id",
         listener(app, store, e) {
           const logicType = sessionStorage.getItem("logicType");
-          sessionStorage.removeItem("logicType");
 
           let phone = sessionStorage.getItem("phone");
-          sessionStorage.removeItem("phone");
 
           phone = phone.replace("+", "");
           phone = phone.replace("(", "");
@@ -65,21 +64,31 @@ export const getButtonEvents = () => {
           phone = phone.replaceAll("-", "");
 
           const name = sessionStorage.getItem("name");
-          sessionStorage.removeItem("name");
-
           const email = sessionStorage.getItem("email");
-          sessionStorage.removeItem("email");
-
           const code = document.getElementById("confirmCode").children[0].value;
 
           if (logicType === "login") {
             store.actions
               .login({ phone, code })
-              .then(() => renderAndUpdateURN("/"));
+              .then(() => {
+                sessionStorage.removeItem("logicType");
+                sessionStorage.removeItem("phone");
+                sessionStorage.removeItem("name");
+                sessionStorage.removeItem("email");
+                renderAndUpdateURN("/");
+              })
+              .catch(() => confirmCodeError.confirmCodeErrorShow('Неверный код подтверждения'));
           } else if (logicType === "register") {
             store.actions
               .register({ phone, code, email, name })
-              .then(() => renderAndUpdateURN("/"));
+              .then(() => {
+                sessionStorage.removeItem("logicType");
+                sessionStorage.removeItem("phone");
+                sessionStorage.removeItem("name");
+                sessionStorage.removeItem("email");
+                renderAndUpdateURN("/");
+              })
+              .catch(() => confirmCodeError.confirmCodeErrorShow('Неверный код подтверждения'));
           }
         },
       },
