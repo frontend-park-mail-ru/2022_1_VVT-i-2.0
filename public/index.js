@@ -2,7 +2,19 @@ import { APP, render, renderAndUpdateURN } from "./render/render.js";
 import * as store from "./store/import";
 import "./index.scss";
 import { IsCartEmpty } from "./store/getters/getters";
-import { clearCart } from "./store/actions/actions";
+
+const NOT_CLOSED_PAGES_BY_CLICK_OUT = ["shoppingCart", "confirmCode"];
+export const DEFAULT_ADDRESS = 'Адрес доставки';
+
+const searchOnClickOutHandler = () => {
+  if (!sessionStorage.getItem('searchBlockClicked')
+    && !sessionStorage.getItem('searchButtonClicked')
+    && document.getElementById('searchBlock')) {
+    document.getElementById('closeImg').click();
+  }
+  sessionStorage.removeItem('searchBlockClicked');
+  sessionStorage.removeItem('searchButtonClicked');
+}
 
 Object.entries(APP).forEach(([name, node]) =>
   node.addEventListener("click", (e) =>
@@ -13,6 +25,8 @@ Object.entries(APP).forEach(([name, node]) =>
 window.onpopstate = () => render(location.pathname);
 
 document.addEventListener("click", (e) => {
+  searchOnClickOutHandler();
+
   if (APP.modal.children.length === 0) {
     return;
   }
@@ -26,7 +40,7 @@ document.addEventListener("click", (e) => {
   }
 
   const page = sessionStorage.getItem("page");
-  if (page === "shoppingCart") {
+  if (NOT_CLOSED_PAGES_BY_CLICK_OUT.includes(page)) {
     return;
   }
 
@@ -35,7 +49,7 @@ document.addEventListener("click", (e) => {
 });
 
 if (!localStorage.getItem("address")) {
-  localStorage.setItem("address", "город Москва, улица Ленина, 21");
+  localStorage.setItem("address", DEFAULT_ADDRESS);
 }
 
 const handleOnload = () => {

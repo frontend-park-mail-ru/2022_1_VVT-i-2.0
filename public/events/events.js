@@ -1,6 +1,7 @@
 // import * as api from '../api/api.js';
 import Event from "./entity/import.js";
 import * as FORM from "./common/status-form.js";
+import * as events from "events";
 
 const EVENTS = {
   closeImg: Event.getFrameEvents().closeImg,
@@ -39,7 +40,6 @@ const EVENTS = {
     "profileName",
     FORM.statusPersonInfoForm
   ),
-  // profilePhone: Event.getPhoneFieldEvents('profilePhone', FORM.statusPersonInfoForm),
   profileEmail: Event.getEmailFieldEvents(
     "profileEmail",
     FORM.statusPersonInfoForm
@@ -50,13 +50,20 @@ const EVENTS = {
   addToCart: Event.dishEvents().addToCart,
   incrementDishCount: Event.dishEvents().incrementDishCount,
   decrementDishCount: Event.dishEvents().decrementDishCount,
+
+  orderingEntrance: Event.getAdditionalAddressEvents('entrance'),
+  orderingIntercom: Event.getAdditionalAddressEvents('intercom'),
+  orderingFloor: Event.getAdditionalAddressEvents('floor'),
+  orderingFlat: Event.getAdditionalAddressEvents('flat'),
   orderingComment: Event.dishEvents().orderingComment,
+
   buttonPay: Event.getButtonEvents().buttonPay,
 
   categories: Event.categories().category,
   categoriesSelect: Event.categories().categoriesSelect,
 
   searchInput: Event.search().searchInput,
+  searchBlock: Event.search().searchBlock,
 
   createComment: Event.getButtonEvents().createComment,
   star: Event.comment().star

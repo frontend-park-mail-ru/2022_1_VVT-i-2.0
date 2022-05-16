@@ -2,7 +2,7 @@ const searchBlock = () => {
     const searchQuery = sessionStorage.getItem('searchQuery');
     const template = `
         <nav id="searchActivatedAria" class="searchActivatedAria">
-            <div class="search-block">
+            <div id="searchBlock" class="search-block">
                 <div class="search-block__block-img">
                     <img class="block-img__image" src="/graphics/icons/search_grey.svg" alt="">
                 </div>

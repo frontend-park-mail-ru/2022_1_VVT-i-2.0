@@ -9,6 +9,7 @@ import { getConfirmCodeFieldEvents } from "./confirmCode/confirm-code-events.js"
 import { getInputEvents } from "./input/input-events";
 import { categories } from "./categories/categories-events.js";
 import { search } from "./search/search-events.js";
+import { getAdditionalAddressEvents } from "./additionalAddress/additional-address-events";
 import { comment } from "./comment/comment-events.js";
 
 const Event = {
@@ -23,6 +24,7 @@ const Event = {
   getInputEvents,
   categories,
   search,
+  getAdditionalAddressEvents,
   comment
 };
 

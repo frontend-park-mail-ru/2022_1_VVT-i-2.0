@@ -82,9 +82,6 @@ export const setToken = (token) => {
 
 export const getOrderList = () => {
   return API.getOrderList().then((result) => {
-    if (result.orderList.length === 0) {
-      renderNotification('Ваш список заказов пуст', true);
-    }
     STORE.addOrderList(result.orderList);
   });
 }
