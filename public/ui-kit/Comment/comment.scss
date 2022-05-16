@@ -3,6 +3,7 @@
 .comment {
   display: flex;
   background: theme.getColor('grey');
+  opacity: 0.9;
 
   border-radius: 16px;
 
@@ -36,9 +37,8 @@
   }
 
   &__text {
-    color: #a4a4a4;
     font-size: 14px;
-    line-height: 16px;
+    line-height: 20px;
     font-style: normal;
     font-weight: 700;
     margin-top: 10px;
@@ -51,6 +51,7 @@
   }
 
   &__author {
+    color: #a4a4a4;
     font-size: 14px;
     line-height: 16px;
     font-style: normal;

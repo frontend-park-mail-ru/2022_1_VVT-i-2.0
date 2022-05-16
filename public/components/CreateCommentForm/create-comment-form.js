@@ -34,7 +34,7 @@ const createCommentForm = () => {
             data-count="4"
           >
           <img
-            class="create-comment-form__star star"
+            class="create-comment-form__outlined-star star"
             src="/graphics/icons/outlined_star.svg"
             data-count="5"
           >

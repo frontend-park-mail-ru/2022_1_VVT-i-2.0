@@ -9,13 +9,13 @@
 .suggest-form {
   position: relative;
   width: 100%;
-}
 
-.suggest-form__suggest-row {
-  height: 68px;
-  display: flex;
+  &__suggest-row {
+    height: 68px;
+    display: flex;
+  }
 
-  div {
+  &__suggest-empty {
     @media screen and (max-width: 1100px) {
       display: none;
     }
@@ -25,33 +25,39 @@
     }
 
     flex: 1 1 auto;
-    cursor: pointer;
 
     width: 160px;
     // max-width: 161px;
     background: transparent;
   }
-}
 
-.suggest-row__suggest-address {
-  flex: 30 1 auto !important;
+  &__suggest-address {
+    @media screen and (max-width: 1100px) {
+      display: block;
+    }
 
-  @media screen and (max-width: 1100px) {
-    display: block !important;
-  }
+    @media screen and (min-width: 1100px) {
+      @include flex-center ();
+    }
 
-  font-weight: bold;
+    flex: 30 1 auto;
+    cursor: pointer;
 
-  background: theme.getColor('white') !important;
-  border-bottom: 1px solid #b9b9b9;
-  border-left: 1px solid #b9b9b9;
-  border-right: 1px solid #b9b9b9;
+    width: 160px;
 
-  &:hover {
-    background: theme.getColor('grey') !important;
-  }
+    font-weight: bold;
 
-  @media screen and (max-width: 1100px) {
-    padding: 18px;
+    background: theme.getColor('white');
+    border-bottom: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    border-right: 1px solid #b9b9b9;
+
+    &:hover {
+      background: theme.getColor('grey');
+    }
+
+    @media screen and (max-width: 1100px) {
+      padding: 18px;
+    }
   }
 }

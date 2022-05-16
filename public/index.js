@@ -31,21 +31,32 @@ document.addEventListener("click", (e) => {
     return;
   }
 
+  const page = sessionStorage.getItem("page");
+
   const { target } = e;
   if (
-    APP.modal.children[0].contains(target) ||
+    APP.modal.children[0].contains(target) && page !== 'suggests' ||
     target.hasAttribute("data-section")
   ) {
     return;
   }
 
-  const page = sessionStorage.getItem("page");
+  if (target.classList.contains("suggest-row__suggest-address")) {
+    return;
+  }
+
   if (NOT_CLOSED_PAGES_BY_CLICK_OUT.includes(page)) {
     return;
   }
 
   const root = sessionStorage.getItem("root") || "main";
-  renderAndUpdateURN(root);
+  const params = sessionStorage.getItem("params");
+
+  if (params) {
+    renderAndUpdateURN(`/${root}/${params}`);
+  } else {
+    renderAndUpdateURN(root);
+  }
 });
 
 if (!localStorage.getItem("address")) {

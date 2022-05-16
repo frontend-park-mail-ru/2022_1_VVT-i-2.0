@@ -4,6 +4,7 @@
   &__header {
     display: flex;
     background: theme.getColor('grey');
+    opacity: 0.9;
 
     border-radius: 16px;
 
@@ -40,7 +41,6 @@
   }
 
   &__description {
-    color: #a4a4a4;
     font-size: 14px;
     line-height: 16px;
     font-style: normal;

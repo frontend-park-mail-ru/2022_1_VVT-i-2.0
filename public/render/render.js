@@ -132,6 +132,9 @@ export const render = (urn, storeUpdate = false) => {
 
   if (section === "suggests") {
     const suggestsSearch = document.getElementById("suggestsSearch");
+    if (!suggestsSearch) {
+      return;
+    }
 
     const end = suggestsSearch.value.length;
 
