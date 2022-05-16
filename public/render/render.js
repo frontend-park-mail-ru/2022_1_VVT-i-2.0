@@ -167,7 +167,10 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     return;
   }
 
-  // window.scrollTo(0, 0);
+  const page = sessionStorage.getItem("page");
+  if (!urn.startsWith(`/${page}`) || page !== 'dishes' && urn !== '/shoppingCart') {
+    window.scrollTo(0, 0);
+  }
 
   if (urn === "/shoppingCart" && sessionStorage.getItem("root") === "main") {
     history.pushState({}, null, "/dishes/" + getters.getCurrentSlug());

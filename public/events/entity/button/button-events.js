@@ -253,5 +253,27 @@ export const getButtonEvents = () => {
         },
       },
     ],
+    createComment: [
+      {
+        type: "click",
+        selector: "id",
+        listener(app, store, e) {
+          const slug = sessionStorage.getItem("params");
+          if (!slug) {
+            return;
+          }
+
+          const starsBlock = document.getElementById('starsBlock');
+
+          const text = document.getElementById('comment').value;
+          const stars = parseInt(starsBlock.dataset.count, 10);
+
+          store.actions.createComment({ slug, text, stars }).then(() => {
+            renderAndUpdateURN(`/comments/${slug}`);
+            renderNotification("Комментарий успешно создан");
+          });
+        }
+      }
+    ]
   };
 };

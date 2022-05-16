@@ -64,6 +64,9 @@ const EVENTS = {
 
   searchInput: Event.search().searchInput,
   searchBlock: Event.search().searchBlock,
+
+  createComment: Event.getButtonEvents().createComment,
+  star: Event.comment().star
 };
 
 /**

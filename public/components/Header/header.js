@@ -12,16 +12,13 @@ const header = (isOrderingPage = false) => {
     const currentRestName = getters.currentRestName();
     const dishes = getters.dishes();
     const slug = Object.keys(dishes).find((key) => dishes[key].restName === currentRestName);
-    const isMobile = window.screen.width < 920;
 
     const template = `
         <header id="header" class="page-header {{#isSearchActivated}}page-header__color-grey{{/isSearchActivated}}{{^isSearchActivated}}page-header__color-white{{/isSearchActivated}}">
-            {{^isMobile}}
             <nav class="page-header__button page-header__main-button" data-section="main">
                 <img class="main-button__img" src="/graphics/images/fobringto.png" data-section="main" alt="">
                 <a class="main-button__controller" data-section="main">obringTo</a>
             </nav>
-            {{/isMobile}}
 
             {{#isOrderingPage}}
                 <nav class="page-header__button page-header__back-button" data-section="dishes">
@@ -37,7 +34,12 @@ const header = (isOrderingPage = false) => {
 
                 {{^isSearchActivated}}
                     <nav id="search" class="page-header__button page-header__button-search" data-section="suggests">
-                        {{^isMobile}}<img src="/graphics/icons/address.svg" data-section="suggests" alt="">{{/isMobile}}
+                        <img
+                            class="page-header__address-img"
+                            src="/graphics/icons/address.svg"
+                            data-section="suggests"
+                            alt=""
+                        >
                         <span data-section="suggests">
                             <input
                                 id="suggestsSearch"
@@ -92,7 +94,6 @@ const header = (isOrderingPage = false) => {
     `;
 
   return Mustache.render(template, {
-    isMobile,
     auth,
     isOrderingPage,
     avatar,
