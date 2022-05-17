@@ -35,29 +35,16 @@ const IsAddressNotCorrect = () => {
 }
 
 const openAdditionalOrderInfo = () => {
-  console.log('in function');
-  console.log('need not null', sessionStorage.getItem('openedAdditionalOrderInfo'));
-  console.log('need null', sessionStorage.getItem('AdditionalOrderInfoSetNow'));
   if (sessionStorage.getItem('openedAdditionalOrderInfo') !== null &&
       sessionStorage.getItem('AdditionalOrderInfoSetNow') === null) {
-    // debugger;
-    console.log('START');
-    // console.log('item openedAdditionalOrderInfo already setted, good');
-    console.log('img[data-id='+ '"' + sessionStorage.getItem('openedAdditionalOrderInfo') + '"]');
     const buttonFrames = document.querySelectorAll('img[data-id='+ '"' + sessionStorage.getItem('openedAdditionalOrderInfo') + '"]');
-    console.log(buttonFrames, 'buttonFrames to click, need one');
     buttonFrames.forEach((buttonFrame) => {
-      console.log(buttonFrame);
       if (buttonFrame.getAttribute('data-id') === sessionStorage.getItem('openedAdditionalOrderInfo')) {
-        console.log(buttonFrame.getAttribute('data-id'), '=', sessionStorage.getItem('openedAdditionalOrderInfo'));
         buttonFrame.click();
-        console.log(buttonFrame, 'CLICKED!!!');
       }
     });
   }
-  // sessionStorage.removeItem('openedAdditionalOrderInfo');
   sessionStorage.removeItem('AdditionalOrderInfoSetNow');
-  // console.log('REMOVE ITEM AdditionalOrderInfoSetNow');
 }
 
 /**

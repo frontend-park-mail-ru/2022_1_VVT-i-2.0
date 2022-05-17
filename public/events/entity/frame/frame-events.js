@@ -29,7 +29,6 @@ export const getFrameEvents = () => {
           type: "click",
           selector: "class",
           listener(app, store, e) {
-            console.log('click');
             if ((e.target.dataset.id)[0] === 'O') {
               const orderElem = document.getElementById(e.target.dataset.id);
               orderElem.innerHTML = '';
@@ -40,15 +39,13 @@ export const getFrameEvents = () => {
             }
 
             const statusLine = document.getElementById(e.target.dataset.id);
-            const topPos = statusLine.offsetTop;
+            const topPos = statusLine.offsetTp;
             const container = document.getElementsByClassName('content-nav-block__content-block')[0];
             scrollTo(container, topPos - 186, 600);
 
             if (sessionStorage.getItem('openedAdditionalOrderInfo') !== e.target.dataset.id) {
               sessionStorage.setItem('openedAdditionalOrderInfo', e.target.dataset.id);
               sessionStorage.setItem('AdditionalOrderInfoSetNow', 'true');
-              console.log('SET ITEMS openedAdditionalOrderInfo, AdditionalOrderInfoSetNow');
-              // console.log('set openedAdditionalOrderInfo in', e.target.dataset.id);
 
               store.actions.getCertainOrder(e.target.dataset.id).then(() => {
                 additionalOrderInfo(app, store, e);
