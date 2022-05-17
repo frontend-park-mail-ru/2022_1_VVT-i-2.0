@@ -41,7 +41,7 @@ document.addEventListener("click", (e) => {
     return;
   }
 
-  if (target.classList.contains("suggest-row__suggest-address")) {
+  if (target.classList.contains("suggest-form__suggest-address")) {
     return;
   }
 
