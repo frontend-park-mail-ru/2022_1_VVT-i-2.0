@@ -217,8 +217,10 @@ export const getButtonEvents = () => {
           const input = document.getElementById("avatarUpload");
 
           let dt = new DataTransfer();
-          dt.items.add(avatar);
-          input.files = dt.files;
+          if (Object.keys(avatar).length > 0) {
+            dt.items.add(avatar);
+            input.files = dt.files;
+          }
 
           const obj = new FormData(personInfoForm);
           store.actions.updateUser(obj).then(() => {
