@@ -1,7 +1,5 @@
 import { render } from "../../render/render";
 
-export let avatar = {};
-
 const STORE = {
   // State
   // user: { name: "Name", phone: "+7(915)000-11-22", email: "test@ya.ru" },
@@ -282,6 +280,7 @@ const STORE = {
   }
 };
 
+export let avatar = {};
 const PROXY_STORE = new Proxy(STORE, {
   set(target, prop, value) {
     target[prop] = value;
