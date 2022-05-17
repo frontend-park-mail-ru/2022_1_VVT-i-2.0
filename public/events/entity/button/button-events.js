@@ -1,7 +1,6 @@
 import * as FORM from "../../common/status-form.js";
 import { showEmptyInputs } from "../../common/status-form.js";
 import { renderAndUpdateURN, renderNotification } from "../../../render/render.js";
-import { avatar } from "../../../store/store/store";
 import {getSearchStatus} from "../../../store/getters/getters";
 import {changeSearchStatus} from "../../../store/actions/actions";
 import { confirmCodeError } from "../confirmCode/confirm-code-src";
@@ -217,9 +216,11 @@ export const getButtonEvents = () => {
           const input = document.getElementById("avatarUpload");
 
           let dt = new DataTransfer();
+          const avatar = JSON.parse(sessionStorage.getItem('avatar'));
           if (Object.keys(avatar).length > 0) {
             dt.items.add(avatar);
             input.files = dt.files;
+            sessionStorage.removeItem('avatar');
           }
 
           const obj = new FormData(personInfoForm);
