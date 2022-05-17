@@ -92,6 +92,10 @@ export const getCertainOrder = (orderNumber) => {
   });
 }
 
+export const openSameOrderByTimeout = (result) => {
+  STORE.addCertainOrder(result);
+}
+
 export const changeSearchStatus = () => {
   return STORE.changeSearchStatus();
 }
@@ -106,7 +110,7 @@ export const getComments = (slug) => {
   );
 }
 
-export const setUpdateTimeout = (store, timeout = 1500000) => {
+export const setUpdateTimeout = (store, timeout = 10000) => {
   if (sessionStorage.getItem('UpdateTimeoutID') === null &&
     store.getters.getOrderList().length) {
       const timerID = window.setInterval(() => {

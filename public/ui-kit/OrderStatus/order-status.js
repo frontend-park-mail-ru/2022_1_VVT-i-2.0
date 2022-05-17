@@ -56,7 +56,7 @@ const orderStatus = (props) => {
         price: props.totalPrice,
         statusClass,
         status: props.status,
-        orderID: '#'+String(props.orderNumber)
+        orderID: 'O'+String(props.orderNumber)
     });
 };
 

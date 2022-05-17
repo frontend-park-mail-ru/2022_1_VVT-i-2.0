@@ -34,6 +34,32 @@ const IsAddressNotCorrect = () => {
   return document.getElementById('suggestsSearch').value === DEFAULT_ADDRESS;
 }
 
+const openAdditionalOrderInfo = () => {
+  console.log('in function');
+  console.log('need not null', sessionStorage.getItem('openedAdditionalOrderInfo'));
+  console.log('need null', sessionStorage.getItem('AdditionalOrderInfoSetNow'));
+  if (sessionStorage.getItem('openedAdditionalOrderInfo') !== null &&
+      sessionStorage.getItem('AdditionalOrderInfoSetNow') === null) {
+    // debugger;
+    console.log('START');
+    // console.log('item openedAdditionalOrderInfo already setted, good');
+    console.log('img[data-id='+ '"' + sessionStorage.getItem('openedAdditionalOrderInfo') + '"]');
+    const buttonFrames = document.querySelectorAll('img[data-id='+ '"' + sessionStorage.getItem('openedAdditionalOrderInfo') + '"]');
+    console.log(buttonFrames, 'buttonFrames to click, need one');
+    buttonFrames.forEach((buttonFrame) => {
+      console.log(buttonFrame);
+      if (buttonFrame.getAttribute('data-id') === sessionStorage.getItem('openedAdditionalOrderInfo')) {
+        console.log(buttonFrame.getAttribute('data-id'), '=', sessionStorage.getItem('openedAdditionalOrderInfo'));
+        buttonFrame.click();
+        console.log(buttonFrame, 'CLICKED!!!');
+      }
+    });
+  }
+  // sessionStorage.removeItem('openedAdditionalOrderInfo');
+  sessionStorage.removeItem('AdditionalOrderInfoSetNow');
+  // console.log('REMOVE ITEM AdditionalOrderInfoSetNow');
+}
+
 /**
  * @function Рендерит страницу по входящему section. Если section нет, рендер не производится.
  * @param {string} section - метаинформация, прописанная в атрибуте data-section тега.
@@ -128,6 +154,8 @@ export const render = (urn, storeUpdate = false) => {
 
   events.addListeners(APP, store);
 
+  openAdditionalOrderInfo();
+
   sessionStorage.setItem("page", section);
 
   if (section === "suggests") {
@@ -154,6 +182,8 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
 
   if (sessionStorage.getItem('page') === 'orderHistory') {
     store.actions.clearUpdateTimeout();
+  } else {
+    sessionStorage.removeItem('');
   }
 
   if (IsAddressNotCorrect() && NEED_CORRECT_ADDRESS_PAGES.includes(urn)) {

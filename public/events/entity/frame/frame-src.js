@@ -1,3 +1,5 @@
+import components from "../../../components/import";
+
 export const scrollTo = (element, to, duration) => {
 
     let start = element.scrollTop,
@@ -21,3 +23,17 @@ Math.easeInOutQuad = function (t, b, c, d) {
     t--;
     return -c/2 * (t*(t-2) - 1) + b;
 };
+
+export const additionalOrderInfo = (app, store, e) => {
+    const orderElem = document.getElementById('O' + e.target.dataset.id);
+    orderElem.innerHTML = components.additionalStatusOrderInfo(store.getters.getCertainOrder());
+
+    const buttonImages = document.querySelectorAll('img[data-id]');
+
+    [...buttonImages].forEach((buttonImage) => {
+        if (buttonImage.getAttribute('data-id') === e.target.dataset.id) {
+            buttonImage.src = './graphics/icons/keyboard_arrow_up.svg';
+            buttonImage.dataset.id = 'O' + String(e.target.dataset.id);
+        }
+    });
+}

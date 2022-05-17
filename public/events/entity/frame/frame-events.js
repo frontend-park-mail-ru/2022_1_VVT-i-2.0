@@ -1,5 +1,5 @@
 import {renderAndUpdateURN} from "../../../render/render.js";
-import {scrollTo} from "./frame-src";
+import { additionalOrderInfo, scrollTo } from "./frame-src";
 import components from '../../../components/import';
 import {getCertainOrder} from "../../../store/actions/actions";
 
@@ -29,36 +29,33 @@ export const getFrameEvents = () => {
           type: "click",
           selector: "class",
           listener(app, store, e) {
-            if ((e.target.dataset.id)[0] === '#') {
+            console.log('click');
+            if ((e.target.dataset.id)[0] === 'O') {
               const orderElem = document.getElementById(e.target.dataset.id);
               orderElem.innerHTML = '';
-              e.target.dataset.id = e.target.dataset.id.replace('#', '');
+              e.target.dataset.id = e.target.dataset.id.replace('O', '');
               e.target.src = './graphics/icons/keyboard_arrow_down.svg';
+              sessionStorage.removeItem('openedAdditionalOrderInfo')
               return;
             }
 
-            sessionStorage.setItem('openedAdditionalOrderInfo', e.target.dataset.id);
-            // console.log('set openedAdditionalOrderInfo in', e.target.dataset.id);
-
             const statusLine = document.getElementById(e.target.dataset.id);
             const topPos = statusLine.offsetTop;
-
             const container = document.getElementsByClassName('content-nav-block__content-block')[0];
-            scrollTo(container, topPos-186, 600);
+            scrollTo(container, topPos - 186, 600);
 
-            store.actions.getCertainOrder(e.target.dataset.id).then(() => {
-              const orderElem = document.getElementById('#'+e.target.dataset.id);
-              orderElem.innerHTML = components.additionalStatusOrderInfo(store.getters.getCertainOrder());
+            if (sessionStorage.getItem('openedAdditionalOrderInfo') !== e.target.dataset.id) {
+              sessionStorage.setItem('openedAdditionalOrderInfo', e.target.dataset.id);
+              sessionStorage.setItem('AdditionalOrderInfoSetNow', 'true');
+              console.log('SET ITEMS openedAdditionalOrderInfo, AdditionalOrderInfoSetNow');
+              // console.log('set openedAdditionalOrderInfo in', e.target.dataset.id);
 
-              const buttonImages = document.querySelectorAll('img[data-id]');
-
-              [...buttonImages].forEach((buttonImage) => {
-                if (buttonImage.getAttribute('data-id') === e.target.dataset.id) {
-                  buttonImage.src = './graphics/icons/keyboard_arrow_up.svg';
-                  buttonImage.dataset.id = '#'+String(e.target.dataset.id);
-                }
+              store.actions.getCertainOrder(e.target.dataset.id).then(() => {
+                additionalOrderInfo(app, store, e);
               });
-            });
+            } else {
+              additionalOrderInfo(app, store, e);
+            }
           },
         },
     ],
