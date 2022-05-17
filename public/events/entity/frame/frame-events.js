@@ -39,7 +39,7 @@ export const getFrameEvents = () => {
             }
 
             const statusLine = document.getElementById(e.target.dataset.id);
-            const topPos = statusLine.offsetTp;
+            const topPos = statusLine.offsetTop;
             const container = document.getElementsByClassName('content-nav-block__content-block')[0];
             scrollTo(container, topPos - 186, 600);
 
