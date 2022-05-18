@@ -248,6 +248,9 @@ const STORE = {
   addOrderList(orderList) {
     this.orderList = orderList;
   },
+  clearOrderList() {
+    this.orderList = [];
+  },
   addCertainOrder(order) {
     this.certainOrder = order;
   },
