@@ -84,13 +84,16 @@ export const render = (urn, storeUpdate = false) => {
 
   if (page.authRequired && Object.keys(store.getters.user()).length === 0) {
     renderAndUpdateURN("/");
+    renderNotification("Для этого действия нужно авторизоваться", true);
     return;
   }
+
   if (
     AUTH_PAGES.includes(section) &&
     Object.keys(store.getters.user()).length !== 0
   ) {
     renderAndUpdateURN("/");
+    renderNotification("Это действие вам не доступно", true);
     return;
   }
 
