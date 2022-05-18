@@ -1,7 +1,7 @@
 import { renderAndUpdateURN } from "../../../render/render.js";
 import { debounce } from "./suggests-src.js";
 
-const suggest = debounce((store, query) => store.actions.suggest(query), 500);
+const suggest = debounce((store, query) => store.actions.suggest(query), 1000);
 
 export const suggests = () => {
   return {
@@ -37,6 +37,7 @@ export const suggests = () => {
 
           if (end) {
             renderAndUpdateURN("/");
+            store.actions.clearSuggests();
             return;
           }
 

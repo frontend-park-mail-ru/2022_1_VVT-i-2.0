@@ -68,8 +68,13 @@ export const render = (urn, storeUpdate = false) => {
     return;
   }
 
-  if (section === "suggests" && localStorage.getItem("address") === DEFAULT_ADDRESS) {
-    localStorage.removeItem("address");
+  if (section === "suggests" && sessionStorage.getItem("page") !== "suggests") {
+    const address = localStorage.getItem("address");
+    localStorage.setItem("lastAddress", address);
+
+    if (address === DEFAULT_ADDRESS) {
+      localStorage.removeItem("address");
+    }
   }
 
   if (

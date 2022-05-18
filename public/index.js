@@ -49,8 +49,11 @@ document.addEventListener("click", (e) => {
     return;
   }
 
-  if (page === "suggests" && localStorage.getItem("address") === null) {
-    localStorage.setItem("address", DEFAULT_ADDRESS);
+  if (page === "suggests") {
+    const lastAddress = localStorage.getItem("lastAddress");
+    localStorage.setItem("address", lastAddress);
+    localStorage.removeItem("lastAddress");
+    store.actions.clearSuggests();
   }
 
   const root = sessionStorage.getItem("root") || "main";
