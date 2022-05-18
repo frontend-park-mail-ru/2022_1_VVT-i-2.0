@@ -1,20 +1,19 @@
 import { renderAndUpdateURN } from "../../../render/render.js";
+import { debounce } from "./suggests-src.js";
+
+const suggest = debounce((store, query) => store.actions.suggest(query), 500);
 
 export const suggests = () => {
   return {
     suggestsSearch: [
       {
-        type: "keyup",
+        type: "input",
         selector: "id",
         listener(app, store, e) {
-          if (e.key !== "Enter" && e.keyCode !== 13) {
-            return;
-          }
-
           const query = e.target.value;
           localStorage.setItem("address", query);
 
-          store.actions.suggest(query);
+          suggest(store, query);
         },
       },
     ],
