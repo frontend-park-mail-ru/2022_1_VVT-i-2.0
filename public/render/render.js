@@ -68,6 +68,10 @@ export const render = (urn, storeUpdate = false) => {
     return;
   }
 
+  if (section === "suggets") {
+    localStorage.removeItem("address");
+  }
+
   if (
     !storeUpdate &&
     section === sessionStorage.getItem("page") &&
