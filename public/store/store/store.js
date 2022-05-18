@@ -267,7 +267,7 @@ const STORE = {
     comments[restName] = { comments: result };
     this.comments = comments;
   },
-  setOrderStatuses(newStatuses) {
+  updateOrderStatuses(newStatuses) {
     const orderList = this.orderList;
     let countChangesInStatuses = 0;
     for (let i = 0; i < orderList.length; ++i) {

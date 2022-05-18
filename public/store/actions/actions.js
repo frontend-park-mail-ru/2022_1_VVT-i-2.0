@@ -119,7 +119,7 @@ export const setUpdateTimeout = (store, timeout = 10000) => {
     store.getters.getOrderList().length) {
       const timerID = window.setInterval(() => {
         API.getStatusOrders().then((result) => {
-          STORE.setOrderStatuses(result.statuses);
+          STORE.updateOrderStatuses(result.statuses);
         })
       }, timeout);
       sessionStorage.setItem('UpdateTimeoutID', String(timerID));
