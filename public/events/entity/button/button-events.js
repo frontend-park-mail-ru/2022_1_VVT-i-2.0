@@ -255,13 +255,11 @@ export const getButtonEvents = () => {
           const flat =
             document.getElementById("orderingFlat").children[0].value;
 
-          address = `${address}, подъезд ${entrance}, домофон ${intercom}, этаж ${floor}, квартира ${flat}`;
-
           const comment = document.getElementById("orderingComment").innerText;
 
           const order = store.getters.cart().order;
 
-          store.actions.createOrder({ address, comment, cart: order }).then(() => {
+          store.actions.createOrder({ address, entrance, intercom, floor, flat, comment, cart: order }).then(() => {
             renderAndUpdateURN("/orderHistory");
             renderNotification("Заказ успешно создан");
           });
