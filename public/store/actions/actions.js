@@ -1,6 +1,7 @@
 import * as API from "../../api/api.js";
 import STORE from "../store/store.js";
 import { renderNotification } from "../../render/render";
+import { getters } from "../import";
 
 export const getRestaurants = (options = {}) => {
   return API.getRestaurants(options).then((result) =>
@@ -73,7 +74,10 @@ export const decrementDishCount = (id) => {
 };
 
 export const createOrder = (order) => {
-  return API.createOrder(order).then(() => STORE.clearCart());
+  return API.createOrder(order).then(() => {
+    STORE.clearCart();
+    STORE.clearOrderList();
+  });
 };
 
 export const setToken = (token) => {

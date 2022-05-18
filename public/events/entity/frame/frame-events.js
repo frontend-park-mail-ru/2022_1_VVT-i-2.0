@@ -1,7 +1,5 @@
 import {renderAndUpdateURN} from "../../../render/render.js";
 import { additionalOrderInfo, scrollTo } from "./frame-src";
-import components from '../../../components/import';
-import {getCertainOrder} from "../../../store/actions/actions";
 
 export const getFrameEvents = () => {
   return {
@@ -41,7 +39,7 @@ export const getFrameEvents = () => {
             const statusLine = document.getElementById(e.target.dataset.id);
             const topPos = statusLine.offsetTop;
             const container = document.getElementsByClassName('content-nav-block__content-block')[0];
-            scrollTo(container, topPos - 194, 600);
+            scrollTo(container, topPos - 186, 600);
 
             if (sessionStorage.getItem('openedAdditionalOrderInfo') !== e.target.dataset.id) {
               sessionStorage.setItem('openedAdditionalOrderInfo', e.target.dataset.id);
