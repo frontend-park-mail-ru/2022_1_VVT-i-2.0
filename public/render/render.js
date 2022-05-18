@@ -68,7 +68,7 @@ export const render = (urn, storeUpdate = false) => {
     return;
   }
 
-  if (section === "suggets") {
+  if (section === "suggests" && localStorage.getItem("address") === DEFAULT_ADDRESS) {
     localStorage.removeItem("address");
   }
 
