@@ -18,7 +18,7 @@ https://https://tavide.xyz/
 ## Менторы
 * [**Петренко Сергей**](https://github.com/SPetrenko17)      - *Frontend*
 * [**Болдин Дмитрий**](https://github.com/BoldinDmitry) - *Backend*
-* [**Аистов Егор**]() - *Интерфейсы*
+* [**Аистов Егор**]() - *Interfaces*
 
 ## Ссылка на backend
 
