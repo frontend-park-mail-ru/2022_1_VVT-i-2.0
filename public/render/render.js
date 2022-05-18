@@ -68,6 +68,15 @@ export const render = (urn, storeUpdate = false) => {
     return;
   }
 
+  if (section === "suggests" && sessionStorage.getItem("page") !== "suggests") {
+    const address = localStorage.getItem("address");
+    localStorage.setItem("lastAddress", address);
+
+    if (address === DEFAULT_ADDRESS) {
+      localStorage.removeItem("address");
+    }
+  }
+
   if (
     !storeUpdate &&
     section === sessionStorage.getItem("page") &&
@@ -84,13 +93,16 @@ export const render = (urn, storeUpdate = false) => {
 
   if (page.authRequired && Object.keys(store.getters.user()).length === 0) {
     renderAndUpdateURN("/");
+    renderNotification("Для этого действия нужно авторизоваться", true);
     return;
   }
+
   if (
     AUTH_PAGES.includes(section) &&
     Object.keys(store.getters.user()).length !== 0
   ) {
     renderAndUpdateURN("/");
+    renderNotification("Это действие вам не доступно", true);
     return;
   }
 
