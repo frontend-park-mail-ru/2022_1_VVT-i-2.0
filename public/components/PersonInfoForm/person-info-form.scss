@@ -18,15 +18,10 @@
     }
 }
 
-
 .content__avatar-change-block {
     display: inline-flex;
-    width: 100%;
+    width: 90%;
 
-    @media screen and (orientation:portrait) and (min-width: 438px),
-    screen and (orientation:landscape) and (min-height: 438px) {
-        width: 500px;
-    }
     @media screen and (orientation:portrait) and (max-width: 438px),
     screen and (orientation:landscape) and (max-height: 438px) {
         margin-top: 10px;
@@ -55,7 +50,7 @@ screen and (orientation:landscape) and (min-height: 438px) {
     }
     @media screen and (orientation:portrait) and (max-width: 438px),
     screen and (orientation:landscape) and (max-height: 438px) {
-        width: 30%;
+        width: 35%;
         margin-top: auto;
         margin-bottom: auto;
     }
@@ -83,7 +78,7 @@ screen and (orientation:landscape) and (min-height: 438px) {
     }
     @media screen and (orientation:portrait) and (max-width: 438px),
     screen and (orientation:landscape) and (max-height: 438px) {
-        height: 100%;
+        height: 40px;
         border-radius: 50%;
     }
 
@@ -91,16 +86,10 @@ screen and (orientation:landscape) and (min-height: 438px) {
     object-fit: cover;
 }
 
-//.avatar-choice-block__button-change {
-//    margin-right: 0;
-//    margin-left: auto;
-//
-//    @media screen and (orientation:portrait) and (max-width: 438px),
-//    screen and (orientation:landscape) and (max-height: 438px) {
-//        width: 30%;
-//        margin-right: 10px;
-//    }
-//}
+.avatar-choice-block__button-change {
+    width: 50%;
+    text-align: right;
+}
 
 .content-block__input {
     margin-bottom: 15px;
