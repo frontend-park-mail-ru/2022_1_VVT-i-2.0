@@ -1,7 +1,6 @@
 import * as FORM from "../../common/status-form.js";
 import { showEmptyInputs } from "../../common/status-form.js";
 import { renderAndUpdateURN, renderNotification } from "../../../render/render.js";
-import { avatar } from "../../../store/store/store";
 import {getSearchStatus} from "../../../store/getters/getters";
 import {changeSearchStatus} from "../../../store/actions/actions";
 import { confirmCodeError } from "../confirmCode/confirm-code-src";
@@ -217,8 +216,12 @@ export const getButtonEvents = () => {
           const input = document.getElementById("avatarUpload");
 
           let dt = new DataTransfer();
-          dt.items.add(avatar);
-          input.files = dt.files;
+          const avatar = JSON.parse(sessionStorage.getItem('avatar'));
+          if (Object.keys(avatar).length > 0) {
+            dt.items.add(avatar);
+            input.files = dt.files;
+            sessionStorage.removeItem('avatar');
+          }
 
           const obj = new FormData(personInfoForm);
           store.actions.updateUser(obj).then(() => {
@@ -252,13 +255,11 @@ export const getButtonEvents = () => {
           const flat =
             document.getElementById("orderingFlat").children[0].value;
 
-          address = `${address}, подъезд ${entrance}, домофон ${intercom}, этаж ${floor}, квартира ${flat}`;
-
           const comment = document.getElementById("orderingComment").innerText;
 
           const order = store.getters.cart().order;
 
-          store.actions.createOrder({ address, comment, cart: order }).then(() => {
+          store.actions.createOrder({ address, entrance, intercom, floor, flat, comment, cart: order }).then(() => {
             renderAndUpdateURN("/orderHistory");
             renderNotification("Заказ успешно создан");
           });
