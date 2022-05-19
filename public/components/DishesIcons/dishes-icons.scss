@@ -5,7 +5,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
 
-  @media screen and (orientation: landscape) and (min-width: 540px) {
+  @media screen and (min-width: 1450px) {
     margin-right: 20%;
   }
 }
@@ -16,12 +16,12 @@
   position: relative;
   align-content: center;
 
-  @media screen and (orientation: landscape) and (min-width: 540px) {
+  @media screen and (min-width: 1450px) {
     margin-bottom: 70px;
     width: 270px;
     height: 480px;
   }
-  @media screen and (orientation: portrait) and (max-width: 540px) {
+  @media screen and (max-width: 1450px) {
     margin: auto;
     margin-bottom: 24px;
     width: 343px;
@@ -44,11 +44,11 @@
 }
 
 .dish-icon__img {
-  @media screen and (orientation: portrait) and (max-width: 540px) {
+  @media screen and (max-width: 1450px) {
     width: 343px;
   }
 
-  @media screen and (orientation: landscape) and (min-width: 540px) {
+  @media screen and (min-width: 1450px) {
     width: 270px;
   }
 
