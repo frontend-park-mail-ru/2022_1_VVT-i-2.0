@@ -16,7 +16,6 @@ import orderStatusList from "./OrderStatusList/order-status-list";
 import NetworkErrorForm from "./NetworkErrorForm/network-error-form.js";
 import categories from "./Categories/categories.js";
 import comments from "./Comments/comments.js";
-import statusPreview from "./StatusPreview/status-preview";
 import createCommentForm from "./CreateCommentForm/create-comment-form.js";
 
 export default {
@@ -38,6 +37,5 @@ export default {
   NetworkErrorForm,
   categories,
   comments,
-  statusPreview,
   createCommentForm
 };
