@@ -6,7 +6,7 @@
 
 ### Деплой
 
-https://https://tavide.xyz/
+https://tavide.xyz/
 
 ## Авторы
 
