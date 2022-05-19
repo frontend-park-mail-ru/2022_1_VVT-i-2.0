@@ -43,6 +43,11 @@ const orderCheck = (props, toShowNotify = true, IsOrderingPage = true) => {
         </div>
   `;
 
+    if (props.orderPoints.length === 1) {
+        console.log('YEEES');
+        sessionStorage.setItem('smallOrder', 'true');
+    }
+
     return Mustache.render(template, {
         restName: props.restName,
         total: props.total || props.totalPrice,

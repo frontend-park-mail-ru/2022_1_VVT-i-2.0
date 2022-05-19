@@ -34,6 +34,17 @@ const IsAddressNotCorrect = () => {
   return document.getElementById('suggestsSearch').value === DEFAULT_ADDRESS;
 }
 
+const checkOrderSize = () => {
+  if (sessionStorage.getItem('smallOrder')) {
+    const statusOrderBlock = document.getElementById(sessionStorage.getItem('openedAdditionalOrderInfo'));
+    if (statusOrderBlock) {
+      statusOrderBlock.classList.remove('order-info_standard');
+      statusOrderBlock.classList.add('order-info_small');
+    }
+    sessionStorage.removeItem('smallOrder');
+  }
+}
+
 const openAdditionalOrderInfo = () => {
   if (sessionStorage.getItem('openedAdditionalOrderInfo') !== null &&
       sessionStorage.getItem('AdditionalOrderInfoSetNow') === null) {
@@ -45,6 +56,8 @@ const openAdditionalOrderInfo = () => {
     });
   }
   sessionStorage.removeItem('AdditionalOrderInfoSetNow');
+
+  checkOrderSize();
 }
 
 /**
@@ -198,6 +211,11 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
   if (urn === "/shoppingCart" && IsCartEmpty()) {
     return;
   }
+
+  /*Close additional order info at redirect to other page*/
+  // if (urn !== '/orderHistory') {
+  //   sessionStorage.removeItem('openedAdditionalOrderInfo');
+  // }
 
   const page = sessionStorage.getItem("page");
   if (!urn.startsWith(`/${page}`) || page !== 'dishes' && urn !== '/shoppingCart') {
