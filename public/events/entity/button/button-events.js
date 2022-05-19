@@ -217,7 +217,7 @@ export const getButtonEvents = () => {
 
           let dt = new DataTransfer();
           const avatar = JSON.parse(sessionStorage.getItem('avatar'));
-          if (Object.keys(avatar).length > 0) {
+          if (avatar && Object.keys(avatar).length > 0) {
             dt.items.add(avatar);
             input.files = dt.files;
             sessionStorage.removeItem('avatar');
