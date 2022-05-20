@@ -44,7 +44,6 @@ const orderCheck = (props, toShowNotify = true, IsOrderingPage = true) => {
   `;
 
     if (props.orderPoints.length === 1) {
-        console.log('YEEES');
         sessionStorage.setItem('smallOrder', 'true');
     }
 

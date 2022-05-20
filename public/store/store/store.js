@@ -1,5 +1,26 @@
 import { render } from "../../render/render";
 
+const isEqual = (object1, object2) => {
+  const props1 = Object.getOwnPropertyNames(object1);
+  const props2 = Object.getOwnPropertyNames(object2);
+
+  if (props1.length !== props2.length) {
+    return false;
+  }
+
+  for (let i = 0; i < props1.length; i += 1) {
+    const prop = props1[i];
+    const bothAreObjects = typeof(object1[prop]) === 'object' && typeof(object2[prop]) === 'object';
+
+    if ((!bothAreObjects && (object1[prop] !== object2[prop]))
+      || (bothAreObjects && !isEqual(object1[prop], object2[prop]))) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 const STORE = {
   // State
   // user: { name: "Name", phone: "+7(915)000-11-22", email: "test@ya.ru" },
@@ -266,23 +287,23 @@ const STORE = {
     this.comments = comments;
   },
   updateOrderStatuses(newStatuses) {
-    const orderList = this.orderList;
-    let countChangesInStatuses = 0;
-    for (let i = 0; i < orderList.length; ++i) {
-      if (orderList[i].orderNumber === newStatuses[i].id) {
-        if (orderList[i].status !== newStatuses[i].status) {
-          orderList[i].status = newStatuses[i].status;
-          countChangesInStatuses++;
-        }
-      }
+    if (isEqual(cachedOrderStatuses, newStatuses)) {
+      return;
     }
 
-    if (countChangesInStatuses) {
-      this.orderList = orderList;
+    cachedOrderStatuses = [];
+    const orderList = this.orderList;
+    for (let i = 0; i < orderList.length; ++i) {
+      if (orderList[i].orderNumber === newStatuses[i].id) {
+        orderList[i].status = newStatuses[i].status;
+      }
+      cachedOrderStatuses.push( {id: orderList[i].orderNumber, status: orderList[i].status} );
     }
+    this.orderList = orderList;
   }
 };
 
+let cachedOrderStatuses = {};
 const PROXY_STORE = new Proxy(STORE, {
   set(target, prop, value) {
     target[prop] = value;
