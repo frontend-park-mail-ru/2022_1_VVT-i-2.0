@@ -1,6 +1,16 @@
 import components from "../../../components/import";
 
+const isDeviceMobile = () => {
+    return window.innerWidth <= 438;
+}
+
 export const scrollTo = (element, to, duration) => {
+
+    if (isDeviceMobile()) {
+        to -= 162;
+    } else {
+        to -= 194;
+    }
 
     let start = element.scrollTop,
         change = to - start,
