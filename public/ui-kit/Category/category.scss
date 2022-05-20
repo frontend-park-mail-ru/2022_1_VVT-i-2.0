@@ -10,11 +10,11 @@
   min-width: 120px;
   height: 38px;
 
-  @media screen and (orientation: portrait) and (max-width: 815px) {
+  @media screen and (max-width: 815px) {
     margin-bottom: 18px;
   }
 
-  @media screen and (orientation: landscape) and (min-width: 815px) {
+  @media screen and (min-width: 815px) {
     margin-top: 10px;
   }
 

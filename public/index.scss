@@ -30,7 +30,6 @@ main {
   top: 68px;
   padding-top: 1%;
 
-  //min-height: 100%;
   @media screen and (orientation: portrait) and (min-width: 821px),
   screen and (orientation: landscape) and (min-height: 821px) {
     width: 85%;
@@ -93,7 +92,13 @@ main {
   position: fixed;
   top: 68px;
 
-  height: 93vh;
+  @media screen and (max-width: 750px),
+  screen and (min-width: 1450px) {
+    height: 93vh;
+  }
+  @media screen and (min-width: 750px) and (max-width: 1450px) {
+    height: 96vh;
+  }
 
   border: none;
   background: theme.getColor("white");
@@ -101,11 +106,13 @@ main {
   @media screen and (orientation:portrait) and (min-width: 438px),
   screen and (orientation:landscape) and (min-height: 438px) {
     right: 0;
-    width: 20.83%;
   }
   @media screen and (orientation:portrait) and (max-width: 438px),
   screen and (orientation:landscape) and (max-height: 438px) {
     width: 100vw;
+  }
+  @media screen and (min-width: 1450px) {
+    width: 20.83%;
   }
 }
 
