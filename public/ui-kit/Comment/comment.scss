@@ -7,14 +7,14 @@
 
   border-radius: 16px;
 
-  @media screen and (max-width: 920px) {
+  @media screen and (max-width: 1450px) {
     margin-left: auto;
     margin-right: auto;
     min-width: 343px;
     max-width: 343px;
   }
 
-  @media screen and (min-width: 920px) {
+  @media screen and (min-width: 1450px) {
     min-width: 800px;
     max-width: 800px;
   }
