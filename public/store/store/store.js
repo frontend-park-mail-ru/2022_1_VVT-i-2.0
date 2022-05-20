@@ -287,7 +287,9 @@ const STORE = {
     this.comments = comments;
   },
   updateOrderStatuses(newStatuses) {
+    console.log(cachedOrderStatuses, newStatuses);
     if (isEqual(cachedOrderStatuses, newStatuses)) {
+      console.log('return');
       return;
     }
 
@@ -307,6 +309,10 @@ let cachedOrderStatuses = {};
 const PROXY_STORE = new Proxy(STORE, {
   set(target, prop, value) {
     target[prop] = value;
+
+    if (prop === 'token') {
+      return true;
+    }
 
     const page = sessionStorage.getItem("page");
     if (page) {
