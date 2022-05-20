@@ -1,6 +1,7 @@
 import * as API from "../../api/api.js";
 import STORE from "../store/store.js";
 import { renderNotification } from "../../render/render";
+import { getters } from "../import";
 
 export const getRestaurants = (options = {}) => {
   return API.getRestaurants(options).then((result) =>
@@ -95,6 +96,10 @@ export const getCertainOrder = (orderNumber) => {
   });
 }
 
+export const openSameOrderByTimeout = (result) => {
+  STORE.addCertainOrder(result);
+}
+
 export const changeSearchStatus = () => {
   return STORE.changeSearchStatus();
 }
@@ -109,12 +114,12 @@ export const getComments = (slug) => {
   );
 }
 
-export const setUpdateTimeout = (store, timeout = 1500000) => {
+export const setUpdateTimeout = (store, timeout = 10000) => {
   if (sessionStorage.getItem('UpdateTimeoutID') === null &&
     store.getters.getOrderList().length) {
       const timerID = window.setInterval(() => {
         API.getStatusOrders().then((result) => {
-          STORE.setOrderStatuses(result.statuses);
+          STORE.updateOrderStatuses(result.statuses);
         })
       }, timeout);
       sessionStorage.setItem('UpdateTimeoutID', String(timerID));

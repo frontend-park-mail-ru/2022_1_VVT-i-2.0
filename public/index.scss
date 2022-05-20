@@ -30,19 +30,26 @@ main {
   top: 68px;
   padding-top: 1%;
 
-  //min-height: 100%;
-  @media screen and (orientation:portrait) and (min-width: 768px),
-  screen and (orientation:landscape) and (min-height: 768px) {
+  @media screen and (orientation: portrait) and (min-width: 821px),
+  screen and (orientation: landscape) and (min-height: 821px) {
     width: 85%;
     margin-left: 7.5%;
     margin-right: auto;
   }
-  @media screen and (orientation:portrait) and (max-width: 438px),/*820*/
-  screen and (orientation:landscape) and (max-height: 438px) {
-    width: 100%;
-    //margin-left: 5%;
-    //margin-right: auto;
-    min-height: 100%;
+
+  @media screen and (orientation: portrait) and (max-width: 820px),
+  screen and (orientation: landscape) and (max-height: 820px) {
+    @media screen and (orientation: portrait) and (min-width: 438px),
+    screen and (orientation: landscape) and (min-height: 438px) {
+      width: 700px;
+      min-height: 100%;
+      margin-left: calc((100% - 700px)/2);
+    }
+    @media screen and (orientation: portrait) and (max-width: 438px),
+    screen and (orientation: landscape) and (max-height: 438px) {
+      width: 100%;
+      min-height: 100%;
+    }
   }
 }
 

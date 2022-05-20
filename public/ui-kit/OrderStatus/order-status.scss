@@ -7,26 +7,36 @@
 @mixin align-left () {
   text-align: left;
 }
+
 @mixin vert-center () {
   margin-top: auto;
   margin-bottom: auto;
 }
 
-.order-info {
+@mixin base-order($max-height) {
   display: flex;
   flex-direction: column;
 
   @media screen and (orientation:portrait) and (min-width: 438px),
   screen and (orientation:landscape) and (min-height: 438px) {
     max-width: 700px;
-    max-height: 650px;
+    max-height: $max-height;
   }
   @media screen and (orientation:portrait) and (max-width: 438px),
   screen and (orientation:landscape) and (max-height: 438px) {
-    max-width: 95%;
-    max-height: 110px;
+    max-width: 100%;
+    max-height: 1500px;
   }
   @include vert-center();
+}
+
+.order-info {
+  &_standard {
+    @include base-order(650px);
+  }
+  &_small {
+    @include base-order(440px);
+  }
 }
 
 .order-info__status-block {
@@ -197,6 +207,10 @@
 .order-info__order-block {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  max-height: 490px;
+
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    height: 100%;
+    max-height: 490px;
+  }
 }

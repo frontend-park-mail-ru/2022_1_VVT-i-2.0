@@ -34,6 +34,32 @@ const IsAddressNotCorrect = () => {
   return document.getElementById('suggestsSearch').value === DEFAULT_ADDRESS;
 }
 
+const checkOrderSize = () => {
+  if (sessionStorage.getItem('smallOrder')) {
+    const statusOrderBlock = document.getElementById(sessionStorage.getItem('openedAdditionalOrderInfo'));
+    if (statusOrderBlock) {
+      statusOrderBlock.classList.remove('order-info_standard');
+      statusOrderBlock.classList.add('order-info_small');
+    }
+    sessionStorage.removeItem('smallOrder');
+  }
+}
+
+const openAdditionalOrderInfo = () => {
+  if (sessionStorage.getItem('openedAdditionalOrderInfo') !== null &&
+      sessionStorage.getItem('AdditionalOrderInfoSetNow') === null) {
+    const buttonFrames = document.querySelectorAll('img[data-id='+ '"' + sessionStorage.getItem('openedAdditionalOrderInfo') + '"]');
+    buttonFrames.forEach((buttonFrame) => {
+      if (buttonFrame.getAttribute('data-id') === sessionStorage.getItem('openedAdditionalOrderInfo')) {
+        buttonFrame.click();
+      }
+    });
+  }
+  sessionStorage.removeItem('AdditionalOrderInfoSetNow');
+
+  checkOrderSize();
+}
+
 /**
  * @function Рендерит страницу по входящему section. Если section нет, рендер не производится.
  * @param {string} section - метаинформация, прописанная в атрибуте data-section тега.
@@ -140,6 +166,8 @@ export const render = (urn, storeUpdate = false) => {
 
   events.addListeners(APP, store);
 
+  openAdditionalOrderInfo();
+
   sessionStorage.setItem("page", section);
 
   if (section === "suggests") {
@@ -166,6 +194,8 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
 
   if (sessionStorage.getItem('page') === 'orderHistory') {
     store.actions.clearUpdateTimeout();
+  } else {
+    sessionStorage.removeItem('');
   }
 
   if (IsAddressNotCorrect() && NEED_CORRECT_ADDRESS_PAGES.includes(urn)) {
@@ -181,6 +211,11 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
   if (urn === "/shoppingCart" && IsCartEmpty()) {
     return;
   }
+
+  /*Close additional order info at redirect to other page*/
+  // if (urn !== '/orderHistory') {
+  //   sessionStorage.removeItem('openedAdditionalOrderInfo');
+  // }
 
   const page = sessionStorage.getItem("page");
   if (!urn.startsWith(`/${page}`) || page !== 'dishes' && urn !== '/shoppingCart') {

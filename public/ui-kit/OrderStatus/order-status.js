@@ -17,7 +17,7 @@ const orderStatus = (props) => {
     }
 
     const template = `
-        <div id="{{orderNumber}}" class="order-info">
+        <div id="{{orderNumber}}" class="order-info_standard">
             <div class="order-info__status-block">
                 <div class="status-block__elem_first">
                     <div class="order-info__order-number">
@@ -56,7 +56,7 @@ const orderStatus = (props) => {
         price: props.totalPrice,
         statusClass,
         status: props.status,
-        orderID: '#'+String(props.orderNumber)
+        orderID: 'O'+String(props.orderNumber)
     });
 };
 

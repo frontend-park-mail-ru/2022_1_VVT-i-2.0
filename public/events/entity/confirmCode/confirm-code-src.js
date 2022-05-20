@@ -7,7 +7,6 @@ export const confirmCodeError = {
     hideError(statusConfirmCodeForm, 'confirmCode', getElemParameters('confirmCode'));
     showError(statusConfirmCodeForm, 'confirmCode', getElemParameters('confirmCode'), errorMessage);
     setFormStatus(statusConfirmCodeForm, 'confirmCode', false);
-    console.log(statusConfirmCodeForm);
   },
 }
 

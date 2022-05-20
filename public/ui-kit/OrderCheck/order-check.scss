@@ -4,6 +4,16 @@
   padding-left: 5px;
 }
 
+@mixin left-right-padding() {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+@mixin margin-auto() {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .ordering-page__order-check {
   display: flex;
   flex-direction: column;
@@ -77,7 +87,7 @@
   font-weight: bold;
   margin-top: 10px;
 
-  @include padding-left();
+  @include left-right-padding();
 }
 
 .payment-info__price {
@@ -100,5 +110,5 @@
     margin-bottom: 20px;
   }
 
-  @include padding-left();
+  @include left-right-padding();
 }
