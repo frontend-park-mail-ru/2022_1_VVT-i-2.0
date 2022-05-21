@@ -117,6 +117,7 @@ const STORE = {
     order: [],
   },
   orderList: [],
+  promoCodes: [],
   certainOrder: {},
   suggests: [
     // { address: "FIRST", end: false },
@@ -274,6 +275,9 @@ const STORE = {
   },
   addCertainOrder(order) {
     this.certainOrder = order;
+  },
+  addPromoCodes(promoCodes) {
+    this.promoCodes = promoCodes;
   },
   changeSearchStatus() {
     this.isSearchActivated = !this.isSearchActivated;

@@ -140,6 +140,10 @@ export const getOrderList = () => {
   return request('/orders');
 };
 
+export const getPromoCodes = () => {
+  return request('/promo');
+};
+
 export const getStatusOrders = () => {
   return request('/order_statuses');
 };

@@ -17,6 +17,7 @@ import NetworkErrorForm from "./NetworkErrorForm/network-error-form.js";
 import categories from "./Categories/categories.js";
 import comments from "./Comments/comments.js";
 import createCommentForm from "./CreateCommentForm/create-comment-form.js";
+import promoCodeLine from "./PromoCodeLine/promo-code-line";
 
 export default {
   header,
@@ -37,5 +38,6 @@ export default {
   NetworkErrorForm,
   categories,
   comments,
-  createCommentForm
+  createCommentForm,
+  promoCodeLine
 };

@@ -1,16 +1,18 @@
-/**
- * @function Создает html-строку для создания ui-kit компонента metaInf формы через шаблонатор Mustache.
- * @return {string} HTML строка для отрисовки ui-kit компонента metaInf.
- */
+const smallLengthLimit = 10;
 
-// Скидка 25%
-// Скидка 23% при заказе от 1000 рублей
-const promoCodeIcon = (promoBackground, discountDescription, restLogoImage, promoCode) => {
+const promoCodeIcon = (promoBackground, discountDescription, restLogoImage, promoCode, restSlug) => {
+  let smallDescription = discountDescription.length <= smallLengthLimit;
+
   const template = `
-    <div class="promo-code-icon" style="background-image: url("{{promoBackground}}");">
-<!--    Проверка на класс-->
+    <div data-rest="{{restSlug}}" class="promo-code-icon" style="background-image: url("{{promoBackground}}");">
+      {{#smallDescription}}
+      <div class="promo-code-icon__discount_small-description">
+          <div class="small-description__text">
+      {{/smallDescription}}
+      {{^smallDescription}}
       <div class="promo-code-icon__discount_large-description">
           <div class="large-description__text">
+      {{/smallDescription}}
             {{discountDescription}}
           </div>
       </div>
@@ -33,7 +35,8 @@ const promoCodeIcon = (promoBackground, discountDescription, restLogoImage, prom
     `;
   return Mustache.render(template, {
     promoBackground, discountDescription,
-    restLogoImage, promoCode
+    restLogoImage, promoCode, restSlug,
+    smallDescription
   });
 };
 
