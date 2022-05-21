@@ -19,6 +19,7 @@ import commentsBlock from "./CommentsBlock/comments-block.js";
 import comment from "./Comment/comment.js";
 import notification from "./Notification/notification.js";
 import searchBlock from "./SearchBlock/search-block";
+import promoCodeIcon from "./PromoCodeIcon/promo-code-icon";
 
 export default {
   simpleButton,
@@ -41,5 +42,6 @@ export default {
   commentsBlock,
   comment,
   notification,
-  searchBlock
+  searchBlock,
+  promoCodeIcon
 };
