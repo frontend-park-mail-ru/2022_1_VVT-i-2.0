@@ -10,6 +10,7 @@ const EVENTS = {
   avatarUpload: Event.getInputEvents(),
   suggestsSearch: Event.suggests().suggestsSearch,
   suggestsRow: Event.suggests().suggestsRow,
+  promoCode: Event.getPromoCodeEvents(),
 
   loginPhone: Event.getPhoneFieldEvents("loginPhone", FORM.statusLoginForm),
   loginButton: Event.getButtonEvents().loginButton,

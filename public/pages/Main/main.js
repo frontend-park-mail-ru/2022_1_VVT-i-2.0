@@ -4,6 +4,13 @@ import UIKIT from "../../ui-kit/import.js";
 const mainPage = (app, store) => {
   const params = sessionStorage.getItem("params");
 
+  if (!store.getters.promoCodes() || !store.getters.promoCodes().length) {
+    if (sessionStorage.getItem('promoCodesRequestSent') === null) {
+      store.actions.getPromoCodes();
+    }
+    sessionStorage.setItem('promoCodesRequestSent', 'requestSent');
+  }
+
   const categories = store.getters.categories()
     .map((category) => {
       if (category.title === params) {
@@ -25,11 +32,13 @@ const mainPage = (app, store) => {
   app.root.innerHTML = components.header();
 
   const main = document.createElement("main");
-  main.innerHTML =
+  main.innerHTML = components.promoCodeLine(store.getters.promoCodes()) +
     UIKIT.mainLink("Рестораны") + components.categories(categories) +
     components.restIcons(store.getters.restaurants);
 
   app.root.appendChild(main);
+
+  setTimeout(() => {sessionStorage.removeItem('promoCodesRequestSent')}, 50);
 };
 
 export default mainPage;

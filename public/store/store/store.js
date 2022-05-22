@@ -291,9 +291,7 @@ const STORE = {
     this.comments = comments;
   },
   updateOrderStatuses(newStatuses) {
-    console.log(cachedOrderStatuses, newStatuses);
     if (isEqual(cachedOrderStatuses, newStatuses)) {
-      console.log('return');
       return;
     }
 

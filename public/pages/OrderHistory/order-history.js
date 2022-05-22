@@ -16,7 +16,7 @@ const orderHistoryPage = (app, store) => {
         components.orderStatusList(store.getters.getOrderList()));
     app.root.appendChild(main);
 
-    setTimeout(() => {sessionStorage.removeItem('statusRequestSent')}, 50);
+    setTimeout(() => {sessionStorage.removeItem('statusRequestSent')}, 1000);
 };
 
 export default orderHistoryPage;

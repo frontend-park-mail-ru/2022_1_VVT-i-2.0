@@ -4,7 +4,7 @@ const promoCodeIcon = (promoBackground, discountDescription, restLogoImage, prom
   let smallDescription = discountDescription.length <= smallLengthLimit;
 
   const template = `
-    <div data-rest="{{restSlug}}" class="promo-code-icon" style="background-image: url("{{promoBackground}}");">
+    <div data-rest="{{restSlug}}" class="promo-code-icon promoCode" style="background-image: url({{promoBackground}});">
       {{#smallDescription}}
       <div class="promo-code-icon__discount_small-description">
           <div class="small-description__text">

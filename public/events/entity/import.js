@@ -11,6 +11,7 @@ import { categories } from "./categories/categories-events.js";
 import { search } from "./search/search-events.js";
 import { getAdditionalAddressEvents } from "./additionalAddress/additional-address-events";
 import { comment } from "./comment/comment-events.js";
+import { getPromoCodeEvents } from "./promoCode/promo-code-events";
 
 const Event = {
   getFrameEvents,
@@ -25,7 +26,8 @@ const Event = {
   categories,
   search,
   getAdditionalAddressEvents,
-  comment
+  comment,
+  getPromoCodeEvents
 };
 
 export default Event;

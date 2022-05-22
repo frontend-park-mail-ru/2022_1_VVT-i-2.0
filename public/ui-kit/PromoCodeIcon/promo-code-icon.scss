@@ -12,6 +12,7 @@
   height: 100px;
 
   overflow: hidden;
+  background-size: cover;
   border-radius: 14px;
 
   margin: auto;
@@ -87,11 +88,13 @@
   }
 
   &__dice {
-    width: 66px;
+    //width: 66px;
     height: 24px;
 
     background: white;
     border-radius: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
   }
 }
 
@@ -99,5 +102,5 @@
   font: 16px 'Abhaya Libre', serif;
   color: #4B90EB;
   text-align: center;
-  margin-top: calc((10% - 16px)/2)
+  margin-top: 4px;
 }

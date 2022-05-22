@@ -39,7 +39,6 @@ export const getFrameEvents = () => {
             const statusLine = document.getElementById(e.target.dataset.id);
             const topPos = statusLine.offsetTop;
             const container = document.getElementsByClassName('content-nav-block__content-block')[0];
-            console.log('scroll');
             scrollTo(container, topPos, 600);
 
             if (sessionStorage.getItem('openedAdditionalOrderInfo') !== e.target.dataset.id) {
@@ -47,11 +46,9 @@ export const getFrameEvents = () => {
               sessionStorage.setItem('AdditionalOrderInfoSetNow', 'true');
 
               store.actions.getCertainOrder(e.target.dataset.id).then(() => {
-                console.log('add');
                 additionalOrderInfo(app, store, e);
               });
             } else {
-              console.log('add');
               additionalOrderInfo(app, store, e);
             }
           },

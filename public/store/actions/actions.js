@@ -98,7 +98,7 @@ export const getCertainOrder = (orderNumber) => {
 
 export const getPromoCodes = () => {
   return API.getPromoCodes().then((result) => {
-    STORE.addPromoCodes(result);
+    STORE.addPromoCodes(result.promos);
   });
 }
 
