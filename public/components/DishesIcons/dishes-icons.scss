@@ -6,9 +6,9 @@
   flex-wrap: wrap;
   max-width: 1500px;
 
-  // @media screen and (min-width: 1375px) {
-    margin-right: 20%;
-  // }
+  @media screen and (min-width: 1000px) {
+    margin-right: 385px;
+  }
 }
 
 .rest-menu__dish-icon {
@@ -28,11 +28,11 @@
 
   width: 270px;
 
-  @media screen and (max-width: 815px) {
-    margin: auto;
-  }
+  // @media screen and (max-width: 815px) {
+  //   margin: auto;
+  // }
 
-  height: 440px;
+  height: 470px;
 
   background: theme.getColor('white');
   border-radius: 14px;

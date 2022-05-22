@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   // justify-content: space-between;
   max-width: 1500px;
+  margin-bottom: 10px;
 
   &__select {
     all: unset;
@@ -14,12 +15,12 @@
     // margin-left: auto;
     // margin-right: auto;
 
-    @media screen and (max-width: 768px) {
-      margin-left: auto;
-      margin-right: auto;
-    }
+    // @media screen and (max-width: 768px) {
+    //   margin-left: auto;
+    //   margin-right: auto;
+    // }
 
-    width: 80%;
+    width: 330px;
     margin-bottom: 18px;
     background: theme.getColor('grey');
     padding: 12px 0px 12px 12px;
