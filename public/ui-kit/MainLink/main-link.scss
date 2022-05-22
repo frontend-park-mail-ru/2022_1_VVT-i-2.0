@@ -8,13 +8,9 @@
         margin-bottom: 18px;
     }
 
-    // @media screen and (max-width: 768px) {
-    //     margin: 18px auto 18px auto;
-    // }
-
     @media screen and (min-width: 815px) {
         margin-top: 50px;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
 }
 
@@ -22,7 +18,6 @@
     cursor: pointer;
     color: theme.getColor('greyBrown');
     font-size: 34px;
-    //font-weight: 600;
 
     &:hover {
         border-radius: 14px;

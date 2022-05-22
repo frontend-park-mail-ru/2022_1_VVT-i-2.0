@@ -19,8 +19,8 @@ export const getDishes = (slug, isFirstUpdate = false) => {
   );
 };
 
-export const getUser = (isFirstUpdate = false) => {
-  return API.getUser().then((result) => STORE.addUser(result, isFirstUpdate));
+export const getUser = () => {
+  return API.getUser().then((result) => STORE.addUser(result));
 };
 
 export const updateUser = (user) => {

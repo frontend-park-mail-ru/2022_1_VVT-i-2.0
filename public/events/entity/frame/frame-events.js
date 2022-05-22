@@ -13,12 +13,18 @@ export const getFrameEvents = () => {
            * @param {Event} e - Событие.
            */
           listener(app, store, e) {
-            // const root = sessionStorage.getItem("root") || "main";
-            store.actions.setSearchStatus(false);
+            if (e.target.classList.contains("block-img__image")) {
+              sessionStorage.removeItem("searchQuery");
 
-            store.actions.clearRestaurants();
-            renderAndUpdateURN("/");
-            // renderAndUpdateURN(root);
+              store.actions.setSearchStatus(false);
+              store.actions.clearRestaurants();
+              renderAndUpdateURN("/");
+
+              return;
+            }
+
+            const root = sessionStorage.getItem("root") || "main";
+            renderAndUpdateURN(root);
           },
         },
     ],

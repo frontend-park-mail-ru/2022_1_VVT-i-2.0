@@ -39,7 +39,7 @@ export const getButtonEvents = () => {
             .sendCode(phone)
             .then((result) => {
               if (!result.registered) {
-                alert('Пользователь с таким номером не зарегистрирован');
+                renderNotification('Пользователь с таким номером не зарегистрирован', true);
                 return;
               }
 
@@ -165,7 +165,7 @@ export const getButtonEvents = () => {
             .sendCode(phone)
             .then((result) => {
               if (result.registered) {
-                alert('Пользователь с таким номером уже зарегистрирован');
+                renderNotification('Пользователь с таким номером уже зарегистрирован', true);
                 return;
               }
 

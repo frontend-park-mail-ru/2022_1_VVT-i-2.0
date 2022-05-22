@@ -157,17 +157,15 @@ const STORE = {
   },
 
   // Mutations
-  addUser(user, isFirstUpdate) {
-    if (isFirstUpdate) {
-      Object.entries(user).forEach(([key, value]) => {
-        this.user[key] = value;
-      });
-      return;
-    }
-    this.user = user;
+  addUser(user) {
+    Object.entries(user).forEach(([key, value]) => {
+      this.user[key] = value;
+    });
   },
   removeUser() {
-    this.user = {};
+    Object.keys(this.user).forEach((key) => {
+      delete this.user[key];
+    });
   },
   addRestaurants(restaurants) {
     this.restaurants = restaurants;
