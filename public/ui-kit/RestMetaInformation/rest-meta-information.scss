@@ -48,11 +48,7 @@
 
     align-items: center;
 
-    min-width: 62px;
-
-    @media screen and (orientation: portrait) and (max-width: 815px) {
-        min-width: 65px;
-    }
+    min-width: 67px;
 
     height: 18px;
 
