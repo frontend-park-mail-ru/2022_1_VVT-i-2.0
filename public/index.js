@@ -22,7 +22,19 @@ Object.entries(APP).forEach(([name, node]) =>
   )
 );
 
-window.onpopstate = () => render(location.pathname);
+window.onpopstate = () => {
+  const decodedPathname = decodeURI(location.pathname);
+
+  if (decodedPathname === "/" || decodedPathname === "/main") {
+    sessionStorage.removeItem("params");
+  }
+
+  if (decodedPathname === "/" || decodedPathname.startsWith("/main")) {
+    store.actions.clearRestaurants();
+  }
+
+  render(decodedPathname);
+}
 
 document.addEventListener("click", (e) => {
   searchOnClickOutHandler();

@@ -173,7 +173,7 @@ const STORE = {
     this.restaurants = restaurants;
   },
   clearRestaurants() {
-    this.restaurants = [];
+    this.restaurants.length = 0;
   },
   addDishes(slug, result, isFirstUpdate = false) {
     if (isFirstUpdate) {
@@ -261,7 +261,7 @@ const STORE = {
     });
   },
   clearSuggests() {
-    this.suggests = [];
+    this.suggests.length = 0;
   },
   setToken(token) {
     this.token = token;

@@ -3,17 +3,23 @@
 .categories {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  // justify-content: space-between;
+  max-width: 1500px;
 
   &__select {
     all: unset;
 
     display: flex;
 
-    margin-left: auto;
-    margin-right: auto;
+    // margin-left: auto;
+    // margin-right: auto;
 
-    width: 333px;
+    @media screen and (max-width: 768px) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    width: 80%;
     margin-bottom: 18px;
     background: theme.getColor('grey');
     padding: 12px 0px 12px 12px;

@@ -2,8 +2,9 @@
 
 .rest-menu {
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   flex-wrap: wrap;
+  max-width: 1500px;
 
   @media screen and (min-width: 1450px) {
     margin-right: 20%;
@@ -16,12 +17,15 @@
   position: relative;
   align-content: center;
 
-  @media screen and (min-width: 1450px) {
-    margin-bottom: 70px;
-    width: 270px;
-    height: 480px;
-  }
-  @media screen and (max-width: 1450px) {
+  margin-right: 1%;
+  margin-bottom: 1%;
+
+  // @media screen and (min-width: 1450px) {
+  //   margin-bottom: 70px;
+  //   width: 270px;
+  //   height: 480px;
+  // }
+  @media screen and (max-width: 815px) {
     margin: auto;
     margin-bottom: 24px;
     width: 343px;

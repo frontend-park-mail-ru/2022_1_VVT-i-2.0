@@ -10,13 +10,16 @@
   min-width: 120px;
   height: 38px;
 
-  @media screen and (max-width: 815px) {
-    margin-bottom: 18px;
-  }
+  margin-right: 2%;
+  margin-bottom: 20px;
 
-  @media screen and (min-width: 815px) {
-    margin-top: 10px;
-  }
+  // @media screen and (max-width: 815px) {
+  //   margin-bottom: 18px;
+  // }
+
+  // @media screen and (min-width: 815px) {
+  //   margin-top: 10px;
+  // }
 
   &__title {
     display: flex;

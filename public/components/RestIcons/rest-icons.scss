@@ -2,16 +2,17 @@
 
 .restaurants-form {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 50px;
+    // margin-top: 50px;
+    max-width: 1500px;
 
     @media screen and (orientation: portrait) and (max-width: 815px) {
         margin-top: 0;
     }
 
     @media screen and (orientation: landscape) and (min-width: 815px) {
-        margin-top: 50px;
+        margin-top: 30px;
     }
 }
 
@@ -20,6 +21,9 @@
     flex-direction: column;
     flex-wrap: wrap;
 
+    margin-right: 1%;
+    margin-bottom: 1%;
+
     align-content: center;
 
     @media screen and (orientation: portrait) and (max-width: 815px) {
@@ -27,9 +31,9 @@
         margin-bottom: 24px;
     }
 
-    @media screen and (orientation: landscape) and (min-width: 815px) {
-        margin-bottom: 70px;
-    }
+    // @media screen and (orientation: landscape) and (min-width: 815px) {
+    //     margin-bottom: 70px;
+    // }
 
     width: 343px;
     height: 278px;
