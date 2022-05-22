@@ -92,13 +92,14 @@ main {
   position: fixed;
   top: 68px;
 
-  @media screen and (max-width: 750px),
-  screen and (min-width: 1450px) {
-    height: 93vh;
-  }
-  @media screen and (min-width: 750px) and (max-width: 1450px) {
-    height: 96vh;
-  }
+  // @media screen and (max-width: 750px),
+  // screen and (min-width: 1450px) {
+  //   height: 93vh;
+  // }
+  // @media screen and (min-width: 750px) and (max-width: 1450px) {
+  //   height: 96vh;
+  // }
+  height: 96vh;
 
   border: none;
   background: theme.getColor("white");

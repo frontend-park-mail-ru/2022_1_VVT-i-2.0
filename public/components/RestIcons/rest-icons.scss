@@ -21,14 +21,13 @@
     flex-direction: column;
     flex-wrap: wrap;
 
-    margin-right: 1%;
-    margin-bottom: 1%;
+    margin-right: 2%;
+    margin-bottom: 24px;
 
     align-content: center;
 
     @media screen and (orientation: portrait) and (max-width: 815px) {
         margin: auto;
-        margin-bottom: 24px;
     }
 
     // @media screen and (orientation: landscape) and (min-width: 815px) {
