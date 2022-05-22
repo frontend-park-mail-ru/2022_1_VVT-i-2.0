@@ -1,4 +1,5 @@
 import { renderAndUpdateURN } from "../../../render/render";
+import { getParentNodeDataIdByClass } from "./promo-code-src";
 
 export const getPromoCodeEvents = () => {
   return [
@@ -6,8 +7,11 @@ export const getPromoCodeEvents = () => {
       type: "click",
       selector: "class",
       listener(app, store, e) {
-        if (e.target.dataset.rest) {
-          renderAndUpdateURN('dishes/' + e.target.dataset.rest);
+        const id = getParentNodeDataIdByClass(e.target, 'promoCode');
+        const promos = store.getters.promoCodes();
+        if (promos && promos.length > id) {
+          const restSlug = promos[id].restSlug;
+          renderAndUpdateURN('dishes/' + restSlug);
         }
       },
     },
