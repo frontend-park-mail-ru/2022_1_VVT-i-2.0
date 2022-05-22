@@ -6,7 +6,9 @@ export const getPromoCodeEvents = () => {
       type: "click",
       selector: "class",
       listener(app, store, e) {
-        renderAndUpdateURN('dishes/' + e.target.dataset.rest);
+        if (e.target.dataset.rest) {
+          renderAndUpdateURN('dishes/' + e.target.dataset.rest);
+        }
       },
     },
   ];
