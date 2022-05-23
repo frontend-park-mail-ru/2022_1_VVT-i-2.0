@@ -1,7 +1,5 @@
-// import * as api from '../api/api.js';
 import Event from "./entity/import.js";
 import * as FORM from "./common/status-form.js";
-import * as events from "events";
 
 const EVENTS = {
   closeImg: Event.getFrameEvents().closeImg,

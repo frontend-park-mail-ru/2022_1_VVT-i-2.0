@@ -90,13 +90,6 @@ export const showEmptyInputs = (statusForm, formInputs) => {
   });
 };
 
-// export const hideEmptyInputs = (statusForm, formInputs) => {
-//     const emptyInputs = getEmptyInputs(formInputs);
-//     emptyInputs.forEach((elemID) => {
-//         removeVisibleError(getElemParameters(elemID).childList);
-//     });
-// }
-
 /**
  * @function Проверяет все ли данные в форме находятся в валидном состоянии для отправки на сервер.
  * @param {Object} statusForm - Объект, хранящий статусы инпутов страницы.

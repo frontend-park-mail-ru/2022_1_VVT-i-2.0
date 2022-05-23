@@ -24,8 +24,6 @@ export const getPromoCodeEvents = () => {
 
           const restSlug = promos[id].restSlug;
           renderAndUpdateURN("dishes/" + restSlug);
-
-          // store.actions.setCurrentRestName(promos[id].restName);
           renderAndUpdateURN("/shoppingCart", true);
         }
       },

@@ -3,10 +3,7 @@
 .profile-template-form {
   display: flex;
   flex-direction: column;
-
   height: 100%;
-
-  //margin-left: 8%;
 
   @media screen and (orientation: portrait) and (min-width: 822px),
     screen and (orientation: landscape) and (min-height: 822px) {
@@ -29,8 +26,6 @@
 }
 
 .form__content-nav-block {
-  //flex-wrap: wrap;
-  //flex-direction: row;
   justify-content: space-between;
 
   @media screen and (orientation: portrait) and (min-width: 820px),
@@ -45,10 +40,8 @@
     flex-direction: column;
     @media screen and (orientation: portrait) and (min-width: 438px),
       screen and (orientation: landscape) and (min-height: 438px) {
-      //width: 700px;
       height: 750px;
       width: 100%;
-      //height: 80%;
     }
   }
 }

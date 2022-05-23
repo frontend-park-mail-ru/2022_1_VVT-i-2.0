@@ -21,8 +21,6 @@ const commentsPage = (app, store) => {
   const restName = dishObj.restName;
 
   const comments = store.getters.comments()[params].comments;
-  // const comments = [];
-
   app.root.innerHTML = components.header();
 
   const main = document.createElement("main");

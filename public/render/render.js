@@ -170,7 +170,6 @@ export const render = (urn, storeUpdate = false) => {
     sessionStorage.setItem("root", section);
   }
 
-  // Block for mobile version
   if (
     ["login", "confirmCode", "register"].includes(section) &&
     window.screen.width < 438
@@ -222,11 +221,6 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     return;
   }
 
-  // if ((urn === "/" || urn === "/main") && store.getters.restaurants().length === 0) {
-  //   sessionStorage.removeItem("params");
-  //   store.actions.clearRestaurants();
-  // }
-
   if (
     urn.substring(0, 7) !== "/dishes" &&
     urn.substring(0, 13) !== "/shoppingCart"
@@ -249,11 +243,6 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
   ) {
     return;
   }
-
-  /*Close additional order info at redirect to other page*/
-  // if (urn !== '/orderHistory') {
-  //   sessionStorage.removeItem('openedAdditionalOrderInfo');
-  // }
 
   const page = sessionStorage.getItem("page");
   if (

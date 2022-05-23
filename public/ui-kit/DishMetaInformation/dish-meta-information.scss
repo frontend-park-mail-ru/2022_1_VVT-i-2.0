@@ -56,10 +56,6 @@
   text-overflow: ellipsis;
 
   @include paddings();
-
-  //width: 90%;
-  //height: 50px;
-
   font-size: 14px;
   color: theme.getColor("warm");
 }

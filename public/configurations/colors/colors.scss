@@ -9,20 +9,20 @@ $_lightTheme: (
   "warm": #beb6ae,
 );
 
-//@function setThemeColors($theme) {
-//  $appColors: (
-//    "primary": map-get($theme, "primary"),
-//    "warning": map-get($theme, "warning"),
-//    "black": map-get($theme, "black"),
-//    "grey": map-get($theme, "grey"),
-//    "lightGrey": map-get($theme, "lightGrey"),
-//    "greyBrown": map-get($theme, "greyBrown"),
-//    "white": map-get($theme, "white"),
-//    "warm": map-get($theme, "warm"),
-//  );
-//
-//  @return $appColors;
-//}
+@function setThemeColors($theme) {
+  $appColors: (
+    "primary": map-get($theme, "primary"),
+    "warning": map-get($theme, "warning"),
+    "black": map-get($theme, "black"),
+    "grey": map-get($theme, "grey"),
+    "lightGrey": map-get($theme, "lightGrey"),
+    "greyBrown": map-get($theme, "greyBrown"),
+    "white": map-get($theme, "white"),
+    "warm": map-get($theme, "warm"),
+  );
+
+  @return $appColors;
+}
 
 $COLORS: $_lightTheme;
 

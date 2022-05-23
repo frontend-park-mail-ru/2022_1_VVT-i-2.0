@@ -59,7 +59,6 @@
   @media screen and (max-width: 920px) {
     display: none;
   }
-  // max-width: 160px;
 }
 
 .main-button__img {
@@ -88,7 +87,6 @@
   &_with-price {
     font-size: 17px;
     color: #000000;
-    //color: #323232;
 
     @media screen and (orientation: landscape) and (min-width: 1230px) {
       margin-left: 15px;

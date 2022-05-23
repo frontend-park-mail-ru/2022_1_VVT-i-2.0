@@ -9,15 +9,15 @@ const lightTheme = {
   warm: "#BEB6AE",
 };
 
-// function setThemeColors(theme) {
-//     let AppColors = {};
-//
-//     Object.entries(theme).forEach(([key, value]) => {
-//         AppColors.key = value;
-//     })
-//
-//     return AppColors;
-// }
+function setThemeColors(theme) {
+  let AppColors = {};
+
+  Object.entries(theme).forEach(([key, value]) => {
+    AppColors.key = value;
+  });
+
+  return AppColors;
+}
 
 const COLORS = lightTheme;
 
