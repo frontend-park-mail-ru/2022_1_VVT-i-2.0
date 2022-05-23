@@ -39,6 +39,8 @@ export const getCertainOrder = () => STORE.certainOrder;
 
 export const promoCodes = () => STORE.promoCodes;
 
+export const appliedPromoCode = () => STORE.appliedPromoCode;
+
 export const getSearchStatus = () => STORE.isSearchActivated;
 
 export const categories = () => STORE.categories;

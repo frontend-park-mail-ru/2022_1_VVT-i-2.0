@@ -118,6 +118,7 @@ const STORE = {
   },
   orderList: [],
   promoCodes: [],
+  appliedPromoCode: {},
   certainOrder: {},
   suggests: [
     // { address: "FIRST", end: false },
@@ -288,6 +289,9 @@ const STORE = {
   setCurrentRestName(restName) {
     this.currentRestName = restName;
   },
+  setAppliedPromoCode(promoCode) {
+    this.appliedPromoCode = promoCode;
+  },
   addComments(restName, result) {
     const comments = this.comments;
     comments[restName] = { comments: result };
@@ -315,7 +319,7 @@ const PROXY_STORE = new Proxy(STORE, {
   set(target, prop, value) {
     target[prop] = value;
 
-    if (prop === 'token') {
+    if (['token', 'appliedPromoCode'].includes(prop)) {
       return true;
     }
 

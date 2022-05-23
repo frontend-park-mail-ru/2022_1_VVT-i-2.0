@@ -1,11 +1,11 @@
 import components from "../../components/import.js";
 
-/**
- * @function Рендерит страницу по входящему объекту приложения.
- * @param {Object} app - Объект приложения.
- */
+const isEmpty = (obj) => {
+  return Object.keys(obj).length === 0;
+}
+
 const shoppingCartPage = (app, store) => {
-  if (!sessionStorage.getItem('redirectByPromoCodeActivation') || Object.keys(store.getters.dishes()).length === 0) {
+  if (isEmpty(store.getters.appliedPromoCode()) && isEmpty(store.getters.dishes())) {
     return;
   }
 
@@ -29,8 +29,9 @@ const shoppingCartPage = (app, store) => {
     return { ...dishObj.dishes[index], price, count };
   });
 
-  app.modal.innerHTML = components.shoppingCart(dishObj.restName, properties, sessionStorage.getItem('redirectByPromoCodeActivation'));
-  sessionStorage.removeItem('redirectByPromoCodeActivation');
+  const restName = dishObj ? dishObj.restName : store.getters.appliedPromoCode().restName;
+
+  app.modal.innerHTML = components.shoppingCart(restName, properties, store.getters.appliedPromoCode().promocode);
 };
 
 export default shoppingCartPage;

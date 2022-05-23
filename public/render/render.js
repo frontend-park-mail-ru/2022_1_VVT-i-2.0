@@ -188,8 +188,6 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     return;
   }
 
-  console.log(urn);
-
   if (!urn.startsWith("/")) {
     urn = `/${urn}`;
   }
@@ -210,7 +208,7 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
   //   store.actions.clearRestaurants();
   // }
 
-  if (!sessionStorage.getItem('redirectByPromoCodeActivation') && urn === "/shoppingCart" && IsCartEmpty()) {
+  if (Object.keys(store.getters.appliedPromoCode()).length === 0 && urn === "/shoppingCart" && IsCartEmpty()) {
     return;
   }
 

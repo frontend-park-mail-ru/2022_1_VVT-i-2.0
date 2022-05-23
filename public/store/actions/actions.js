@@ -106,6 +106,10 @@ export const getPromoCodes = () => {
   });
 }
 
+export const applyPromoCode = (promoCode) => {
+  STORE.setAppliedPromoCode(promoCode);
+}
+
 export const openSameOrderByTimeout = (result) => {
   STORE.addCertainOrder(result);
 }
