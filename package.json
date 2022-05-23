@@ -10,7 +10,7 @@
     "build": "webpack --watch",
     "build-prod": "webpack",
     "webpack-start": "webpack-dev-server",
-    "linter": "npx prettier --write 'public/**/*.js'"
+    "prettier": "npx prettier --write 'public/**/*.js' && npx prettier --write 'public/**/*.scss'"
   },
   "browserslist": [
     ">1%",

@@ -1,61 +1,61 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 @mixin input-width() {
-    @media screen and (orientation: portrait) and (min-width: 438px),
+  @media screen and (orientation: portrait) and (min-width: 438px),
     screen and (orientation: landscape) and (min-height: 438px) {
-        width: 95%;
-    }
-    @media screen and (orientation: portrait) and (max-width: 438px),
+    width: 95%;
+  }
+  @media screen and (orientation: portrait) and (max-width: 438px),
     screen and (orientation: landscape) and (max-height: 438px) {
-        width: 100%;
-    }
+    width: 100%;
+  }
 }
 
 .input-block__title {
-    margin-bottom: 4px;
+  margin-bottom: 4px;
 }
 
 .input-block__input {
-    all: unset;
-    font-weight: bold;
+  all: unset;
+  font-weight: bold;
 
-    @include input-width();
+  @include input-width();
 
-    min-width: 70px;
-    height: 30px;
-    border: none;
+  min-width: 70px;
+  height: 30px;
+  border: none;
 
-    border-bottom: 2px solid theme.getColor('grey');
-    color: theme.getColor('black');
+  border-bottom: 2px solid theme.getColor("grey");
+  color: theme.getColor("black");
 }
 
 .input-block__input-readonly {
-    all: unset;
+  all: unset;
 
-    @include input-width();
+  @include input-width();
 
-    height: 30px;
-    border: none;
+  height: 30px;
+  border: none;
 
-    border-bottom: 2px solid theme.getColor('grey');
-    color: theme.getColor('warm');
-    font-weight: bold;
+  border-bottom: 2px solid theme.getColor("grey");
+  color: theme.getColor("warm");
+  font-weight: bold;
 }
 
 .input-block__input:focus-visible {
-    border: none;
-    border-bottom: 2px solid theme.getColor('black');
+  border: none;
+  border-bottom: 2px solid theme.getColor("black");
 }
 
 .input-block__input.error {
-    border-bottom: 2px solid theme.getColor('warning');
+  border-bottom: 2px solid theme.getColor("warning");
 }
 
 .input-block__input-underline.error {
-    color: theme.getColor('warning');
-    margin-top: 2px;
+  color: theme.getColor("warning");
+  margin-top: 2px;
 }
 
 .hidden {
-    visibility: hidden;
+  visibility: hidden;
 }

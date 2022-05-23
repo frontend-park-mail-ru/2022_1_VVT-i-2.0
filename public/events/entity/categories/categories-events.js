@@ -18,8 +18,8 @@ export const categories = () => {
             store.actions.clearRestaurants();
             renderAndUpdateURN(`/main/${title}`);
           }
-        }
-      }
+        },
+      },
     ],
     categoriesSelect: [
       {
@@ -28,7 +28,7 @@ export const categories = () => {
         listener(app, store, e) {
           const title = e.target.value;
 
-          if (title === 'Все') {
+          if (title === "Все") {
             sessionStorage.removeItem("params");
             store.actions.clearRestaurants();
             renderAndUpdateURN("/");
@@ -40,8 +40,8 @@ export const categories = () => {
             store.actions.clearRestaurants();
             renderAndUpdateURN(`/main/${title}`);
           }
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
 };

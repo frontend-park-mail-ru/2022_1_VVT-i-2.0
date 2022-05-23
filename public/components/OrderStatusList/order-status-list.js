@@ -10,15 +10,15 @@ const orderStatusList = (props) => {
         {{/props}}
   `;
 
-    return Mustache.render(template, {
-        props,
-        statusInfo() {
-            return UIKIT.orderStatus(this);
-        },
-        emptyList() {
-          return `<div class="empty-list">Ваш список заказов пуст</div>`;
-        },
-    });
+  return Mustache.render(template, {
+    props,
+    statusInfo() {
+      return UIKIT.orderStatus(this);
+    },
+    emptyList() {
+      return `<div class="empty-list">Ваш список заказов пуст</div>`;
+    },
+  });
 };
 
 export default orderStatusList;

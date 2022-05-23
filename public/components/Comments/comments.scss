@@ -1,9 +1,9 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .comments {
   &__header {
     display: flex;
-    background: theme.getColor('grey');
+    background: theme.getColor("grey");
     opacity: 0.9;
 
     border-radius: 16px;
@@ -28,7 +28,8 @@
     height: 30px;
     margin: 15px 7px 15px 15px;
 
-    filter: invert(69%) sepia(63%) saturate(958%) hue-rotate(326deg) brightness(104%) contrast(101%);
+    filter: invert(69%) sepia(63%) saturate(958%) hue-rotate(326deg)
+      brightness(104%) contrast(101%);
   }
 
   &__rating {

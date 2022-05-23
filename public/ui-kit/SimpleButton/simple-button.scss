@@ -1,17 +1,17 @@
-@use 'public/configurations/colors/colors.scss'as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .simple-button {
-    min-height: 45px;
-    //width: 90%;
-    min-width: 150px;
-    border: none;
-    border-radius: 14px;
-    font-weight: bold;
+  min-height: 45px;
+  //width: 90%;
+  min-width: 150px;
+  border: none;
+  border-radius: 14px;
+  font-weight: bold;
 
-    color: theme.getColor('black');
+  color: theme.getColor("black");
 
-    &:hover {
-        cursor: pointer;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    }
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
 }

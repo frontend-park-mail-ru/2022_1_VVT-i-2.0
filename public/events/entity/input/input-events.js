@@ -8,7 +8,7 @@ export const getInputEvents = () => {
       listener(app, store, e) {
         const avatarPreview = document.getElementById("user-avatar-preview");
         preview(e.target, avatarPreview);
-        sessionStorage.setItem('avatar', JSON.stringify(e.target.files[0]));
+        sessionStorage.setItem("avatar", JSON.stringify(e.target.files[0]));
       },
     },
   ];

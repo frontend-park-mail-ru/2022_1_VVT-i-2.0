@@ -1,64 +1,72 @@
-import {renderAndUpdateURN} from "../../../render/render.js";
+import { renderAndUpdateURN } from "../../../render/render.js";
 import { additionalOrderInfo, scrollTo } from "./frame-src";
 
 export const getFrameEvents = () => {
   return {
     closeImg: [
-        {
-          type: "click",
-          selector: "id",
-          /**
-           * @function Закрывает форму при нажатии на значок 'x'.
-           * @param {Object} app - Объект приложения.
-           * @param {Event} e - Событие.
-           */
-          listener(app, store, e) {
-            if (e.target.classList.contains("block-img__image")) {
-              sessionStorage.removeItem("searchQuery");
+      {
+        type: "click",
+        selector: "id",
+        /**
+         * @function Закрывает форму при нажатии на значок 'x'.
+         * @param {Object} app - Объект приложения.
+         * @param {Event} e - Событие.
+         */
+        listener(app, store, e) {
+          if (e.target.classList.contains("block-img__image")) {
+            sessionStorage.removeItem("searchQuery");
 
-              store.actions.setSearchStatus(false);
-              store.actions.clearRestaurants();
-              renderAndUpdateURN("/");
+            store.actions.setSearchStatus(false);
+            store.actions.clearRestaurants();
+            renderAndUpdateURN("/");
 
-              return;
-            }
+            return;
+          }
 
-            const root = sessionStorage.getItem("root") || "main";
-            renderAndUpdateURN(root);
-          },
+          const root = sessionStorage.getItem("root") || "main";
+          renderAndUpdateURN(root);
         },
+      },
     ],
     buttonOpenClose: [
-        {
-          type: "click",
-          selector: "class",
-          listener(app, store, e) {
-            if ((e.target.dataset.id)[0] === 'O') {
-              const orderElem = document.getElementById(e.target.dataset.id);
-              orderElem.innerHTML = '';
-              e.target.dataset.id = e.target.dataset.id.replace('O', '');
-              e.target.src = './graphics/icons/keyboard_arrow_down.svg';
-              sessionStorage.removeItem('openedAdditionalOrderInfo')
-              return;
-            }
+      {
+        type: "click",
+        selector: "class",
+        listener(app, store, e) {
+          if (e.target.dataset.id[0] === "O") {
+            const orderElem = document.getElementById(e.target.dataset.id);
+            orderElem.innerHTML = "";
+            e.target.dataset.id = e.target.dataset.id.replace("O", "");
+            e.target.src = "./graphics/icons/keyboard_arrow_down.svg";
+            sessionStorage.removeItem("openedAdditionalOrderInfo");
+            return;
+          }
 
-            const statusLine = document.getElementById(e.target.dataset.id);
-            const topPos = statusLine.offsetTop;
-            const container = document.getElementsByClassName('content-nav-block__content-block')[0];
-            scrollTo(container, topPos, 600);
+          const statusLine = document.getElementById(e.target.dataset.id);
+          const topPos = statusLine.offsetTop;
+          const container = document.getElementsByClassName(
+            "content-nav-block__content-block"
+          )[0];
+          scrollTo(container, topPos, 600);
 
-            if (sessionStorage.getItem('openedAdditionalOrderInfo') !== e.target.dataset.id) {
-              sessionStorage.setItem('openedAdditionalOrderInfo', e.target.dataset.id);
-              sessionStorage.setItem('AdditionalOrderInfoSetNow', 'true');
+          if (
+            sessionStorage.getItem("openedAdditionalOrderInfo") !==
+            e.target.dataset.id
+          ) {
+            sessionStorage.setItem(
+              "openedAdditionalOrderInfo",
+              e.target.dataset.id
+            );
+            sessionStorage.setItem("AdditionalOrderInfoSetNow", "true");
 
-              store.actions.getCertainOrder(e.target.dataset.id).then(() => {
-                additionalOrderInfo(app, store, e);
-              });
-            } else {
+            store.actions.getCertainOrder(e.target.dataset.id).then(() => {
               additionalOrderInfo(app, store, e);
-            }
-          },
+            });
+          } else {
+            additionalOrderInfo(app, store, e);
+          }
         },
+      },
     ],
   };
 };

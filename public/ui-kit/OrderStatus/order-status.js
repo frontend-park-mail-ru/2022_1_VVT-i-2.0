@@ -1,22 +1,22 @@
 const orderStatus = (props) => {
-    let statusClass = '';
+  let statusClass = "";
 
-    switch (props.status) {
-        case 'В обработке':
-            statusClass = 'status__img_in-processing';
-            break;
-        case 'Готовим':
-            statusClass = 'status__img_cooking';
-            break;
-        case 'В пути':
-            statusClass = 'status__img_in-way';
-            break;
-        default:
-            statusClass = 'status__img_received';
-            break;
-    }
+  switch (props.status) {
+    case "В обработке":
+      statusClass = "status__img_in-processing";
+      break;
+    case "Готовим":
+      statusClass = "status__img_cooking";
+      break;
+    case "В пути":
+      statusClass = "status__img_in-way";
+      break;
+    default:
+      statusClass = "status__img_received";
+      break;
+  }
 
-    const template = `
+  const template = `
         <div id="{{orderNumber}}" class="order-info_standard">
             <div class="order-info__status-block">
                 <div class="status-block__elem_first">
@@ -49,15 +49,15 @@ const orderStatus = (props) => {
         </div>
     `;
 
-    return Mustache.render(template, {
-        orderNumber: props.orderNumber,
-        restName: props.restName,
-        date: props.date,
-        price: props.totalPrice,
-        statusClass,
-        status: props.status,
-        orderID: 'O'+String(props.orderNumber)
-    });
+  return Mustache.render(template, {
+    orderNumber: props.orderNumber,
+    restName: props.restName,
+    date: props.date,
+    price: props.totalPrice,
+    statusClass,
+    status: props.status,
+    orderID: "O" + String(props.orderNumber),
+  });
 };
 
 export default orderStatus;

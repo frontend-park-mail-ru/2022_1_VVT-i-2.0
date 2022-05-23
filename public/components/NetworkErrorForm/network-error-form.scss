@@ -1,104 +1,104 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
-@mixin flex-center () {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .error-page__view {
-    position: relative;
-    height: 100vh;
+  position: relative;
+  height: 100vh;
 
-    color: theme.getColor('white');
+  color: theme.getColor("white");
 
-    @media screen and (orientation: landscape) and (min-width: 1460px) {
-        padding: 0 40px;
-    }
+  @media screen and (orientation: landscape) and (min-width: 1460px) {
+    padding: 0 40px;
+  }
 
-    overflow: hidden;
-    background: #a34ca6;
-    background-size: cover;
-    background: linear-gradient(45deg, #a34ca6 0%, #7742b9 50%, #643ec2 100%);
+  overflow: hidden;
+  background: #a34ca6;
+  background-size: cover;
+  background: linear-gradient(45deg, #a34ca6 0%, #7742b9 50%, #643ec2 100%);
 }
 
 .view__text-content {
-    @media screen and (orientation: portrait) and (max-width: 920px) {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+  @media screen and (orientation: portrait) and (max-width: 920px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
-    @media screen and (orientation: landscape) and (min-width: 1460px) {
-        width: 100%;
-        max-width: 930px;
-        min-width: 320px;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+  @media screen and (orientation: landscape) and (min-width: 1460px) {
+    width: 100%;
+    max-width: 930px;
+    min-width: 320px;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 }
 
 .text-content__header {
-    max-width: 42rem;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
+  max-width: 42rem;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
 
-    @media screen and (orientation: portrait) and (max-width: 920px) {
-        font: 600 4.5rem/6rem "fregat", "Arial", sans-serif;
-        margin-top: 0px;
-        margin-bottom: 15px;
-    }
+  @media screen and (orientation: portrait) and (max-width: 920px) {
+    font: 600 4.5rem/6rem "fregat", "Arial", sans-serif;
+    margin-top: 0px;
+    margin-bottom: 15px;
+  }
 
-    @media screen and (orientation: landscape) and (min-width: 1460px) {
-        font: 600 10rem/7.5rem "fregat", "Arial", sans-serif;
-    }
+  @media screen and (orientation: landscape) and (min-width: 1460px) {
+    font: 600 10rem/7.5rem "fregat", "Arial", sans-serif;
+  }
 }
 
 .text-content__text_error {
-    max-width: 42rem;
-    margin: 0 0 4.5rem 0;
-    font: 400 2rem/2.8rem "Roboto", "Arial", sans-serif;
-    color: #cec2e5;
+  max-width: 42rem;
+  margin: 0 0 4.5rem 0;
+  font: 400 2rem/2.8rem "Roboto", "Arial", sans-serif;
+  color: #cec2e5;
 
-    @media screen and (orientation: portrait) and (max-width: 920px) {
-        margin-bottom: 30px;
-    }
+  @media screen and (orientation: portrait) and (max-width: 920px) {
+    margin-bottom: 30px;
+  }
 }
 
 .text-content__button-to-main {
-    position: relative;
-    cursor: pointer;
-    @include flex-center;
+  position: relative;
+  cursor: pointer;
+  @include flex-center;
 
+  max-width: 200px;
+  height: 60px;
+
+  font: 900 1.3rem/24px "Roboto", "Arial", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 30px;
+
+  color: #2a364d;
+  background-color: #ffd919;
+
+  @media screen and (orientation: portrait) and (max-width: 920px) {
+    max-width: 100%;
+  }
+
+  @media screen and (orientation: landscape) and (min-width: 1460px) {
     max-width: 200px;
-    height: 60px;
-
-    font: 900 1.3rem/24px "Roboto", "Arial", sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 30px;
-
-    color: #2a364d;
-    background-color: #ffd919;
-
-    @media screen and (orientation: portrait) and (max-width: 920px) {
-        max-width: 100%;
-    }
-
-    @media screen and (orientation: landscape) and (min-width: 1460px) {
-        max-width: 200px;
-    }
+  }
 }
 
 .view__graphic-content {
-    width: 1160px;
-    text-align: right;
-    position: absolute;
-    margin-left: 30%;
-    bottom: 10px;
+  width: 1160px;
+  text-align: right;
+  position: absolute;
+  margin-left: 30%;
+  bottom: 10px;
 }
 
 .graphic-content__img {
-    width: 1054px;
-    height: 566px;
-    margin-bottom: -10px;
+  width: 1054px;
+  height: 566px;
+  margin-bottom: -10px;
 }

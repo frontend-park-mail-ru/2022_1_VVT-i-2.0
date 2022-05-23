@@ -4,7 +4,7 @@ const categories = (categories) => {
   const isMobile = window.screen.width < 815;
 
   if (isMobile) {
-    categories.unshift({ title: 'Все' });
+    categories.unshift({ title: "Все" });
   }
 
   const template = `
@@ -24,10 +24,11 @@ const categories = (categories) => {
     {{/isMobile}}
   `;
   return Mustache.render(template, {
-    isMobile, categories,
+    isMobile,
+    categories,
     category() {
       return UIKIT.category(this.title, this.selected);
-    }
+    },
   });
 };
 

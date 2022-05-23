@@ -52,10 +52,10 @@ const EVENTS = {
   incrementDishCount: Event.dishEvents().incrementDishCount,
   decrementDishCount: Event.dishEvents().decrementDishCount,
 
-  orderingEntrance: Event.getAdditionalAddressEvents('entrance'),
-  orderingIntercom: Event.getAdditionalAddressEvents('intercom'),
-  orderingFloor: Event.getAdditionalAddressEvents('floor'),
-  orderingFlat: Event.getAdditionalAddressEvents('flat'),
+  orderingEntrance: Event.getAdditionalAddressEvents("entrance"),
+  orderingIntercom: Event.getAdditionalAddressEvents("intercom"),
+  orderingFloor: Event.getAdditionalAddressEvents("floor"),
+  orderingFlat: Event.getAdditionalAddressEvents("flat"),
   orderingComment: Event.dishEvents().orderingComment,
 
   buttonPay: Event.getButtonEvents().buttonPay,
@@ -67,7 +67,7 @@ const EVENTS = {
   searchBlock: Event.search().searchBlock,
 
   createComment: Event.getButtonEvents().createComment,
-  star: Event.comment().star
+  star: Event.comment().star,
 };
 
 /**

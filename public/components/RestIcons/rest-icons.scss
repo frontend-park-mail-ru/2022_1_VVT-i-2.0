@@ -1,54 +1,54 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .restaurants-form {
-    display: flex;
-    // justify-content: space-between;
-    flex-wrap: wrap;
-    // margin-top: 50px;
-    max-width: 1500px;
+  display: flex;
+  // justify-content: space-between;
+  flex-wrap: wrap;
+  // margin-top: 50px;
+  max-width: 1500px;
 
-    @media screen and (orientation: portrait) and (max-width: 815px) {
-        margin-top: 0;
-    }
+  @media screen and (orientation: portrait) and (max-width: 815px) {
+    margin-top: 0;
+  }
 
-    @media screen and (orientation: landscape) and (min-width: 815px) {
-        margin-top: 30px;
-    }
+  @media screen and (orientation: landscape) and (min-width: 815px) {
+    margin-top: 30px;
+  }
 }
 
 .restaurants-form__rest_icon {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 
-    margin-right: 2%;
-    margin-bottom: 24px;
+  margin-right: 2%;
+  margin-bottom: 24px;
 
-    align-content: center;
+  align-content: center;
 
-    // @media screen and (orientation: portrait) and (max-width: 815px) {
-    //     margin: auto;
-    // }
+  // @media screen and (orientation: portrait) and (max-width: 815px) {
+  //     margin: auto;
+  // }
 
-    // @media screen and (orientation: landscape) and (min-width: 815px) {
-    //     margin-bottom: 70px;
-    // }
+  // @media screen and (orientation: landscape) and (min-width: 815px) {
+  //     margin-bottom: 70px;
+  // }
 
-    width: 343px;
-    height: 278px;
+  width: 343px;
+  height: 278px;
 
-    background: theme.getColor('white');
-    border-radius: 14px;
-    filter: drop-shadow(0px 0px 12px rgba(26, 26, 26, 0.25));
+  background: theme.getColor("white");
+  border-radius: 14px;
+  filter: drop-shadow(0px 0px 12px rgba(26, 26, 26, 0.25));
 }
 
 .restaurants-form__rest_icon:hover {
-    filter: drop-shadow(0px 4px 4px rgba(26, 26, 26, 0.25));
-    cursor: pointer;
+  filter: drop-shadow(0px 4px 4px rgba(26, 26, 26, 0.25));
+  cursor: pointer;
 }
 
 .rest-icon__rest_img {
-    width: 343px;
-    //height: 160px;
-    border-radius: 14px 14px 0 0;
+  width: 343px;
+  //height: 160px;
+  border-radius: 14px 14px 0 0;
 }

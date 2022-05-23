@@ -2,10 +2,13 @@ import components from "../../components/import.js";
 
 const isEmpty = (obj) => {
   return Object.keys(obj).length === 0;
-}
+};
 
 const shoppingCartPage = (app, store) => {
-  if (isEmpty(store.getters.appliedPromoCode()) && isEmpty(store.getters.dishes())) {
+  if (
+    isEmpty(store.getters.appliedPromoCode()) &&
+    isEmpty(store.getters.dishes())
+  ) {
     return;
   }
 
@@ -29,9 +32,15 @@ const shoppingCartPage = (app, store) => {
     return { ...dishObj.dishes[index], price, count };
   });
 
-  const restName = dishObj ? dishObj.restName : store.getters.appliedPromoCode().restName;
+  const restName = dishObj
+    ? dishObj.restName
+    : store.getters.appliedPromoCode().restName;
 
-  app.modal.innerHTML = components.shoppingCart(restName, properties, store.getters.appliedPromoCode().promocode);
+  app.modal.innerHTML = components.shoppingCart(
+    restName,
+    properties,
+    store.getters.appliedPromoCode().promocode
+  );
 };
 
 export default shoppingCartPage;

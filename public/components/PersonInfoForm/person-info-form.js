@@ -34,7 +34,7 @@ const personInfoForm = ({ name, phone, email }, avatar) => {
     inputConfigurations,
     avatar,
     buttonChangeAvatar() {
-      let width = '';
+      let width = "";
       if (window.screen.width >= 438) {
         width = 240;
       }
@@ -59,7 +59,7 @@ const personInfoForm = ({ name, phone, email }, avatar) => {
       return UIKIT.input(
         this.title,
         this.type,
-        window.screen.width >= 438 ? this.width : '',
+        window.screen.width >= 438 ? this.width : "",
         this.placeholder,
         this.id,
         this.name,

@@ -1,46 +1,46 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
-@mixin flex-center () {
-    display: flex;
-    justify-content: center;
-    justify-items: center;
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
 }
 
 .button-pay {
-    @include flex-center ();
+  @include flex-center();
 
-    @media screen and (orientation: portrait) and (max-width: 920px) {
-        width: 343px;
-        height: 45px;
-        margin-bottom: 20px;
-    }
+  @media screen and (orientation: portrait) and (max-width: 920px) {
+    width: 343px;
+    height: 45px;
+    margin-bottom: 20px;
+  }
 
-    @media screen and (orientation: landscape) and (min-width: 920px) {
-        width: 516px;
-        height: 63px;
-    }
+  @media screen and (orientation: landscape) and (min-width: 920px) {
+    width: 516px;
+    height: 63px;
+  }
 
-    background: #000000;
-    border-radius: 5px;
+  background: #000000;
+  border-radius: 5px;
 
-    margin-top: 40px;
+  margin-top: 40px;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .button-pay__block-img {
-    display: inline-flex;
+  display: inline-flex;
 }
 
 .button-pay__img {
-    margin-top: 5px;
-    width: 80%;
-    height: 80%;
+  margin-top: 5px;
+  width: 80%;
+  height: 80%;
 }
 
 .button-pay__payment-separator {
-    margin: auto 5px;
-    background: theme.getColor('warm');
-    width: 2px;
-    height: 32px;
+  margin: auto 5px;
+  background: theme.getColor("warm");
+  width: 2px;
+  height: 32px;
 }

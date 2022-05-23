@@ -39,5 +39,5 @@ export default {
   categories,
   comments,
   createCommentForm,
-  promoCodeLine
+  promoCodeLine,
 };

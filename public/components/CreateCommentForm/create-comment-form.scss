@@ -1,4 +1,4 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .create-comment-form {
   @media screen and (max-width: 920px) {
@@ -19,8 +19,8 @@
     height: 304px;
   }
 
-  background: theme.getColor('white');
-  border: 1px solid theme.getColor('grey');
+  background: theme.getColor("white");
+  border: 1px solid theme.getColor("grey");
 
   border-radius: 16px;
 
@@ -47,7 +47,7 @@
 
     word-break: break-all;
 
-    border: 1px solid theme.getColor('grey');
+    border: 1px solid theme.getColor("grey");
     border-radius: 10px;
 
     padding: 10px 20px 10px 20px;
@@ -80,7 +80,8 @@
     width: 50px;
     height: 50px;
 
-    filter: invert(79%) sepia(0%) saturate(17%) hue-rotate(147deg) brightness(110%) contrast(99%);
+    filter: invert(79%) sepia(0%) saturate(17%) hue-rotate(147deg)
+      brightness(110%) contrast(99%);
   }
 
   &__star:hover {
@@ -101,8 +102,8 @@
       height: 60px;
     }
 
-    background-color: theme.getColor('primary');
-    color: theme.getColor('black');
+    background-color: theme.getColor("primary");
+    color: theme.getColor("black");
     border: none;
     border-radius: 16px;
     font-weight: bold;

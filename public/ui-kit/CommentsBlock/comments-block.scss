@@ -1,8 +1,8 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .comments-block {
   display: inline-flex;
-  background: theme.getColor('grey');
+  background: theme.getColor("grey");
 
   border-radius: 16px;
 

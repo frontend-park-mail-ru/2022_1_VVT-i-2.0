@@ -1,151 +1,151 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
-@mixin flex-center () {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .page-header {
-    display: flex;
-    position: fixed;
-    justify-content: space-between;
-    top: 0;
-    left: 0;
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
 
-    width: 100%;
-    height: 68px;
+  width: 100%;
+  height: 68px;
 
-    z-index: 1;
-    font-weight: bold;
-    border-bottom: 1px solid #b9b9b9;
+  z-index: 1;
+  font-weight: bold;
+  border-bottom: 1px solid #b9b9b9;
 
-    &__color-white {
-        background: theme.getColor('white');
-    }
-    &__color-grey {
-        background: theme.getColor('grey');
-    }
+  &__color-white {
+    background: theme.getColor("white");
+  }
+  &__color-grey {
+    background: theme.getColor("grey");
+  }
 }
 
 .page-header__button {
-    @include flex-center ();
-    flex: 1 1 auto;
-    cursor: pointer;
+  @include flex-center();
+  flex: 1 1 auto;
+  cursor: pointer;
 
-    border-left: 1px solid #b9b9b9;
-    border-right: 1px solid #b9b9b9;
+  border-left: 1px solid #b9b9b9;
+  border-right: 1px solid #b9b9b9;
 
-    @media screen and (orientation: portrait) and (max-width: 1375px),
+  @media screen and (orientation: portrait) and (max-width: 1375px),
     screen and (orientation: landscape) and (max-width: 920px) {
-        width: 80px;
-        flex-direction: column;
-    }
+    width: 80px;
+    flex-direction: column;
+  }
 
-    @media screen and (orientation: landscape) and (min-width: 920px) {
-        width: 160px;
-    }
+  @media screen and (orientation: landscape) and (min-width: 920px) {
+    width: 160px;
+  }
 }
 
-.page-header__button:nth-child(n+1) {
-    margin-left: -1px;
+.page-header__button:nth-child(n + 1) {
+  margin-left: -1px;
 }
 
 .page-header__main-button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 
-    @media screen and (max-width: 920px) {
-        display: none;
-    }
-    // max-width: 160px;
+  @media screen and (max-width: 920px) {
+    display: none;
+  }
+  // max-width: 160px;
 }
 
 .main-button__img {
-    height: 24px;
+  height: 24px;
 }
 
 .main-button__controller {
-    margin-left: 3px;
+  margin-left: 3px;
 }
 
 .page-header__back-button {
-    max-width: 190px;
+  max-width: 190px;
 
-    & a {
-        margin-top: auto;
-        margin-bottom: auto;
-        margin-left: 20px;
-    }
+  & a {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+  }
 }
 
 .button__controller {
+  @media screen and (orientation: landscape) and (min-width: 1230px) {
+    margin-left: 10px;
+  }
+
+  &_with-price {
+    font-size: 17px;
+    color: #000000;
+    //color: #323232;
+
     @media screen and (orientation: landscape) and (min-width: 1230px) {
-        margin-left: 10px;
+      margin-left: 15px;
     }
-
-    &_with-price {
-        font-size: 17px;
-        color: #000000;
-        //color: #323232;
-
-        @media screen and (orientation: landscape) and (min-width: 1230px) {
-            margin-left: 15px;
-        }
-    }
+  }
 }
 
 .page-header__button-search {
-    flex: 30 1 auto;
+  flex: 30 1 auto;
 }
 
 .page-header__address-img {
-    @media screen and (orientation: portrait) and (max-width: 620px) {
-        display: none;
-    }
+  @media screen and (orientation: portrait) and (max-width: 620px) {
+    display: none;
+  }
 }
 
 .page-header__suggests-input {
-    all: unset;
+  all: unset;
 
-    @media screen and (orientation: portrait) and (max-width: 620px) {
-        width: 110px;
-    }
+  @media screen and (orientation: portrait) and (max-width: 620px) {
+    width: 110px;
+  }
 
-    @media screen and (orientation: landscape) and (min-width: 1230px) {
-        width: 500px;
-        margin-left: 15px;
-    }
+  @media screen and (orientation: landscape) and (min-width: 1230px) {
+    width: 500px;
+    margin-left: 15px;
+  }
 }
 
 .button__avatar-img {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 
-    border-radius: 15px;
-    border: 1px solid theme.getColor('warm');
+  border-radius: 15px;
+  border: 1px solid theme.getColor("warm");
 }
 
 .page-header__button-cart {
-    &_green {
-        background: #17d685;
-
-        @media screen and (orientation: portrait) and (max-width: 620px) {
-            width: 80px;
-        }
-
-        @media screen and (orientation: landscape) and (min-width: 1230px) {
-            min-width: 160px;
-        }
-    }
+  &_green {
+    background: #17d685;
 
     @media screen and (orientation: portrait) and (max-width: 620px) {
-        width: 80px;
+      width: 80px;
     }
 
     @media screen and (orientation: landscape) and (min-width: 1230px) {
-        min-width: 160px;
+      min-width: 160px;
     }
+  }
+
+  @media screen and (orientation: portrait) and (max-width: 620px) {
+    width: 80px;
+  }
+
+  @media screen and (orientation: landscape) and (min-width: 1230px) {
+    min-width: 160px;
+  }
 }

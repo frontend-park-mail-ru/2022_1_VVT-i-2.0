@@ -1,17 +1,17 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
-@mixin flex-left () {
-  display:flex;
+@mixin flex-left() {
+  display: flex;
   align-items: center;
 }
 
-@mixin comment-static-sets () {
+@mixin comment-static-sets() {
   border: none;
   font-weight: bold;
   outline: none;
   word-break: break-all;
   overflow-y: auto;
-  clear:both;
+  clear: both;
   resize: none;
 }
 
@@ -31,12 +31,11 @@
 
   height: 100%;
 
-
   @media screen and (orientation: landscape) and (min-width: 920px) {
     margin-right: 22%;
   }
-  @media screen and (orientation:portrait) and (max-width: 438px),
-  screen and (orientation:landscape) and (max-height: 438px) {
+  @media screen and (orientation: portrait) and (max-width: 438px),
+    screen and (orientation: landscape) and (max-height: 438px) {
     width: 90%;
     margin-right: auto;
     margin-left: auto;
@@ -61,8 +60,8 @@
     height: 722px;
 
     border-radius: 10px;
-    background: theme.getColor('white');
-    border: 1px solid theme.getColor('grey');
+    background: theme.getColor("white");
+    border: 1px solid theme.getColor("grey");
 
     &:last-child {
       display: flex;
@@ -71,11 +70,11 @@
   }
 }
 
-.input-block:nth-child(n+4):nth-child(-n+7) {
+.input-block:nth-child(n + 4):nth-child(-n + 7) {
   display: inline-block;
 }
 
-.input-block:nth-child(-n+3) {
+.input-block:nth-child(-n + 3) {
   margin-bottom: 13px;
 }
 
@@ -118,7 +117,7 @@
 }
 
 .ordering-block__comment-block {
-  @include flex-left ();
+  @include flex-left();
   height: 65px;
 
   @media screen and (orientation: portrait) and (max-width: 920px) {
@@ -131,11 +130,11 @@
     padding: 10px 10px 10px 55px;
   }
 
-  @include comment-static-sets ();
+  @include comment-static-sets();
 
   border-radius: 6px;
   background: rgba(222, 222, 222, 0.3);
-  color: theme.getColor('black');
+  color: theme.getColor("black");
 
   margin-bottom: 30px;
 
@@ -153,8 +152,8 @@
   margin-bottom: 20px;
   margin-top: 40px;
 
-  @media screen and (orientation:portrait) and (max-width: 438px),
-  screen and (orientation:landscape) and (max-height: 438px) {
+  @media screen and (orientation: portrait) and (max-width: 438px),
+    screen and (orientation: landscape) and (max-height: 438px) {
     text-align: center;
     font-size: 25px;
     font-weight: bold;
