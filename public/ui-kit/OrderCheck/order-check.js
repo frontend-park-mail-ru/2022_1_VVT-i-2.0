@@ -27,7 +27,7 @@ const orderCheck = (props, toShowNotify = true, IsOrderingPage = true) => {
             <div class="payment-info__price">500 ₽</div>
           </div>
           <div class="order-check__payment-info">
-            <div>Сервисный сбор</div>
+            <div>Суммарная скидка</div>
             <div class="payment-info__price">500 ₽</div>
           </div>
     

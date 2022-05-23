@@ -206,6 +206,10 @@ const STORE = {
             order: [],
           };
 
+    if (cart.order.length) {
+      this.flushCachedCartWithDiscounts();
+    }
+
     const index = cart.order.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {
       cart.order.push({ id, price: price, count: count });
