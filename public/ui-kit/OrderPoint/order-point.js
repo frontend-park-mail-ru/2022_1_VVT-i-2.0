@@ -8,7 +8,9 @@ const orderPoint = (
   count,
   price,
   id,
-  toShowButtons = true
+  toShowButtons = true,
+  promoCodeApplied = false,
+  discount = 0
 ) => {
   const template = `
         <section class="shopping-cart__order-point">
@@ -18,10 +20,16 @@ const orderPoint = (
             <div class="order-point__point-info">
                 <div class="point-info__dish-info">
                     <div>{{productName}}</div>
-                    <div class="dish-info__price-bold">{{price}} ₽</div>
+                    <div class="{{#promoCodeApplied}}dish-info__price-bold_crossed-out{{/promoCodeApplied}}
+                                {{^promoCodeApplied}}dish-info__price-bold{{/promoCodeApplied}}">{{price}} ₽</div>
                 </div>
-                <div class="point-info__ingredients">
+                <div class="point-info__additional-info">
+                  <div class="additional-info__ingredients">
                     {{weight}} г · {{info}} ккал
+                  </div>
+                  {{#promoCodeApplied}}
+                    <div class="additional-info__discount-price">{{priceWithDiscount}} ₽</div>
+                  {{/promoCodeApplied}}
                 </div>
                 
                 {{#toShowButtons}}
@@ -48,7 +56,9 @@ const orderPoint = (
     info,
     count,
     price,
+    priceWithDiscount: Math.round(price * (1 - discount)),
     toShowButtons,
+    promoCodeApplied,
     addButton() {
       return UIKIT.addRemoveButton("addPoint", "incrementDishCount", id);
     },

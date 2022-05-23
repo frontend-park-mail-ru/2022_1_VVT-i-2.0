@@ -6,7 +6,7 @@ const header = (isOrderingPage = false) => {
   const address = localStorage.getItem("address");
   const avatar = getters.getAvatar();
   const emptyShopCart = getters.IsCartEmpty();
-  const totalOrderPrice = getters.cart().totalPrice;
+  const totalOrderPrice = getters.cart().totalPriceWithDiscount || getters.cart().totalPrice;
   const isSearchActivated = getters.getSearchStatus();
 
   const currentRestName = getters.currentRestName();

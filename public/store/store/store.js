@@ -31,6 +31,7 @@ const STORE = {
   dishes: {},
   cart: {
     totalPrice: 0,
+    totalPriceWithDiscount: 0,
     order: [],
   },
   cachedCartWithDiscounts: {
@@ -103,7 +104,8 @@ const STORE = {
       restName === this.currentRestName
         ? this.cart
         : {
-            totalPrice: 0,
+          totalPrice: 0,
+          totalPriceWithDiscount: 0,
             order: [],
           };
 
@@ -113,12 +115,13 @@ const STORE = {
 
     const index = cart.order.findIndex((orderPoint) => orderPoint.id === id);
     if (index === -1) {
-      cart.order.push({ id, price: price, count: count });
+      cart.order.push({ id, price, count });
     } else {
       cart.order[index].count = cart.order[index].count + 1;
     }
 
     cart.totalPrice += price * count;
+    cart.totalPriceWithDiscount += count * (Math.round(price * (1 - this.appliedPromoCode.discount)));
 
     this.currentRestName = restName;
     this.cart = cart;
@@ -132,6 +135,7 @@ const STORE = {
   flushCurrentCartWithDiscounts() {
     this.cart = {
       totalPrice: 0,
+      totalPriceWithDiscount: 0,
       order: [],
     };
     this.appliedPromoCode = {};
@@ -139,6 +143,7 @@ const STORE = {
   flushCachedCartWithDiscounts() {
     this.cachedCartWithDiscounts.cart = {
       totalPrice: 0,
+      totalPriceWithDiscount: 0,
       order: [],
     };
     this.cachedCartWithDiscounts.appliedPromoCode = {};
@@ -162,7 +167,8 @@ const STORE = {
     }
 
     cart.order[index].count += 1;
-    cart.totalPrice += cart.order[index].price * 1;
+    cart.totalPrice += cart.order[index].price;
+    cart.totalPriceWithDiscount += Math.round(cart.order[index].price * (1 - this.appliedPromoCode.discount));
 
     this.cart = cart;
   },
@@ -175,7 +181,8 @@ const STORE = {
     }
 
     cart.order[index].count -= 1;
-    cart.totalPrice -= cart.order[index].price * 1;
+    cart.totalPrice -= cart.order[index].price;
+    cart.totalPriceWithDiscount += Math.round(cart.order[index].price * (1 - this.appliedPromoCode.discount));
 
     if (cart.order[index].count < 1) {
       cart.order.splice(index, 1);
@@ -187,6 +194,7 @@ const STORE = {
     this.currentRestName = "";
     this.cart = {
       totalPrice: 0,
+      totalPriceWithDiscount: 0,
       order: [],
     };
   },

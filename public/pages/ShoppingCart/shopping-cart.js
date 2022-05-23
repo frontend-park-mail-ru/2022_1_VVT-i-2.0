@@ -36,10 +36,13 @@ const shoppingCartPage = (app, store) => {
     ? dishObj.restName
     : store.getters.appliedPromoCode().restName;
 
+  console.log(properties);
+
   app.modal.innerHTML = components.shoppingCart(
     restName,
     properties,
-    store.getters.appliedPromoCode().promocode
+    store.getters.appliedPromoCode() ? store.getters.appliedPromoCode().promocode : null,
+    store.getters.appliedPromoCode ? store.getters.appliedPromoCode().discount : null
   );
 };
 

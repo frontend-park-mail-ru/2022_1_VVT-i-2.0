@@ -2,7 +2,7 @@ import UIKIT from "../../ui-kit/import.js";
 import COLORS from "../../configurations/colors/colors.js";
 import ELEMS_CONFIGURATION from "../../configurations/elems.js";
 
-const shoppingCart = (restName, props, promoCode) => {
+const shoppingCart = (restName, props, promoCode, discount = 0) => {
   let promoCodeApplied = false;
   if (promoCode) {
     promoCodeApplied = true;
@@ -45,7 +45,9 @@ const shoppingCart = (restName, props, promoCode) => {
         this.count,
         this.price,
         this.id,
-        true
+        true,
+        promoCodeApplied,
+        discount
       );
     },
     buttonOrder() {
