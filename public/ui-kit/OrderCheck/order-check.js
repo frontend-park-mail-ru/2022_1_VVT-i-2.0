@@ -1,7 +1,7 @@
 import UIKIT from "../../ui-kit/import.js";
 
 const orderCheck = (props, toShowNotify = true, IsOrderingPage = true) => {
-  const isEmpty = (props.total || props.totalPrice) === 0;
+  const isEmpty = props.totalPrice === 0;
 
   const template = `        
         <div class="ordering-page__order-check
@@ -49,7 +49,7 @@ const orderCheck = (props, toShowNotify = true, IsOrderingPage = true) => {
 
   return Mustache.render(template, {
     restName: props.restName,
-    total: props.total || props.totalPrice,
+    totalPrice: props.totalPrice,
     orderPoints: props.orderPoints,
     minPrice: props.minPrice || 0,
     isEmpty,
@@ -68,10 +68,10 @@ const orderCheck = (props, toShowNotify = true, IsOrderingPage = true) => {
       );
     },
     paymentNotification() {
-      if (this.total - 1000 < this.minPrice) {
+      if (this.totalPrice - 1000 < this.minPrice) {
         return UIKIT.paymentNotification(
           "Закажите ещё на " +
-            String(this.minPrice - (this.total - 1000)) +
+            String(this.minPrice - (this.totalPrice - 1000)) +
             " ₽ для бесплатной доставки",
           false
         );

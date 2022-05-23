@@ -41,7 +41,7 @@ const ordering = (app, store) => {
     phone,
     restName: dishObj.restName,
     orderPoints,
-    total: cart.totalPrice,
+    totalPrice: cart.totalPrice,
     minPrice,
   });
 

@@ -36,8 +36,6 @@ const shoppingCartPage = (app, store) => {
     ? dishObj.restName
     : store.getters.appliedPromoCode().restName;
 
-  console.log(properties);
-
   app.modal.innerHTML = components.shoppingCart(
     restName,
     properties,
