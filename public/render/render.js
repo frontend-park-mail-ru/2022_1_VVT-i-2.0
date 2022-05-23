@@ -9,6 +9,7 @@ import {
   restaurants,
 } from "../store/getters/getters";
 import UIKIT from "../ui-kit/import.js";
+import { insertOldCart } from "../store/actions/actions";
 
 export const APP = {
   root: document.getElementById("root"),
@@ -207,6 +208,14 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
   //   sessionStorage.removeItem("params");
   //   store.actions.clearRestaurants();
   // }
+
+  if (urn.substring(0, 7) !== '/dishes' && urn.substring(0, 13) !== '/shoppingCart') {
+    const currOrder = store.getters.cart().order;
+    const cachedOrder = store.getters.cachedCartWithDiscounts().cart.order;
+    if ((!currOrder || !currOrder.length) && cachedOrder && cachedOrder.length) {
+      store.actions.insertOldCart();
+    }
+  }
 
   if (Object.keys(store.getters.appliedPromoCode()).length === 0 && urn === "/shoppingCart" && IsCartEmpty()) {
     return;

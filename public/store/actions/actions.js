@@ -110,6 +110,14 @@ export const applyPromoCode = (promoCode) => {
   STORE.setAppliedPromoCode(promoCode);
 }
 
+export const addCartWithDiscountsToCache = () => {
+  STORE.setCachedCartWithDiscounts();
+}
+
+export const insertOldCart = () => {
+  STORE.applyOldCartWithDiscounts();
+}
+
 export const openSameOrderByTimeout = (result) => {
   STORE.addCertainOrder(result);
 }

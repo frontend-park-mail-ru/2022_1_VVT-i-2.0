@@ -116,6 +116,10 @@ const STORE = {
     totalPrice: 0,
     order: [],
   },
+  cachedCartWithDiscounts: {
+    cart: {},
+    appliedPromoCode: {}
+  },
   orderList: [],
   promoCodes: [],
   appliedPromoCode: {},
@@ -220,6 +224,30 @@ const STORE = {
     });
     this.currentRestName = restName;
   },
+  flushCurrentCartWithDiscounts() {
+    this.cart = {
+      totalPrice: 0,
+      order: [],
+    };
+    this.appliedPromoCode = {};
+  },
+  flushCachedCartWithDiscounts() {
+    this.cachedCartWithDiscounts.cart = {
+      totalPrice: 0,
+      order: [],
+    };
+    this.cachedCartWithDiscounts.appliedPromoCode = {};
+  },
+  setCachedCartWithDiscounts() {
+    this.cachedCartWithDiscounts.cart = this.cart;
+    this.cachedCartWithDiscounts.appliedPromoCode = this.appliedPromoCode;
+    this.flushCurrentCartWithDiscounts();
+  },
+  applyOldCartWithDiscounts() {
+    this.cart = this.cachedCartWithDiscounts.cart;
+    this.appliedPromoCode = this.cachedCartWithDiscounts.appliedPromoCode;
+    this.flushCachedCartWithDiscounts();
+  },
   incrementDishCount(id) {
     const cart = this.cart;
 
@@ -319,7 +347,7 @@ const PROXY_STORE = new Proxy(STORE, {
   set(target, prop, value) {
     target[prop] = value;
 
-    if (['token', 'appliedPromoCode'].includes(prop)) {
+    if (['token', 'appliedPromoCode', 'cachedCartWithDiscounts'].includes(prop)) {
       return true;
     }
 
