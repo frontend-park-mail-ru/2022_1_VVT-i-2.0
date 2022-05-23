@@ -1,10 +1,14 @@
 import components from "../../components/import.js";
 
-/**
- * @function Рендерит страницу по входящему объекту приложения.
- * @param {Object} app - Объект приложения.
- */
+const isEmpty = (obj) => {
+  return Object.keys(obj).length === 0;
+}
+
 const shoppingCartPage = (app, store) => {
+  if (isEmpty(store.getters.appliedPromoCode()) && isEmpty(store.getters.dishes())) {
+    return;
+  }
+
   const currentRestName = store.getters.currentRestName();
 
   let dishObj = { restName: "", dishes: [] };
@@ -25,7 +29,9 @@ const shoppingCartPage = (app, store) => {
     return { ...dishObj.dishes[index], price, count };
   });
 
-  app.modal.innerHTML = components.shoppingCart(dishObj.restName, properties);
+  const restName = dishObj ? dishObj.restName : store.getters.appliedPromoCode().restName;
+
+  app.modal.innerHTML = components.shoppingCart(restName, properties, store.getters.appliedPromoCode().promocode);
 };
 
 export default shoppingCartPage;

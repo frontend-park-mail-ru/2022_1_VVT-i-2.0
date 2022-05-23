@@ -1,7 +1,9 @@
 import * as FORM from "../../common/status-form.js";
-import { hideEmptyInputs, showEmptyInputs } from "../../common/status-form.js";
-import { renderAndUpdateURN } from "../../../render/render.js";
-import { avatar } from "../../../store/store/store";
+import { showEmptyInputs } from "../../common/status-form.js";
+import { renderAndUpdateURN, renderNotification } from "../../../render/render.js";
+import {getSearchStatus} from "../../../store/getters/getters";
+import {changeSearchStatus} from "../../../store/actions/actions";
+import { confirmCodeError } from "../confirmCode/confirm-code-src";
 
 export const getButtonEvents = () => {
   return {
@@ -35,7 +37,14 @@ export const getButtonEvents = () => {
 
           store.actions
             .sendCode(phone)
-            .then((result) => renderAndUpdateURN("/confirmCode"));
+            .then((result) => {
+              if (!result.registered) {
+                renderNotification('Пользователь с таким номером не зарегистрирован', true);
+                return;
+              }
+
+              renderAndUpdateURN("/confirmCode");
+            });
         },
       },
     ],
@@ -45,10 +54,8 @@ export const getButtonEvents = () => {
         selector: "id",
         listener(app, store, e) {
           const logicType = sessionStorage.getItem("logicType");
-          sessionStorage.removeItem("logicType");
 
           let phone = sessionStorage.getItem("phone");
-          sessionStorage.removeItem("phone");
 
           phone = phone.replace("+", "");
           phone = phone.replace("(", "");
@@ -56,21 +63,31 @@ export const getButtonEvents = () => {
           phone = phone.replaceAll("-", "");
 
           const name = sessionStorage.getItem("name");
-          sessionStorage.removeItem("name");
-
           const email = sessionStorage.getItem("email");
-          sessionStorage.removeItem("email");
-
           const code = document.getElementById("confirmCode").children[0].value;
 
           if (logicType === "login") {
             store.actions
               .login({ phone, code })
-              .then(() => renderAndUpdateURN("/"));
+              .then(() => {
+                sessionStorage.removeItem("logicType");
+                sessionStorage.removeItem("phone");
+                sessionStorage.removeItem("name");
+                sessionStorage.removeItem("email");
+                renderAndUpdateURN("/");
+              })
+              .catch(() => confirmCodeError.confirmCodeErrorShow('Неверный код подтверждения'));
           } else if (logicType === "register") {
             store.actions
               .register({ phone, code, email, name })
-              .then(() => renderAndUpdateURN("/"));
+              .then(() => {
+                sessionStorage.removeItem("logicType");
+                sessionStorage.removeItem("phone");
+                sessionStorage.removeItem("name");
+                sessionStorage.removeItem("email");
+                renderAndUpdateURN("/");
+              })
+              .catch(() => confirmCodeError.confirmCodeErrorShow('Неверный код подтверждения'));
           }
         },
       },
@@ -89,7 +106,9 @@ export const getButtonEvents = () => {
 
           store.actions
             .sendCode(phone)
-            .then((result) => renderAndUpdateURN("/confirmCode"));
+            .then((result) =>  {
+              renderAndUpdateURN("/confirmCode");
+            });
         },
       },
     ],
@@ -144,7 +163,14 @@ export const getButtonEvents = () => {
 
           store.actions
             .sendCode(phone)
-            .then((result) => renderAndUpdateURN("/confirmCode"));
+            .then((result) => {
+              if (result.registered) {
+                renderNotification('Пользователь с таким номером уже зарегистрирован', true);
+                return;
+              }
+
+              renderAndUpdateURN("/confirmCode");
+            });
         },
       },
     ],
@@ -156,6 +182,24 @@ export const getButtonEvents = () => {
           const input = document.getElementById("avatarUpload");
           input.click();
         },
+      },
+    ],
+    searchButton: [
+      {
+        type: "click",
+        selector: "id",
+        listener(app, store, e) {
+          store.actions.changeSearchStatus();
+          const searchInput = document.getElementById('searchInput');
+          searchInput.focus();
+        }
+      },
+      {
+        type: "click",
+        selector: "id",
+        listener(app, store, e) {
+          sessionStorage.setItem('searchButtonClicked', 'true');
+        }
       },
     ],
     personInfoSaveButton: [
@@ -172,11 +216,18 @@ export const getButtonEvents = () => {
           const input = document.getElementById("avatarUpload");
 
           let dt = new DataTransfer();
-          dt.items.add(avatar);
-          input.files = dt.files;
+          const avatar = JSON.parse(sessionStorage.getItem('avatar'));
+          if (avatar && Object.keys(avatar).length > 0) {
+            dt.items.add(avatar);
+            input.files = dt.files;
+            sessionStorage.removeItem('avatar');
+          }
 
           const obj = new FormData(personInfoForm);
-          store.actions.updateUser(obj).then(() => renderAndUpdateURN("/"));
+          store.actions.updateUser(obj).then(() => {
+            renderAndUpdateURN("/profile");
+            renderNotification("Изменения успешно сохранены");
+          });
         },
       },
     ],
@@ -204,18 +255,38 @@ export const getButtonEvents = () => {
           const flat =
             document.getElementById("orderingFlat").children[0].value;
 
-          address = `${address}, подъезд ${entrance}, домофон ${intercom}, этаж ${floor}, квартира ${flat}`;
-
           const comment = document.getElementById("orderingComment").innerText;
 
-          const cart = store.getters.cart();
+          const order = store.getters.cart().order;
 
-          store.actions.createOrder({ address, comment, cart }).then(() => {
-            renderAndUpdateURN("/");
-            alert("Заказ успешно создан");
+          store.actions.createOrder({ address, entrance, intercom, floor, flat, comment, cart: order }).then(() => {
+            renderAndUpdateURN("/orderHistory");
+            renderNotification("Заказ успешно создан");
           });
         },
       },
     ],
+    createComment: [
+      {
+        type: "click",
+        selector: "id",
+        listener(app, store, e) {
+          const slug = sessionStorage.getItem("params");
+          if (!slug) {
+            return;
+          }
+
+          const starsBlock = document.getElementById('starsBlock');
+
+          const text = document.getElementById('comment').value;
+          const stars = parseInt(starsBlock.dataset.count, 10);
+
+          store.actions.createComment({ slug, text, stars }).then(() => {
+            renderAndUpdateURN(`/comments/${slug}`);
+            renderNotification("Комментарий успешно создан");
+          });
+        }
+      }
+    ]
   };
 };

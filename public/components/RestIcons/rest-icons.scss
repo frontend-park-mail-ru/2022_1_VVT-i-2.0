@@ -2,9 +2,18 @@
 
 .restaurants-form {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 50px;
+    // margin-top: 50px;
+    max-width: 1500px;
+
+    @media screen and (orientation: portrait) and (max-width: 815px) {
+        margin-top: 0;
+    }
+
+    @media screen and (orientation: landscape) and (min-width: 815px) {
+        margin-top: 30px;
+    }
 }
 
 .restaurants-form__rest_icon {
@@ -12,8 +21,18 @@
     flex-direction: column;
     flex-wrap: wrap;
 
+    margin-right: 2%;
+    margin-bottom: 24px;
+
     align-content: center;
-    margin-bottom: 70px;
+
+    // @media screen and (orientation: portrait) and (max-width: 815px) {
+    //     margin: auto;
+    // }
+
+    // @media screen and (orientation: landscape) and (min-width: 815px) {
+    //     margin-bottom: 70px;
+    // }
 
     width: 343px;
     height: 278px;

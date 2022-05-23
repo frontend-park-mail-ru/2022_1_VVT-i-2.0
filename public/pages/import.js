@@ -9,6 +9,9 @@ import shoppingCartPage from "./ShoppingCart/shopping-cart.js";
 import orderingPage from "./Ordering/ordering.js";
 import suggestsPage from "./Suggests/suggests.js";
 import networkErrors from "./NetworkErrors/network-errors.js";
+import orderHistoryPage from "./OrderHistory/order-history";
+import commentsPage from "./Comments/comments.js";
+import createCommentPage from "./CreateComment/create-comment.js";
 
 const MENU = {
   main: {
@@ -62,17 +65,32 @@ const MENU = {
     isModal: false,
     authRequired: true,
   },
+  orderHistory: {
+    render: orderHistoryPage,
+    isModal: false,
+    authRequired: true,
+  },
   suggests: {
     render: suggestsPage,
     isModal: true,
     position: "modal-top",
-    authRequired: true,
+    authRequired: false,
   },
   networkErrors: {
     render: networkErrors,
     isModal: false,
     authRequired: false,
   },
+  comments: {
+    render: commentsPage,
+    isModal: false,
+    authRequired: false,
+  },
+  createComment: {
+    render: createCommentPage,
+    isModal: false,
+    authRequired: true
+  }
 };
 
 export default MENU;

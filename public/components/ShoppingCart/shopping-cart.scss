@@ -5,7 +5,14 @@
     flex-direction: column;
     position: relative;
 
-    width: 321px;
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+    }
+
+    @media screen and (min-width: 1000px) {
+        width: 400px;
+    }
+
     height: 100%;
 
     background: theme.getColor('white');
@@ -14,8 +21,8 @@
 }
 
 .shopping-cart__preview-rest {
-    width: 60%;
-    max-width: 312px;
+    // width: 60%;
+    max-width: 365px;
 
     text-align: center;
     margin-left: auto;
@@ -23,13 +30,22 @@
 }
 
 .shopping-cart__info-about-rest {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 350px;
     padding: 10px;
-    margin-left: 4px;
 }
 
 .shopping-cart__order-points {
-    height: 800px;
-    width: 314px;
+    @media screen and (orientation:portrait) and (min-width: 438px),
+    screen and (orientation:landscape) and (min-height: 438px) {
+        height: 85.3%;
+    }
+    @media screen and (orientation:portrait) and (max-width: 438px),
+    screen and (orientation:landscape) and (max-height: 438px) {
+        height: 800px;
+    }
+    width: 365px;
     overflow-y: auto;
     overflow-x: hidden;
     margin-right: auto;
@@ -41,8 +57,7 @@
 }
 
 .shopping-cart__button-order {
-    position: absolute;
-    left: 5px;
-    right: auto;
-    bottom: 5px;
+    position: static;
+    margin: auto;
+    margin-bottom: 50px;
 }

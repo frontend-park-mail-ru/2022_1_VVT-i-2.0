@@ -12,6 +12,14 @@ import paymentNotification from "./PaymentNotification/payment-notification.js";
 import buttonPay from "./ButtonPay/button-pay.js";
 import underlinedTitle from "./UnderlinedTitle/underlined-title.js";
 import simpleTitle from "./SimpleTitle/simple-title";
+import orderStatus from "./OrderStatus/order-status";
+import orderCheck from "./OrderCheck/order-check";
+import category from "./Category/category.js";
+import commentsBlock from "./CommentsBlock/comments-block.js";
+import comment from "./Comment/comment.js";
+import notification from "./Notification/notification.js";
+import searchBlock from "./SearchBlock/search-block";
+import promoCodeIcon from "./PromoCodeIcon/promo-code-icon";
 
 export default {
   simpleButton,
@@ -28,4 +36,12 @@ export default {
   buttonPay,
   underlinedTitle,
   simpleTitle,
+  orderStatus,
+  orderCheck,
+  category,
+  commentsBlock,
+  comment,
+  notification,
+  searchBlock,
+  promoCodeIcon
 };

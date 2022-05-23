@@ -1,0 +1,77 @@
+.order {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    height: 520px;
+  }
+  padding-top: 5px;
+
+  text-align: center;
+  justify-items: center;
+}
+
+.order__main-content {
+  display: flex;
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    flex-direction: row;
+    max-height: 514px;
+  }
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    flex-direction: column;
+  }
+}
+
+.comment-block__address {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-content__order-list {
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    max-width: 55%;
+  }
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    max-width: 100%;
+  }
+}
+
+.main-content__comment-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  max-width: 100%;
+}
+
+.comment-block__address {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 220px;
+}
+
+@media screen and (orientation:portrait) and (max-width: 438px),
+screen and (orientation:landscape) and (max-height: 438px) {
+  .comment__comment-explanation {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .comment-button {
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

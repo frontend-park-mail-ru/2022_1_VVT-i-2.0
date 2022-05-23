@@ -1,0 +1,122 @@
+@mixin discount() {
+  display: flex;
+  flex-direction: column;
+  background: rgb(158, 164, 162, 0.6);
+}
+
+.promo-code-block {
+  display: flex;
+  flex-direction: column;
+  height: 140px;
+  justify-content: space-between;
+}
+
+.promo-code-block__promo-code-icon {
+  display: flex;
+  flex-direction: row;
+
+  width: 190px;
+  height: 100px;
+
+  overflow: hidden;
+  background-size: cover;
+  border-radius: 14px;
+
+  margin-right: 20px;
+}
+
+.promo-code-icon__discount {
+  &_large-description {
+    width: 94px;
+    height: calc(100% - 10px);
+
+    padding-left: 4px;
+    padding-top: 10px;
+    @include discount();
+  }
+
+  &_small-description {
+    min-width: 74px;
+    height: 56px;
+
+    border-radius: 0 0 10px 0;
+    padding-left: 6px;
+    @include discount();
+  }
+}
+
+.large-description__text {
+  width: 96px;
+  height: 80px;
+
+  font: 16px 'Aclonica', sans-serif;
+  color: white;
+  text-align: left;
+}
+
+.small-description__text {
+  font: 20px 'Aclonica', sans-serif;
+  color: white;
+  text-align: left;
+  margin: auto;
+}
+
+.promo-code-icon__additional-info {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  padding-right: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.additional-info {
+  &__restaurant-logo {
+    height: min-content;
+    text-align: right;
+  }
+
+  &__promo-code {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    height: 100%;
+    padding-right: 3px;
+  }
+}
+
+.promo-code {
+  &_position {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  &__dice {
+    //width: 66px;
+    height: 24px;
+
+    background: white;
+    border-radius: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
+
+.dice__code {
+  font: 16px 'Abhaya Libre', serif;
+  color: #4B90EB;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.promo-code-block__rest-name {
+  width: 190px;
+  font: 18px 'Roboto', 'sans-serif';
+  color: black;
+  font-weight: 900;
+
+  text-align: center;
+}

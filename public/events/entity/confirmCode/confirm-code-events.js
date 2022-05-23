@@ -14,7 +14,7 @@ export const getConfirmCodeFieldEvents = (elemID, statusForm) => {
       },
     },
     {
-      type: "change",
+      type: "input",
       selector: "id",
       listener(app, store, e) {
         FORM.inputDataManager(

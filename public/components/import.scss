@@ -4,10 +4,17 @@
 @use 'ConfirmCodeForm/confirm-code-form.scss';
 @use 'RestIcons/rest-icons.scss';
 @use 'ProfilePreviewForm/profile-preview-form.scss';
+@use 'ProfileTemplate/profile-template.scss';
 @use 'PersonInfoForm/person-info-form.scss';
 @use 'DishesIcons/dishes-icons.scss';
 @use 'PaymentChoice/payment-choice.scss';
 @use 'ShoppingCart/shopping-cart.scss';
 @use 'Ordering/ordering.scss';
+@use 'AdditionalStatusOrderInfo/additional-status-order-info';
 @use 'SuggestsForm/suggests-form.scss';
 @use 'NetworkErrorForm/network-error-form.scss';
+@use 'Categories/categories.scss';
+@use 'Comments/comments.scss';
+@use 'OrderStatusList/order-status-list.scss';
+@use 'CreateCommentForm/create-comment-form.scss';
+@use 'PromoCodeLine/promo-code-line.scss';

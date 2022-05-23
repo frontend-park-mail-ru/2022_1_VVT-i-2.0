@@ -5,7 +5,16 @@
 }
 
 .payment-choice-block__payment-types-block {
-    display: inline-block;
+    @media screen and (orientation:portrait) and (min-width: 438px),
+    screen and (orientation:landscape) and (min-height: 438px) {
+        display: inline-block;
+    }
+    @media screen and (orientation:portrait) and (max-width: 438px),
+    screen and (orientation:landscape) and (max-height: 438px) {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
 
     &:first-child {
         font-weight: bold;
@@ -17,7 +26,15 @@
 
     border-radius: 50px;
     background: theme.getColor('lightGrey');
-    padding: 5px 10px;
+
+    @media screen and (orientation:portrait) and (min-width: 438px),
+    screen and (orientation:landscape) and (min-height: 438px) {
+        padding: 5px 10px;
+    }
+    @media screen and (orientation:portrait) and (max-width: 438px),
+    screen and (orientation:landscape) and (max-height: 438px) {
+        padding: 10px;
+    }
 
     &:not(:first-child) {
         margin-left: 10px;

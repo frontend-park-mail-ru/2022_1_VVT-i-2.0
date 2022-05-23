@@ -1,0 +1,216 @@
+@use 'public/configurations/colors/colors.scss' as theme;
+
+@mixin grey-color () {
+  color: #BEB6AE;
+}
+
+@mixin align-left () {
+  text-align: left;
+}
+
+@mixin vert-center () {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@mixin base-order($max-height) {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    max-width: 700px;
+    max-height: $max-height;
+  }
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    max-width: 100%;
+    max-height: 1500px;
+  }
+  @include vert-center();
+}
+
+.order-info {
+  &_standard {
+    @include base-order(650px);
+  }
+  &_small {
+    @include base-order(440px);
+  }
+}
+
+.order-info__status-block {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-items: center;
+  text-align: center;
+
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    max-width: 100%;
+    max-height: 65px;
+
+    flex-direction: row;
+
+    width: 698px;
+    height: 55px;
+  }
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    max-width: 100%;
+    max-height: 110px;
+
+    flex-direction:column;
+    justify-content: space-around;
+
+    width: 100%;
+    height: 110px;
+  }
+
+  padding-left: 5px;
+
+  font-size: 20px;
+  font-weight: 500;
+  border: 1px solid theme.getColor('grey');
+}
+
+.status-block__elem {
+    &_first,
+    &_second {
+      display: flex;
+      flex-direction: row;
+      @media screen and (orientation:portrait) and (min-width: 438px),
+      screen and (orientation:landscape) and (min-height: 438px) {
+        width: 50%;
+      }
+      @media screen and (orientation:portrait) and (max-width: 438px),
+      screen and (orientation:landscape) and (max-height: 438px) {
+        justify-content: space-between;
+      }
+    }
+}
+
+.order-info__order-number {
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    width: 65px;
+  }
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    width: 65px;
+  }
+  @include align-left ();
+  @include grey-color ();
+  @include vert-center();
+}
+
+.order-info__rest-name {
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    width: 145px;
+  }
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    width: 145px;
+  }
+  @include align-left ();
+  @include vert-center();
+}
+
+.order-info__order-date {
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    width: 140px;
+  }
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    margin-right: 5px;
+  }
+  @include align-left ();
+  @include grey-color ();
+  @include vert-center();
+}
+
+.order-info__order-price {
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    width: 100px;
+  }
+  @media screen and (orientation:portrait) and (max-width: 438px),
+  screen and (orientation:landscape) and (max-height: 438px) {
+    width: 100px;
+  }
+  @include align-left ();
+  @include vert-center();
+}
+
+.order-info__status {
+  display: flex;
+  flex-direction: row;
+
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    width: 180px;
+  }
+}
+
+.status__img {
+  width: 22px;
+  height: 22px;
+  border-radius: 11px;
+  margin-right: 5px;
+  @include vert-center();
+
+  &_in-processing {
+    background: #F66628;
+    @extend .status__img;
+  }
+  &_cooking {
+    background: #FF9F47;
+    @extend .status__img;
+  }
+  &_in-way {
+    background: #EEFF2B;
+    @extend .status__img;
+  }
+  &_received {
+    background: #7EE340;
+    @extend .status__img;
+  }
+}
+
+.status__text {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5px;
+  @include grey-color ();
+  @include vert-center();
+}
+
+.order-info__move-controller {
+  width: 50px;
+  height: 100%;
+
+  padding-right: 10px;
+  @include vert-center();
+}
+
+.buttonOpenClose {
+  width: 33px;
+  cursor: pointer;
+
+  margin-bottom: auto;
+  margin-top: 25%;
+}
+
+.order-info__order-block {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (orientation:portrait) and (min-width: 438px),
+  screen and (orientation:landscape) and (min-height: 438px) {
+    height: 100%;
+    max-height: 490px;
+  }
+}

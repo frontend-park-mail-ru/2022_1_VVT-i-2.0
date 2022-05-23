@@ -2,7 +2,19 @@ import { APP, render, renderAndUpdateURN } from "./render/render.js";
 import * as store from "./store/import";
 import "./index.scss";
 import { IsCartEmpty } from "./store/getters/getters";
-import { clearCart } from "./store/actions/actions";
+
+const NOT_CLOSED_PAGES_BY_CLICK_OUT = ["shoppingCart", "confirmCode"];
+export const DEFAULT_ADDRESS = 'Адрес доставки';
+
+const searchOnClickOutHandler = () => {
+  if (!sessionStorage.getItem('searchBlockClicked')
+    && !sessionStorage.getItem('searchButtonClicked')
+    && document.getElementById('searchBlock')) {
+    document.getElementById('closeImg').click();
+  }
+  sessionStorage.removeItem('searchBlockClicked');
+  sessionStorage.removeItem('searchButtonClicked');
+}
 
 Object.entries(APP).forEach(([name, node]) =>
   node.addEventListener("click", (e) =>
@@ -10,76 +22,118 @@ Object.entries(APP).forEach(([name, node]) =>
   )
 );
 
-window.onpopstate = () => render(location.pathname);
+window.onpopstate = () => {
+  const decodedPathname = decodeURI(location.pathname);
+
+  if (decodedPathname === "/" || decodedPathname === "/main") {
+    sessionStorage.removeItem("params");
+  }
+
+  if (decodedPathname === "/" || decodedPathname.startsWith("/main")) {
+    store.actions.clearRestaurants();
+  }
+
+  render(decodedPathname);
+}
 
 document.addEventListener("click", (e) => {
+  searchOnClickOutHandler();
+
   if (APP.modal.children.length === 0) {
     return;
   }
 
+  const page = sessionStorage.getItem("page");
+
   const { target } = e;
   if (
-    APP.modal.children[0].contains(target) ||
+    APP.modal.children[0].contains(target) && page !== 'suggests' ||
     target.hasAttribute("data-section")
   ) {
     return;
   }
 
-  const page = sessionStorage.getItem("page");
-  if (page === "shoppingCart") {
+  if (target.classList.contains("suggest-form__suggest-address")) {
     return;
   }
 
+  if (NOT_CLOSED_PAGES_BY_CLICK_OUT.includes(page)) {
+    return;
+  }
+
+  if (page === "suggests") {
+    const lastAddress = localStorage.getItem("lastAddress");
+    localStorage.setItem("address", lastAddress);
+    localStorage.removeItem("lastAddress");
+    store.actions.clearSuggests();
+  }
+
   const root = sessionStorage.getItem("root") || "main";
-  renderAndUpdateURN(root);
+  const params = sessionStorage.getItem("params");
+
+  if (params) {
+    renderAndUpdateURN(`/${root}/${params}`);
+  } else {
+    renderAndUpdateURN(root);
+  }
 });
 
 if (!localStorage.getItem("address")) {
-  localStorage.setItem("address", "город Москва, улица Ленина, 21");
+  localStorage.setItem("address", DEFAULT_ADDRESS);
 }
 
-window.onload = () => {
+const handleOnload = () => {
   const stringCart = localStorage.getItem("cart");
   const currentRestName = localStorage.getItem("currentRestName");
   const slug = localStorage.getItem("slug");
 
-  if (stringCart) {
-    const cart = JSON.parse(stringCart);
-
-    if (cart.totalPrice !== 0) {
-      if (!store.getters.dishes().hasOwnProperty(slug)) {
-        store.actions.getDishes(slug);
-      }
-
-      cart.order.forEach((dish) =>
-        store.actions.addDishToCart(
-          dish.id,
-          currentRestName,
-          dish.price,
-          dish.count
-        )
-      );
-    }
-  }
-
   localStorage.removeItem("cart");
   localStorage.removeItem("currentRestName");
   localStorage.removeItem("slug");
+
+  const defaultPromise = new Promise((resolve) => resolve());
+
+  if (!stringCart) {
+    return defaultPromise;
+  }
+
+  const cart = JSON.parse(stringCart);
+  if (cart.totalPrice === 0) {
+    return defaultPromise;
+  }
+
+  store.actions.addCart(cart, currentRestName);
+
+  return store
+    .actions
+    .getDishes(slug, decodedPathname !== "/ordering")
+    .then(() => {
+      if (decodedPathname === "/shoppingCart") {
+        sessionStorage.setItem("root", "dishes");
+        sessionStorage.setItem("params", slug);
+      }
+    })
 };
 
 window.onbeforeunload = () => {
-  const cart = store.getters.cart();
-  if (!IsCartEmpty() && Object.keys(store.getters.user()).length > 0) {
-    const currentRestName = store.getters.currentRestName();
-    const dishes = store.getters.dishes();
-    const slug = Object.keys(dishes).find(
-      (key) => dishes[key].restName === currentRestName
-    );
+  sessionStorage.clear();
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    localStorage.setItem("currentRestName", currentRestName);
-    localStorage.setItem("slug", slug);
+  const cart = store.getters.cart();
+  if (IsCartEmpty() || Object.keys(store.getters.user()).length === 0) {
+    return;
   }
+
+  const currentRestName = store.getters.currentRestName();
+  const dishes = store.getters.dishes();
+  const slug = Object.keys(dishes).find((key) => dishes[key].restName === currentRestName);
+
+  if (!slug) {
+    return;
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("currentRestName", currentRestName);
+  localStorage.setItem("slug", slug);
 };
 
 if ("serviceWorker" in navigator) {
@@ -93,9 +147,12 @@ if ("serviceWorker" in navigator) {
     .catch((err) => console.log(err));
 }
 
-if (Object.keys(store.getters.user()).length === 0) {
-  // render(location.pathname);
-  store.actions.getUser(true).then(() => render(location.pathname));
-} else {
-  render(location.pathname);
-}
+const decodedPathname = decodeURI(location.pathname);
+
+handleOnload().then(() => {
+  if (Object.keys(store.getters.user()).length === 0) {
+    store.actions.getUser().then(() => render(decodedPathname));
+  } else {
+    render(decodedPathname);
+  }
+});

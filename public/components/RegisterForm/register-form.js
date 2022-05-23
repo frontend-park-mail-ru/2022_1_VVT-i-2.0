@@ -12,15 +12,24 @@ const registerForm = () => {
 
   const template = `
         <div id="register-form" class="register-form">
-            <img id="closeImg" class="register-form__close-img" src="/graphics/icons/close.svg">
-            <h2 class="register-form__title">Создать аккаунт</h2>
-            {{#inputConfigurations}}
-                <div class="register-form__input">
-                    {{&input}}
+            <div class="register-form__main-content">
+                <div class="main-content__preview">
+                  <h2 class="preview__title">Создать аккаунт</h2>
+                  <img id="closeImg" class="preview__close-img" src="/graphics/icons/close.svg" alt="">
                 </div>
-            {{/inputConfigurations}}
-            <div id="register-button" class="register-form__button-register">{{&register}}</div>
-            {{&login}}
+                <div>
+                  {{#inputConfigurations}}
+                      <div class="register-form__input">
+                          {{&input}}
+                      </div>
+                  {{/inputConfigurations}}
+                </div>  
+            </div>
+            
+            <div class="register-form__buttons">
+                <div id="register-button" class="register-form__button-register">{{&register}}</div>
+                {{&login}}
+            </div>
         </div>
     `;
 
@@ -28,7 +37,7 @@ const registerForm = () => {
     inputConfigurations: inputConfigurations,
     input() {
       return UIKIT.input(
-        this.underlinedTitle,
+        this.title,
         this.type,
         this.width,
         this.placeholder,
@@ -40,7 +49,7 @@ const registerForm = () => {
         "Регистрация",
         COLORS.primary,
         this.width,
-        "confirmCode",
+        "",
         "registerButton"
       );
     },

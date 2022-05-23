@@ -5,11 +5,16 @@
     align-items: center;
     -webkit-filter: grayscale(0%);
 
-    width: 320px;
+    @media screen and (orientation:portrait) and (min-width: 438px),
+    screen and (orientation:landscape) and (min-height: 438px) {
+        width: 357px;
+    }
+
     height: 59px;
 
     filter: none;
     cursor: pointer;
+
     padding-left: 25px;
 
     &:hover {
