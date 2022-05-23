@@ -5,7 +5,7 @@ const isEmpty = (obj) => {
 }
 
 const shoppingCartPage = (app, store) => {
-  if (isEmpty(store.getters.appliedPromoCode()) || isEmpty(store.getters.dishes())) {
+  if (isEmpty(store.getters.appliedPromoCode()) && isEmpty(store.getters.dishes())) {
     return;
   }
 
