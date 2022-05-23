@@ -4,7 +4,14 @@
   background: rgb(158, 164, 162, 0.6);
 }
 
-.promo-code-icon {
+.promo-code-block {
+  display: flex;
+  flex-direction: column;
+  height: 140px;
+  justify-content: space-between;
+}
+
+.promo-code-block__promo-code-icon {
   display: flex;
   flex-direction: row;
 
@@ -103,4 +110,13 @@
   color: #4B90EB;
   text-align: center;
   margin-top: 4px;
+}
+
+.promo-code-block__rest-name {
+  width: 190px;
+  font: 18px 'Roboto', 'sans-serif';
+  color: black;
+  font-weight: 900;
+
+  text-align: center;
 }
