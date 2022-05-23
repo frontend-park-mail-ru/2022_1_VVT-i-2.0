@@ -1,7 +1,10 @@
 import { renderAndUpdateURN } from "../../../render/render";
 import { getParentNodeDataIdByClass } from "./promo-code-src";
 import { addCartWithDiscountsToCache } from "../../../store/actions/actions";
-import { appliedPromoCode, cachedCartWithDiscounts } from "../../../store/getters/getters";
+import {
+  appliedPromoCode,
+  cachedCartWithDiscounts,
+} from "../../../store/getters/getters";
 
 export const getPromoCodeEvents = () => {
   return [
@@ -9,7 +12,7 @@ export const getPromoCodeEvents = () => {
       type: "click",
       selector: "class",
       listener(app, store, e) {
-        const id = getParentNodeDataIdByClass(e.target, 'promoCode');
+        const id = getParentNodeDataIdByClass(e.target, "promoCode");
         const promos = store.getters.promoCodes();
         if (promos && promos.length > id) {
           const currentOrderState = store.getters.cart().order;
@@ -20,9 +23,7 @@ export const getPromoCodeEvents = () => {
           store.actions.applyPromoCode(promos[id]);
 
           const restSlug = promos[id].restSlug;
-          renderAndUpdateURN('dishes/' + restSlug);
-
-          // store.actions.setCurrentRestName(promos[id].restName);
+          renderAndUpdateURN("dishes/" + restSlug);
           renderAndUpdateURN("/shoppingCart", true);
         }
       },

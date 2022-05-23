@@ -1,4 +1,4 @@
-@mixin flex-left-center () {
+@mixin flex-left-center() {
   display: flex;
   justify-content: left;
   align-items: center;
@@ -8,7 +8,7 @@
   cursor: pointer;
   font-weight: bold;
 
-  @include flex-left-center ();
+  @include flex-left-center();
 
   margin-bottom: 10px;
   margin-top: 25px;

@@ -8,10 +8,9 @@ export const comment = () => {
           const { target } = e;
 
           const count = parseInt(target.dataset.count, 10);
-          const starsBlock = document.getElementById('starsBlock');
+          const starsBlock = document.getElementById("starsBlock");
 
-          Array
-            .from(starsBlock.children)
+          Array.from(starsBlock.children)
             .filter((_, index) => index < count)
             .forEach((node) => {
               node.classList.add("create-comment-form__star");
@@ -19,8 +18,7 @@ export const comment = () => {
               node.src = "/graphics/icons/star.svg";
             });
 
-          Array
-            .from(starsBlock.children)
+          Array.from(starsBlock.children)
             .filter((_, index) => index + 1 > count)
             .forEach((node) => {
               node.classList.add("create-comment-form__outlined-star");
@@ -29,7 +27,7 @@ export const comment = () => {
             });
 
           starsBlock.dataset.count = count;
-        }
+        },
       },
     ],
   };

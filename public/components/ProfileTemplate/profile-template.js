@@ -1,7 +1,7 @@
 import UIKIT from "../../ui-kit/import.js";
 
 const profileTemplate = (title, content, IsPersonInfoForm = false) => {
-    const template = `
+  const template = `
         {{#IsPersonInfoForm}}
         <form id="person-info-form" class="profile-template-form" method="POST" enctype="multipart/form-data">
         {{/IsPersonInfoForm}}
@@ -33,19 +33,19 @@ const profileTemplate = (title, content, IsPersonInfoForm = false) => {
         {{/IsPersonInfoForm}}
     `;
 
-    return Mustache.render(template, {
-        IsPersonInfoForm,
-        content,
-        backButton() {
-            return UIKIT.backButton("Все рестораны", "main");
-        },
-        title() {
-            return UIKIT.underlinedTitle(title);
-        },
-        menu() {
-            return UIKIT.profileMenu();
-        },
-    });
+  return Mustache.render(template, {
+    IsPersonInfoForm,
+    content,
+    backButton() {
+      return UIKIT.backButton("Все рестораны", "main");
+    },
+    title() {
+      return UIKIT.underlinedTitle(title);
+    },
+    menu() {
+      return UIKIT.profileMenu();
+    },
+  });
 };
 
 export default profileTemplate;

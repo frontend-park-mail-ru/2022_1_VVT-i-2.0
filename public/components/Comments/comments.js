@@ -17,9 +17,11 @@ const comments = (rating, commentsArray) => {
     </div>
   `;
   return Mustache.render(template, {
-    rating, commentsArray, comment() {
+    rating,
+    commentsArray,
+    comment() {
       return UIKIT.comment(this.stars, this.text, this.author, this.date);
-    }
+    },
   });
 };
 

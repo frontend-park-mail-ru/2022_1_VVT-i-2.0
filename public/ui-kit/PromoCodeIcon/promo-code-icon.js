@@ -1,6 +1,13 @@
 const smallLengthLimit = 10;
 
-const promoCodeIcon = (promoBackground, discountDescription, restLogoImage, promoCode, positionInStore, restName) => {
+const promoCodeIcon = (
+  promoBackground,
+  discountDescription,
+  restLogoImage,
+  promoCode,
+  positionInStore,
+  restName
+) => {
   let smallDescription = discountDescription.length <= smallLengthLimit;
 
   const template = `
@@ -39,9 +46,13 @@ const promoCodeIcon = (promoBackground, discountDescription, restLogoImage, prom
     </div>
     `;
   return Mustache.render(template, {
-    promoBackground, discountDescription,
-    restLogoImage, promoCode, positionInStore,
-    smallDescription, restName
+    promoBackground,
+    discountDescription,
+    restLogoImage,
+    promoCode,
+    positionInStore,
+    smallDescription,
+    restName,
   });
 };
 

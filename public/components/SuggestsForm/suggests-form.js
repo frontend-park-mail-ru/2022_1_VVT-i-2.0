@@ -29,7 +29,10 @@ const suggestsForm = (props) => {
       {{/suggests}}
     </form>
   `;
-  return Mustache.render(template, { auth: props.auth, suggests: props.suggests });
+  return Mustache.render(template, {
+    auth: props.auth,
+    suggests: props.suggests,
+  });
 };
 
 export default suggestsForm;

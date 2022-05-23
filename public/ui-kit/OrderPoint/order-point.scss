@@ -1,81 +1,79 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .shopping-cart__order-point {
-    display: inline-flex;
-    width: 90%;
+  display: inline-flex;
+  width: 90%;
 
-    background: theme.getColor('white');
-    border: 1px solid theme.getColor('grey');
-    border-radius: 10px;
+  background: theme.getColor("white");
+  border: 1px solid theme.getColor("grey");
+  border-radius: 10px;
 
-    @media screen and (orientation:portrait) and (min-width: 438px),
-    screen and (orientation:landscape) and (min-height: 438px) {
-        margin: 5px auto 5px 10px;
-    }
-    @media screen and (orientation:portrait) and (max-width: 438px),
-    screen and (orientation:landscape) and (max-height: 438px) {
-        margin: 5px auto;
-    }
-    padding: 10px 5px 10px 15px;
+  @media screen and (orientation: portrait) and (min-width: 438px),
+    screen and (orientation: landscape) and (min-height: 438px) {
+    margin: 5px auto 5px 10px;
+  }
+  @media screen and (orientation: portrait) and (max-width: 438px),
+    screen and (orientation: landscape) and (max-height: 438px) {
+    margin: 5px auto;
+  }
+  padding: 10px 5px 10px 15px;
 }
 
 .order-point__img-block {
-    width: 42%;
+  width: 42%;
 }
 
 .order-point__dish-img {
-    @media screen and (orientation:portrait) and (min-width: 438px),
-    screen and (orientation:landscape) and (min-height: 438px) {
-        width: 120px;
-    }
-    @media screen and (orientation:portrait) and (max-width: 438px),
-    screen and (orientation:landscape) and (max-height: 438px) {
-        width: 120px;
-        //margin-right: 10px;
-        //margin-top: 5px;
-    }
+  @media screen and (orientation: portrait) and (min-width: 438px),
+    screen and (orientation: landscape) and (min-height: 438px) {
+    width: 120px;
+  }
+  @media screen and (orientation: portrait) and (max-width: 438px),
+    screen and (orientation: landscape) and (max-height: 438px) {
+    width: 120px;
+  }
 }
 
 .order-point__point-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    width: 58%;
+  width: 58%;
 }
 
 .point-info__dish-info {
-    display: inline-flex;
-    margin-top: 4px;
-    margin-bottom: 6px;
-    color: theme.getColor('black');
+  display: inline-flex;
+  margin-top: 4px;
+  margin-bottom: 6px;
+  color: theme.getColor("black");
 
-    :first-child {
-        width: 70%;
-        text-align: left;
-    }
+  :first-child {
+    width: 70%;
+    text-align: left;
+  }
 
-    &:nth-child(n) {
-        font-weight: bold;
-    }
+  &:nth-child(n) {
+    font-weight: bold;
+  }
 }
 
 .dish-info__price-bold {
-    text-align: right;
-    width: 30%;
+  text-align: right;
+  width: 30%;
 }
 
 .point-info__ingredients {
-    display: inline-flex;
-    color: #C3C3C3;
+  display: inline-flex;
+  color: #c3c3c3;
 
-    margin-top: 5px;
-    margin-bottom: 15px;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 .point-info__edit-quantity {
-    display: inline-flex;
+  display: inline-flex;
 }
 
 .point-info__count-current-point {
-    margin: auto 20px;
+  margin: auto 20px;
 }

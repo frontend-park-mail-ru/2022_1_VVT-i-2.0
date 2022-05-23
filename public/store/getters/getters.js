@@ -2,7 +2,7 @@ import STORE from "../store/store.js";
 
 export const user = () => STORE.user;
 
-export const restaurants = () => STORE.restaurants ? STORE.restaurants : [];
+export const restaurants = () => (STORE.restaurants ? STORE.restaurants : []);
 
 export const dishes = () => STORE.dishes;
 

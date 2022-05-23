@@ -1,7 +1,7 @@
-@use 'ui-kit/import.scss' as uikit;
-@use 'components/import.scss' as components;
-@use 'public/configurations/colors/colors.scss' as theme;
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@use "ui-kit/import.scss" as uikit;
+@use "components/import.scss" as components;
+@use "public/configurations/colors/colors.scss" as theme;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 html {
   overflow: auto;
@@ -9,18 +9,18 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background: theme.getColor("lightGrey");
 }
 
 .root {
   width: 98vw;
-  @media screen and (orientation:portrait) and (min-width: 438px),
-  screen and (orientation:landscape) and (min-height: 438px) {
+  @media screen and (orientation: portrait) and (min-width: 438px),
+    screen and (orientation: landscape) and (min-height: 438px) {
     height: 100vh;
   }
-  @media screen and (orientation:portrait) and (max-width: 438px),
-  screen and (orientation:landscape) and (max-height: 438px) {
+  @media screen and (orientation: portrait) and (max-width: 438px),
+    screen and (orientation: landscape) and (max-height: 438px) {
     min-height: 100vh;
   }
 }
@@ -29,28 +29,7 @@ main {
   position: absolute;
   top: 68px;
   padding-top: 1%;
-
-  // @media screen and (orientation: portrait) and (min-width: 821px),
-  // screen and (orientation: landscape) and (min-height: 821px) {
-    // width: 100%;
-    margin-left: 6%;
-    // margin-right: auto;
-  // }
-
-  // @media screen and (orientation: portrait) and (max-width: 820px),
-  // screen and (orientation: landscape) and (max-height: 820px) {
-  //   @media screen and (orientation: portrait) and (min-width: 438px),
-  //   screen and (orientation: landscape) and (min-height: 438px) {
-  //     width: 700px;
-  //     min-height: 100%;
-  //     margin-left: calc((100% - 700px)/2);
-  //   }
-  //   @media screen and (orientation: portrait) and (max-width: 438px),
-  //   screen and (orientation: landscape) and (max-height: 438px) {
-  //     width: 100%;
-  //     min-height: 100%;
-  //   }
-  // }
+  margin-left: 6%;
 }
 
 .shown {
@@ -66,7 +45,7 @@ main {
     background-color: rgba(33, 33, 33, 0.7);
   }
   @media screen and (max-width: 438px) {
-    background-color: theme.getColor('white');
+    background-color: theme.getColor("white");
   }
 }
 
@@ -91,30 +70,19 @@ main {
 
   position: fixed;
   top: 68px;
-
-  // @media screen and (max-width: 750px),
-  // screen and (min-width: 1450px) {
-  //   height: 93vh;
-  // }
-  // @media screen and (min-width: 750px) and (max-width: 1450px) {
-  //   height: 96vh;
-  // }
   height: 96vh;
 
   border: none;
   background: theme.getColor("white");
 
-  @media screen and (orientation:portrait) and (min-width: 438px),
-  screen and (orientation:landscape) and (min-height: 438px) {
+  @media screen and (orientation: portrait) and (min-width: 438px),
+    screen and (orientation: landscape) and (min-height: 438px) {
     right: 0;
   }
-  @media screen and (orientation:portrait) and (max-width: 438px),
-  screen and (orientation:landscape) and (max-height: 438px) {
+  @media screen and (orientation: portrait) and (max-width: 438px),
+    screen and (orientation: landscape) and (max-height: 438px) {
     width: 100vw;
   }
-  // @media screen and (min-width: 1450px) {
-    // width: 400px;
-  // }
 }
 
 .modal-top > * {

@@ -10,157 +10,56 @@ const isEqual = (object1, object2) => {
 
   for (let i = 0; i < props1.length; i += 1) {
     const prop = props1[i];
-    const bothAreObjects = typeof(object1[prop]) === 'object' && typeof(object2[prop]) === 'object';
+    const bothAreObjects =
+      typeof object1[prop] === "object" && typeof object2[prop] === "object";
 
-    if ((!bothAreObjects && (object1[prop] !== object2[prop]))
-      || (bothAreObjects && !isEqual(object1[prop], object2[prop]))) {
+    if (
+      (!bothAreObjects && object1[prop] !== object2[prop]) ||
+      (bothAreObjects && !isEqual(object1[prop], object2[prop]))
+    ) {
       return false;
     }
   }
 
   return true;
-}
+};
 
 const STORE = {
   // State
-  // user: { name: "Name", phone: "+7(915)000-11-22", email: "test@ya.ru" },
   user: {},
-  restaurants: [
-    // {
-    //   slug: "main",
-    //   imgPath: "./graphics/images/img.png",
-    //   restName: "Шоколадница",
-    //   timeToDeliver: "20-35 мин",
-    //   price: "550 ₽",
-    //   rating: 4.8,
-    // },
-    // {
-    //   slug: "main",
-    //   imgPath: "./graphics/images/img.png",
-    //   restName: "Шоколадница",
-    //   timeToDeliver: "20-35 мин",
-    //   price: "550 ₽",
-    //   rating: 4.8,
-    // },
-    // {
-    //   slug: "main",
-    //   imgPath: "./graphics/images/img.png",
-    //   restName: "Шоколадница",
-    //   timeToDeliver: "20-35 мин",
-    //   price: "550 ₽",
-    //   rating: 4.8,
-    // },
-    // {
-    //   slug: "main",
-    //   imgPath: "./graphics/images/img.png",
-    //   restName: "Шоколадница",
-    //   timeToDeliver: "20-35 мин",
-    //   price: "550 ₽",
-    //   rating: 4.8,
-    // },
-    // {
-    //   slug: "main",
-    //   imgPath: "./graphics/images/img.png",
-    //   restName: "Шоколадница",
-    //   timeToDeliver: "20-35 мин",
-    //   price: "550 ₽",
-    //   rating: 4.8,
-    // },
-    // {
-    //   slug: "main",
-    //   imgPath: "./graphics/images/img.png",
-    //   restName: "Шоколадница",
-    //   timeToDeliver: "20-35 мин",
-    //   price: "550 ₽",
-    //   rating: 4.8,
-    // },
-  ],
-  dishes: {
-    // main: {
-    //   restName: "Шоколадница",
-    //   dishes: [
-    //     {
-    //       id: 1,
-    //       imgPath:
-    //         "https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200",
-    //       productName: "Тестовое имя",
-    //       info: "172 г · 213 ккал",
-    //       description:
-    //         "Вкусный и самый настоящий. Всем несомненно он погнравится",
-    //       price: 296,
-    //     },
-    //     {
-    //       id: 2,
-    //       imgPath:
-    //         "https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200",
-    //       productName: "Тестовое имя",
-    //       info: "172 г · 213 ккал",
-    //       description:
-    //         "Вкусный и самый настоящий. Всем несомненно он погнравится",
-    //       price: 296,
-    //     },
-    //     {
-    //       id: 3,
-    //       imgPath:
-    //         "https://avatars.mds.yandex.net/get-zen_doc/4347415/pub_606c404ea4ae570085123302_606d9f94dcd05469540c84a3/scale_1200",
-    //       productName: "Тестовое имя",
-    //       info: "172 г · 213 ккал",
-    //       description:
-    //         "Вкусный и самый настоящий. Всем несомненно он погнравится",
-    //       price: 296,
-    //     },
-    //   ],
-    // },
-  },
+  restaurants: [],
+  dishes: {},
   cart: {
     totalPrice: 0,
     order: [],
   },
   cachedCartWithDiscounts: {
     cart: {},
-    appliedPromoCode: {}
+    appliedPromoCode: {},
   },
   orderList: [],
   promoCodes: [],
   appliedPromoCode: {},
   certainOrder: {},
-  suggests: [
-    // { address: "FIRST", end: false },
-    // { address: "SECOND", end: true },
-  ],
+  suggests: [],
   currentRestName: "",
-  // updateStatusTimerID: null,
   isSearchActivated: false,
   token: "",
   categories: [
-    { title: "Суши" }, { title: "Пицца" }, { title: "Бургеры" }, { title: "Фастфуд" },
-    { title: "Русская" }, { title: "Японская" }, { title: "Паназиатская" }, { title: "Завтраки" },
-    { title: "Обеды" }, { title: "Сэндвичи" }, { title: "Китайская" }, { title: "Здоровая еда" }
+    { title: "Суши" },
+    { title: "Пицца" },
+    { title: "Бургеры" },
+    { title: "Фастфуд" },
+    { title: "Русская" },
+    { title: "Японская" },
+    { title: "Паназиатская" },
+    { title: "Завтраки" },
+    { title: "Обеды" },
+    { title: "Сэндвичи" },
+    { title: "Китайская" },
+    { title: "Здоровая еда" },
   ],
-  comments: {
-    // foodband: {
-    //   comments: [
-    //     {
-    //       stars: 4.8,
-    //       text: 'Тут я оставил вот такой крутой отзыв на ресторан',
-    //       author: 'Иван',
-    //       date: '29 апреля 2022, 17:09'
-    //     },
-    //     {
-    //       stars: 4.8,
-    //       text: 'Тут я оставил вот такой крутой отзыв на ресторан',
-    //       author: 'Иван',
-    //       date: '29 апреля 2022, 17:09'
-    //     },
-    //     {
-    //       stars: 4.8,
-    //       text: 'Тут я оставил вот такой крутой отзыв на ресторан',
-    //       author: 'Иван',
-    //       date: '29 апреля 2022, 17:09'
-    //     },
-    //   ]
-    // }
-  },
+  comments: {},
 
   // Mutations
   addUser(user) {
@@ -182,16 +81,20 @@ const STORE = {
   addDishes(slug, result, isFirstUpdate = false) {
     if (isFirstUpdate) {
       this.dishes[slug] = {
-        dishes: result.dishes, restName: result.restName,
-        rating: result.rating, reviewCount: result.reviewCount
+        dishes: result.dishes,
+        restName: result.restName,
+        rating: result.rating,
+        reviewCount: result.reviewCount,
       };
       return;
     }
 
     const dishes = this.dishes;
     dishes[slug] = {
-      dishes: result.dishes, restName: result.restName,
-      rating: result.rating, reviewCount: result.reviewCount
+      dishes: result.dishes,
+      restName: result.restName,
+      rating: result.rating,
+      reviewCount: result.reviewCount,
     };
     this.dishes = dishes;
   },
@@ -338,10 +241,13 @@ const STORE = {
       if (orderList[i].orderNumber === newStatuses[i].id) {
         orderList[i].status = newStatuses[i].status;
       }
-      cachedOrderStatuses.push( {id: orderList[i].orderNumber, status: orderList[i].status} );
+      cachedOrderStatuses.push({
+        id: orderList[i].orderNumber,
+        status: orderList[i].status,
+      });
     }
     this.orderList = orderList;
-  }
+  },
 };
 
 let cachedOrderStatuses = {};
@@ -349,7 +255,9 @@ const PROXY_STORE = new Proxy(STORE, {
   set(target, prop, value) {
     target[prop] = value;
 
-    if (['token', 'appliedPromoCode', 'cachedCartWithDiscounts'].includes(prop)) {
+    if (
+      ["token", "appliedPromoCode", "cachedCartWithDiscounts"].includes(prop)
+    ) {
       return true;
     }
 

@@ -1,4 +1,4 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .form-title {
   @media screen and (orientation: portrait) and (max-width: 920px) {
@@ -24,5 +24,5 @@
     margin-bottom: 20px;
   }
 
-  color: theme.getColor('greyBrown');
+  color: theme.getColor("greyBrown");
 }

@@ -1,8 +1,7 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .rest-menu {
   display: flex;
-  // justify-content: space-between;
   flex-wrap: wrap;
   max-width: 1500px;
 
@@ -20,21 +19,10 @@
   margin-right: 2%;
   margin-bottom: 24px;
 
-  // @media screen and (min-width: 1450px) {
-  //   margin-bottom: 70px;
-  //   width: 270px;
-  //   height: 480px;
-  // }
-
   width: 270px;
-
-  // @media screen and (max-width: 815px) {
-  //   margin: auto;
-  // }
-
   height: 470px;
 
-  background: theme.getColor('white');
+  background: theme.getColor("white");
   border-radius: 14px;
   filter: drop-shadow(0px 0px 12px rgba(26, 26, 26, 0.25));
 
@@ -51,6 +39,5 @@
 .dish-icon__img {
   width: 270px;
 
-  //margin-left: -7px;
   border-radius: 14px 14px 0 0;
 }

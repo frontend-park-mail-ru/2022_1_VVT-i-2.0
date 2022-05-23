@@ -2,18 +2,20 @@ import UIKIT from "../../ui-kit/import.js";
 import { getters } from "../../store/import";
 
 const header = (isOrderingPage = false) => {
-    const auth = Object.keys(getters.user()).length !== 0;
-    const address = localStorage.getItem("address");
-    const avatar = getters.getAvatar();
-    const emptyShopCart = getters.IsCartEmpty();
-    const totalOrderPrice = getters.cart().totalPrice;
-    const isSearchActivated = getters.getSearchStatus();
+  const auth = Object.keys(getters.user()).length !== 0;
+  const address = localStorage.getItem("address");
+  const avatar = getters.getAvatar();
+  const emptyShopCart = getters.IsCartEmpty();
+  const totalOrderPrice = getters.cart().totalPrice;
+  const isSearchActivated = getters.getSearchStatus();
 
-    const currentRestName = getters.currentRestName();
-    const dishes = getters.dishes();
-    const slug = Object.keys(dishes).find((key) => dishes[key].restName === currentRestName);
+  const currentRestName = getters.currentRestName();
+  const dishes = getters.dishes();
+  const slug = Object.keys(dishes).find(
+    (key) => dishes[key].restName === currentRestName
+  );
 
-    const template = `
+  const template = `
         <header id="header" class="page-header {{#isSearchActivated}}page-header__color-grey{{/isSearchActivated}}{{^isSearchActivated}}page-header__color-white{{/isSearchActivated}}">
             <nav class="page-header__button page-header__main-button" data-section="main">
                 <img class="main-button__img" src="/graphics/images/fobringto.png" data-section="main" alt="">
@@ -106,7 +108,7 @@ const header = (isOrderingPage = false) => {
     },
     searchBlockAriaActivated() {
       return UIKIT.searchBlock();
-    }
+    },
   });
 };
 

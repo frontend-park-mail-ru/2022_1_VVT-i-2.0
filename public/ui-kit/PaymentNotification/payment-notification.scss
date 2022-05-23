@@ -1,43 +1,42 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .ordering-form__notification {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 
-    //width: 321px;
-    width: 100%;
-    height: 62px;
+  width: 100%;
+  height: 62px;
 
-    border-radius: 0 10px 10px 0;
+  border-radius: 0 10px 10px 0;
 }
 
 .ordering-notification__not-free-delivery {
-    background: rgba(255, 0, 0, 0.15);
+  background: rgba(255, 0, 0, 0.15);
 }
 
 .ordering-notification__not-free-delivery :first-child {
-    width: 4px;
-    background: #EE1212;
+  width: 4px;
+  background: #ee1212;
 }
 
 .ordering-notification__free-delivery {
-    background: rgba(23, 177, 10, 0.19);
+  background: rgba(23, 177, 10, 0.19);
 }
 
 .ordering-notification__free-delivery :first-child {
-    width: 4px;
-    background: #17D685;
+  width: 4px;
+  background: #17d685;
 }
 
 .ordering-notification__text {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    margin-left: 23px;
-    padding: 2px;
+  margin-left: 23px;
+  padding: 2px;
 
-    font-size: 13px;
-    line-height: 15px;
-    text-align: left;
-    color: map-get(theme.$COLORS, black);
+  font-size: 13px;
+  line-height: 15px;
+  text-align: left;
+  color: map-get(theme.$COLORS, black);
 }
