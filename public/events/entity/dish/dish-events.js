@@ -1,4 +1,5 @@
-import { renderAndUpdateURN } from "../../../render/render.js";
+import { renderAndUpdateURN, renderNotification } from "../../../render/render.js";
+import { DEFAULT_ADDRESS } from "../../../index";
 
 export const dishEvents = () => {
   return {
@@ -8,8 +9,15 @@ export const dishEvents = () => {
         selector: "class",
         listener(app, store, e) {
           const { id, rest, price } = e.target.dataset;
+          if (document.getElementById('suggestsSearch').value === DEFAULT_ADDRESS) {
+            renderNotification('Для этого действия необходимо выбрать адрес доставки', true);
+            return;
+          }
+
           store.actions.addDishToCart(parseInt(id, 10), rest, price);
-          renderAndUpdateURN("/shoppingCart", true);
+          if (window.screen.width >= 920) {
+            renderAndUpdateURN("/shoppingCart", true);
+          }
         },
       },
     ],
@@ -40,6 +48,10 @@ export const dishEvents = () => {
           }
 
           store.actions.decrementDishCount(parseInt(id, 10));
+
+          if (store.getters.IsCartEmpty()) {
+            renderAndUpdateURN("/dishes/" + store.getters.getCurrentSlug());
+          }
         },
       },
     ],

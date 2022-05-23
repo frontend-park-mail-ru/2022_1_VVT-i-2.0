@@ -10,7 +10,10 @@
     flex-direction: column;
 
     width: 270px;
-    height: 50%;
+
+    @media screen and (min-width: 1450px) {
+        height: 50%;
+    }
 }
 
 .dish-icon__name {
@@ -24,8 +27,7 @@
     font-weight: bold;
     font-size: 21px;
 
-    //max-height: 48px;
-    //height: auto;
+    margin-top: 15px;
 
     color: #2E2E33;
 }
@@ -80,7 +82,10 @@
     width: 90%;
     font-weight: bold;
     bottom: 15px;
-    margin-right: 15px;
+
+    @media screen and (min-width: 1450px) {
+        margin-right: 15px;
+    }
 
     :nth-child(1) {
         width: 40%;
@@ -95,6 +100,7 @@
     width: 87px;
     height: 28px;
     background-color: theme.getColor('primary');
+    color: theme.getColor('black');
     border: none;
     border-radius: 6px;
     font-weight: bold;
@@ -104,5 +110,5 @@
 
 .dish-icon__button-add-to-order:hover {
     cursor: pointer;
-    opacity: 0.5;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }

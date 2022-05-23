@@ -10,7 +10,14 @@ import paymentChoice from "./PaymentChoice/payment-choice.js";
 import shoppingCart from "./ShoppingCart/shopping-cart.js";
 import ordering from "./Ordering/ordering.js";
 import suggestsForm from "./SuggestsForm/suggests-form.js";
+import additionalStatusOrderInfo from "./AdditionalStatusOrderInfo/additional-status-order-info";
+import profileTemplate from "./ProfileTemplate/profile-template";
+import orderStatusList from "./OrderStatusList/order-status-list";
 import NetworkErrorForm from "./NetworkErrorForm/network-error-form.js";
+import categories from "./Categories/categories.js";
+import comments from "./Comments/comments.js";
+import createCommentForm from "./CreateCommentForm/create-comment-form.js";
+import promoCodeLine from "./PromoCodeLine/promo-code-line";
 
 export default {
   header,
@@ -19,11 +26,18 @@ export default {
   confirmCodeForm,
   restIcons,
   profilePreviewForm,
+  profileTemplate,
   personInfoForm,
   dishesIcons,
   paymentChoice,
   shoppingCart,
   ordering,
+  orderStatusList,
+  additionalStatusOrderInfo,
   suggestsForm,
   NetworkErrorForm,
+  categories,
+  comments,
+  createCommentForm,
+  promoCodeLine
 };

@@ -1,5 +1,3 @@
-import { actions } from "../../../store/import";
-
 export const preview = (input, avatarPreview) => {
   const file = input.files[0];
   const reader = new FileReader();

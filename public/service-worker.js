@@ -8,11 +8,11 @@ const URI_ARRAY = [
   "http://localhost:8080/static",
 
   // Production environment
-  "http://tavide.xyz:3000/graphics",
-  "http://tavide.xyz:8080/static",
+  "https://tavide.xyz/graphics",
+  "https://tavide.xyz/static",
 ];
 
-const CACHE = "cache-v2";
+const CACHE = "cache-v3";
 
 self.addEventListener("install", (e) => {
   e.waitUntil(

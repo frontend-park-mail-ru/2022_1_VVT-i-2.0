@@ -2,7 +2,7 @@ import STORE from "../store/store.js";
 
 export const user = () => STORE.user;
 
-export const restaurants = () => STORE.restaurants;
+export const restaurants = () => STORE.restaurants ? STORE.restaurants : [];
 
 export const dishes = () => STORE.dishes;
 
@@ -16,18 +16,35 @@ export const suggests = () => STORE.suggests;
 
 export const getAvatar = () => {
   if (!STORE.user.avatar) {
-    return "";
+    return "/graphics/icons/profile.svg";
   }
 
   return STORE.user.avatar;
 };
 
 export const getCurrentSlug = () => {
-  const restaurants = STORE.restaurants;
+  const currentRestName = STORE.currentRestName;
+  const dishes = STORE.dishes;
 
-  return restaurants.find(
-    (restaurant) => restaurant.restName === STORE.currentRestName
-  ).slug;
+  return Object.keys(dishes).find(
+    (key) => dishes[key].restName === currentRestName
+  );
 };
 
 export const token = () => STORE.token;
+
+export const getOrderList = () => STORE.orderList;
+
+export const getCertainOrder = () => STORE.certainOrder;
+
+export const promoCodes = () => STORE.promoCodes;
+
+export const appliedPromoCode = () => STORE.appliedPromoCode;
+
+export const getSearchStatus = () => STORE.isSearchActivated;
+
+export const categories = () => STORE.categories;
+
+export const comments = () => STORE.comments;
+
+export const cachedCartWithDiscounts = () => STORE.cachedCartWithDiscounts;

@@ -1,17 +1,16 @@
-import { renderAndUpdateURN } from "../render/render.js";
+import { renderAndUpdateURN, renderNotification } from "../render/render.js";
 import * as store from "../store/import.js";
 
 const METHODS = { GET: "GET", POST: "POST", PUT: "PUT", DELETE: "DELETE" };
 
-const BASE_URI = "http://tavide.xyz:8080";
+const BASE_URI = "https://tavide.xyz";
+// const BASE_URI = "http://localhost:8080";
 
 const DEFAULT_OPTIONS = {
   method: METHODS.GET,
   headers: { "Content-Type": "application/json" },
   credentials: "include",
 };
-
-const ERROR_MESSAGE = "В ходе обработки запроса произошла ошибка";
 
 /**
  * @function Осуществляет отправку запроса.
@@ -49,7 +48,7 @@ const request = (url, options = DEFAULT_OPTIONS) => {
 
       if (Number(result.headers.get("Content-Length")) === 0) {
         if (result.status !== 200) {
-          alert(ERROR_MESSAGE);
+          renderNotification(null, true);
           return Promise.reject();
         }
 
@@ -58,16 +57,17 @@ const request = (url, options = DEFAULT_OPTIONS) => {
 
       const data = result.json();
 
-      if (result.status !== 200) {
-        if (data.error) {
-          alert(data.error);
-        } else {
-          alert(ERROR_MESSAGE);
-        }
-        return Promise.reject();
+      if (result.status === 200) {
+        return data;
       }
 
-      return data;
+      const page = sessionStorage.getItem('page');
+
+      if (page !== 'confirmCode') {
+        data.then((d) => renderNotification(d.error, true));
+      }
+
+      return Promise.reject();
     });
 };
 
@@ -125,7 +125,7 @@ export const login = (user) => {
  * @return {Promise} - возвращает Promise на отправку запроса.
  */
 export const logout = () => {
-  return request("/logout", { method: METHODS.GET });
+  return request("/logout");
 };
 
 export const suggest = (query) => {
@@ -134,4 +134,28 @@ export const suggest = (query) => {
 
 export const createOrder = (order) => {
   return request("/order", { method: METHODS.POST, body: order });
+};
+
+export const getOrderList = () => {
+  return request('/orders');
+};
+
+export const getPromoCodes = () => {
+  return request('/promo');
+};
+
+export const getStatusOrders = () => {
+  return request('/order_statuses');
+};
+
+export const getCertainOrder = (orderNumber) => {
+  return request(`/order/${orderNumber}`);
+};
+
+export const getComments = (slug) => {
+  return request(`/comments/${slug}`);
+};
+
+export const createComment = (comment) => {
+  return request("/comment", { method: METHODS.POST, body: comment });
 };

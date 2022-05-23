@@ -1,34 +1,68 @@
 .login-form {
-    position: relative;
+    @media screen and (orientation:portrait) and (min-width: 438px),
+    screen and (orientation:landscape) and (min-height: 438px) {
+        position: relative;
+    }
+    @media screen and (orientation:portrait) and (max-width: 438px),
+    screen and (orientation:landscape) and (max-height: 438px) {
+        margin: 4.68% auto;
+        //max-height: calc(100% - 2 * 4.68%);
+        max-height: 85%;
+        width: 100vw;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.login-form__close-img {
-    position: absolute;
-    height: 30px;
-    width: 30px;
-    top: 15px;
-    right: 15px;
+.login-form__main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
 }
 
-.login-form__close-img:hover {
-    cursor: pointer;
-    filter: invert(100%) sepia(0%) saturate(1569%) hue-rotate(174deg) brightness(106%) contrast(74%);
+.main-content__preview {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: min-content;
 }
 
-.login-form__title {
+.preview__title {
     margin-top: 0;
     margin-bottom: 35px;
+    width: 90%;
+}
+
+.preview__close-img {
+    height: 30px;
+    width: 30px;
+    justify-content: flex-end;
+}
+
+@media screen and (orientation:portrait) and (min-width: 438px),
+screen and (orientation:landscape) and (min-height: 438px) {
+    .preview__close-img:hover {
+        cursor: pointer;
+        filter: invert(100%) sepia(0%) saturate(1569%) hue-rotate(174deg) brightness(106%) contrast(74%);
+    }
 }
 
 .login-form__indication {
     margin-bottom: 40px;
+    font-size: 14px;
 }
 
-.login-form__input{
+.login-form__input {
     margin-bottom: 44px;
 }
 
+.login-form__buttons {
+    text-align: center;
+}
+
 .login-form__button-login {
-    margin-top: 3px;
     margin-bottom: 19px;
 }

@@ -7,6 +7,7 @@ const FORMS_CONFIGURATION = {
       {
         title: "Телефон",
         placeholder: "+7(",
+        width: ELEMS_CONFIGURATION.inputs.STANDARD,
         id: "loginPhone",
       },
     ],
@@ -14,16 +15,19 @@ const FORMS_CONFIGURATION = {
       {
         title: "Телефон",
         placeholder: "+7(",
+        width: ELEMS_CONFIGURATION.inputs.STANDARD,
         id: "registerPhone",
       },
       {
         title: "Имя",
         placeholder: "Введите имя",
+        width: ELEMS_CONFIGURATION.inputs.STANDARD,
         id: "registerName",
       },
       {
         title: "Электронная почта",
         placeholder: "Введите электронную почту",
+        width: ELEMS_CONFIGURATION.inputs.STANDARD,
         id: "registerEmail",
       },
     ],
@@ -31,6 +35,7 @@ const FORMS_CONFIGURATION = {
       {
         title: "Код",
         placeholder: "Введите последние 4 цифры номера",
+        width: ELEMS_CONFIGURATION.inputs.STANDARD,
         id: "confirmCode",
       },
     ],
@@ -100,7 +105,8 @@ const FORMS_CONFIGURATION = {
   menu: {
     profilePoints: [
       { point: "Личные данные", dataSection: "profile" },
-      { point: "Выход", dataSection: "main", id: "logoutButton" },
+      { point: "Мои заказы", dataSection: "orderHistory" },
+      { point: "Выход", id: "logoutButton" },
     ],
     typePaymentChoice: ["Онлайн оплата", "Google Pay", "Sber Pay"],
   },
