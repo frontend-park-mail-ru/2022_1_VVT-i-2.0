@@ -4,17 +4,19 @@ import "./index.scss";
 import { IsCartEmpty } from "./store/getters/getters";
 
 const NOT_CLOSED_PAGES_BY_CLICK_OUT = ["shoppingCart", "confirmCode"];
-export const DEFAULT_ADDRESS = 'Адрес доставки';
+export const DEFAULT_ADDRESS = "Адрес доставки";
 
 const searchOnClickOutHandler = () => {
-  if (!sessionStorage.getItem('searchBlockClicked')
-    && !sessionStorage.getItem('searchButtonClicked')
-    && document.getElementById('searchBlock')) {
-    document.getElementById('closeImg').click();
+  if (
+    !sessionStorage.getItem("searchBlockClicked") &&
+    !sessionStorage.getItem("searchButtonClicked") &&
+    document.getElementById("searchBlock")
+  ) {
+    document.getElementById("closeImg").click();
   }
-  sessionStorage.removeItem('searchBlockClicked');
-  sessionStorage.removeItem('searchButtonClicked');
-}
+  sessionStorage.removeItem("searchBlockClicked");
+  sessionStorage.removeItem("searchButtonClicked");
+};
 
 Object.entries(APP).forEach(([name, node]) =>
   node.addEventListener("click", (e) =>
@@ -34,7 +36,7 @@ window.onpopstate = () => {
   }
 
   render(decodedPathname);
-}
+};
 
 document.addEventListener("click", (e) => {
   searchOnClickOutHandler();
@@ -47,7 +49,7 @@ document.addEventListener("click", (e) => {
 
   const { target } = e;
   if (
-    APP.modal.children[0].contains(target) && page !== 'suggests' ||
+    (APP.modal.children[0].contains(target) && page !== "suggests") ||
     target.hasAttribute("data-section")
   ) {
     return;
@@ -104,15 +106,14 @@ const handleOnload = () => {
 
   store.actions.addCart(cart, currentRestName);
 
-  return store
-    .actions
+  return store.actions
     .getDishes(slug, decodedPathname !== "/ordering")
     .then(() => {
       if (decodedPathname === "/shoppingCart") {
         sessionStorage.setItem("root", "dishes");
         sessionStorage.setItem("params", slug);
       }
-    })
+    });
 };
 
 window.onbeforeunload = () => {
@@ -125,7 +126,9 @@ window.onbeforeunload = () => {
 
   const currentRestName = store.getters.currentRestName();
   const dishes = store.getters.dishes();
-  const slug = Object.keys(dishes).find((key) => dishes[key].restName === currentRestName);
+  const slug = Object.keys(dishes).find(
+    (key) => dishes[key].restName === currentRestName
+  );
 
   if (!slug) {
     return;

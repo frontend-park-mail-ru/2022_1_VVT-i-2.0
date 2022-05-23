@@ -1,4 +1,4 @@
-@use 'public/configurations/colors/colors.scss'as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .notification {
   min-height: 62px;
@@ -15,9 +15,9 @@
     width: 343px;
   }
 
-  background: theme.getColor('lightGrey');
+  background: theme.getColor("lightGrey");
   border-radius: 10px;
-  border: theme.getColor('grey') 1px solid;
+  border: theme.getColor("grey") 1px solid;
 
   &__img {
     display: inline-flex;
@@ -49,6 +49,7 @@
 
   &__close-img:hover {
     cursor: pointer;
-    filter: invert(100%) sepia(0%) saturate(1569%) hue-rotate(174deg) brightness(106%) contrast(74%);
+    filter: invert(100%) sepia(0%) saturate(1569%) hue-rotate(174deg)
+      brightness(106%) contrast(74%);
   }
 }

@@ -1,6 +1,6 @@
 const searchBlock = () => {
-    const searchQuery = sessionStorage.getItem('searchQuery');
-    const template = `
+  const searchQuery = sessionStorage.getItem("searchQuery");
+  const template = `
         <nav id="searchActivatedAria" class="searchActivatedAria">
             <div id="searchBlock" class="search-block">
                 <div class="search-block__block-img">
@@ -16,7 +16,7 @@ const searchBlock = () => {
         </nav>
     `;
 
-    return Mustache.render(template, { searchQuery });
-}
+  return Mustache.render(template, { searchQuery });
+};
 
 export default searchBlock;

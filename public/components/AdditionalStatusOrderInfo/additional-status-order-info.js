@@ -2,7 +2,7 @@ import UIKIT from "../../ui-kit/import.js";
 import COLORS from "../../configurations/colors/colors";
 
 const additionalStatusOrderInfo = (props) => {
-    const template = `
+  const template = `
         <div class="order">
             <div class="order__main-content">
                 <div class="main-content__order-list">
@@ -25,31 +25,35 @@ const additionalStatusOrderInfo = (props) => {
         </div>
     `;
 
-    return Mustache.render(template, {
-        address: props.address,
-        order() {
-            let orderPoints = [];
-            props.cart.forEach((obj) => {
-                let orderPoint = {};
-                orderPoint.imgPath = obj.imgPath;
-                orderPoint.productName = obj.name;
-                orderPoint.weight = obj.weight;
-                orderPoint.info = obj.calories;
-                orderPoint.count = obj.count;
-                orderPoint.price = obj.price;
-                orderPoint.id = "";
-                orderPoints.push(orderPoint);
-            });
+  return Mustache.render(template, {
+    address: props.address,
+    order() {
+      let orderPoints = [];
+      props.cart.forEach((obj) => {
+        let orderPoint = {};
+        orderPoint.imgPath = obj.imgPath;
+        orderPoint.productName = obj.name;
+        orderPoint.weight = obj.weight;
+        orderPoint.info = obj.calories;
+        orderPoint.count = obj.count;
+        orderPoint.price = obj.price;
+        orderPoint.id = "";
+        orderPoints.push(orderPoint);
+      });
 
-            props.orderPoints = orderPoints;
+      props.orderPoints = orderPoints;
 
-            return UIKIT.orderCheck(props, false, false);
-        },
-        commentButton() {
-            return UIKIT.simpleButton('Оставить комментарий', COLORS.primary,
-                null, `/createComment/${props.restSlug}`);
-        }
-    });
+      return UIKIT.orderCheck(props, false, false);
+    },
+    commentButton() {
+      return UIKIT.simpleButton(
+        "Оставить комментарий",
+        COLORS.primary,
+        null,
+        `/createComment/${props.restSlug}`
+      );
+    },
+  });
 };
 
 export default additionalStatusOrderInfo;

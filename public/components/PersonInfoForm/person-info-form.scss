@@ -1,107 +1,107 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .content-block__profile-header {
-    font-size: 20px;
-    font-weight: 700;
-    color: #212121;
+  font-size: 20px;
+  font-weight: 700;
+  color: #212121;
 
-    @media screen and (orientation:portrait) and (min-width: 438px),
-    screen and (orientation:landscape) and (min-height: 438px) {
-        margin: 32px auto 13px 43px;
-    }
+  @media screen and (orientation: portrait) and (min-width: 438px),
+    screen and (orientation: landscape) and (min-height: 438px) {
+    margin: 32px auto 13px 43px;
+  }
 }
 
 .content-block__content {
-    @media screen and (orientation:portrait) and (min-width: 438px),
-    screen and (orientation:landscape) and (min-height: 438px) {
-        margin: 22px 71px 0 73px;
-    }
+  @media screen and (orientation: portrait) and (min-width: 438px),
+    screen and (orientation: landscape) and (min-height: 438px) {
+    margin: 22px 71px 0 73px;
+  }
 }
 
 .content__avatar-change-block {
-    display: inline-flex;
-    width: 90%;
+  display: inline-flex;
+  width: 90%;
 
-    @media screen and (orientation:portrait) and (max-width: 438px),
-    screen and (orientation:landscape) and (max-height: 438px) {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
+  @media screen and (orientation: portrait) and (max-width: 438px),
+    screen and (orientation: landscape) and (max-height: 438px) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
 
-@media screen and (orientation:portrait) and (min-width: 438px),
-screen and (orientation:landscape) and (min-height: 438px) {
-    .content__avatar-change-block {
-        & :nth-child(n) {
-            margin-top: auto;
-            margin-bottom: auto;
-        }
-        & :last-child {
-        margin-right: 0;
-        margin-left: auto
-        }
+@media screen and (orientation: portrait) and (min-width: 438px),
+  screen and (orientation: landscape) and (min-height: 438px) {
+  .content__avatar-change-block {
+    & :nth-child(n) {
+      margin-top: auto;
+      margin-bottom: auto;
     }
+    & :last-child {
+      margin-right: 0;
+      margin-left: auto;
+    }
+  }
 }
 
 .avatar-change-block__description {
-    @media screen and (orientation:portrait) and (min-width: 438px),
-    screen and (orientation:landscape) and (min-height: 438px) {
-        width: 22%;
-    }
-    @media screen and (orientation:portrait) and (max-width: 438px),
-    screen and (orientation:landscape) and (max-height: 438px) {
-        width: 35%;
-        margin-top: auto;
-        margin-bottom: auto;
-    }
+  @media screen and (orientation: portrait) and (min-width: 438px),
+    screen and (orientation: landscape) and (min-height: 438px) {
+    width: 22%;
+  }
+  @media screen and (orientation: portrait) and (max-width: 438px),
+    screen and (orientation: landscape) and (max-height: 438px) {
+    width: 35%;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
 }
 
 .avatar-change-block__avatar {
-    display: inline-block;
+  display: inline-block;
 
-    @media screen and (orientation:portrait) and (min-width: 438px),
-    screen and (orientation:landscape) and (min-height: 438px) {
-        width: auto;
-    }
-    @media screen and (orientation:portrait) and (max-width: 438px),
-    screen and (orientation:landscape) and (max-height: 438px) {
-        width: 20%;
-    }
+  @media screen and (orientation: portrait) and (min-width: 438px),
+    screen and (orientation: landscape) and (min-height: 438px) {
+    width: auto;
+  }
+  @media screen and (orientation: portrait) and (max-width: 438px),
+    screen and (orientation: landscape) and (max-height: 438px) {
+    width: 20%;
+  }
 }
 
 .avatar__img {
-    @media screen and (orientation:portrait) and (min-width: 438px),
-    screen and (orientation:landscape) and (min-height: 438px) {
-        width: 80px;
-        height: 80px;
-        border-radius: 40px;
-    }
-    @media screen and (orientation:portrait) and (max-width: 438px),
-    screen and (orientation:landscape) and (max-height: 438px) {
-        height: 40px;
-        border-radius: 50%;
-    }
+  @media screen and (orientation: portrait) and (min-width: 438px),
+    screen and (orientation: landscape) and (min-height: 438px) {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+  }
+  @media screen and (orientation: portrait) and (max-width: 438px),
+    screen and (orientation: landscape) and (max-height: 438px) {
+    height: 40px;
+    border-radius: 50%;
+  }
 
-    border: 1px solid #BEB6AE;
-    object-fit: cover;
+  border: 1px solid #beb6ae;
+  object-fit: cover;
 }
 
 .avatar-choice-block__button-change {
-    width: 50%;
-    text-align: right;
+  width: 50%;
+  text-align: right;
 }
 
 .content-block__input {
-    margin-bottom: 15px;
-    margin-top: 10px;
+  margin-bottom: 15px;
+  margin-top: 10px;
 
-    @media screen and (orientation:portrait) and (max-width: 438px),
-    screen and (orientation:landscape) and (max-height: 438px) {
-        width: 90%;
-    }
+  @media screen and (orientation: portrait) and (max-width: 438px),
+    screen and (orientation: landscape) and (max-height: 438px) {
+    width: 90%;
+  }
 }
 
 .content-block__button-save-content {
-    text-align: center;
-    margin-top: 43px;
+  text-align: center;
+  margin-top: 43px;
 }

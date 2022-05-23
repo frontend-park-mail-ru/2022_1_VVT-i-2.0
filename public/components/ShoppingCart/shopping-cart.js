@@ -45,7 +45,7 @@ const shoppingCart = (restName, props, promoCode) => {
         this.count,
         this.price,
         this.id,
-        true,
+        true
       );
     },
     buttonOrder() {
@@ -54,7 +54,7 @@ const shoppingCart = (restName, props, promoCode) => {
         COLORS.primary,
         ELEMS_CONFIGURATION.buttons.ORDERING,
         "ordering",
-        "orderButton",
+        "orderButton"
       );
     },
   });

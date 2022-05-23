@@ -8,9 +8,11 @@ const commentsBlock = (slug, rating, reviewCount) => {
     </div>
   `;
   return Mustache.render(template, {
-    rating, reviewCount, href() {
+    rating,
+    reviewCount,
+    href() {
       return `/comments/${slug}`;
-    }
+    },
   });
 };
 

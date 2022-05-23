@@ -11,7 +11,7 @@ export const getRestaurants = (options = {}) => {
 
 export const clearRestaurants = () => {
   return STORE.clearRestaurants();
-}
+};
 
 export const getDishes = (slug, isFirstUpdate = false) => {
   return API.getDishes(slug).then((result) =>
@@ -63,7 +63,7 @@ export const addDishToCart = (id, restName, price, count = 1) => {
 
 export const addCart = (cart, restName) => {
   return STORE.addCart(cart, restName);
-}
+};
 
 export const incrementDishCount = (id) => {
   return STORE.incrementDishCount(id);
@@ -88,70 +88,72 @@ export const getOrderList = () => {
   return API.getOrderList().then((result) => {
     STORE.addOrderList(result.orderList);
   });
-}
+};
 
 export const getCertainOrder = (orderNumber) => {
   return API.getCertainOrder(orderNumber).then((result) => {
     STORE.addCertainOrder(result);
   });
-}
+};
 
 export const setCurrentRestName = (restName) => {
   STORE.setCurrentRestName(restName);
-}
+};
 
 export const getPromoCodes = () => {
   return API.getPromoCodes().then((result) => {
     STORE.addPromoCodes(result.promos);
   });
-}
+};
 
 export const applyPromoCode = (promoCode) => {
   STORE.setAppliedPromoCode(promoCode);
-}
+};
 
 export const addCartWithDiscountsToCache = () => {
   STORE.setCachedCartWithDiscounts();
-}
+};
 
 export const insertOldCart = () => {
   STORE.applyOldCartWithDiscounts();
-}
+};
 
 export const openSameOrderByTimeout = (result) => {
   STORE.addCertainOrder(result);
-}
+};
 
 export const changeSearchStatus = () => {
   return STORE.changeSearchStatus();
-}
+};
 
 export const setSearchStatus = (status) => {
   STORE.setSearchStatus(status);
-}
+};
 
 export const getComments = (slug) => {
   return API.getComments(slug).then((result) =>
     STORE.addComments(slug, result)
   );
-}
+};
 
 export const setUpdateTimeout = (store, timeout = 10000) => {
-  if (sessionStorage.getItem('UpdateTimeoutID') === null &&
-    store.getters.getOrderList().length) {
-      const timerID = window.setInterval(() => {
-        API.getStatusOrders().then((result) => {
-          STORE.updateOrderStatuses(result.statuses);
-        })
-      }, timeout);
-      sessionStorage.setItem('UpdateTimeoutID', String(timerID));
+  if (
+    sessionStorage.getItem("UpdateTimeoutID") === null &&
+    store.getters.getOrderList().length
+  ) {
+    const timerID = window.setInterval(() => {
+      API.getStatusOrders().then((result) => {
+        STORE.updateOrderStatuses(result.statuses);
+      });
+    }, timeout);
+    sessionStorage.setItem("UpdateTimeoutID", String(timerID));
   }
-}
+};
 
 export const clearUpdateTimeout = () => {
-  if (sessionStorage.getItem('UpdateTimeoutID') !== null) {
-    clearInterval(Number(sessionStorage.getItem('UpdateTimeoutID')));
-    sessionStorage.removeItem('UpdateTimeoutID');
+  if (sessionStorage.getItem("UpdateTimeoutID") !== null) {
+    clearInterval(Number(sessionStorage.getItem("UpdateTimeoutID")));
+    sessionStorage.removeItem("UpdateTimeoutID");
   }
 };
 

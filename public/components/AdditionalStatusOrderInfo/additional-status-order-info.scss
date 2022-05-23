@@ -4,8 +4,8 @@
   justify-content: space-between;
 
   width: 100%;
-  @media screen and (orientation:portrait) and (min-width: 438px),
-  screen and (orientation:landscape) and (min-height: 438px) {
+  @media screen and (orientation: portrait) and (min-width: 438px),
+    screen and (orientation: landscape) and (min-height: 438px) {
     height: 520px;
   }
   padding-top: 5px;
@@ -16,13 +16,13 @@
 
 .order__main-content {
   display: flex;
-  @media screen and (orientation:portrait) and (min-width: 438px),
-  screen and (orientation:landscape) and (min-height: 438px) {
+  @media screen and (orientation: portrait) and (min-width: 438px),
+    screen and (orientation: landscape) and (min-height: 438px) {
     flex-direction: row;
     max-height: 514px;
   }
-  @media screen and (orientation:portrait) and (max-width: 438px),
-  screen and (orientation:landscape) and (max-height: 438px) {
+  @media screen and (orientation: portrait) and (max-width: 438px),
+    screen and (orientation: landscape) and (max-height: 438px) {
     flex-direction: column;
   }
 }
@@ -33,12 +33,12 @@
 }
 
 .main-content__order-list {
-  @media screen and (orientation:portrait) and (min-width: 438px),
-  screen and (orientation:landscape) and (min-height: 438px) {
+  @media screen and (orientation: portrait) and (min-width: 438px),
+    screen and (orientation: landscape) and (min-height: 438px) {
     max-width: 55%;
   }
-  @media screen and (orientation:portrait) and (max-width: 438px),
-  screen and (orientation:landscape) and (max-height: 438px) {
+  @media screen and (orientation: portrait) and (max-width: 438px),
+    screen and (orientation: landscape) and (max-height: 438px) {
     max-width: 100%;
   }
 }
@@ -59,8 +59,8 @@
   width: 220px;
 }
 
-@media screen and (orientation:portrait) and (max-width: 438px),
-screen and (orientation:landscape) and (max-height: 438px) {
+@media screen and (orientation: portrait) and (max-width: 438px),
+  screen and (orientation: landscape) and (max-height: 438px) {
   .comment__comment-explanation {
     margin-top: 30px;
     margin-bottom: 30px;

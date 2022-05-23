@@ -99,9 +99,9 @@ const ordering = (props) => {
     buttonPay() {
       return UIKIT.buttonPay();
     },
-    summaryCheck () {
+    summaryCheck() {
       return UIKIT.orderCheck(props);
-    }
+    },
   });
 };
 

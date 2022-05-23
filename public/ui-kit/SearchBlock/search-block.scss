@@ -1,4 +1,4 @@
-@use 'public/configurations/colors/colors.scss' as theme;
+@use "public/configurations/colors/colors.scss" as theme;
 
 .searchActivatedAria {
   width: 68.7%;
@@ -19,7 +19,7 @@
   max-height: 50px;
 
   border-radius: 20px;
-  background: theme.getColor('white');
+  background: theme.getColor("white");
 }
 
 .search-block__block-img {
@@ -50,6 +50,3 @@
     border: none;
   }
 }
-
-
-

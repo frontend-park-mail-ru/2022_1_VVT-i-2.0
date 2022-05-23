@@ -5,8 +5,11 @@ const profilePage = (app, store) => {
 
   const main = document.createElement("main");
   const avatar = store.getters.getAvatar();
-  main.innerHTML = components.profileTemplate('Личные данные',
-      components.personInfoForm(store.getters.user(), avatar), true);
+  main.innerHTML = components.profileTemplate(
+    "Личные данные",
+    components.personInfoForm(store.getters.user(), avatar),
+    true
+  );
 
   app.root.appendChild(main);
 };

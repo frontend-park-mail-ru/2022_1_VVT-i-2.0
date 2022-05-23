@@ -27,7 +27,7 @@ const Event = {
   search,
   getAdditionalAddressEvents,
   comment,
-  getPromoCodeEvents
+  getPromoCodeEvents,
 };
 
 export default Event;

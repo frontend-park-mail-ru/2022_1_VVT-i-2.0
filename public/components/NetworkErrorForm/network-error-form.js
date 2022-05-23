@@ -1,7 +1,7 @@
 const networkErrorForm = ({ header, text }) => {
-    const isMobile = window.screen.width < 1460;
+  const isMobile = window.screen.width < 1460;
 
-    const template = `
+  const template = `
             <section class="error-page">
                 <div class="error-page__view">
                     <div class="view__text-content">
@@ -26,7 +26,7 @@ const networkErrorForm = ({ header, text }) => {
                 </div>
             </section>
         `;
-    return Mustache.render(template, { isMobile, header, text });
+  return Mustache.render(template, { isMobile, header, text });
 };
 
 export default networkErrorForm;

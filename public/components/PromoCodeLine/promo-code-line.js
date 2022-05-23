@@ -88,7 +88,14 @@ const promoCodeLine = (props) => {
     props,
     promo() {
       promoPosition++;
-      return UIKIT.promoCodeIcon(this.img, this.text, this.logo, this.promocode, promoPosition, this.restName);
+      return UIKIT.promoCodeIcon(
+        this.img,
+        this.text,
+        this.logo,
+        this.promocode,
+        promoPosition,
+        this.restName
+      );
     },
   });
 };

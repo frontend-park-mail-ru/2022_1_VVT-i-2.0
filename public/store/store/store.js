@@ -10,16 +10,19 @@ const isEqual = (object1, object2) => {
 
   for (let i = 0; i < props1.length; i += 1) {
     const prop = props1[i];
-    const bothAreObjects = typeof(object1[prop]) === 'object' && typeof(object2[prop]) === 'object';
+    const bothAreObjects =
+      typeof object1[prop] === "object" && typeof object2[prop] === "object";
 
-    if ((!bothAreObjects && (object1[prop] !== object2[prop]))
-      || (bothAreObjects && !isEqual(object1[prop], object2[prop]))) {
+    if (
+      (!bothAreObjects && object1[prop] !== object2[prop]) ||
+      (bothAreObjects && !isEqual(object1[prop], object2[prop]))
+    ) {
       return false;
     }
   }
 
   return true;
-}
+};
 
 const STORE = {
   // State
@@ -118,7 +121,7 @@ const STORE = {
   },
   cachedCartWithDiscounts: {
     cart: {},
-    appliedPromoCode: {}
+    appliedPromoCode: {},
   },
   orderList: [],
   promoCodes: [],
@@ -133,9 +136,18 @@ const STORE = {
   isSearchActivated: false,
   token: "",
   categories: [
-    { title: "Суши" }, { title: "Пицца" }, { title: "Бургеры" }, { title: "Фастфуд" },
-    { title: "Русская" }, { title: "Японская" }, { title: "Паназиатская" }, { title: "Завтраки" },
-    { title: "Обеды" }, { title: "Сэндвичи" }, { title: "Китайская" }, { title: "Здоровая еда" }
+    { title: "Суши" },
+    { title: "Пицца" },
+    { title: "Бургеры" },
+    { title: "Фастфуд" },
+    { title: "Русская" },
+    { title: "Японская" },
+    { title: "Паназиатская" },
+    { title: "Завтраки" },
+    { title: "Обеды" },
+    { title: "Сэндвичи" },
+    { title: "Китайская" },
+    { title: "Здоровая еда" },
   ],
   comments: {
     // foodband: {
@@ -182,16 +194,20 @@ const STORE = {
   addDishes(slug, result, isFirstUpdate = false) {
     if (isFirstUpdate) {
       this.dishes[slug] = {
-        dishes: result.dishes, restName: result.restName,
-        rating: result.rating, reviewCount: result.reviewCount
+        dishes: result.dishes,
+        restName: result.restName,
+        rating: result.rating,
+        reviewCount: result.reviewCount,
       };
       return;
     }
 
     const dishes = this.dishes;
     dishes[slug] = {
-      dishes: result.dishes, restName: result.restName,
-      rating: result.rating, reviewCount: result.reviewCount
+      dishes: result.dishes,
+      restName: result.restName,
+      rating: result.rating,
+      reviewCount: result.reviewCount,
     };
     this.dishes = dishes;
   },
@@ -338,10 +354,13 @@ const STORE = {
       if (orderList[i].orderNumber === newStatuses[i].id) {
         orderList[i].status = newStatuses[i].status;
       }
-      cachedOrderStatuses.push( {id: orderList[i].orderNumber, status: orderList[i].status} );
+      cachedOrderStatuses.push({
+        id: orderList[i].orderNumber,
+        status: orderList[i].status,
+      });
     }
     this.orderList = orderList;
-  }
+  },
 };
 
 let cachedOrderStatuses = {};
@@ -349,7 +368,9 @@ const PROXY_STORE = new Proxy(STORE, {
   set(target, prop, value) {
     target[prop] = value;
 
-    if (['token', 'appliedPromoCode', 'cachedCartWithDiscounts'].includes(prop)) {
+    if (
+      ["token", "appliedPromoCode", "cachedCartWithDiscounts"].includes(prop)
+    ) {
       return true;
     }
 

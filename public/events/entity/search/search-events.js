@@ -13,9 +13,11 @@ export const search = () => {
           }
 
           const query = e.target.value;
-          sessionStorage.setItem('searchQuery', query);
-          store.actions.getRestaurants({ q: query }).then(() => renderAndUpdateURN("/"));
-        }
+          sessionStorage.setItem("searchQuery", query);
+          store.actions
+            .getRestaurants({ q: query })
+            .then(() => renderAndUpdateURN("/"));
+        },
       },
     ],
     searchBlock: [
@@ -23,8 +25,8 @@ export const search = () => {
         type: "click",
         selector: "id",
         listener(app, store, e) {
-          sessionStorage.setItem('searchBlockClicked', 'true');
-        }
+          sessionStorage.setItem("searchBlockClicked", "true");
+        },
       },
     ],
   };

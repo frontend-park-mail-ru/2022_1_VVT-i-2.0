@@ -43,5 +43,5 @@ export default {
   comment,
   notification,
   searchBlock,
-  promoCodeIcon
+  promoCodeIcon,
 };

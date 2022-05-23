@@ -1,8 +1,11 @@
 import * as FORM from "../../common/status-form.js";
 import { showEmptyInputs } from "../../common/status-form.js";
-import { renderAndUpdateURN, renderNotification } from "../../../render/render.js";
-import {getSearchStatus} from "../../../store/getters/getters";
-import {changeSearchStatus} from "../../../store/actions/actions";
+import {
+  renderAndUpdateURN,
+  renderNotification,
+} from "../../../render/render.js";
+import { getSearchStatus } from "../../../store/getters/getters";
+import { changeSearchStatus } from "../../../store/actions/actions";
 import { confirmCodeError } from "../confirmCode/confirm-code-src";
 
 export const getButtonEvents = () => {
@@ -35,16 +38,17 @@ export const getButtonEvents = () => {
 
           sessionStorage.setItem("logicType", "login");
 
-          store.actions
-            .sendCode(phone)
-            .then((result) => {
-              if (!result.registered) {
-                renderNotification('Пользователь с таким номером не зарегистрирован', true);
-                return;
-              }
+          store.actions.sendCode(phone).then((result) => {
+            if (!result.registered) {
+              renderNotification(
+                "Пользователь с таким номером не зарегистрирован",
+                true
+              );
+              return;
+            }
 
-              renderAndUpdateURN("/confirmCode");
-            });
+            renderAndUpdateURN("/confirmCode");
+          });
         },
       },
     ],
@@ -76,7 +80,11 @@ export const getButtonEvents = () => {
                 sessionStorage.removeItem("email");
                 renderAndUpdateURN("/");
               })
-              .catch(() => confirmCodeError.confirmCodeErrorShow('Неверный код подтверждения'));
+              .catch(() =>
+                confirmCodeError.confirmCodeErrorShow(
+                  "Неверный код подтверждения"
+                )
+              );
           } else if (logicType === "register") {
             store.actions
               .register({ phone, code, email, name })
@@ -87,7 +95,11 @@ export const getButtonEvents = () => {
                 sessionStorage.removeItem("email");
                 renderAndUpdateURN("/");
               })
-              .catch(() => confirmCodeError.confirmCodeErrorShow('Неверный код подтверждения'));
+              .catch(() =>
+                confirmCodeError.confirmCodeErrorShow(
+                  "Неверный код подтверждения"
+                )
+              );
           }
         },
       },
@@ -104,11 +116,9 @@ export const getButtonEvents = () => {
           phone = phone.replace(")", "");
           phone = phone.replaceAll("-", "");
 
-          store.actions
-            .sendCode(phone)
-            .then((result) =>  {
-              renderAndUpdateURN("/confirmCode");
-            });
+          store.actions.sendCode(phone).then((result) => {
+            renderAndUpdateURN("/confirmCode");
+          });
         },
       },
     ],
@@ -161,16 +171,17 @@ export const getButtonEvents = () => {
           phone = phone.replace(")", "");
           phone = phone.replaceAll("-", "");
 
-          store.actions
-            .sendCode(phone)
-            .then((result) => {
-              if (result.registered) {
-                renderNotification('Пользователь с таким номером уже зарегистрирован', true);
-                return;
-              }
+          store.actions.sendCode(phone).then((result) => {
+            if (result.registered) {
+              renderNotification(
+                "Пользователь с таким номером уже зарегистрирован",
+                true
+              );
+              return;
+            }
 
-              renderAndUpdateURN("/confirmCode");
-            });
+            renderAndUpdateURN("/confirmCode");
+          });
         },
       },
     ],
@@ -190,16 +201,16 @@ export const getButtonEvents = () => {
         selector: "id",
         listener(app, store, e) {
           store.actions.changeSearchStatus();
-          const searchInput = document.getElementById('searchInput');
+          const searchInput = document.getElementById("searchInput");
           searchInput.focus();
-        }
+        },
       },
       {
         type: "click",
         selector: "id",
         listener(app, store, e) {
-          sessionStorage.setItem('searchButtonClicked', 'true');
-        }
+          sessionStorage.setItem("searchButtonClicked", "true");
+        },
       },
     ],
     personInfoSaveButton: [
@@ -216,11 +227,11 @@ export const getButtonEvents = () => {
           const input = document.getElementById("avatarUpload");
 
           let dt = new DataTransfer();
-          const avatar = JSON.parse(sessionStorage.getItem('avatar'));
+          const avatar = JSON.parse(sessionStorage.getItem("avatar"));
           if (avatar && Object.keys(avatar).length > 0) {
             dt.items.add(avatar);
             input.files = dt.files;
-            sessionStorage.removeItem('avatar');
+            sessionStorage.removeItem("avatar");
           }
 
           const obj = new FormData(personInfoForm);
@@ -259,10 +270,20 @@ export const getButtonEvents = () => {
 
           const order = store.getters.cart().order;
 
-          store.actions.createOrder({ address, entrance, intercom, floor, flat, comment, cart: order }).then(() => {
-            renderAndUpdateURN("/orderHistory");
-            renderNotification("Заказ успешно создан");
-          });
+          store.actions
+            .createOrder({
+              address,
+              entrance,
+              intercom,
+              floor,
+              flat,
+              comment,
+              cart: order,
+            })
+            .then(() => {
+              renderAndUpdateURN("/orderHistory");
+              renderNotification("Заказ успешно создан");
+            });
         },
       },
     ],
@@ -276,17 +297,17 @@ export const getButtonEvents = () => {
             return;
           }
 
-          const starsBlock = document.getElementById('starsBlock');
+          const starsBlock = document.getElementById("starsBlock");
 
-          const text = document.getElementById('comment').value;
+          const text = document.getElementById("comment").value;
           const stars = parseInt(starsBlock.dataset.count, 10);
 
           store.actions.createComment({ slug, text, stars }).then(() => {
             renderAndUpdateURN(`/comments/${slug}`);
             renderNotification("Комментарий успешно создан");
           });
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
 };

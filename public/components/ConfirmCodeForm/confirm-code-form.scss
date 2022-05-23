@@ -1,66 +1,67 @@
 .confirm-code-form {
-    @media screen and (orientation:portrait) and (min-width: 438px),
-    screen and (orientation:landscape) and (min-height: 438px) {
-        position: relative;
-    }
-    @media screen and (orientation:portrait) and (max-width: 438px),
-    screen and (orientation:landscape) and (max-height: 438px) {
-        margin: 4.68% auto;
-        max-height: calc(100% - 2 * 4.68%);
-        width: 100%;
-    }
+  @media screen and (orientation: portrait) and (min-width: 438px),
+    screen and (orientation: landscape) and (min-height: 438px) {
+    position: relative;
+  }
+  @media screen and (orientation: portrait) and (max-width: 438px),
+    screen and (orientation: landscape) and (max-height: 438px) {
+    margin: 4.68% auto;
+    max-height: calc(100% - 2 * 4.68%);
+    width: 100%;
+  }
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .confirm-code-form__main-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50%;
 }
 
 .main-content__preview {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: min-content;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: min-content;
 }
 
 .preview__title {
-    margin-top: 0;
-    margin-bottom: 35px;
-    width: 90%;
+  margin-top: 0;
+  margin-bottom: 35px;
+  width: 90%;
 }
 
 .preview__close-img {
-    height: 30px;
-    width: 30px;
-    justify-content: flex-end;
+  height: 30px;
+  width: 30px;
+  justify-content: flex-end;
 }
 
-@media screen and (orientation:portrait) and (min-width: 438px),
-screen and (orientation:landscape) and (min-height: 438px) {
-    .preview__close-img:hover {
-        cursor: pointer;
-        filter: invert(100%) sepia(0%) saturate(1569%) hue-rotate(174deg) brightness(106%) contrast(74%);
-    }
+@media screen and (orientation: portrait) and (min-width: 438px),
+  screen and (orientation: landscape) and (min-height: 438px) {
+  .preview__close-img:hover {
+    cursor: pointer;
+    filter: invert(100%) sepia(0%) saturate(1569%) hue-rotate(174deg)
+      brightness(106%) contrast(74%);
+  }
 }
 
 .confirm-code-form__indication {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .confirm-code-form__input {
-    margin-bottom: 44px;
+  margin-bottom: 44px;
 }
 
 .confirm-code-form__buttons {
-    text-align: center;
+  text-align: center;
 }
 
 .confirm-code-form__button-confirm-code {
-    margin-bottom: 19px;
+  margin-bottom: 19px;
 }

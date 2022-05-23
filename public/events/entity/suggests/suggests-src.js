@@ -10,6 +10,6 @@ export const debounce = (func, time) => {
 
     isCooldown = true;
 
-    setTimeout(() => isCooldown = false, time);
+    setTimeout(() => (isCooldown = false), time);
   };
-}
+};

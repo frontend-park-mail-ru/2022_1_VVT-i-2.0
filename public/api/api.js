@@ -61,9 +61,9 @@ const request = (url, options = DEFAULT_OPTIONS) => {
         return data;
       }
 
-      const page = sessionStorage.getItem('page');
+      const page = sessionStorage.getItem("page");
 
-      if (page !== 'confirmCode') {
+      if (page !== "confirmCode") {
         data.then((d) => renderNotification(d.error, true));
       }
 
@@ -137,15 +137,15 @@ export const createOrder = (order) => {
 };
 
 export const getOrderList = () => {
-  return request('/orders');
+  return request("/orders");
 };
 
 export const getPromoCodes = () => {
-  return request('/promo');
+  return request("/promo");
 };
 
 export const getStatusOrders = () => {
-  return request('/order_statuses');
+  return request("/order_statuses");
 };
 
 export const getCertainOrder = (orderNumber) => {

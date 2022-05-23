@@ -89,8 +89,8 @@ const MENU = {
   createComment: {
     render: createCommentPage,
     isModal: false,
-    authRequired: true
-  }
+    authRequired: true,
+  },
 };
 
 export default MENU;

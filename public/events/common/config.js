@@ -16,7 +16,7 @@ export const EntityLengthLimit = {
   entrance: 4,
   intercom: 10,
   floor: 3,
-  flat: 4
+  flat: 4,
 };
 
 export const ErrorMsg = {
