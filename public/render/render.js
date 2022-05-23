@@ -188,6 +188,8 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     return;
   }
 
+  console.log(urn);
+
   if (!urn.startsWith("/")) {
     urn = `/${urn}`;
   }
@@ -208,7 +210,7 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
   //   store.actions.clearRestaurants();
   // }
 
-  if (urn === "/shoppingCart" && IsCartEmpty()) {
+  if (!sessionStorage.getItem('redirectByPromoCodeActivation') && urn === "/shoppingCart" && IsCartEmpty()) {
     return;
   }
 

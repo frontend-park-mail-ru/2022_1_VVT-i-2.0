@@ -285,6 +285,9 @@ const STORE = {
   setSearchStatus(status) {
     this.isSearchActivated = status;
   },
+  setCurrentRestName(restName) {
+    this.currentRestName = restName;
+  },
   addComments(restName, result) {
     const comments = this.comments;
     comments[restName] = { comments: result };

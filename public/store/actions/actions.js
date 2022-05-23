@@ -96,6 +96,10 @@ export const getCertainOrder = (orderNumber) => {
   });
 }
 
+export const setCurrentRestName = (restName) => {
+  STORE.setCurrentRestName(restName);
+}
+
 export const getPromoCodes = () => {
   return API.getPromoCodes().then((result) => {
     STORE.addPromoCodes(result.promos);
