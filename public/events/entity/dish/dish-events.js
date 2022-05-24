@@ -22,7 +22,9 @@ export const dishEvents = () => {
             return;
           }
 
-          const count = store.getters.cart().order.length;
+          const count = rest === store.getters.currentRestName()
+            ? store.getters.cart().order.length
+            : 0;
 
           store.actions.addDishToCart(parseInt(id, 10), rest, price);
 

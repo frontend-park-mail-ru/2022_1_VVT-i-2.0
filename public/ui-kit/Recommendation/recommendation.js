@@ -7,14 +7,14 @@ const recommendedDish = (imgPath, productName, weight, info, price, id, restName
         {{weight}} г · {{info}} ккал
       </div>
       <div class="recommendation__price-bar">
-        <div>{{price}} ₽</div>
+        <div class="recommendation__price">{{price}} ₽</div>
         <button
           class="recommendation__button-add-to-order addToCart"
           data-id="{{id}}"
           data-rest="{{restName}}"
           data-price="{{price}}"
         >
-          В корзину
+          + {{price}} ₽
         </button>
       </div>
     </div>

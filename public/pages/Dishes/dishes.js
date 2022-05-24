@@ -22,7 +22,7 @@ const dishesPage = (app, store) => {
   app.root.innerHTML = components.header();
 
   const categories = dishObj.categories
-    .filter((category) => category.dishes !== null)
+    .filter((category) => category.dishes.length > 0)
     .map((category) => {
       const dishes = category.dishes.map((id) => dishObj.dishes.find((dish) => dish.id === id));
       return { ...category, dishes };

@@ -64,7 +64,7 @@ const shoppingCart = (restName, props, promoCode, recommendations) => {
     },
     drawRecommendation() {
       return UIKIT.recommendation(
-        `http://localhost:8080/static/dishes/${this.imgPath}`,
+        this.imgPath,
         this.productName,
         this.weight,
         this.info,
