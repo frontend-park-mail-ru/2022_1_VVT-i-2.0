@@ -36,7 +36,12 @@ export const register = (user) => {
 };
 
 export const login = (user) => {
-  return API.login(user).then((result) => STORE.addUser(result));
+  return API.login(user).then((result) => {
+    if (result.address !== "") {
+      localStorage.setItem("address", result.address);
+    }
+    STORE.addUser(result)
+  });
 };
 
 export const logout = () => {
