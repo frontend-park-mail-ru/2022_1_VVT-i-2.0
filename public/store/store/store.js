@@ -191,9 +191,7 @@ const STORE = {
     };
   },
   addSuggests(result) {
-    this.suggests = result.suggests.map((suggest) => {
-      return { address: suggest, end: result.end };
-    });
+    this.suggests = result.suggests;
   },
   clearSuggests() {
     this.suggests.length = 0;
