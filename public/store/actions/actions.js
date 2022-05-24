@@ -37,7 +37,7 @@ export const register = (user) => {
 
 export const login = (user) => {
   return API.login(user).then((result) => {
-    if (result.address !== "") {
+    if (result.address && result.address !== "") {
       localStorage.setItem("address", result.address);
     }
     STORE.addUser(result)
