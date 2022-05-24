@@ -36,7 +36,7 @@ const request = (url, options = DEFAULT_OPTIONS) => {
       renderAndUpdateURN("/networkErrors");
     })
     .then((result) => {
-      if (result.status === 200 && result.headers.get("X-CSRF-Token") !== "") {
+      if (result.status === 200 && result.headers.get("X-CSRF-Token") !== null) {
         store.actions.setToken(result.headers.get("X-CSRF-Token"));
       }
 
@@ -158,4 +158,8 @@ export const getComments = (slug) => {
 
 export const createComment = (comment) => {
   return request("/comment", { method: METHODS.POST, body: comment });
+};
+
+export const getRecommendations = (body) => {
+  return request("/recommendations", { method: METHODS.POST, body });
 };

@@ -39,7 +39,8 @@ const shoppingCartPage = (app, store) => {
   app.modal.innerHTML = components.shoppingCart(
     restName,
     properties,
-    store.getters.appliedPromoCode().promocode
+    store.getters.appliedPromoCode().promocode,
+    store.getters.recommendations()
   );
 };
 
