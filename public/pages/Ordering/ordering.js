@@ -1,4 +1,5 @@
 import components from "../../components/import.js";
+import { appliedPromoCode } from "../../store/getters/getters";
 
 const ordering = (app, store) => {
   if (Object.keys(store.getters.dishes()).length === 0) {
@@ -36,14 +37,18 @@ const ordering = (app, store) => {
     }
   });
 
+  const promoCodeApplied = Object.keys(store.getters.appliedPromoCode()).length !== 0;
+  console.log(Object.keys(store.getters.appliedPromoCode()).length !== 0);
+
   const main = document.createElement("main");
   main.innerHTML = components.ordering({
     phone,
     restName: dishObj.restName,
     orderPoints,
-    totalPrice: cart.totalPrice,
+    totalPrice: cart.totalPriceWithDiscount || cart.totalPrice,
+    summaryDiscount: cart.totalPrice - cart.totalPriceWithDiscount || 0,
     minPrice,
-  });
+  }, promoCodeApplied, store.getters.appliedPromoCode());
 
   app.root.appendChild(main);
 };

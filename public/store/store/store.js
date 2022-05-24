@@ -182,7 +182,7 @@ const STORE = {
 
     cart.order[index].count -= 1;
     cart.totalPrice -= cart.order[index].price;
-    cart.totalPriceWithDiscount += Math.round(cart.order[index].price * (1 - this.appliedPromoCode.discount));
+    cart.totalPriceWithDiscount -= Math.round(cart.order[index].price * (1 - this.appliedPromoCode.discount));
 
     if (cart.order[index].count < 1) {
       cart.order.splice(index, 1);
@@ -231,6 +231,7 @@ const STORE = {
     this.currentRestName = restName;
   },
   setAppliedPromoCode(promoCode) {
+    console.log('PROMOCODE SET', promoCode);
     this.appliedPromoCode = promoCode;
   },
   addComments(restName, result) {
