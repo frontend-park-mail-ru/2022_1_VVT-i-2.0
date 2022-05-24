@@ -5,7 +5,7 @@ import {
   renderNotification,
 } from "../../../render/render.js";
 import { getSearchStatus } from "../../../store/getters/getters";
-import { changeSearchStatus } from "../../../store/actions/actions";
+import { changeSearchStatus, clearAppliedPromoCode } from "../../../store/actions/actions";
 import { confirmCodeError } from "../confirmCode/confirm-code-src";
 
 export const getButtonEvents = () => {
@@ -269,6 +269,9 @@ export const getButtonEvents = () => {
           const comment = document.getElementById("orderingComment").innerText;
 
           const order = store.getters.cart().order;
+          console.log('PROMOCODE: ', store.getters.appliedPromoCode(), store.getters.appliedPromoCode().promocode);
+          const promocode = store.getters.appliedPromoCode().promocode;
+          console.log('promocode text', promocode);
 
           store.actions
             .createOrder({
@@ -279,11 +282,13 @@ export const getButtonEvents = () => {
               flat,
               comment,
               cart: order,
+              promocode,
             })
             .then(() => {
               renderAndUpdateURN("/orderHistory");
               renderNotification("Заказ успешно создан");
             });
+          store.actions.clearAppliedPromoCode();
         },
       },
     ],

@@ -1,5 +1,4 @@
 import components from "../../components/import.js";
-import { appliedPromoCode } from "../../store/getters/getters";
 
 const ordering = (app, store) => {
   if (Object.keys(store.getters.dishes()).length === 0) {
@@ -33,13 +32,13 @@ const ordering = (app, store) => {
   let minPrice = 0;
   store.getters.restaurants().forEach((restObj) => {
     if (restObj.restName === currentRestName) {
-      minPrice = restObj.min_price;
+      minPrice = restObj.price;
     }
   });
 
   const promoCodeApplied = Object.keys(store.getters.appliedPromoCode()).length !== 0;
-  console.log('summaryDiscount', cart.totalPrice - cart.totalPriceWithDiscount);
-  console.log('without: ', cart.totalPrice, 'with: ', cart.totalPriceWithDiscount);
+
+  store.actions.changeDeliveryPrice((cart.totalPriceWithDiscount || cart.totalPrice) > minPrice ? 0 : 99);
 
   const main = document.createElement("main");
   main.innerHTML = components.ordering({
@@ -48,7 +47,8 @@ const ordering = (app, store) => {
     orderPoints,
     totalPrice: cart.totalPriceWithDiscount || cart.totalPrice,
     summaryDiscount: cart.totalPriceWithDiscount ? cart.totalPrice - cart.totalPriceWithDiscount : 0,
-    minPrice,
+    deliveryPrice: store.getters.deliveryPrice(),
+    minPrice
   }, promoCodeApplied, store.getters.appliedPromoCode());
 
   app.root.appendChild(main);

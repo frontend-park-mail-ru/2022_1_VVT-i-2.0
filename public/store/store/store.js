@@ -41,6 +41,7 @@ const STORE = {
   orderList: [],
   promoCodes: [],
   appliedPromoCode: {},
+  deliveryPrice: 0,
   certainOrder: {},
   suggests: [],
   currentRestName: "",
@@ -168,7 +169,6 @@ const STORE = {
 
     cart.order[index].count += 1;
     cart.totalPrice += Number(cart.order[index].price);
-    console.log(cart.totalPrice);
     cart.totalPriceWithDiscount += Math.round(cart.order[index].price * (1 - this.appliedPromoCode.discount));
 
     this.cart = cart;
@@ -228,11 +228,17 @@ const STORE = {
   setSearchStatus(status) {
     this.isSearchActivated = status;
   },
+  setDeliveryPrice(deliveryPrice) {
+    this.deliveryPrice = deliveryPrice;
+  },
   setCurrentRestName(restName) {
     this.currentRestName = restName;
   },
   setAppliedPromoCode(promoCode) {
     this.appliedPromoCode = promoCode;
+  },
+  clearAppliedPromoCode() {
+    this.appliedPromoCode = {};
   },
   addComments(restName, result) {
     const comments = this.comments;
@@ -265,7 +271,7 @@ const PROXY_STORE = new Proxy(STORE, {
     target[prop] = value;
 
     if (
-      ["token", "appliedPromoCode", "cachedCartWithDiscounts"].includes(prop)
+      ["token", "appliedPromoCode", "cachedCartWithDiscounts", "deliveryPrice"].includes(prop)
     ) {
       return true;
     }

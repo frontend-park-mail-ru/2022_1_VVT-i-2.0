@@ -30,11 +30,11 @@ const orderCheck = (props, toShowNotify = true, IsOrderingPage = true, promoCode
     
           <div class="order-check__payment-info">
             <div>Доставка</div>
-            <div class="payment-info__price">500 ₽</div>
+            <div class="payment-info__price">{{deliveryPrice}} ₽</div>
           </div>
           <div class="order-check__payment-info">
             <div>Суммарная скидка</div>
-            <div class="payment-info__price">{{summaryDiscount}}</div>
+            <div class="payment-info__price">{{summaryDiscount}} ₽</div>
           </div>
     
           {{#toShowNotify}}
@@ -43,7 +43,7 @@ const orderCheck = (props, toShowNotify = true, IsOrderingPage = true, promoCode
     
           <div class="order-check__summary-payment">
             <div>Итого</div>
-            <div class="payment-info__price">{{totalPrice}} ₽</div>
+            <div class="payment-info__price">{{totalPriceWithDelivery}} ₽</div>
           </div>
           {{/isEmpty}}
         </div>
@@ -56,10 +56,12 @@ const orderCheck = (props, toShowNotify = true, IsOrderingPage = true, promoCode
   return Mustache.render(template, {
     restName: props.restName,
     totalPrice: props.totalPrice,
+    totalPriceWithDelivery: props.totalPrice + props.deliveryPrice,
     orderPoints: props.orderPoints,
-    summaryDiscount: props.summaryDiscount,
+    summaryDiscount: props.summaryDiscount || 0,
     minPrice: props.minPrice || 0,
-    promo: promoCode.promocode,
+    promo: promoCode ? promoCode.promocode : null,
+    deliveryPrice: props.deliveryPrice,
     isEmpty,
     toShowNotify,
     IsOrderingPage,
@@ -75,14 +77,14 @@ const orderCheck = (props, toShowNotify = true, IsOrderingPage = true, promoCode
         this.id,
         IsOrderingPage,
         promoCodeApplied,
-        promoCode.discount
+        promoCode ? promoCode.discount: null
       );
     },
     paymentNotification() {
-      if (this.totalPrice - 1000 < this.minPrice) {
+      if (this.deliveryPrice) {
         return UIKIT.paymentNotification(
           "Закажите ещё на " +
-            String(this.minPrice - (this.totalPrice - 1000)) +
+            String(this.minPrice - (this.totalPrice)) +
             " ₽ для бесплатной доставки",
           false
         );
