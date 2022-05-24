@@ -1,13 +1,9 @@
-const recommendedDish = (imgPath, productName, weight, info, price, id, restName) => {
+const recommendedDish = (imgPath, productName, price, id, restName) => {
   const template = `
     <div class="recommendation">
       <img class="recommendation__img" src="{{imgPath}}">
       <div class="recommendation__name">{{productName}}</div>
-      <div class="recommendation__calories-info">
-        {{weight}} г · {{info}} ккал
-      </div>
       <div class="recommendation__price-bar">
-        <div class="recommendation__price">{{price}} ₽</div>
         <button
           class="recommendation__button-add-to-order addToCart"
           data-id="{{id}}"
@@ -19,7 +15,7 @@ const recommendedDish = (imgPath, productName, weight, info, price, id, restName
       </div>
     </div>
   `;
-  return Mustache.render(template, { imgPath, productName, weight, info, price, id, restName });
+  return Mustache.render(template, { imgPath, productName, price, id, restName });
 };
 
 export default recommendedDish;

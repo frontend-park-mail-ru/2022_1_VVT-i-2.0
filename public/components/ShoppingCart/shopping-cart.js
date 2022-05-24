@@ -66,8 +66,6 @@ const shoppingCart = (restName, props, promoCode, recommendations) => {
       return UIKIT.recommendation(
         this.imgPath,
         this.productName,
-        this.weight,
-        this.info,
         this.price,
         this.id,
         restName

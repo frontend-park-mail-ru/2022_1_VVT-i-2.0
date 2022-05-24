@@ -18,14 +18,11 @@
   }
 
   width: 173px;
-  // height: 230px;
   height: 120px;
 
   background: theme.getColor("white");
   border: 1px solid theme.getColor("grey");
   border-radius: 14px;
-
-  // filter: drop-shadow(0px 0px 12px rgba(26, 26, 26, 0.25));
 
   &__img {
     height: 120px;
@@ -37,16 +34,6 @@
 
     object-fit: cover;
   }
-
-  // &__name-box {
-  //   border-radius: 14px 14px 0px 0px;
-  //   height: 56px;
-  //   width: 173px;
-  //   background: hsla(160, 3%, 63%, .6);
-
-  //   position: absolute;
-  //   top: 0px;
-  // }
 
   &__name {
     display: flex;
@@ -74,18 +61,6 @@
     }
   }
 
-  &__calories-info {
-    color: #c3c3c3;
-    margin-top: 10px;
-    margin-bottom: 10px;
-
-    @include paddings();
-
-    font-size: 14px;
-
-    display: none;
-  }
-
   &__price-bar {
     display: inline-flex;
     text-align: center;
@@ -96,17 +71,6 @@
     width: 90%;
     font-weight: bold;
     bottom: 10px;
-
-    :nth-child(1) {
-      width: 40%;
-      text-align: left;
-      margin-top: auto;
-      margin-bottom: auto;
-    }
-  }
-
-  &__price {
-    display: none;
   }
 
   &__button-add-to-order {
