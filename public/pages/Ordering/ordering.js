@@ -38,7 +38,8 @@ const ordering = (app, store) => {
   });
 
   const promoCodeApplied = Object.keys(store.getters.appliedPromoCode()).length !== 0;
-  console.log(Object.keys(store.getters.appliedPromoCode()).length !== 0);
+  console.log('summaryDiscount', cart.totalPrice - cart.totalPriceWithDiscount);
+  console.log('without: ', cart.totalPrice, 'with: ', cart.totalPriceWithDiscount);
 
   const main = document.createElement("main");
   main.innerHTML = components.ordering({
@@ -46,7 +47,7 @@ const ordering = (app, store) => {
     restName: dishObj.restName,
     orderPoints,
     totalPrice: cart.totalPriceWithDiscount || cart.totalPrice,
-    summaryDiscount: cart.totalPrice - cart.totalPriceWithDiscount || 0,
+    summaryDiscount: cart.totalPriceWithDiscount ? cart.totalPrice - cart.totalPriceWithDiscount : 0,
     minPrice,
   }, promoCodeApplied, store.getters.appliedPromoCode());
 

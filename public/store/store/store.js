@@ -167,7 +167,8 @@ const STORE = {
     }
 
     cart.order[index].count += 1;
-    cart.totalPrice += cart.order[index].price;
+    cart.totalPrice += Number(cart.order[index].price);
+    console.log(cart.totalPrice);
     cart.totalPriceWithDiscount += Math.round(cart.order[index].price * (1 - this.appliedPromoCode.discount));
 
     this.cart = cart;
@@ -181,7 +182,7 @@ const STORE = {
     }
 
     cart.order[index].count -= 1;
-    cart.totalPrice -= cart.order[index].price;
+    cart.totalPrice -= Number(cart.order[index].price);
     cart.totalPriceWithDiscount -= Math.round(cart.order[index].price * (1 - this.appliedPromoCode.discount));
 
     if (cart.order[index].count < 1) {
@@ -231,7 +232,6 @@ const STORE = {
     this.currentRestName = restName;
   },
   setAppliedPromoCode(promoCode) {
-    console.log('PROMOCODE SET', promoCode);
     this.appliedPromoCode = promoCode;
   },
   addComments(restName, result) {

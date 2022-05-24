@@ -53,8 +53,6 @@ const orderCheck = (props, toShowNotify = true, IsOrderingPage = true, promoCode
     sessionStorage.setItem("smallOrder", "true");
   }
 
-  console.log(promoCode.promocode);
-
   return Mustache.render(template, {
     restName: props.restName,
     totalPrice: props.totalPrice,
