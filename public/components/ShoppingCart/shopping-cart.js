@@ -2,33 +2,45 @@ import UIKIT from "../../ui-kit/import.js";
 import COLORS from "../../configurations/colors/colors.js";
 import ELEMS_CONFIGURATION from "../../configurations/elems.js";
 
-const shoppingCart = (restName, props, promoCode) => {
+const shoppingCart = (restName, props, promoCode, recommendations) => {
   let promoCodeApplied = false;
   if (promoCode) {
     promoCodeApplied = true;
   }
 
+  const hasRecommendations = recommendations.length > 0;
+
   const template = `
-        <div class="shopping-cart">
-            <div class="shopping-cart__info-about-rest shopping-cart__order-point">
-              <div class="shopping-cart__preview-rest">Ваш заказ в ресторане: {{restName}}</div>
-            </div>
-            
-            {{#promoCodeApplied}}
-            <div class="shopping-cart__info-about-rest shopping-cart__order-point">
-              <div class="shopping-cart__preview-rest">Промокод <strong>{{promoCode}}</strong> применен &#9989;</div>
-            </div>
-            {{/promoCodeApplied}}
-            
-            <div class="shopping-cart__order-points">
-                {{#props}}
-                    {{&drawOrderPoint}}
-                {{/props}}
-            </div>
-            <div class="shopping-cart__button-order">
-                {{&buttonOrder}}
-            </div>
+    <div class="shopping-cart">
+      <div class="shopping-cart__info-about-rest shopping-cart__order-point">
+        <div class="shopping-cart__preview-rest">Ваш заказ в ресторане: {{restName}}</div>
+      </div>
+
+      {{#promoCodeApplied}}
+      <div class="shopping-cart__info-about-rest shopping-cart__order-point">
+        <div class="shopping-cart__preview-rest">Промокод <strong>{{promoCode}}</strong> применен &#9989;</div>
+      </div>
+      {{/promoCodeApplied}}
+
+      <div class="shopping-cart__order-points">
+        {{#props}}
+          {{&drawOrderPoint}}
+        {{/props}}
+      </div>
+
+      {{#hasRecommendations}}
+        <div class="shopping-cart__recommendations">
+          <div class="recommendations__title">С этим также заказывают</div>
+          {{#recommendations}}
+            {{&drawRecommendation}}
+          {{/recommendations}}
         </div>
+      {{/hasRecommendations}}
+
+      <div class="shopping-cart__button-order">
+        {{&buttonOrder}}
+      </div>
+    </div>
   `;
 
   return Mustache.render(template, {
@@ -36,6 +48,8 @@ const shoppingCart = (restName, props, promoCode) => {
     props: props,
     promoCodeApplied,
     promoCode,
+    hasRecommendations,
+    recommendations,
     drawOrderPoint() {
       return UIKIT.orderPoint(
         this.imgPath,
@@ -46,6 +60,17 @@ const shoppingCart = (restName, props, promoCode) => {
         this.price,
         this.id,
         true
+      );
+    },
+    drawRecommendation() {
+      return UIKIT.recommendation(
+        `http://localhost:8080/static/dishes/${this.imgPath}`,
+        this.productName,
+        this.weight,
+        this.info,
+        this.price,
+        this.id,
+        restName
       );
     },
     buttonOrder() {

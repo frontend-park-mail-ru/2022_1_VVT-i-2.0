@@ -21,12 +21,19 @@ const dishesPage = (app, store) => {
 
   app.root.innerHTML = components.header();
 
+  const categories = dishObj.categories
+    .filter((category) => category.dishes !== null)
+    .map((category) => {
+      const dishes = category.dishes.map((id) => dishObj.dishes.find((dish) => dish.id === id));
+      return { ...category, dishes };
+    });
+
   const main = document.createElement("main");
   main.innerHTML =
     UIKIT.backButton("Все рестораны", "main") +
     UIKIT.simpleTitle(restName) +
     UIKIT.commentsBlock(params, dishObj.rating, dishObj.reviewCount) +
-    components.dishesIcons(dishObj.dishes, restName);
+  components.dishesIcons(categories, restName);
 
   app.root.appendChild(main);
 };

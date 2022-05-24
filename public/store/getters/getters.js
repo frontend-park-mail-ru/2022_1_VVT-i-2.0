@@ -48,3 +48,5 @@ export const categories = () => STORE.categories;
 export const comments = () => STORE.comments;
 
 export const cachedCartWithDiscounts = () => STORE.cachedCartWithDiscounts;
+
+export const recommendations = () => STORE.recommendations;

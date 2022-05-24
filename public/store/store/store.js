@@ -60,6 +60,7 @@ const STORE = {
     { title: "Здоровая еда" },
   ],
   comments: {},
+  recommendations: [],
 
   // Mutations
   addUser(user) {
@@ -85,6 +86,8 @@ const STORE = {
         restName: result.restName,
         rating: result.rating,
         reviewCount: result.reviewCount,
+        id: result.id,
+        categories: result.categories
       };
       return;
     }
@@ -95,6 +98,8 @@ const STORE = {
       restName: result.restName,
       rating: result.rating,
       reviewCount: result.reviewCount,
+      id: result.id,
+      categories: result.categories
     };
     this.dishes = dishes;
   },
@@ -246,6 +251,9 @@ const STORE = {
     }
     this.orderList = orderList;
   },
+  addRecommendations(dishes) {
+    this.recommendations = dishes;
+  }
 };
 
 let cachedOrderStatuses = {};

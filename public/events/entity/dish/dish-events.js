@@ -22,8 +22,19 @@ export const dishEvents = () => {
             return;
           }
 
+          const count = store.getters.cart().order.length;
+
           store.actions.addDishToCart(parseInt(id, 10), rest, price);
-          if (window.screen.width >= 920) {
+
+          const order = store.getters.cart().order;
+          if (order.length > count) {
+            const params = sessionStorage.getItem("params");
+            const dishesObj = store.getters.dishes()[params];
+
+            store.actions.getRecommendations({ restId: dishesObj.id, orderList: order });
+          }
+
+          if (window.screen.width >= 1000) {
             renderAndUpdateURN("/shoppingCart", true);
           }
         },

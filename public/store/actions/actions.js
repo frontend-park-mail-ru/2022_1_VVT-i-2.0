@@ -160,3 +160,7 @@ export const clearUpdateTimeout = () => {
 export const createComment = (comment) => {
   return API.createComment(comment);
 };
+
+export const getRecommendations = (body) => {
+  return API.getRecommendations(body).then((result) => STORE.addRecommendations(result.dishes));
+};
