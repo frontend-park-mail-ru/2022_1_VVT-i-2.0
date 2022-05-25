@@ -6,17 +6,17 @@ import { IsCartEmpty } from "./store/getters/getters";
 const NOT_CLOSED_PAGES_BY_CLICK_OUT = ["shoppingCart", "confirmCode"];
 export const DEFAULT_ADDRESS = "Адрес доставки";
 
-const searchOnClickOutHandler = () => {
-  if (
-    !sessionStorage.getItem("searchBlockClicked") &&
-    !sessionStorage.getItem("searchButtonClicked") &&
-    document.getElementById("searchBlock")
-  ) {
-    document.getElementById("closeImg").click();
-  }
-  sessionStorage.removeItem("searchBlockClicked");
-  sessionStorage.removeItem("searchButtonClicked");
-};
+// const searchOnClickOutHandler = () => {
+//   if (
+//     !sessionStorage.getItem("searchBlockClicked") &&
+//     !sessionStorage.getItem("searchButtonClicked") &&
+//     document.getElementById("searchBlock")
+//   ) {
+//     document.getElementById("closeImg").click();
+//   }
+//   sessionStorage.removeItem("searchBlockClicked");
+//   sessionStorage.removeItem("searchButtonClicked");
+// };
 
 Object.entries(APP).forEach(([name, node]) =>
   node.addEventListener("click", (e) =>
@@ -39,7 +39,7 @@ window.onpopstate = () => {
 };
 
 document.addEventListener("click", (e) => {
-  searchOnClickOutHandler();
+  // searchOnClickOutHandler();
 
   if (APP.modal.children.length === 0) {
     return;
