@@ -228,10 +228,13 @@ const STORE = {
   setAppliedPromoCode(promoCode) {
     this.appliedPromoCode = promoCode;
   },
-  addComments(restName, result) {
+  addComments(slug, result) {
     const comments = this.comments;
-    comments[restName] = { comments: result };
+    comments[slug] = { comments: result };
     this.comments = comments;
+  },
+  clearComments(slug) {
+    delete this.comments[slug];
   },
   updateOrderStatuses(newStatuses) {
     if (isEqual(cachedOrderStatuses, newStatuses)) {

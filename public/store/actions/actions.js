@@ -141,6 +141,10 @@ export const getComments = (slug) => {
   );
 };
 
+export const clearComments = (slug) => {
+  return STORE.clearComments(slug);
+};
+
 export const setUpdateTimeout = (store, timeout = 10000) => {
   if (
     sessionStorage.getItem("UpdateTimeoutID") === null &&
