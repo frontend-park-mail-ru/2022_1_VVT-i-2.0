@@ -89,11 +89,13 @@ const handleOnload = () => {
   const currentRestName = localStorage.getItem("currentRestName");
   const slug = localStorage.getItem("slug");
   const restId = Number(localStorage.getItem("restId"));
+  const appliedPromoCode = JSON.parse(localStorage.getItem("appliedPromoCode"));
 
   localStorage.removeItem("cart");
   localStorage.removeItem("currentRestName");
   localStorage.removeItem("slug");
   localStorage.removeItem("restId");
+  localStorage.removeItem("appliedPromoCode");
 
   const defaultPromise = new Promise((resolve) => resolve());
 
@@ -106,6 +108,7 @@ const handleOnload = () => {
     return defaultPromise;
   }
 
+  store.actions.applyPromoCode(appliedPromoCode);
   store.actions.addCart(cart, currentRestName);
 
   return Promise
@@ -119,15 +122,6 @@ const handleOnload = () => {
         sessionStorage.setItem("params", slug);
       }
     });
-
-  // return store.actions
-  //   .getDishes(slug, decodedPathname !== "/ordering")
-  //   .then(() => {
-  //     if (decodedPathname === "/shoppingCart") {
-  //       sessionStorage.setItem("root", "dishes");
-  //       sessionStorage.setItem("params", slug);
-  //     }
-  //   });
 };
 
 window.onbeforeunload = () => {
@@ -143,6 +137,7 @@ window.onbeforeunload = () => {
   const slug = Object.keys(dishes).find(
     (key) => dishes[key].restName === currentRestName
   );
+  const appliedPromoCode = store.getters.appliedPromoCode();
 
   if (!slug) {
     return;
@@ -152,6 +147,7 @@ window.onbeforeunload = () => {
   localStorage.setItem("currentRestName", currentRestName);
   localStorage.setItem("slug", slug);
   localStorage.setItem("restId", dishes[slug].id);
+  localStorage.setItem("appliedPromoCode", JSON.stringify(appliedPromoCode));
 };
 
 if ("serviceWorker" in navigator) {
