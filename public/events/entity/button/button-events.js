@@ -7,6 +7,7 @@ import {
 import { getSearchStatus } from "../../../store/getters/getters";
 import { changeSearchStatus, clearAppliedPromoCode } from "../../../store/actions/actions";
 import { confirmCodeError } from "../confirmCode/confirm-code-src";
+import { notRegisteredError } from "./button-src";
 
 export const getButtonEvents = () => {
   return {
@@ -14,13 +15,6 @@ export const getButtonEvents = () => {
       {
         type: "click",
         selector: "id",
-        /**
-         * @function Осуществляет проверку статуса формы авторизации (данные о статусах хранятся
-         *      в объекте statusLoginForm). Если все поля формы валидны,
-         *      то производится отправка данных формы на сервер.
-         * @param {Object} app - Объект приложения.
-         * @param {Event} e - Событие.
-         */
         listener(app, store, e) {
           if (!FORM.isAvailableForSend(FORM.statusLoginForm)) {
             showEmptyInputs(FORM.statusLoginForm, FORM.loginFormInputs);
@@ -40,10 +34,7 @@ export const getButtonEvents = () => {
 
           store.actions.sendCode(phone).then((result) => {
             if (!result.registered) {
-              renderNotification(
-                "Пользователь с таким номером не зарегистрирован",
-                true
-              );
+              notRegisteredError.confirmCodeErrorShow("Номер не зарегистрирован");
               return;
             }
 
