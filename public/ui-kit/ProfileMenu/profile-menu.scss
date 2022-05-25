@@ -17,6 +17,8 @@
 
   padding-left: 25px;
 
+  transition-duration: 0.25;
+
   &:hover {
     background: theme.getColor("grey");
   }

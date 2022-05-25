@@ -15,6 +15,8 @@
   border-radius: 8px;
   background: theme.getColor("lightGrey");
 
+  transition-duration: 0.25;
+
   &:hover {
     background: theme.getColor("grey");
   }

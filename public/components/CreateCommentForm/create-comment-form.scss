@@ -107,6 +107,8 @@
     border: none;
     border-radius: 16px;
     font-weight: bold;
+
+    transition-duration: 0.25;
   }
 
   &__button:hover {

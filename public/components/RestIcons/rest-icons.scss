@@ -29,6 +29,8 @@
   background: theme.getColor("white");
   border-radius: 14px;
   filter: drop-shadow(0px 0px 12px rgba(26, 26, 26, 0.25));
+
+  transition-duration: 0.25;
 }
 
 .restaurants-form__rest_icon:hover {
