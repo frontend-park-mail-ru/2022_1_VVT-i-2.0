@@ -9,10 +9,6 @@
     width: 100%;
   }
 
-  @media screen and (min-width: 1000px) {
-    width: 400px;
-  }
-
   height: 100%;
 
   background: theme.getColor("white");
