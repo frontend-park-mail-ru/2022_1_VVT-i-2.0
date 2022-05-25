@@ -305,7 +305,7 @@ export const getButtonEvents = () => {
           store.actions.createComment({ slug, text, stars }).then(() => {
             store.actions.clearComments(slug);
             renderAndUpdateURN(`/comments/${slug}`);
-            renderNotification("Комментарий успешно создан");
+            renderNotification("Отзыв успешно создан");
           });
         },
       },
