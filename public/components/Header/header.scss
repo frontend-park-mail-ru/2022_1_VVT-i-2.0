@@ -110,7 +110,10 @@
   all: unset;
 
   @media screen and (orientation: portrait) and (max-width: 620px) {
-    width: 110px;
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   @media screen and (orientation: landscape) and (min-width: 1230px) {
