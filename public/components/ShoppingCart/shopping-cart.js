@@ -8,7 +8,7 @@ const shoppingCart = (restName, props, promoCode, recommendations) => {
     promoCodeApplied = true;
   }
 
-  const hasRecommendations = recommendations.length > 0;
+  const hasRecommendations = props.length > 0 && recommendations.length > 0;
 
   const template = `
     <div class="shopping-cart">
