@@ -5,6 +5,8 @@ const header = (isOrderingPage = false) => {
   const auth = Object.keys(getters.user()).length !== 0;
   const address = localStorage.getItem("address");
   const avatar = getters.getAvatar();
+  const hasAvatar = avatar !== "/graphics/icons/profile.svg";
+
   const emptyShopCart = getters.IsCartEmpty();
   const totalOrderPrice = getters.cart().totalPriceWithDiscount || getters.cart().totalPrice;
   const isSearchActivated = getters.getSearchStatus();
@@ -59,13 +61,13 @@ const header = (isOrderingPage = false) => {
 
                 {{#auth}}
                     <nav id="profilePreviewButton" class="page-header__button" data-section="profilePreview">
-                        {{#avatar}}
+                        {{#hasAvatar}}
                             <img class="button__avatar-img" src="{{avatar}}" data-section="profilePreview" alt="">
-                        {{/avatar}}
+                        {{/hasAvatar}}
 
-                        {{^avatar}}
+                        {{^hasAvatar}}
                             <img src="/graphics/icons/profile.svg" data-section="profilePreview" alt="">
-                        {{/avatar}}
+                        {{/hasAvatar}}
 
                         <a class="button__controller" data-section="profilePreview">Профиль</a>
                     </nav>
@@ -100,6 +102,7 @@ const header = (isOrderingPage = false) => {
     auth,
     isOrderingPage,
     avatar,
+    hasAvatar,
     address,
     emptyShopCart,
     totalOrderPrice,
