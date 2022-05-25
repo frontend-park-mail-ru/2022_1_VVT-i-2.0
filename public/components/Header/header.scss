@@ -129,6 +129,10 @@
 }
 
 .page-header__button-cart {
+  &_empty {
+    cursor: auto;
+  }
+
   &_green {
     background: #17d685;
 

@@ -17,7 +17,7 @@ const header = (isOrderingPage = false) => {
 
   const template = `
         <header id="header" class="page-header {{#isSearchActivated}}page-header__color-grey{{/isSearchActivated}}{{^isSearchActivated}}page-header__color-white{{/isSearchActivated}}">
-            <nav class="page-header__button page-header__main-button" data-section="main">
+            <nav class="page-header__button page-header__main-button" data-section="main" title="На главную">
                 <img class="main-button__img" src="/graphics/images/fobringto.png" data-section="main" alt="">
                 <a class="main-button__controller" data-section="main">obringTo</a>
             </nav>
@@ -71,9 +71,9 @@ const header = (isOrderingPage = false) => {
                     </nav>
 
                     {{#emptyShopCart}}
-                        <nav id="shoppingCartButton" class="page-header__button page-header__button-cart" data-section="shoppingCart">
-                        <img src="/graphics/icons/shopping_cart.svg" data-section="shoppingCart" alt="">
-                        <a class="button__controller" data-section="shoppingCart">Корзина</a>
+                        <nav id="shoppingCartButton" class="page-header__button page-header__button-cart_empty" data-section="shoppingCart" title="Ваша корзина пуста">
+                            <img src="/graphics/icons/shopping_cart.svg" data-section="shoppingCart" alt="">
+                            <a class="button__controller" data-section="shoppingCart">Корзина</a>
                         </nav>
                     {{/emptyShopCart}}
 
@@ -85,6 +85,7 @@ const header = (isOrderingPage = false) => {
                     {{/emptyShopCart}}
 
                 {{/auth}}
+
                 {{^auth}}
                     <nav class="page-header__button" data-section="login">
                         <img src="/graphics/icons/profile.svg" data-section="login" alt="">
