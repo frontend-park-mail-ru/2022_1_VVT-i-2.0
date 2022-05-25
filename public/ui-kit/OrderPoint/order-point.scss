@@ -57,17 +57,45 @@
   }
 }
 
-.dish-info__price-bold {
-  text-align: right;
-  width: 30%;
+.dish-info {
+  &__price-bold {
+    text-align: right;
+    width: 30%;
+  }
+
+  &__price-bold_crossed-out {
+    text-align: right;
+    width: 30%;
+    text-decoration: line-through;
+    color: #FF0000;
+    margin-bottom: 15px;
+  }
 }
 
-.point-info__ingredients {
-  display: inline-flex;
-  color: #c3c3c3;
+.point-info__additional-info {
+  margin-top: auto;
+  display: flex;
+  margin-bottom: auto;
+  flex-direction: revert;
+  justify-content: space-between;
+  justify-items: center;
+}
 
-  margin-top: 5px;
-  margin-bottom: 15px;
+.additional-info {
+  &__ingredients {
+    display: inline-flex;
+    color: #c3c3c3;
+
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  &__discount-price {
+    color: black;
+    font-weight: 600;
+    text-align: right;
+    margin-top: -25px;
+  }
 }
 
 .point-info__edit-quantity {

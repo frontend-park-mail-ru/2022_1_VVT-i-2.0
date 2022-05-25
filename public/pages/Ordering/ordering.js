@@ -32,18 +32,24 @@ const ordering = (app, store) => {
   let minPrice = 0;
   store.getters.restaurants().forEach((restObj) => {
     if (restObj.restName === currentRestName) {
-      minPrice = restObj.min_price;
+      minPrice = restObj.price;
     }
   });
+
+  const promoCodeApplied = Object.keys(store.getters.appliedPromoCode()).length !== 0;
+
+  store.actions.changeDeliveryPrice((cart.totalPriceWithDiscount || cart.totalPrice) > minPrice ? 0 : 99);
 
   const main = document.createElement("main");
   main.innerHTML = components.ordering({
     phone,
     restName: dishObj.restName,
     orderPoints,
-    total: cart.totalPrice,
-    minPrice,
-  });
+    totalPrice: cart.totalPriceWithDiscount || cart.totalPrice,
+    summaryDiscount: cart.totalPriceWithDiscount ? cart.totalPrice - cart.totalPriceWithDiscount : 0,
+    deliveryPrice: store.getters.deliveryPrice(),
+    minPrice
+  }, promoCodeApplied, store.getters.appliedPromoCode());
 
   app.root.appendChild(main);
 };

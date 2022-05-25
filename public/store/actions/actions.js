@@ -115,6 +115,10 @@ export const applyPromoCode = (promoCode) => {
   STORE.setAppliedPromoCode(promoCode);
 };
 
+export const clearAppliedPromoCode = () => {
+  STORE.clearAppliedPromoCode();
+}
+
 export const addCartWithDiscountsToCache = () => {
   STORE.setCachedCartWithDiscounts();
 };
@@ -168,6 +172,10 @@ export const clearUpdateTimeout = () => {
 
 export const createComment = (comment) => {
   return API.createComment(comment);
+};
+
+export const changeDeliveryPrice = (price) => {
+  return STORE.setDeliveryPrice(price);
 };
 
 export const getRecommendations = (body) => {
