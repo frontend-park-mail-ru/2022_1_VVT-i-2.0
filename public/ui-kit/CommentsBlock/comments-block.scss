@@ -19,6 +19,11 @@
 
   margin-bottom: 30px;
 
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+  }
+
   &__value {
     display: flex;
     justify-content: center;
@@ -33,9 +38,4 @@
   &__img {
     margin-right: 5px;
   }
-}
-
-.comments-block:hover {
-  cursor: pointer;
-  opacity: 0.5;
 }
