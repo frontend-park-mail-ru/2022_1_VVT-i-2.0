@@ -1,5 +1,9 @@
 .promo-code-line {
   display: flex;
   flex-direction: row;
-  margin: 20px auto 40px auto;
+  width: 70%;
+  overflow-y: hidden;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  //margin: 20px auto 40px auto;
 }
