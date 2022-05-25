@@ -32,7 +32,7 @@ const ordering = (props) => {
             {{/inputConfigurations.smallInputs}}
           </div>
 
-          <div class="ordering-block__comment-header">Отзыв</div>
+          <div class="ordering-block__comment-header">Комментарий</div>
           <div
             id="orderingComment"
             class="ordering-block__comment-block"
