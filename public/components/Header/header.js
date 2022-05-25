@@ -35,7 +35,7 @@ const header = (isOrderingPage = false) => {
                 {{/isSearchActivated}}
 
                 {{^isSearchActivated}}
-                    <nav id="search" class="page-header__button page-header__button-search" data-section="suggests">
+                    <nav id="search" class="page-header__button page-header__button-search" data-section="suggests" title="Изменить адрес">
                         <img
                             class="page-header__address-img"
                             src="/graphics/icons/address.svg"
