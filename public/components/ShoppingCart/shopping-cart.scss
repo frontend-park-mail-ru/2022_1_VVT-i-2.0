@@ -36,23 +36,30 @@
 }
 
 .shopping-cart__order-points {
-  @media screen and (orientation: portrait) and (min-width: 438px),
-    screen and (orientation: landscape) and (min-height: 438px) {
-    height: 85.3%;
-  }
-  @media screen and (orientation: portrait) and (max-width: 438px),
-    screen and (orientation: landscape) and (max-height: 438px) {
-    height: 800px;
-  }
+  height: 85%;
   width: 365px;
+
   overflow-y: auto;
   overflow-x: hidden;
+
   margin-right: auto;
   margin-left: auto;
 
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+.shopping-cart__recommendations {
+  margin: 15px auto 45px auto;
+  position: static;
+}
+
+.recommendations__title {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .shopping-cart__button-order {

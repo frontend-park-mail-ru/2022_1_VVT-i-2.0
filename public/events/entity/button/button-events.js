@@ -308,8 +308,9 @@ export const getButtonEvents = () => {
           const stars = parseInt(starsBlock.dataset.count, 10);
 
           store.actions.createComment({ slug, text, stars }).then(() => {
+            store.actions.clearComments(slug);
             renderAndUpdateURN(`/comments/${slug}`);
-            renderNotification("Комментарий успешно создан");
+            renderNotification("Отзыв успешно создан");
           });
         },
       },

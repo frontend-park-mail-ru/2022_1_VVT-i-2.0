@@ -62,6 +62,7 @@ const STORE = {
     { title: "Здоровая еда" },
   ],
   comments: {},
+  recommendations: [],
 
   // Mutations
   addUser(user) {
@@ -87,6 +88,8 @@ const STORE = {
         restName: result.restName,
         rating: result.rating,
         reviewCount: result.reviewCount,
+        id: result.id,
+        categories: result.categories
       };
       return;
     }
@@ -97,6 +100,8 @@ const STORE = {
       restName: result.restName,
       rating: result.rating,
       reviewCount: result.reviewCount,
+      id: result.id,
+      categories: result.categories
     };
     this.dishes = dishes;
   },
@@ -200,9 +205,7 @@ const STORE = {
     };
   },
   addSuggests(result) {
-    this.suggests = result.suggests.map((suggest) => {
-      return { address: suggest, end: result.end };
-    });
+    this.suggests = result.suggests;
   },
   clearSuggests() {
     this.suggests.length = 0;
@@ -240,10 +243,13 @@ const STORE = {
   clearAppliedPromoCode() {
     this.appliedPromoCode = {};
   },
-  addComments(restName, result) {
+  addComments(slug, result) {
     const comments = this.comments;
-    comments[restName] = { comments: result };
+    comments[slug] = { comments: result };
     this.comments = comments;
+  },
+  clearComments(slug) {
+    delete this.comments[slug];
   },
   updateOrderStatuses(newStatuses) {
     if (isEqual(cachedOrderStatuses, newStatuses)) {
@@ -263,6 +269,9 @@ const STORE = {
     }
     this.orderList = orderList;
   },
+  addRecommendations(dishes) {
+    this.recommendations = dishes;
+  }
 };
 
 let cachedOrderStatuses = {};

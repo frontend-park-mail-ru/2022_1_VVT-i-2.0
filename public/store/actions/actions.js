@@ -36,7 +36,12 @@ export const register = (user) => {
 };
 
 export const login = (user) => {
-  return API.login(user).then((result) => STORE.addUser(result));
+  return API.login(user).then((result) => {
+    if (result.address && result.address !== "") {
+      localStorage.setItem("address", result.address);
+    }
+    STORE.addUser(result)
+  });
 };
 
 export const logout = () => {
@@ -140,6 +145,10 @@ export const getComments = (slug) => {
   );
 };
 
+export const clearComments = (slug) => {
+  return STORE.clearComments(slug);
+};
+
 export const setUpdateTimeout = (store, timeout = 10000) => {
   if (
     sessionStorage.getItem("UpdateTimeoutID") === null &&
@@ -167,4 +176,8 @@ export const createComment = (comment) => {
 
 export const changeDeliveryPrice = (price) => {
   return STORE.setDeliveryPrice(price);
-}
+};
+
+export const getRecommendations = (body) => {
+  return API.getRecommendations(body).then((result) => STORE.addRecommendations(result.dishes));
+};

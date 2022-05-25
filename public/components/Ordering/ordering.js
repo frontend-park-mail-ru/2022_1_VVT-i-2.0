@@ -46,9 +46,9 @@ const ordering = (props, promoCodeApplied, promoCode) => {
             {{&buttonPay}}
           {{/isMobile}}
         </div>
-        
+
         {{&summaryCheck}}
-        
+
       </div>
 
       {{#isMobile}}

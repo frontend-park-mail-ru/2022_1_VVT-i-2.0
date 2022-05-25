@@ -3,11 +3,18 @@
 .rest-menu {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1500px;
+  // max-width: 1500px;
 
   @media screen and (min-width: 1000px) {
     margin-right: 385px;
   }
+}
+
+.rest-menu__category {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .rest-menu__dish-icon {

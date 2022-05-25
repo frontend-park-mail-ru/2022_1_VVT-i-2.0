@@ -15,7 +15,7 @@ const additionalStatusOrderInfo = (props) => {
                         <div>{{address}}</div>
                     </div>
                     <div class="comment__comment-explanation">
-                        Вы можете оставить комментарий, в случае, если уже получили заказ
+                        Вы можете оставить отзыв, в случае, если уже получили заказ
                     </div>
                     <div id="commentButton" class="comment-button">
                         {{&commentButton}}
@@ -47,7 +47,7 @@ const additionalStatusOrderInfo = (props) => {
     },
     commentButton() {
       return UIKIT.simpleButton(
-        "Оставить комментарий",
+        "Оставить отзыв",
         COLORS.primary,
         null,
         `/createComment/${props.restSlug}`

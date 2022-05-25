@@ -56,6 +56,8 @@
   flex-direction: row;
   justify-content: center;
 
+  max-width: 160px;
+
   @media screen and (max-width: 920px) {
     display: none;
   }
