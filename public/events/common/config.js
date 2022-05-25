@@ -17,6 +17,7 @@ export const EntityLengthLimit = {
   intercom: 10,
   floor: 3,
   flat: 4,
+  comment: 500,
 };
 
 export const ErrorMsg = {

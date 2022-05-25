@@ -66,6 +66,7 @@ const EVENTS = {
 
   createComment: Event.getButtonEvents().createComment,
   star: Event.comment().star,
+  comment: Event.comment().comment,
 };
 
 /**

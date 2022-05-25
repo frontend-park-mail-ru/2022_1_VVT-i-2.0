@@ -3,6 +3,7 @@ import {
   renderNotification,
 } from "../../../render/render.js";
 import { DEFAULT_ADDRESS } from "../../../index";
+import { EntityLengthLimit } from "../../common/config";
 
 export const dishEvents = () => {
   return {
@@ -86,6 +87,13 @@ export const dishEvents = () => {
           }
         },
       },
+      // {
+      //   type: "input",
+      //   selector: "id",
+      //   listener(app, store, e) {
+      //     e.target.innerText = e.target.innerText.slice(0, EntityLengthLimit.comment);
+      //   },
+      // },
     ],
   };
 };
