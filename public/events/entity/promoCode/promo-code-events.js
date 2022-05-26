@@ -1,10 +1,5 @@
-import { renderAndUpdateURN } from "../../../render/render";
+import { renderAndUpdateURN, renderNotification } from "../../../render/render";
 import { getParentNodeDataIdByClass } from "./promo-code-src";
-import { addCartWithDiscountsToCache } from "../../../store/actions/actions";
-import {
-  appliedPromoCode,
-  cachedCartWithDiscounts,
-} from "../../../store/getters/getters";
 
 export const getPromoCodeEvents = () => {
   return [
@@ -23,8 +18,12 @@ export const getPromoCodeEvents = () => {
           store.actions.applyPromoCode(promos[id]);
 
           const restSlug = promos[id].restSlug;
-          renderAndUpdateURN("dishes/" + restSlug);
-          renderAndUpdateURN("/shoppingCart", true);
+          renderAndUpdateURN(`dishes/${restSlug}`);
+          if (window.screen.width > 1000) {
+            renderAndUpdateURN("/shoppingCart", true);
+          }
+
+          renderNotification("Промокод успешно применен");
         }
       },
     },
