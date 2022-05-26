@@ -89,7 +89,7 @@ const STORE = {
         rating: result.rating,
         reviewCount: result.reviewCount,
         id: result.id,
-        categories: result.categories
+        categories: result.categories,
       };
       return;
     }
@@ -101,7 +101,7 @@ const STORE = {
       rating: result.rating,
       reviewCount: result.reviewCount,
       id: result.id,
-      categories: result.categories
+      categories: result.categories,
     };
     this.dishes = dishes;
   },
@@ -110,10 +110,10 @@ const STORE = {
       restName === this.currentRestName
         ? this.cart
         : {
-          totalPrice: 0,
-          totalPriceWithDiscount: 0,
+            totalPrice: 0,
+            totalPriceWithDiscount: 0,
             order: [],
-        };
+          };
 
     if (restName !== this.currentRestName) {
       this.appliedPromoCode = {};
@@ -131,7 +131,8 @@ const STORE = {
     }
 
     cart.totalPrice += price * count;
-    cart.totalPriceWithDiscount += count * (Math.round(price * (1 - this.appliedPromoCode.discount)));
+    cart.totalPriceWithDiscount +=
+      count * Math.round(price * (1 - this.appliedPromoCode.discount));
 
     this.currentRestName = restName;
     this.cart = cart;
@@ -178,7 +179,9 @@ const STORE = {
 
     cart.order[index].count += 1;
     cart.totalPrice += Number(cart.order[index].price);
-    cart.totalPriceWithDiscount += Math.round(cart.order[index].price * (1 - this.appliedPromoCode.discount));
+    cart.totalPriceWithDiscount += Math.round(
+      cart.order[index].price * (1 - this.appliedPromoCode.discount)
+    );
 
     this.cart = cart;
   },
@@ -192,7 +195,9 @@ const STORE = {
 
     cart.order[index].count -= 1;
     cart.totalPrice -= Number(cart.order[index].price);
-    cart.totalPriceWithDiscount -= Math.round(cart.order[index].price * (1 - this.appliedPromoCode.discount));
+    cart.totalPriceWithDiscount -= Math.round(
+      cart.order[index].price * (1 - this.appliedPromoCode.discount)
+    );
 
     if (cart.order[index].count < 1) {
       cart.order.splice(index, 1);
@@ -275,7 +280,7 @@ const STORE = {
   },
   addRecommendations(dishes) {
     this.recommendations = dishes;
-  }
+  },
 };
 
 let cachedOrderStatuses = {};
@@ -284,7 +289,12 @@ const PROXY_STORE = new Proxy(STORE, {
     target[prop] = value;
 
     if (
-      ["token", "appliedPromoCode", "cachedCartWithDiscounts", "deliveryPrice"].includes(prop)
+      [
+        "token",
+        "appliedPromoCode",
+        "cachedCartWithDiscounts",
+        "deliveryPrice",
+      ].includes(prop)
     ) {
       return true;
     }

@@ -45,5 +45,5 @@ export default {
   notification,
   searchBlock,
   promoCodeIcon,
-  recommendation
+  recommendation,
 };

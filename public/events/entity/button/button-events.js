@@ -5,7 +5,10 @@ import {
   renderNotification,
 } from "../../../render/render.js";
 import { getSearchStatus } from "../../../store/getters/getters";
-import { changeSearchStatus, clearAppliedPromoCode } from "../../../store/actions/actions";
+import {
+  changeSearchStatus,
+  clearAppliedPromoCode,
+} from "../../../store/actions/actions";
 import { confirmCodeError } from "../confirmCode/confirm-code-src";
 import { notRegisteredError } from "./button-src";
 
@@ -34,7 +37,9 @@ export const getButtonEvents = () => {
 
           store.actions.sendCode(phone).then((result) => {
             if (!result.registered) {
-              notRegisteredError.confirmCodeErrorShow("Номер не зарегистрирован");
+              notRegisteredError.confirmCodeErrorShow(
+                "Номер не зарегистрирован"
+              );
               return;
             }
 
@@ -260,9 +265,13 @@ export const getButtonEvents = () => {
           const comment = document.getElementById("orderingComment").innerText;
 
           const order = store.getters.cart().order;
-          console.log('PROMOCODE: ', store.getters.appliedPromoCode(), store.getters.appliedPromoCode().promocode);
+          console.log(
+            "PROMOCODE: ",
+            store.getters.appliedPromoCode(),
+            store.getters.appliedPromoCode().promocode
+          );
           const promocode = store.getters.appliedPromoCode().promocode;
-          console.log('promocode text', promocode);
+          console.log("promocode text", promocode);
 
           store.actions
             .createOrder({

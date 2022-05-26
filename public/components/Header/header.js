@@ -8,7 +8,8 @@ const header = (isOrderingPage = false) => {
   const hasAvatar = avatar !== "/graphics/icons/profile.svg";
 
   const emptyShopCart = getters.IsCartEmpty();
-  const totalOrderPrice = getters.cart().totalPriceWithDiscount || getters.cart().totalPrice;
+  const totalOrderPrice =
+    getters.cart().totalPriceWithDiscount || getters.cart().totalPrice;
   const isSearchActivated = getters.getSearchStatus();
 
   const currentRestName = getters.currentRestName();

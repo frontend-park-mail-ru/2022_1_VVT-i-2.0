@@ -40,8 +40,12 @@ const shoppingCartPage = (app, store) => {
     restName,
     properties,
     store.getters.recommendations(),
-    store.getters.appliedPromoCode() ? store.getters.appliedPromoCode().promocode : null,
-    store.getters.appliedPromoCode ? store.getters.appliedPromoCode().discount : null,
+    store.getters.appliedPromoCode()
+      ? store.getters.appliedPromoCode().promocode
+      : null,
+    store.getters.appliedPromoCode
+      ? store.getters.appliedPromoCode().discount
+      : null
   );
 };
 

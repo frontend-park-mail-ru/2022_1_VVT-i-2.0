@@ -111,17 +111,15 @@ const handleOnload = () => {
   store.actions.applyPromoCode(appliedPromoCode);
   store.actions.addCart(cart, currentRestName);
 
-  return Promise
-    .all([
-      store.actions.getRecommendations({ restId, orderList: cart.order }),
-      store.actions.getDishes(slug, decodedPathname !== "/ordering")
-    ])
-    .then(() => {
-      if (decodedPathname === "/shoppingCart") {
-        sessionStorage.setItem("root", "dishes");
-        sessionStorage.setItem("params", slug);
-      }
-    });
+  return Promise.all([
+    store.actions.getRecommendations({ restId, orderList: cart.order }),
+    store.actions.getDishes(slug, decodedPathname !== "/ordering"),
+  ]).then(() => {
+    if (decodedPathname === "/shoppingCart") {
+      sessionStorage.setItem("root", "dishes");
+      sessionStorage.setItem("params", slug);
+    }
+  });
 };
 
 window.onbeforeunload = () => {

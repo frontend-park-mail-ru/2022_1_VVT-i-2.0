@@ -23,9 +23,10 @@ export const dishEvents = () => {
             return;
           }
 
-          const count = rest === store.getters.currentRestName()
-            ? store.getters.cart().order.length
-            : 0;
+          const count =
+            rest === store.getters.currentRestName()
+              ? store.getters.cart().order.length
+              : 0;
 
           store.actions.addDishToCart(parseInt(id, 10), rest, price);
 
@@ -34,7 +35,10 @@ export const dishEvents = () => {
             const params = sessionStorage.getItem("params");
             const dishesObj = store.getters.dishes()[params];
 
-            store.actions.getRecommendations({ restId: dishesObj.id, orderList: order });
+            store.actions.getRecommendations({
+              restId: dishesObj.id,
+              orderList: order,
+            });
           }
 
           if (window.screen.width >= 1000) {

@@ -15,11 +15,11 @@
   @media screen and (orientation: portrait) and (max-width: 820px) {
     overflow: auto;
     @media screen and (orientation: portrait) and (min-width: 438px),
-    screen and (orientation: landscape) and (min-height: 438px) {
+      screen and (orientation: landscape) and (min-height: 438px) {
       width: calc(686px + 2%);
     }
     @media screen and (orientation: portrait) and (max-width: 438px),
-    screen and (orientation: landscape) and (max-height: 438px) {
+      screen and (orientation: landscape) and (max-height: 438px) {
       width: 343px;
       max-width: 343px;
     }

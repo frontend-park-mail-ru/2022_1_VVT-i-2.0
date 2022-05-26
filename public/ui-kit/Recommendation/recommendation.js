@@ -15,7 +15,13 @@ const recommendedDish = (imgPath, productName, price, id, restName) => {
       </div>
     </div>
   `;
-  return Mustache.render(template, { imgPath, productName, price, id, restName });
+  return Mustache.render(template, {
+    imgPath,
+    productName,
+    price,
+    id,
+    restName,
+  });
 };
 
 export default recommendedDish;

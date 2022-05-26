@@ -1,6 +1,12 @@
 import UIKIT from "../../ui-kit/import.js";
 
-const orderCheck = (props, toShowNotify = true, IsOrderingPage = true, promoCodeApplied = false, promoCode) => {
+const orderCheck = (
+  props,
+  toShowNotify = true,
+  IsOrderingPage = true,
+  promoCodeApplied = false,
+  promoCode
+) => {
   const isEmpty = props.totalPrice === 0;
 
   const template = `        
@@ -77,14 +83,14 @@ const orderCheck = (props, toShowNotify = true, IsOrderingPage = true, promoCode
         this.id,
         IsOrderingPage,
         promoCodeApplied,
-        promoCode ? promoCode.discount: null
+        promoCode ? promoCode.discount : null
       );
     },
     paymentNotification() {
       if (this.deliveryPrice) {
         return UIKIT.paymentNotification(
           "Закажите ещё на " +
-            String(this.minPrice - (this.totalPrice)) +
+            String(this.minPrice - this.totalPrice) +
             " ₽ для бесплатной доставки",
           false
         );

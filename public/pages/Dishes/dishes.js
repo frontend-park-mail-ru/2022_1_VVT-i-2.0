@@ -24,7 +24,9 @@ const dishesPage = (app, store) => {
   const categories = dishObj.categories
     .filter((category) => category.dishes.length > 0)
     .map((category) => {
-      const dishes = category.dishes.map((id) => dishObj.dishes.find((dish) => dish.id === id));
+      const dishes = category.dishes.map((id) =>
+        dishObj.dishes.find((dish) => dish.id === id)
+      );
       return { ...category, dishes };
     });
 
@@ -33,7 +35,7 @@ const dishesPage = (app, store) => {
     UIKIT.backButton("Все рестораны", "main") +
     UIKIT.simpleTitle(restName) +
     UIKIT.commentsBlock(params, dishObj.rating, dishObj.reviewCount) +
-  components.dishesIcons(categories, restName);
+    components.dishesIcons(categories, restName);
 
   app.root.appendChild(main);
 };

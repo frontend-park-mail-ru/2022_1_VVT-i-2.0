@@ -40,7 +40,7 @@ export const login = (user) => {
     if (result.address && result.address !== "") {
       localStorage.setItem("address", result.address);
     }
-    STORE.addUser(result)
+    STORE.addUser(result);
   });
 };
 
@@ -117,7 +117,7 @@ export const applyPromoCode = (promoCode) => {
 
 export const clearAppliedPromoCode = () => {
   STORE.clearAppliedPromoCode();
-}
+};
 
 export const addCartWithDiscountsToCache = () => {
   STORE.setCachedCartWithDiscounts();
@@ -179,5 +179,7 @@ export const changeDeliveryPrice = (price) => {
 };
 
 export const getRecommendations = (body) => {
-  return API.getRecommendations(body).then((result) => STORE.addRecommendations(result.dishes));
+  return API.getRecommendations(body).then((result) =>
+    STORE.addRecommendations(result.dishes)
+  );
 };
