@@ -107,18 +107,18 @@ main {
 
 #notification {
   z-index: 9999;
-  background: theme.getColor("white");
   position: fixed;
 
-  @media screen and (orientation: portrait) and (max-width: 540px) {
+  @media screen and (max-width: 540px) {
     left: 15px;
     right: 15px;
     bottom: 15px;
   }
 
-  @media screen and (orientation: landscape) and (min-width: 540px) {
-    left: 42%;
-    right: 58%;
+  @media screen and (min-width: 540px) {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
     bottom: 50px;
   }
 }
