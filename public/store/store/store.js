@@ -115,9 +115,9 @@ const STORE = {
             order: [],
           };
 
-    if (restName !== this.currentRestName) {
-      this.appliedPromoCode = {};
-    }
+    // if (restName !== this.currentRestName) {
+    //   this.appliedPromoCode = {};
+    // }
 
     if (cart.order.length) {
       this.flushCachedCartWithDiscounts();
