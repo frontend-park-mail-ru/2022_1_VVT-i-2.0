@@ -13,6 +13,7 @@
     width: 343px;
     height: 45px;
     margin-bottom: 20px;
+    margin-left: calc((100% - 343px)/2);
   }
 
   @media screen and (orientation: landscape) and (min-width: 920px) {
