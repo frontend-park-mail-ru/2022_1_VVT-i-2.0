@@ -1,5 +1,12 @@
 @use "public/configurations/colors/colors.scss" as theme;
 
+@mixin inner-profile-form-margin() {
+  @media screen and (orientation: portrait) and (max-width: 438px),
+  screen and (orientation: landscape) and (max-height: 438px) {
+    margin-left: calc((100% - 300px) / 2);
+  }
+}
+
 .content-block__profile-header {
   font-size: 20px;
   font-weight: 700;
@@ -9,6 +16,11 @@
     screen and (orientation: landscape) and (min-height: 438px) {
     margin: 32px auto 13px 43px;
   }
+  @media screen and (orientation: portrait) and (max-width: 438px),
+  screen and (orientation: landscape) and (max-height: 438px) {
+    margin-top: 15px;
+  }
+  @include inner-profile-form-margin();
 }
 
 .content-block__content {
@@ -27,6 +39,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
   }
+  @include inner-profile-form-margin();
 }
 
 @media screen and (orientation: portrait) and (min-width: 438px),
@@ -54,6 +67,7 @@
     margin-top: auto;
     margin-bottom: auto;
   }
+  @include inner-profile-form-margin();
 }
 
 .avatar-change-block__avatar {
@@ -67,6 +81,7 @@
     screen and (orientation: landscape) and (max-height: 438px) {
     width: 20%;
   }
+  @include inner-profile-form-margin();
 }
 
 .avatar__img {
@@ -97,11 +112,17 @@
 
   @media screen and (orientation: portrait) and (max-width: 438px),
     screen and (orientation: landscape) and (max-height: 438px) {
-    width: 90%;
+    width: 92%;
   }
+  @include inner-profile-form-margin();
 }
 
 .content-block__button-save-content {
-  text-align: center;
   margin-top: 43px;
+  text-align: center;
+  @media screen and (orientation: portrait) and (max-width: 438px),
+  screen and (orientation: landscape) and (max-height: 438px) {
+    width: 92%;
+  }
+  @include inner-profile-form-margin();
 }

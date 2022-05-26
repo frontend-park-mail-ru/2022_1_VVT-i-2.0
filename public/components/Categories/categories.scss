@@ -1,11 +1,26 @@
 @use "public/configurations/colors/colors.scss" as theme;
 
+//@mixin margin-left-in-main() {
+//  @media screen and (orientation: portrait) and (min-width: 821px),
+//  screen and (orientation: landscape) and (min-width: 821px) {
+//    margin-left: 6%;
+//  }
+//  @media screen and (orientation: portrait) and (min-width: 438px) and (max-width: 820px) {
+//    margin-left: calc((100% - 700px) / 2);
+//  }
+//  @media screen and (orientation: portrait) and (max-width: 438px),
+//  screen and (orientation: landscape) and (max-height: 438px) {
+//    margin-left: calc((100% - 343px) / 2);
+//  }
+//}
+
 .categories {
   display: flex;
   flex-wrap: wrap;
   max-width: 1500px;
   width: 70%;
   margin-bottom: 10px;
+  //@include margin-left-in-main();
 
   &__select {
     all: unset;
@@ -14,8 +29,9 @@
 
     width: 330px;
     margin-bottom: 30px;
+    //@include margin-left-in-main();
     background: theme.getColor("grey");
-    padding: 12px 0px 12px 12px;
+    padding: 12px 0 12px 12px;
     border-radius: 12px;
 
     font-size: 14px;

@@ -1,8 +1,23 @@
 @use "public/configurations/colors/colors.scss" as theme;
 
+//@mixin margin-left-in-main() {
+//  @media screen and (orientation: portrait) and (min-width: 821px),
+//  screen and (orientation: landscape) and (min-width: 821px) {
+//    margin-left: 6%;
+//  }
+//  @media screen and (orientation: portrait) and (min-width: 438px) and (max-width: 820px) {
+//    margin-left: calc((100% - 700px) / 2);
+//  }
+//  @media screen and (orientation: portrait) and (max-width: 438px),
+//  screen and (orientation: landscape) and (max-height: 438px) {
+//    margin-left: calc((100% - 343px) / 2);
+//  }
+//}
+
 .links_block__location {
-  margin-top: 0px;
+  margin-top: 0;
   margin-bottom: 30px;
+  //@include margin-left-in-main();
 }
 
 .links-block__main-link {
