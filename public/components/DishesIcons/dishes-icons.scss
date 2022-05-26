@@ -3,11 +3,18 @@
 .rest-menu {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1500px;
+  // max-width: 1500px;
 
   @media screen and (min-width: 1000px) {
     margin-right: 385px;
   }
+}
+
+.rest-menu__category {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .rest-menu__dish-icon {
@@ -25,6 +32,8 @@
   background: theme.getColor("white");
   border-radius: 14px;
   filter: drop-shadow(0px 0px 12px rgba(26, 26, 26, 0.25));
+
+  transition-duration: 0.25;
 
   &:hover {
     filter: drop-shadow(0px 4px 4px rgba(26, 26, 26, 0.25));

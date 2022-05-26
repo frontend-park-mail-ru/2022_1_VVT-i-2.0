@@ -14,8 +14,6 @@ export const getFrameEvents = () => {
          */
         listener(app, store, e) {
           if (e.target.classList.contains("block-img__image")) {
-            sessionStorage.removeItem("searchQuery");
-
             store.actions.setSearchStatus(false);
             store.actions.clearRestaurants();
             renderAndUpdateURN("/");

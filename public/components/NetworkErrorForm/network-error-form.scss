@@ -23,12 +23,12 @@
 }
 
 .view__text-content {
-  @media screen and (orientation: portrait) and (max-width: 920px) {
+  @media screen and (max-width: 920px) {
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  @media screen and (orientation: landscape) and (min-width: 1460px) {
+  @media screen and (min-width: 920px) {
     width: 100%;
     max-width: 930px;
     min-width: 320px;
@@ -42,13 +42,13 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
 
-  @media screen and (orientation: portrait) and (max-width: 920px) {
+  @media screen and (max-width: 920px) {
     font: 600 4.5rem/6rem "fregat", "Arial", sans-serif;
     margin-top: 0px;
     margin-bottom: 15px;
   }
 
-  @media screen and (orientation: landscape) and (min-width: 1460px) {
+  @media screen and (min-width: 920px) {
     font: 600 10rem/7.5rem "fregat", "Arial", sans-serif;
   }
 }
@@ -59,7 +59,7 @@
   font: 400 2rem/2.8rem "Roboto", "Arial", sans-serif;
   color: #cec2e5;
 
-  @media screen and (orientation: portrait) and (max-width: 920px) {
+  @media screen and (max-width: 920px) {
     margin-bottom: 30px;
   }
 }
@@ -80,11 +80,11 @@
   color: #2a364d;
   background-color: #ffd919;
 
-  @media screen and (orientation: portrait) and (max-width: 920px) {
+  @media screen and (max-width: 920px) {
     max-width: 100%;
   }
 
-  @media screen and (orientation: landscape) and (min-width: 1460px) {
+  @media screen and (min-width: 920px) {
     max-width: 200px;
   }
 }
@@ -95,6 +95,10 @@
   position: absolute;
   margin-left: 30%;
   bottom: 10px;
+
+  @media screen and (max-width: 1600px) {
+    display: none;
+  }
 }
 
 .graphic-content__img {

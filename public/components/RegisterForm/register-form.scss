@@ -40,6 +40,8 @@
   height: 30px;
   width: 30px;
   justify-content: flex-end;
+
+  transition-duration: 0.25;
 }
 
 @media screen and (orientation: portrait) and (min-width: 438px),

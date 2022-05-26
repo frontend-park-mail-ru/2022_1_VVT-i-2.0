@@ -6,18 +6,18 @@
   position: relative;
 
   filter: drop-shadow(4px 4px 4px rgba(26, 26, 26, 0.25));
+  height: 60px;
 
-  @media screen and (orientation: portrait) and (max-width: 540px) {
+  @media screen and (max-width: 540px) {
     width: 100%;
   }
 
-  @media screen and (orientation: landscape) and (min-width: 540px) {
+  @media screen and (min-width: 540px) {
     width: 343px;
   }
 
   background: theme.getColor("lightGrey");
   border-radius: 10px;
-  border: theme.getColor("grey") 1px solid;
 
   &__img {
     display: inline-flex;
@@ -33,7 +33,7 @@
     font-weight: 700;
 
     position: absolute;
-    padding-top: 22px;
+    padding-top: 23px;
     padding-bottom: 16px;
 
     max-width: 230px;
@@ -45,6 +45,8 @@
     position: absolute;
     right: 0px;
     padding: 16px;
+
+    transition-duration: 0.25;
   }
 
   &__close-img:hover {

@@ -1,5 +1,16 @@
+import { EntityLengthLimit } from "../../common/config";
+
 export const comment = () => {
   return {
+    comment: [
+      {
+        type: "input",
+        selector: "id",
+        listener(app, store, e) {
+          e.target.value = e.target.value.slice(0, EntityLengthLimit.comment);
+        },
+      },
+    ],
     star: [
       {
         type: "click",

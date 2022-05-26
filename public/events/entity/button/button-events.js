@@ -5,8 +5,12 @@ import {
   renderNotification,
 } from "../../../render/render.js";
 import { getSearchStatus } from "../../../store/getters/getters";
-import { changeSearchStatus } from "../../../store/actions/actions";
+import {
+  changeSearchStatus,
+  clearAppliedPromoCode,
+} from "../../../store/actions/actions";
 import { confirmCodeError } from "../confirmCode/confirm-code-src";
+import { notRegisteredError } from "./button-src";
 
 export const getButtonEvents = () => {
   return {
@@ -14,13 +18,6 @@ export const getButtonEvents = () => {
       {
         type: "click",
         selector: "id",
-        /**
-         * @function Осуществляет проверку статуса формы авторизации (данные о статусах хранятся
-         *      в объекте statusLoginForm). Если все поля формы валидны,
-         *      то производится отправка данных формы на сервер.
-         * @param {Object} app - Объект приложения.
-         * @param {Event} e - Событие.
-         */
         listener(app, store, e) {
           if (!FORM.isAvailableForSend(FORM.statusLoginForm)) {
             showEmptyInputs(FORM.statusLoginForm, FORM.loginFormInputs);
@@ -40,9 +37,8 @@ export const getButtonEvents = () => {
 
           store.actions.sendCode(phone).then((result) => {
             if (!result.registered) {
-              renderNotification(
-                "Пользователь с таким номером не зарегистрирован",
-                true
+              notRegisteredError.confirmCodeErrorShow(
+                "Номер не зарегистрирован"
               );
               return;
             }
@@ -269,6 +265,13 @@ export const getButtonEvents = () => {
           const comment = document.getElementById("orderingComment").innerText;
 
           const order = store.getters.cart().order;
+          console.log(
+            "PROMOCODE: ",
+            store.getters.appliedPromoCode(),
+            store.getters.appliedPromoCode().promocode
+          );
+          const promocode = store.getters.appliedPromoCode().promocode;
+          console.log("promocode text", promocode);
 
           store.actions
             .createOrder({
@@ -279,11 +282,13 @@ export const getButtonEvents = () => {
               flat,
               comment,
               cart: order,
+              promocode,
             })
             .then(() => {
               renderAndUpdateURN("/orderHistory");
               renderNotification("Заказ успешно создан");
             });
+          store.actions.clearAppliedPromoCode();
         },
       },
     ],
@@ -303,8 +308,9 @@ export const getButtonEvents = () => {
           const stars = parseInt(starsBlock.dataset.count, 10);
 
           store.actions.createComment({ slug, text, stars }).then(() => {
+            store.actions.clearComments(slug);
             renderAndUpdateURN(`/comments/${slug}`);
-            renderNotification("Комментарий успешно создан");
+            renderNotification("Отзыв успешно создан");
           });
         },
       },

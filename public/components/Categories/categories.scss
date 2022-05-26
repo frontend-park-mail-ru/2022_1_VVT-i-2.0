@@ -4,6 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   max-width: 1500px;
+  width: 70%;
   margin-bottom: 10px;
 
   &__select {
@@ -12,7 +13,7 @@
     display: flex;
 
     width: 330px;
-    margin-bottom: 18px;
+    margin-bottom: 30px;
     background: theme.getColor("grey");
     padding: 12px 0px 12px 12px;
     border-radius: 12px;

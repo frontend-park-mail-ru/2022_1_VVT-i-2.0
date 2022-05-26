@@ -20,6 +20,7 @@ import comment from "./Comment/comment.js";
 import notification from "./Notification/notification.js";
 import searchBlock from "./SearchBlock/search-block";
 import promoCodeIcon from "./PromoCodeIcon/promo-code-icon";
+import recommendation from "./Recommendation/recommendation.js";
 
 export default {
   simpleButton,
@@ -44,4 +45,5 @@ export default {
   notification,
   searchBlock,
   promoCodeIcon,
+  recommendation,
 };

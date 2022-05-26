@@ -51,6 +51,8 @@
     border-left: 1px solid #b9b9b9;
     border-right: 1px solid #b9b9b9;
 
+    transition-duration: 0.25;
+
     &:hover {
       background: theme.getColor("grey");
     }

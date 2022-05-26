@@ -9,10 +9,6 @@
     width: 100%;
   }
 
-  @media screen and (min-width: 1000px) {
-    width: 400px;
-  }
-
   height: 100%;
 
   background: theme.getColor("white");
@@ -31,28 +27,35 @@
 .shopping-cart__info-about-rest {
   margin-left: auto;
   margin-right: auto;
-  max-width: 350px;
+  max-width: 370px;
   padding: 10px;
 }
 
 .shopping-cart__order-points {
-  @media screen and (orientation: portrait) and (min-width: 438px),
-    screen and (orientation: landscape) and (min-height: 438px) {
-    height: 85.3%;
-  }
-  @media screen and (orientation: portrait) and (max-width: 438px),
-    screen and (orientation: landscape) and (max-height: 438px) {
-    height: 800px;
-  }
-  width: 365px;
+  height: 85%;
+  width: 370px;
+
   overflow-y: auto;
   overflow-x: hidden;
+
   margin-right: auto;
   margin-left: auto;
 
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+.shopping-cart__recommendations {
+  margin: 15px auto 45px auto;
+  position: static;
+}
+
+.recommendations__title {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .shopping-cart__button-order {

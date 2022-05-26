@@ -164,6 +164,12 @@ export const render = (urn, storeUpdate = false) => {
 
     setModalPosition(page);
   } else {
+    const currentPage = sessionStorage.getItem("page");
+    const root = sessionStorage.getItem("root");
+    if (section !== currentPage && section !== root) {
+      window.scrollTo(0, 0);
+    }
+
     APP.modal.classList.remove(...APP.modal.classList);
     APP.modal.innerHTML = "";
 
@@ -242,14 +248,6 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     IsCartEmpty()
   ) {
     return;
-  }
-
-  const page = sessionStorage.getItem("page");
-  if (
-    !urn.startsWith(`/${page}`) ||
-    (page !== "dishes" && urn !== "/shoppingCart")
-  ) {
-    window.scrollTo(0, 0);
   }
 
   if (urn === "/shoppingCart" && sessionStorage.getItem("root") === "main") {

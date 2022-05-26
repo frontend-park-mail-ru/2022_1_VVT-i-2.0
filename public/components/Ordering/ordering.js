@@ -4,7 +4,7 @@ import paymentChoice from "../PaymentChoice/payment-choice.js";
 import { NumberPhoneFormat } from "../../events/entity/phone/phone-src";
 import ELEMS_CONFIGURATION from "../../configurations/elems.js";
 
-const ordering = (props) => {
+const ordering = (props, promoCodeApplied, promoCode) => {
   const inputConfigurations = FORMS_CONFIGURATION.inputs.ordering;
   const isMobile = window.screen.width < 920;
 
@@ -46,9 +46,9 @@ const ordering = (props) => {
             {{&buttonPay}}
           {{/isMobile}}
         </div>
-        
+
         {{&summaryCheck}}
-        
+
       </div>
 
       {{#isMobile}}
@@ -100,7 +100,7 @@ const ordering = (props) => {
       return UIKIT.buttonPay();
     },
     summaryCheck() {
-      return UIKIT.orderCheck(props);
+      return UIKIT.orderCheck(props, true, true, promoCodeApplied, promoCode);
     },
   });
 };

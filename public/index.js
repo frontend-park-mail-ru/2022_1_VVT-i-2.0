@@ -6,17 +6,17 @@ import { IsCartEmpty } from "./store/getters/getters";
 const NOT_CLOSED_PAGES_BY_CLICK_OUT = ["shoppingCart", "confirmCode"];
 export const DEFAULT_ADDRESS = "Адрес доставки";
 
-const searchOnClickOutHandler = () => {
-  if (
-    !sessionStorage.getItem("searchBlockClicked") &&
-    !sessionStorage.getItem("searchButtonClicked") &&
-    document.getElementById("searchBlock")
-  ) {
-    document.getElementById("closeImg").click();
-  }
-  sessionStorage.removeItem("searchBlockClicked");
-  sessionStorage.removeItem("searchButtonClicked");
-};
+// const searchOnClickOutHandler = () => {
+//   if (
+//     !sessionStorage.getItem("searchBlockClicked") &&
+//     !sessionStorage.getItem("searchButtonClicked") &&
+//     document.getElementById("searchBlock")
+//   ) {
+//     document.getElementById("closeImg").click();
+//   }
+//   sessionStorage.removeItem("searchBlockClicked");
+//   sessionStorage.removeItem("searchButtonClicked");
+// };
 
 Object.entries(APP).forEach(([name, node]) =>
   node.addEventListener("click", (e) =>
@@ -39,7 +39,7 @@ window.onpopstate = () => {
 };
 
 document.addEventListener("click", (e) => {
-  searchOnClickOutHandler();
+  // searchOnClickOutHandler();
 
   if (APP.modal.children.length === 0) {
     return;
@@ -88,10 +88,14 @@ const handleOnload = () => {
   const stringCart = localStorage.getItem("cart");
   const currentRestName = localStorage.getItem("currentRestName");
   const slug = localStorage.getItem("slug");
+  const restId = Number(localStorage.getItem("restId"));
+  const appliedPromoCode = JSON.parse(localStorage.getItem("appliedPromoCode"));
 
   localStorage.removeItem("cart");
   localStorage.removeItem("currentRestName");
   localStorage.removeItem("slug");
+  localStorage.removeItem("restId");
+  localStorage.removeItem("appliedPromoCode");
 
   const defaultPromise = new Promise((resolve) => resolve());
 
@@ -104,16 +108,18 @@ const handleOnload = () => {
     return defaultPromise;
   }
 
+  store.actions.applyPromoCode(appliedPromoCode);
   store.actions.addCart(cart, currentRestName);
 
-  return store.actions
-    .getDishes(slug, decodedPathname !== "/ordering")
-    .then(() => {
-      if (decodedPathname === "/shoppingCart") {
-        sessionStorage.setItem("root", "dishes");
-        sessionStorage.setItem("params", slug);
-      }
-    });
+  return Promise.all([
+    store.actions.getRecommendations({ restId, orderList: cart.order }),
+    store.actions.getDishes(slug, decodedPathname !== "/ordering"),
+  ]).then(() => {
+    if (decodedPathname === "/shoppingCart") {
+      sessionStorage.setItem("root", "dishes");
+      sessionStorage.setItem("params", slug);
+    }
+  });
 };
 
 window.onbeforeunload = () => {
@@ -129,6 +135,7 @@ window.onbeforeunload = () => {
   const slug = Object.keys(dishes).find(
     (key) => dishes[key].restName === currentRestName
   );
+  const appliedPromoCode = store.getters.appliedPromoCode();
 
   if (!slug) {
     return;
@@ -137,6 +144,8 @@ window.onbeforeunload = () => {
   localStorage.setItem("cart", JSON.stringify(cart));
   localStorage.setItem("currentRestName", currentRestName);
   localStorage.setItem("slug", slug);
+  localStorage.setItem("restId", dishes[slug].id);
+  localStorage.setItem("appliedPromoCode", JSON.stringify(appliedPromoCode));
 };
 
 if ("serviceWorker" in navigator) {

@@ -13,6 +13,13 @@
   margin-right: 2%;
   margin-bottom: 20px;
 
+  transition-duration: 0.25;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+  }
+
   &__title {
     display: flex;
     justify-content: center;
@@ -26,10 +33,9 @@
 
   &_selected {
     background: theme.getColor("greyBrown");
-  }
-}
 
-.category:hover {
-  cursor: pointer;
-  opacity: 0.5;
+    &:hover {
+      box-shadow: none;
+    }
+  }
 }

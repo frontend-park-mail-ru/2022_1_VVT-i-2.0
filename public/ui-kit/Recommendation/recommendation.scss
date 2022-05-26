@@ -1,0 +1,95 @@
+@use "public/configurations/colors/colors.scss" as theme;
+
+@mixin paddings() {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.recommendation {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  align-content: center;
+
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0px;
+  }
+
+  width: 173px;
+  height: 120px;
+
+  background: theme.getColor("white");
+  border: 1px solid theme.getColor("grey");
+  border-radius: 14px;
+
+  &__img {
+    height: 120px;
+    width: 173px;
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 14px;
+
+    object-fit: cover;
+  }
+
+  &__name {
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include paddings();
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+
+    color: #2e2e33;
+
+    position: absolute;
+    bottom: -40px;
+  }
+
+  @media (-webkit-min-device-pixel-ratio: 0) {
+    &__name {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      /* number of lines to show */
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  &__price-bar {
+    display: inline-flex;
+    text-align: center;
+    position: absolute;
+
+    @include paddings();
+
+    width: 90%;
+    font-weight: bold;
+    bottom: 10px;
+  }
+
+  &__button-add-to-order {
+    margin-left: auto;
+    margin-right: 5px;
+
+    width: 87px;
+    height: 28px;
+    background-color: theme.getColor("primary");
+    color: theme.getColor("black");
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+
+    transition-duration: 0.25;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+}

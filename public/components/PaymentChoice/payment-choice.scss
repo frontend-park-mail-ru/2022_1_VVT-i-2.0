@@ -36,6 +36,8 @@
     padding: 10px;
   }
 
+  transition-duration: 0.25;
+
   &:not(:first-child) {
     margin-left: 10px;
   }

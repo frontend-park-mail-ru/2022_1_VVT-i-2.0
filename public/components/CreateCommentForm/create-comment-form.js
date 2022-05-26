@@ -3,7 +3,7 @@ import UIKIT from "../../ui-kit/import.js";
 const createCommentForm = () => {
   const template = `
     <div class="create-comment-form">
-      <div class="create-comment-form__title">Ваш комментарий:</div>
+      <div class="create-comment-form__title">Ваш отзыв:</div>
 
       <textarea
         id="comment"
@@ -40,7 +40,7 @@ const createCommentForm = () => {
           >
         </div>
 
-        <button class="create-comment-form__button" id="createComment">Оставить комментарий</button>
+        <button class="create-comment-form__button" id="createComment">Оставить отзыв</button>
       </div>
     </div>
   `;

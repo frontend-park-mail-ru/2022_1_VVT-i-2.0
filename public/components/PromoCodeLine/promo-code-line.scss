@@ -1,5 +1,27 @@
 .promo-code-line {
   display: flex;
   flex-direction: row;
-  margin: 20px auto 40px auto;
+  overflow: hidden;
+
+  max-width: 82vw;
+  height: 160px;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  @media screen and (orientation: portrait) and (min-width: 821px) {
+    overflow: hidden;
+  }
+  @media screen and (orientation: portrait) and (max-width: 820px) {
+    overflow: auto;
+    @media screen and (orientation: portrait) and (min-width: 438px),
+      screen and (orientation: landscape) and (min-height: 438px) {
+      width: calc(686px + 2%);
+    }
+    @media screen and (orientation: portrait) and (max-width: 438px),
+      screen and (orientation: landscape) and (max-height: 438px) {
+      width: 343px;
+      max-width: 343px;
+    }
+  }
 }
