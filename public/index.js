@@ -94,16 +94,9 @@ const handleOnload = () => {
   const error = localStorage.getItem("error");
   if (error !== null) {
     localStorage.removeItem("error");
-  }
-
-  if (decodedPathname === "/networkErrors") {
-    if (error !== null) {
-      sessionStorage.setItem("error", error);
-    }
 
     const urn = localStorage.getItem("urn");
     history.pushState({}, null, urn);
-
     decodedPathname = urn;
   }
 

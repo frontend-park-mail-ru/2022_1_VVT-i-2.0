@@ -129,6 +129,7 @@ export const render = (urn, storeUpdate = false) => {
   let page = MENU[section];
   if (!page) {
     sessionStorage.setItem("error", "404");
+    section = "networkErrors";
     page = MENU.networkErrors;
   }
 
@@ -192,7 +193,7 @@ export const render = (urn, storeUpdate = false) => {
   openAdditionalOrderInfo();
 
   sessionStorage.setItem("page", section);
-  if (currentUrn.startsWith("/") && currentUrn !== "/networkErrors") {
+  if (currentUrn.startsWith("/") && section !== "networkErrors") {
     localStorage.setItem("urn", currentUrn);
   }
 
