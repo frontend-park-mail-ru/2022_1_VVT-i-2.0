@@ -83,6 +83,8 @@ export const render = (urn, storeUpdate = false) => {
     return;
   }
 
+  const currentUrn = urn.slice();
+
   let path = urn;
   const lastIndexOfPath = urn.lastIndexOf("/");
 
@@ -190,6 +192,9 @@ export const render = (urn, storeUpdate = false) => {
   openAdditionalOrderInfo();
 
   sessionStorage.setItem("page", section);
+  if (currentUrn.startsWith("/") && currentUrn !== "/networkErrors") {
+    localStorage.setItem("urn", currentUrn);
+  }
 
   if (section === "suggests") {
     const suggestsSearch = document.getElementById("suggestsSearch");

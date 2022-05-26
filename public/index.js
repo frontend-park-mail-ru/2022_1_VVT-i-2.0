@@ -91,6 +91,22 @@ const handleOnload = () => {
   const restId = Number(localStorage.getItem("restId"));
   const appliedPromoCode = JSON.parse(localStorage.getItem("appliedPromoCode"));
 
+  const error = localStorage.getItem("error");
+  if (error !== null) {
+    localStorage.removeItem("error");
+  }
+
+  if (decodedPathname === "/networkErrors") {
+    if (error !== null) {
+      sessionStorage.setItem("error", error);
+    }
+
+    const urn = localStorage.getItem("urn");
+    history.pushState({}, null, urn);
+
+    decodedPathname = urn;
+  }
+
   localStorage.removeItem("cart");
   localStorage.removeItem("currentRestName");
   localStorage.removeItem("slug");
@@ -123,6 +139,11 @@ const handleOnload = () => {
 };
 
 window.onbeforeunload = () => {
+  const error = sessionStorage.getItem("error");
+  if (error !== null) {
+    localStorage.setItem("error", error);
+  }
+
   sessionStorage.clear();
 
   const cart = store.getters.cart();
@@ -159,7 +180,7 @@ if ("serviceWorker" in navigator) {
     .catch((err) => console.log(err));
 }
 
-const decodedPathname = decodeURI(location.pathname);
+let decodedPathname = decodeURI(location.pathname);
 
 handleOnload().then(() => {
   if (Object.keys(store.getters.user()).length === 0) {
