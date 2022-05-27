@@ -14,6 +14,7 @@
   @media screen and (orientation: portrait) and (max-width: 438px),
   screen and (orientation: landscape) and (max-height: 438px) {
     padding-left: calc((100% - 343px) / 2);
+    width: 95%;
   }
 }
 
@@ -97,7 +98,7 @@ main {
   @media screen and (orientation: portrait) and (min-width: 438px),
     screen and (orientation: landscape) and (min-height: 438px) {
     right: 0;
-    width: 400px;
+    // width: 400px;
   }
   @media screen and (orientation: portrait) and (max-width: 438px),
     screen and (orientation: landscape) and (max-height: 438px) {
