@@ -263,7 +263,10 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     return;
   }
 
-  history.pushState({}, null, urn);
+  if (urn !== "/networkErrors") {
+    history.pushState({}, null, urn);
+  }
+
   render(urn, storeUpdate);
 };
 
