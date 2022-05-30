@@ -7,7 +7,7 @@ const notification = (message, error) => {
       {{^error}}
         <img class="notification__img" src="/graphics/icons/notification-success.svg">
       {{/error}}
-      <a class="notification__message">{{message}}</a>
+      <div class="notification__message">{{message}}</div>
       <img class="notification__close-img" src="/graphics/icons/close.svg">
     </div>
   `;
