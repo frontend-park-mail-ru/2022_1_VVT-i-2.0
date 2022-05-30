@@ -9,7 +9,13 @@
   display: flex;
   flex-direction: column;
 
-  width: 270px;
+  @media screen and (max-width: 438px) {
+    width: 334px;
+  }
+
+  @media screen and (min-width: 438px) {
+    width: 270px;
+  }
 
   @media screen and (min-width: 1450px) {
     height: 50%;

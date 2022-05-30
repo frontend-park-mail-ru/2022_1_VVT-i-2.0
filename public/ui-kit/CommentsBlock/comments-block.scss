@@ -8,14 +8,13 @@
 
   height: 33px;
 
-  @media screen and (max-width: 540px) {
+  @media screen and (max-width: 438px) {
+    width: 334px;
   }
 
-  @media screen and (min-width: 540px) {
-    min-width: 160px;
+  @media screen and (min-width: 438px) {
+    width: 270px;
   }
-
-  width: 270px;
 
   margin-bottom: 30px;
 

@@ -9,13 +9,9 @@ const ordering = (props, promoCodeApplied, promoCode) => {
   const isMobile = window.screen.width < 920;
 
   const template = `
-    {{^isMobile}}
-      <div>
-        <img class="ordering-page__week-dish" src="/graphics/images/order_week_dish.png" alt="">
-      </div>
-    {{/isMobile}}
-
     <div class="ordering-page">
+      <img class="ordering-page__week-dish" src="/graphics/images/order_week_dish.png" alt="">
+
       {{&title}}
 
       <div class="ordering-page__ordering-and-shop-cart-block">

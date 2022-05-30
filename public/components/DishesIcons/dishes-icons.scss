@@ -26,8 +26,15 @@
   margin-right: 2%;
   margin-bottom: 24px;
 
-  width: 270px;
-  height: 470px;
+  @media screen and (max-width: 438px) {
+    width: 334px;
+    height: 500px;
+  }
+
+  @media screen and (min-width: 438px) {
+    width: 270px;
+    height: 470px;
+  }
 
   background: theme.getColor("white");
   border-radius: 14px;
@@ -41,12 +48,25 @@
 }
 
 .dish-icon__img-block {
-  height: 230px;
+  @media screen and (max-width: 438px) {
+    height: 290px;
+  }
+
+  @media screen and (min-width: 438px) {
+    height: 230px;
+  }
+
   padding-bottom: 40px;
 }
 
 .dish-icon__img {
-  width: 270px;
+  @media screen and (max-width: 438px) {
+    width: 334px;
+  }
+
+  @media screen and (min-width: 438px) {
+    width: 270px;
+  }
 
   border-radius: 14px 14px 0 0;
 }
