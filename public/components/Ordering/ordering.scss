@@ -131,13 +131,13 @@
   height: 65px;
 
   @media screen and (orientation: portrait) and (max-width: 920px) {
-    max-width: 263px;
-    padding: 10px 25px 10px 55px;
+    width: 323px;
+    padding: 10px;
   }
 
   @media screen and (orientation: landscape) and (min-width: 920px) {
-    max-width: 515px;
-    padding: 10px 10px 10px 55px;
+    width: 560px;
+    padding: 10px;
   }
 
   @include comment-static-sets();
@@ -148,12 +148,8 @@
 
   margin-bottom: 30px;
 
-  &:empty:before {
-    content: attr(placeholder);
-    color: grey;
-  }
-  &:empty:focus::before {
-    content: "";
+  &::placeholder {
+    color: theme.getColor("greyBrown");
   }
 }
 

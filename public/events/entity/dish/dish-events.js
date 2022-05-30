@@ -83,21 +83,12 @@ export const dishEvents = () => {
     ],
     orderingComment: [
       {
-        type: "focus",
+        type: "input",
         selector: "id",
         listener(app, store, e) {
-          if (e.target.innerText === "") {
-            e.target.innerHTML = "<br>";
-          }
+          e.target.value = e.target.value.slice(0, EntityLengthLimit.comment);
         },
       },
-      // {
-      //   type: "input",
-      //   selector: "id",
-      //   listener(app, store, e) {
-      //     e.target.innerText = e.target.innerText.slice(0, EntityLengthLimit.comment);
-      //   },
-      // },
     ],
   };
 };

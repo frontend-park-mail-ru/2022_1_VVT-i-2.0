@@ -262,7 +262,7 @@ export const getButtonEvents = () => {
           const flat =
             document.getElementById("orderingFlat").children[0].value;
 
-          const comment = document.getElementById("orderingComment").innerText;
+          const comment = document.getElementById("orderingComment").value;
 
           const order = store.getters.cart().order;
           console.log(

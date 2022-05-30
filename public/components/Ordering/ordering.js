@@ -29,12 +29,11 @@ const ordering = (props, promoCodeApplied, promoCode) => {
           </div>
 
           <div class="ordering-block__comment-header">Комментарий</div>
-          <div
+          <textarea
             id="orderingComment"
             class="ordering-block__comment-block"
-            contenteditable="true"
             placeholder="Напишите как Вас найти или пожелания для блюд..."
-          ></div>
+          ></textarea>
 
           {{^isMobile}}
             <div class="ordering-block__order-header">Оплата</div>
