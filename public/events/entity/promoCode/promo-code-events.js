@@ -23,7 +23,9 @@ export const getPromoCodeEvents = () => {
             renderAndUpdateURN("/shoppingCart", true);
           }
 
-          renderNotification("Промокод успешно применен");
+          if (Object.keys(store.getters.user()).length > 0) {
+            renderNotification("Промокод успешно применен");
+          }
         }
       },
     },
