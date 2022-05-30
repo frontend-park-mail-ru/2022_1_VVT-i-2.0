@@ -3,10 +3,9 @@
 .notification {
   min-height: 62px;
 
-  position: relative;
+  display: flex;
 
   filter: drop-shadow(4px 4px 4px rgba(26, 26, 26, 0.25));
-  height: 60px;
 
   @media screen and (max-width: 540px) {
     width: 100%;
@@ -20,9 +19,6 @@
   border-radius: 10px;
 
   &__img {
-    display: inline-flex;
-    justify-items: center;
-
     padding: 16px;
   }
 
@@ -32,9 +28,9 @@
     font-style: normal;
     font-weight: 700;
 
-    position: absolute;
-    padding-top: 23px;
-    padding-bottom: 16px;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: left;
 
     max-width: 230px;
 
@@ -42,11 +38,11 @@
   }
 
   &__close-img {
-    position: absolute;
-    right: 0px;
     padding: 16px;
 
     transition-duration: 0.25;
+
+    margin-left: auto;
   }
 
   &__close-img:hover {
