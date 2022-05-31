@@ -7,6 +7,10 @@ const createCommentPage = (app, store) => {
     return;
   }
 
+  if (sessionStorage.getItem("orderNumber") === null) {
+    return;
+  }
+
   if (!store.getters.dishes().hasOwnProperty(params)) {
     store.actions.getDishes(params);
     return;

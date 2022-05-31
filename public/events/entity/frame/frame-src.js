@@ -40,9 +40,10 @@ Math.easeInOutQuad = function (t, b, c, d) {
 
 export const additionalOrderInfo = (app, store, e) => {
   const orderElem = document.getElementById("O" + e.target.dataset.id);
-  orderElem.innerHTML = components.additionalStatusOrderInfo(
-    store.getters.getCertainOrder()
-  );
+
+  const order = store.getters.getCertainOrder();
+  sessionStorage.setItem("orderNumber", order.orderNumber);
+  orderElem.innerHTML = components.additionalStatusOrderInfo(order);
 
   const buttonImages = document.querySelectorAll("img[data-id]");
 

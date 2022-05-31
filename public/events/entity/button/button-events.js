@@ -306,8 +306,10 @@ export const getButtonEvents = () => {
 
           const text = document.getElementById("comment").value;
           const stars = parseInt(starsBlock.dataset.count, 10);
+          const orderId = parseInt(sessionStorage.getItem("orderNumber"), 10);
 
-          store.actions.createComment({ slug, text, stars }).then(() => {
+          store.actions.createComment({ slug, text, stars, orderId }).then(() => {
+            sessionStorage.removeItem("orderNumber");
             store.actions.clearComments(slug);
             renderAndUpdateURN(`/comments/${slug}`);
             renderNotification("Отзыв успешно создан");
