@@ -7,6 +7,10 @@ export const getPromoCodeEvents = () => {
       type: "click",
       selector: "class",
       listener(app, store, e) {
+        if (Object.keys(store.getters.user()).length === 0) {
+          return;
+        }
+
         const id = getParentNodeDataIdByClass(e.target, "promoCode");
         const promos = store.getters.promoCodes();
         if (promos && promos.length > id) {
@@ -23,9 +27,7 @@ export const getPromoCodeEvents = () => {
             renderAndUpdateURN("/shoppingCart", true);
           }
 
-          if (Object.keys(store.getters.user()).length > 0) {
-            renderNotification("Промокод успешно применен");
-          }
+          renderNotification("Промокод успешно применен");
         }
       },
     },
