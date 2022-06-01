@@ -2,6 +2,11 @@ import components from "../../components/import.js";
 import UIKIT from "../../ui-kit/import.js";
 
 const mainPage = (app, store) => {
+  if (sessionStorage.getItem("searchRequestReturnsNothing")) {
+    sessionStorage.removeItem("searchRequestReturnsNothing")
+    return;
+  }
+
   const params = sessionStorage.getItem("params");
 
   if (!store.getters.promoCodes() || !store.getters.promoCodes().length) {
@@ -18,7 +23,8 @@ const mainPage = (app, store) => {
     return category;
   });
 
-  if (store.getters.restaurants().length === 0) {
+  if (store.getters.restaurants().length === 0 && !sessionStorage.getItem("getRestBySearchRequest")) {
+    console.log("not by search");
     if (categories.some((category) => category.title === params)) {
       store.actions.getRestaurants({ category: params });
     } else {
@@ -35,7 +41,7 @@ const mainPage = (app, store) => {
     components.promoCodeLine(store.getters.promoCodes()) +
     UIKIT.mainLink("Рестораны") +
     components.categories(categories) +
-    components.restIcons(store.getters.restaurants);
+    components.restIcons(store.getters.restaurants());
 
   app.root.appendChild(main);
 

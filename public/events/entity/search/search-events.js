@@ -16,7 +16,10 @@ export const search = () => {
           sessionStorage.setItem("searchQuery", query);
           store.actions
             .getRestaurants({ q: query })
-            .then(() => renderAndUpdateURN("/"));
+            .then(() => {
+              sessionStorage.setItem("getRestBySearchRequest", query);
+              renderAndUpdateURN("/");
+            });
         },
       },
     ],
