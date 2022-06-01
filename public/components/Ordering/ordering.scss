@@ -146,10 +146,14 @@
   background: rgba(222, 222, 222, 0.3);
   color: theme.getColor("black");
 
+  font-family: 'Roboto', 'sans-serif';
+  font-size: 13px;
+  letter-spacing: 0.4px;
+
   margin-bottom: 30px;
 
   &::placeholder {
-    color: theme.getColor("greyBrown");
+    color: theme.getColor("warm");
   }
 }
 
