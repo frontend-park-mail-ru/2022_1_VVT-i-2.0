@@ -32,9 +32,14 @@ const shoppingCartPage = (app, store) => {
     return { ...dishObj.dishes[index], price, count };
   });
 
-  const restName = dishObj
+  let restName = dishObj
     ? dishObj.restName
     : store.getters.appliedPromoCode().restName;
+
+  if (store.getters.appliedPromoCode().restName &&
+    restName !== store.getters.appliedPromoCode().restName) {
+    restName = store.getters.appliedPromoCode().restName;
+  }
 
   app.modal.innerHTML = components.shoppingCart(
     restName,
