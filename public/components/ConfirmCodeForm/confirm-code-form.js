@@ -58,7 +58,7 @@ const confirmCodeForm = (phone) => {
     },
     sendAgain() {
       return UIKIT.simpleButton(
-        "Отправить код повторно",
+        "Позвонить повторно",
         COLORS.grey,
         this.width,
         "confirmCode",
