@@ -37,7 +37,7 @@
     margin-bottom: auto;
     text-align: left;
 
-    max-width: 230px;
+    max-width: 80%;
 
     word-wrap: break-word;
 
@@ -45,7 +45,7 @@
   }
 
   &__close-img {
-    padding: 16px;
+    padding: 16px 16px 16px 0px;
 
     transition-duration: 0.25s;
 
