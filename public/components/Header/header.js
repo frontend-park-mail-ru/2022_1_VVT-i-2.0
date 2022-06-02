@@ -45,7 +45,7 @@ const header = (isOrderingPage = false) => {
                             data-section="suggests"
                             alt=""
                         >
-                        <span data-section="suggests">
+                        <span class="page-header__suggests" data-section="suggests">
                             <input
                                 id="suggestsSearch"
                                 class="page-header__suggests-input"

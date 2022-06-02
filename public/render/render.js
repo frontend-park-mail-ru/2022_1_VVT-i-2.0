@@ -205,6 +205,12 @@ export const render = (urn, storeUpdate = false) => {
 
     suggestsSearch.setSelectionRange(end, end);
     suggestsSearch.focus();
+
+    const searchButton = document.getElementById("searchButton");
+    searchButton.classList.add("page-header__button_hidden");
+  } else {
+    const searchButton = document.getElementById("searchButton");
+    searchButton.classList.remove("page-header__button_hidden");
   }
 };
 
