@@ -134,7 +134,6 @@ export const render = (urn, storeUpdate = false) => {
 
   if (page.authRequired && Object.keys(store.getters.user()).length === 0) {
     renderAndUpdateURN("/login");
-    renderNotification("Для этого действия нужно авторизоваться", true);
     return;
   }
 
@@ -143,7 +142,6 @@ export const render = (urn, storeUpdate = false) => {
     Object.keys(store.getters.user()).length !== 0
   ) {
     renderAndUpdateURN("/");
-    renderNotification("Это действие вам не доступно", true);
     return;
   }
 

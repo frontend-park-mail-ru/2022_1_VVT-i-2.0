@@ -66,16 +66,26 @@ export const getButtonEvents = () => {
           const email = sessionStorage.getItem("email");
           const code = document.getElementById("confirmCode").children[0].value;
 
+          const handleSuccess = () => {
+            sessionStorage.removeItem("logicType");
+            sessionStorage.removeItem("phone");
+            sessionStorage.removeItem("name");
+            sessionStorage.removeItem("email");
+
+            const root = sessionStorage.getItem("root") || "main";
+            const params = sessionStorage.getItem("params");
+
+            if (params) {
+              renderAndUpdateURN(`/${root}/${params}`);
+            } else {
+              renderAndUpdateURN(root);
+            }
+          }
+
           if (logicType === "login") {
             store.actions
               .login({ phone, code })
-              .then(() => {
-                sessionStorage.removeItem("logicType");
-                sessionStorage.removeItem("phone");
-                sessionStorage.removeItem("name");
-                sessionStorage.removeItem("email");
-                renderAndUpdateURN("/");
-              })
+              .then(handleSuccess)
               .catch(() =>
                 confirmCodeError.confirmCodeErrorShow(
                   "Неверный код подтверждения"
@@ -84,13 +94,7 @@ export const getButtonEvents = () => {
           } else if (logicType === "register") {
             store.actions
               .register({ phone, code, email, name })
-              .then(() => {
-                sessionStorage.removeItem("logicType");
-                sessionStorage.removeItem("phone");
-                sessionStorage.removeItem("name");
-                sessionStorage.removeItem("email");
-                renderAndUpdateURN("/");
-              })
+              .then(handleSuccess)
               .catch(() =>
                 confirmCodeError.confirmCodeErrorShow(
                   "Неверный код подтверждения"

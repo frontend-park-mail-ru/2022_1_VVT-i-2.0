@@ -10,7 +10,6 @@ export const getPromoCodeEvents = () => {
         if (Object.keys(store.getters.user()).length === 0) {
           e.stopImmediatePropagation();
           renderAndUpdateURN("/login");
-          renderNotification("Для этого действия нужно авторизоваться", true);
           return;
         }
 

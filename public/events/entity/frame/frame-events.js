@@ -22,7 +22,13 @@ export const getFrameEvents = () => {
           }
 
           const root = sessionStorage.getItem("root") || "main";
-          renderAndUpdateURN(root);
+          const params = sessionStorage.getItem("params");
+
+          if (params) {
+            renderAndUpdateURN(`/${root}/${params}`);
+          } else {
+            renderAndUpdateURN(root);
+          }
         },
       },
     ],

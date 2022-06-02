@@ -14,7 +14,6 @@ export const dishEvents = () => {
         listener(app, store, e) {
           if (Object.keys(store.getters.user()).length === 0) {
             renderAndUpdateURN("/login");
-            renderNotification("Для этого действия нужно авторизоваться", true);
             return;
           }
 
