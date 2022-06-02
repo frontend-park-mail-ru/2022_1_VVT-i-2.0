@@ -265,13 +265,7 @@ export const getButtonEvents = () => {
           const comment = document.getElementById("orderingComment").value;
 
           const order = store.getters.cart().order;
-          console.log(
-            "PROMOCODE: ",
-            store.getters.appliedPromoCode(),
-            store.getters.appliedPromoCode().promocode
-          );
           const promocode = store.getters.appliedPromoCode().promocode;
-          console.log("promocode text", promocode);
 
           store.actions
             .createOrder({

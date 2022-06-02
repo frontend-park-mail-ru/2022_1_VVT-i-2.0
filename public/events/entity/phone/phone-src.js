@@ -14,7 +14,6 @@ const numberObjectExclude = {
 export const NumberPhoneFormat = {
   phoneBeginString: "+7(",
   formatters: [
-    // {symbol: '+', formatPositions: 0},
     { symbol: "(", formatPositions: [2] },
     { symbol: ")", formatPositions: [6] },
     { symbol: "-", formatPositions: [10, 13] },

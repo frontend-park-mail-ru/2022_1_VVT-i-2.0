@@ -69,6 +69,14 @@
   margin: auto;
 }
 
+.meta-info__img_gold {
+  filter: invert(69%) sepia(63%) saturate(958%) hue-rotate(326deg) brightness(104%) contrast(101%);
+}
+
 .meta-info__rating {
   margin-left: 5px;
+
+  &_gold {
+    color: #ff9f47;
+  }
 }

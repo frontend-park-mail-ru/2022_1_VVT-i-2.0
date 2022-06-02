@@ -45,11 +45,7 @@ main {
   top: 68px;
   padding-top: 1%;
 
-  // width: 100vw;
-  //@media screen and (orientation: portrait) and (min-width: 438px),
-  //screen and (orientation: landscape) and (min-height: 438px) {
-    @include padding-left-in-main();
-  //}
+  @include padding-left-in-main();
 }
 
 .shown {
@@ -98,7 +94,6 @@ main {
   @media screen and (orientation: portrait) and (min-width: 438px),
     screen and (orientation: landscape) and (min-height: 438px) {
     right: 0;
-    // width: 400px;
   }
   @media screen and (orientation: portrait) and (max-width: 438px),
     screen and (orientation: landscape) and (max-height: 438px) {

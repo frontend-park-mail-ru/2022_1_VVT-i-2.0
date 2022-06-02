@@ -7,7 +7,9 @@
  * @return {string} HTML строка для отрисовки ui-kit компонента restMetaInformation.
  */
 const restMetaInformation = (restName, timeToDeliver, price, rating) => {
-  const template = `
+    const goldRation = rating > 4.5;
+
+    const template = `
         <div class="rest-icon__rest-meta-info-block">
             <div class="rest-icon__rest-name">
                 {{restName}}
@@ -15,7 +17,7 @@ const restMetaInformation = (restName, timeToDeliver, price, rating) => {
             <div class="rest-icon__meta-info">
                 <div class="meta-info__param">
                     <div class="meta-info__param-value">
-                        {{timeToDeliver}} мин 
+                        {{timeToDeliver}} мин
                     </div>
                 </div>
                 <div class="meta-info__param">
@@ -24,15 +26,23 @@ const restMetaInformation = (restName, timeToDeliver, price, rating) => {
                     </div>
                 </div>
                 <div class="meta-info__param">
-                    <div class="meta-info__param-value">
-                        <img src="/graphics/icons/star.svg" alt="rating">
-                        <span class="meta-info__rating">{{rating}}</span>
-                    </div>
+                    {{#goldRation}}
+                        <div class="meta-info__param-value">
+                            <img class="meta-info__img_gold" src="/graphics/icons/star.svg" alt="rating">
+                            <span class="meta-info__rating meta-info__rating_gold">{{rating}}</span>
+                        </div>
+                    {{/goldRation}}
+                    {{^goldRation}}
+                        <div class="meta-info__param-value">
+                            <img src="/graphics/icons/star.svg" alt="rating">
+                            <span class="meta-info__rating">{{rating}}</span>
+                        </div>
+                    {{/goldRation}}
                 </div>
             </div>
         </div>
     `;
-  return Mustache.render(template, { restName, timeToDeliver, price, rating });
+    return Mustache.render(template, { restName, timeToDeliver, price, rating, goldRation });
 };
 
 export default restMetaInformation;

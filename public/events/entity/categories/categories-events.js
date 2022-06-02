@@ -8,6 +8,9 @@ export const categories = () => {
         selector: "class",
         listener(app, store, e) {
           const { title } = e.target.dataset;
+          if (!title) {
+            return
+          }
 
           const params = sessionStorage.getItem("params");
           if (title === params) {

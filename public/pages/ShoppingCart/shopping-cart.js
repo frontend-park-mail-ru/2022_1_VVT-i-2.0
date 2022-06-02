@@ -22,19 +22,21 @@ const shoppingCartPage = (app, store) => {
     );
   }
 
-  const properties = store.getters.cart().order.map(({ id, price, count }) => {
-    const index = dishObj.dishes.findIndex(
-      (orderPoint) => orderPoint.id === id
-    );
-    if (index === -1) {
-      return;
-    }
-    return { ...dishObj.dishes[index], price, count };
-  });
+  const properties = store.getters.cart().order
+    .filter(({ id }) => dishObj.dishes.findIndex((orderPoint) => orderPoint.id === id) > 0)
+    .map(({ id, price, count }) => {
+      const index = dishObj.dishes.findIndex((orderPoint) => orderPoint.id === id);
+      return { ...dishObj.dishes[index], price, count };
+    });
 
-  const restName = dishObj
+  let restName = dishObj
     ? dishObj.restName
     : store.getters.appliedPromoCode().restName;
+
+  if (store.getters.appliedPromoCode().restName &&
+    restName !== store.getters.appliedPromoCode().restName) {
+    restName = store.getters.appliedPromoCode().restName;
+  }
 
   app.modal.innerHTML = components.shoppingCart(
     restName,

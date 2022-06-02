@@ -1,24 +1,34 @@
 import UIKIT from "../../ui-kit/import.js";
 
-/**
- * @function Создает html-строку для создания компонента формы ресторана
- *      restIcon через шаблонатор Mustache.
- * @param {Object} restaurants - Объект, содержащий данные, полученные с сервера.
- * @return {string} HTML строка для отрисовки компонента registerForm.
- */
 const restIcons = (restaurants) => {
+  let searchRequestReturnsNothing = false;
+  const query = sessionStorage.getItem("getRestBySearchRequest");
+  if (restaurants.length === 0) {
+    searchRequestReturnsNothing = true;
+    sessionStorage.setItem("searchRequestReturnsNothing", "true");
+    sessionStorage.removeItem("getRestBySearchRequest");
+  }
   const template = `
         <div class="restaurants-form">
+          {{#searchRequestReturnsNothing}}
+            <div class="restaurants-form__empty-rest-list">
+              По вашему запросу "{{query}}" ничего не найдено. Попробуйте ввести другой ресторан или категорию
+            </div>
+          {{/searchRequestReturnsNothing}}
+          {{^searchRequestReturnsNothing}}
             {{#restaurants}}
                 <section class="restaurants-form__rest_icon" data-section="{{href}}">
                     <img class="rest-icon__rest_img" src={{imgPath}} alt={{restName}} data-section="{{href}}">
                     {{&metaInformation}}
                 </section>
             {{/restaurants}}
+          {{/searchRequestReturnsNothing}}
         </div>
     `;
   return Mustache.render(template, {
     restaurants: restaurants,
+    searchRequestReturnsNothing,
+    query,
     href() {
       return `/dishes/${this.slug}`;
     },

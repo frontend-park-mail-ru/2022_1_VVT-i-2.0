@@ -113,11 +113,11 @@ const STORE = {
             totalPrice: 0,
             totalPriceWithDiscount: 0,
             order: [],
-          };
+        };
 
-    // if (restName !== this.currentRestName) {
-    //   this.appliedPromoCode = {};
-    // }
+    if (restName !== this.currentRestName && this.currentRestName === this.appliedPromoCode.restName) {
+      this.appliedPromoCode = {};
+    }
 
     if (cart.order.length) {
       this.flushCachedCartWithDiscounts();
