@@ -22,10 +22,6 @@ export const dishEvents = () => {
             document.getElementById("suggestsSearch").value === DEFAULT_ADDRESS
           ) {
             renderAndUpdateURN("/suggests");
-            // renderNotification(
-            //   "Для этого действия необходимо выбрать адрес доставки",
-            //   true
-            // );
             return;
           }
 
