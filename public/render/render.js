@@ -14,13 +14,12 @@ import { insertOldCart } from "../store/actions/actions";
 export const APP = {
   root: document.getElementById("root"),
   modal: document.getElementById("modal"),
+  notification: document.getElementById("notification")
 };
 
 const AUTH_PAGES = ["login", "register", "confirmCode"];
 const CLOSED_PAGES = ["shoppingCart", "profilePreview"];
 const NEED_CORRECT_ADDRESS_PAGES = ["/shoppingCart", "/ordering"];
-
-const notification = document.getElementById("notification");
 
 const setModalPosition = (page) => {
   if (page.position) {
@@ -271,36 +270,36 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
 };
 
 const hideNotification = () => {
-  notification
+  APP.notification
     .getElementsByClassName("notification__close-img")[0]
     .removeEventListener("click", hideNotification);
-  notification.innerHTML = "";
+  APP.notification.innerHTML = "";
 };
 
 export const renderNotification = (
   message = "В ходе обработки запроса произошла ошибка",
   error = false
 ) => {
-  if (notification.innerHTML !== "") {
-    notification
+  if (APP.notification.innerHTML !== "") {
+    APP.notification
       .getElementsByClassName("notification__close-img")[0]
       .removeEventListener("click", hideNotification);
   }
 
-  notification.innerHTML = UIKIT.notification(message, error);
-  notification
+  APP.notification.innerHTML = UIKIT.notification(message, error);
+  APP.notification
     .getElementsByClassName("notification__close-img")[0]
     .addEventListener("click", hideNotification);
 
   const timeout = error ? 5000 : 3000;
   setTimeout(() => {
-    if (notification.innerHTML === "") {
+    if (APP.notification.innerHTML === "") {
       return;
     }
 
-    notification
+    APP.notification
       .getElementsByClassName("notification__close-img")[0]
       .removeEventListener("click", hideNotification);
-    notification.innerHTML = "";
+    APP.notification.innerHTML = "";
   }, timeout);
 };

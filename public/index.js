@@ -36,6 +36,7 @@ document.addEventListener("click", (e) => {
   const { target } = e;
   if (
     (APP.modal.children[0].contains(target) && page !== "suggests") ||
+    (APP.notification.children[0].contains(target)) ||
     target.hasAttribute("data-section")
   ) {
     return;
@@ -64,7 +65,7 @@ document.addEventListener("click", (e) => {
   } else {
     renderAndUpdateURN(root);
   }
-});
+}, { capture: true });
 
 if (!localStorage.getItem("address")) {
   localStorage.setItem("address", DEFAULT_ADDRESS);
