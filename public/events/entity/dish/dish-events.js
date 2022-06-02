@@ -21,10 +21,11 @@ export const dishEvents = () => {
           if (
             document.getElementById("suggestsSearch").value === DEFAULT_ADDRESS
           ) {
-            renderNotification(
-              "Для этого действия необходимо выбрать адрес доставки",
-              true
-            );
+            renderAndUpdateURN("/suggests");
+            // renderNotification(
+            //   "Для этого действия необходимо выбрать адрес доставки",
+            //   true
+            // );
             return;
           }
 

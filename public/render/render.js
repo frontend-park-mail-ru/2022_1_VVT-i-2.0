@@ -23,6 +23,7 @@ const NEED_CORRECT_ADDRESS_PAGES = ["/shoppingCart", "/ordering"];
 
 const setModalPosition = (page) => {
   if (page.position) {
+    APP.modal.classList.remove("modal-top", "modal-right", "modal-center");
     APP.modal.classList.add(page.position);
   }
 };
@@ -223,6 +224,7 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
   }
 
   if (IsAddressNotCorrect() && NEED_CORRECT_ADDRESS_PAGES.includes(urn)) {
+    renderAndUpdateURN("/suggests");
     renderNotification(
       "Для этого действия необходимо выбрать адрес доставки",
       true
@@ -271,14 +273,14 @@ const hideNotification = () => {
   APP.notification
     .getElementsByClassName("notification__close-img")[0]
     .removeEventListener("click", hideNotification);
-  APP.notification.innerHTML = "";
+  APP.notification.classList.remove("active");
 };
 
 export const renderNotification = (
   message = "В ходе обработки запроса произошла ошибка",
   error = false
 ) => {
-  if (APP.notification.innerHTML !== "") {
+  if (APP.notification.classList.contains("active")) {
     APP.notification
       .getElementsByClassName("notification__close-img")[0]
       .removeEventListener("click", hideNotification);
@@ -289,15 +291,18 @@ export const renderNotification = (
     .getElementsByClassName("notification__close-img")[0]
     .addEventListener("click", hideNotification);
 
+  APP.notification.classList.add("active");
+
   const timeout = error ? 5000 : 3000;
   setTimeout(() => {
-    if (APP.notification.innerHTML === "") {
+    if (!APP.notification.classList.contains("active")) {
       return;
     }
 
     APP.notification
       .getElementsByClassName("notification__close-img")[0]
       .removeEventListener("click", hideNotification);
-    APP.notification.innerHTML = "";
+
+    APP.notification.classList.remove("active");
   }, timeout);
 };

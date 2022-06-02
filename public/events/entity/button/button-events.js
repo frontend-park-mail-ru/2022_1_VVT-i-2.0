@@ -132,7 +132,16 @@ export const getButtonEvents = () => {
          * @param {Event} e - Событие.
          */
         listener(app, store, e) {
-          store.actions.logout().then(() => renderAndUpdateURN("/"));
+          store.actions.logout().then(() => {
+            const root = sessionStorage.getItem("root") || "main";
+            const params = sessionStorage.getItem("params");
+
+            if (params) {
+              renderAndUpdateURN(`/${root}/${params}`);
+            } else {
+              renderAndUpdateURN(root);
+            }
+          });
         },
       },
     ],

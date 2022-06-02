@@ -36,7 +36,15 @@ export const suggests = () => {
           localStorage.setItem("address", address);
 
           if (end) {
-            renderAndUpdateURN("/");
+            const root = sessionStorage.getItem("root") || "main";
+            const params = sessionStorage.getItem("params");
+
+            if (params) {
+              renderAndUpdateURN(`/${root}/${params}`);
+            } else {
+              renderAndUpdateURN(root);
+            }
+
             store.actions.clearSuggests();
             return;
           }

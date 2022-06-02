@@ -116,13 +116,27 @@ main {
   @media screen and (max-width: 540px) {
     left: 15px;
     right: 15px;
-    bottom: 15px;
   }
 
   @media screen and (min-width: 540px) {
     display: inline-flex;
     justify-content: center;
     width: 100%;
-    bottom: 50px;
+  }
+
+  bottom: -100px;
+
+  transition: bottom 0.25s linear;
+
+  &.active {
+    transition: bottom 0.25s linear;
+
+    @media screen and (max-width: 540px) {
+      bottom: 15px;
+    }
+
+    @media screen and (min-width: 540px) {
+      bottom: 50px;
+    }
   }
 }
