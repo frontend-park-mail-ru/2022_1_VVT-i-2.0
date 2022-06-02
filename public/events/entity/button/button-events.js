@@ -118,6 +118,7 @@ export const getButtonEvents = () => {
 
           store.actions.sendCode(phone).then((result) => {
             renderAndUpdateURN("/confirmCode");
+            renderNotification("Ожидайте звонок");
           });
         },
       },

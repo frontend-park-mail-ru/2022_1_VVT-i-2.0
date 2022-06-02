@@ -87,6 +87,10 @@ const handleOnload = () => {
     decodedPathname = urn;
   }
 
+  if (decodedPathname === "/confirmCode") {
+    decodedPathname = "/login";
+  }
+
   localStorage.removeItem("cart");
   localStorage.removeItem("currentRestName");
   localStorage.removeItem("slug");
