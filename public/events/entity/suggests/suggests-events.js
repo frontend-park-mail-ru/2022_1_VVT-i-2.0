@@ -1,7 +1,7 @@
 import { renderAndUpdateURN } from "../../../render/render.js";
 import { debounce } from "./suggests-src.js";
 
-const suggest = debounce((store, query) => store.actions.suggest(query), 1000);
+const suggest = debounce((store, query) => store.actions.suggest(query), 500);
 
 export const suggests = () => {
   return {
