@@ -36,7 +36,7 @@ document.addEventListener("click", (e) => {
   const { target } = e;
   if (
     (APP.modal.children[0].contains(target) && page !== "suggests") ||
-    (APP.notification.children[0].contains(target)) ||
+    (APP.notification.length > 0 && notification.children[0].contains(target)) ||
     target.hasAttribute("data-section")
   ) {
     return;
