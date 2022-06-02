@@ -15,18 +15,23 @@
     width: 343px;
   }
 
-  background: theme.getColor("lightGrey");
   border-radius: 10px;
 
-  &__img {
-    padding: 16px;
+  &_error {
+    background: theme.getColor("warning");
+  }
+
+  &_success {
+    background: theme.getColor("primary");
   }
 
   &__message {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     font-style: normal;
     font-weight: 700;
+
+    margin-left: 28px;
 
     margin-top: auto;
     margin-bottom: auto;
@@ -35,6 +40,8 @@
     max-width: 230px;
 
     word-wrap: break-word;
+
+    color: #ffffff;
   }
 
   &__close-img {
