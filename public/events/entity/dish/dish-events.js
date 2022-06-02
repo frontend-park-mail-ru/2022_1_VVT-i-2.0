@@ -12,6 +12,12 @@ export const dishEvents = () => {
         type: "click",
         selector: "class",
         listener(app, store, e) {
+          if (Object.keys(store.getters.user()).length === 0) {
+            renderAndUpdateURN("/login");
+            renderNotification("Для этого действия нужно авторизоваться", true);
+            return;
+          }
+
           const { id, rest, price } = e.target.dataset;
           if (
             document.getElementById("suggestsSearch").value === DEFAULT_ADDRESS

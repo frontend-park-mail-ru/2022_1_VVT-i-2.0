@@ -134,7 +134,7 @@ export const render = (urn, storeUpdate = false) => {
   }
 
   if (page.authRequired && Object.keys(store.getters.user()).length === 0) {
-    renderAndUpdateURN("/");
+    renderAndUpdateURN("/login");
     renderNotification("Для этого действия нужно авторизоваться", true);
     return;
   }
