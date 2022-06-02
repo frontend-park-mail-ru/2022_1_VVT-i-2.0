@@ -38,10 +38,13 @@
 
   transition-duration: 0.25s;
 
+  &:first-child {
+    background: theme.getColor("grey");
+    &:hover {
+      cursor: pointer;
+    }
+  }
   &:not(:first-child) {
     margin-left: 10px;
-  }
-  &:hover {
-    background: theme.getColor("grey");
   }
 }
