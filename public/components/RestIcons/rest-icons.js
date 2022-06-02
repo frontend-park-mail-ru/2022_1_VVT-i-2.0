@@ -1,7 +1,6 @@
 import UIKIT from "../../ui-kit/import.js";
 
 const restIcons = (restaurants) => {
-  console.log(restaurants);
   let searchRequestReturnsNothing = false;
   const query = sessionStorage.getItem("getRestBySearchRequest");
   if (restaurants.length === 0) {
@@ -9,7 +8,6 @@ const restIcons = (restaurants) => {
     sessionStorage.setItem("searchRequestReturnsNothing", "true");
     sessionStorage.removeItem("getRestBySearchRequest");
   }
-  console.log("searchRequestReturnsNothing", searchRequestReturnsNothing)
   const template = `
         <div class="restaurants-form">
           {{#searchRequestReturnsNothing}}

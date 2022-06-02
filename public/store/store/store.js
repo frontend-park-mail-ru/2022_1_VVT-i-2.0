@@ -113,12 +113,8 @@ const STORE = {
             totalPrice: 0,
             totalPriceWithDiscount: 0,
             order: [],
-          };
-    //
-    console.log("rest from add:", restName)
-    console.log("current rest store:", this.currentRestName)
-    console.log("promo rest name:", this.appliedPromoCode.restName)
-    //
+        };
+
     if (restName !== this.currentRestName && this.currentRestName === this.appliedPromoCode.restName) {
       this.appliedPromoCode = {};
     }

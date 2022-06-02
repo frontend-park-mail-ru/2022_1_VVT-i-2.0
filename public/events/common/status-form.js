@@ -29,7 +29,6 @@ export const statusRegisterForm = {
 
 export const statusPersonInfoForm = {
   isValidName: true,
-  // isValidPhone: true,
   isValidEmail: true,
 };
 

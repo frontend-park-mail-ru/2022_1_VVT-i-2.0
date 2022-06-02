@@ -24,7 +24,6 @@ const mainPage = (app, store) => {
   });
 
   if (store.getters.restaurants().length === 0 && !sessionStorage.getItem("getRestBySearchRequest")) {
-    console.log("not by search");
     if (categories.some((category) => category.title === params)) {
       store.actions.getRestaurants({ category: params });
     } else {
