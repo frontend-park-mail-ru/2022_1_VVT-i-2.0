@@ -51,6 +51,7 @@ const header = (isOrderingPage = false) => {
                                 class="page-header__suggests-input"
                                 data-section="suggests"
                                 value="{{address}}"
+                                autocomplete="off"
                             >
                         </span>
                     </nav>

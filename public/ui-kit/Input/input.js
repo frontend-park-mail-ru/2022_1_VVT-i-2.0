@@ -35,6 +35,7 @@ const input = (
                     name="{{name}}"
                     value="{{value}}"
                     {{#readonly}} readonly {{/readonly}}
+                    autocomplete="off"
                 >
                 <div class="input-block__input-underline hidden">{{error}}</div>
             </div>

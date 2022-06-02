@@ -29,7 +29,6 @@ body {
 }
 
 .root {
-  width: 98vw;
   @media screen and (orientation: portrait) and (min-width: 438px),
     screen and (orientation: landscape) and (min-height: 438px) {
     height: 100vh;

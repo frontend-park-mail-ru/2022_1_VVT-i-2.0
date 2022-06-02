@@ -27,7 +27,7 @@ const simpleButton = (
         >
             {{title}}
             {{#isChangeAvatarButton}}
-                <input id="avatarUpload" name="avatar" type="file" style="display: none;" accept=".png, .jpg, .jpeg">
+                <input id="avatarUpload" name="avatar" type="file" style="display: none;" accept=".png, .jpg, .jpeg" autocomplete="off">
             {{/isChangeAvatarButton}}
         </button>
     `;
