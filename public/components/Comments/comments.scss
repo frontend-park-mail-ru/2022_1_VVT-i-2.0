@@ -3,8 +3,7 @@
 .comments {
   &__header {
     display: flex;
-    background: theme.getColor("grey");
-    opacity: 0.9;
+    background: #c7c4c4;
 
     border-radius: 16px;
 
@@ -13,11 +12,13 @@
       margin-right: auto;
       min-width: 343px;
       max-width: 343px;
+      margin-bottom: 40px;
     }
 
     @media screen and (min-width: 920px) {
       min-width: 800px;
       max-width: 800px;
+      margin-bottom: 50px;
     }
 
     margin-bottom: 18px;
@@ -42,7 +43,7 @@
   }
 
   &__description {
-    font-size: 14px;
+    font-size: 18px;
     line-height: 16px;
     font-style: normal;
     font-weight: 700;

@@ -7,7 +7,7 @@ const comments = (rating, commentsArray) => {
         <img class="comments__img" src="/graphics/icons/star.svg" alt="rating">
         <span class="comments__rating">{{rating}}</span>
         <span class="comments__description">
-          Рейтинг складывается из оценок клиентов, скорости доставки и еще множества разных параметров
+          Рейтинг ресторана складывается из оценок пользователей
         </span>
       </div>
 
