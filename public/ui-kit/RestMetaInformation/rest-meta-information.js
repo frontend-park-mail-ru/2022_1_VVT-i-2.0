@@ -7,7 +7,7 @@
  * @return {string} HTML строка для отрисовки ui-kit компонента restMetaInformation.
  */
 const restMetaInformation = (restName, timeToDeliver, price, rating) => {
-    const goldRation = rating > 4.5;
+    const goldRation = rating > 4.4;
 
     const template = `
         <div class="rest-icon__rest-meta-info-block">
