@@ -1,15 +1,15 @@
 @use "public/configurations/colors/colors.scss" as theme;
 
 .form-title {
+  margin-bottom: 35px;
+
   @media screen and (orientation: portrait) and (max-width: 920px) {
     max-width: 343px;
-    margin-bottom: 30px;
   }
 
   @media screen and (orientation: landscape) and (min-width: 920px) {
     max-width: 500px;
     margin-top: -20px;
-    margin-bottom: 35px;
   }
 }
 
