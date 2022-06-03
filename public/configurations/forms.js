@@ -106,7 +106,7 @@ const FORMS_CONFIGURATION = {
     profilePoints: [
       { point: "Личные данные", dataSection: "profile" },
       { point: "Мои заказы", dataSection: "orderHistory" },
-      { point: "Выход", id: "logoutButton" },
+      { point: "Выход", class: "logoutButton" },
     ],
     typePaymentChoice: ["Онлайн оплата", "Google Pay", "Sber Pay"],
   },

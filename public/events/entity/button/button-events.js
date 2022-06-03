@@ -126,7 +126,7 @@ export const getButtonEvents = () => {
     logoutButton: [
       {
         type: "click",
-        selector: "id",
+        selector: "class",
         /**
          * @function Осуществляет отправку запроса на ввыход пользователя из учетной записи.
          * @param {Object} app - Объект приложения.
