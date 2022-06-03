@@ -270,7 +270,7 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     return;
   }
 
-  if (urn === "/shoppingCart" && sessionStorage.getItem("root") === "main") {
+  if (urn === "/shoppingCart" && sessionStorage.getItem("root") !== "dishes") {
     history.pushState({}, null, "/dishes/" + getters.getCurrentSlug());
     render("/dishes/" + getters.getCurrentSlug(), false);
     render(urn, true);
