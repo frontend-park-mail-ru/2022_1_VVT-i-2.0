@@ -63,6 +63,7 @@ export const clearSuggests = () => {
 };
 
 export const addDishToCart = (id, restName, price, count = 1) => {
+  sessionStorage.removeItem('getRestBySearchRequest');
   return STORE.addDishToCart(id, restName, price, count);
 };
 

@@ -10,7 +10,7 @@ const searchBlock = () => {
                     <input id="searchInput" value="{{searchQuery}}" class="input-block__input-without-border" placeholder="Ресторан или категория" type="text" autocomplete="off">
                 </div>
                 <div class="search-block__block-img">
-                    <img id="closeImg" class="block-img__image" src="/graphics/icons/close.svg" alt="">
+                    <img id="closeSearchImg" class="block-img__image" src="/graphics/icons/close.svg" alt="">
                 </div>
             </div>
         </nav>

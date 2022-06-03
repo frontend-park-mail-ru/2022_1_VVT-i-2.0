@@ -19,7 +19,8 @@ export const dishEvents = () => {
 
           const { id, rest, price } = e.target.dataset;
           if (
-            document.getElementById("suggestsSearch").value === DEFAULT_ADDRESS
+            localStorage.getItem("address") === DEFAULT_ADDRESS
+            // document.getElementById("suggestsSearch").value === DEFAULT_ADDRESS
           ) {
             renderAndUpdateURN("/suggests");
             renderNotification("Заполните адрес доставки", true);

@@ -32,6 +32,21 @@ export const getFrameEvents = () => {
         },
       },
     ],
+    closeSearchImg: [
+      {
+        type: "click",
+        selector: "id",
+        listener(app, store, e) {
+          sessionStorage.removeItem('getRestBySearchRequest');
+          store.actions.setSearchStatus(false);
+          const page = sessionStorage.getItem('page');
+          renderAndUpdateURN(page);
+          if (page === 'shoppingCart') {
+            document.getElementById('shoppingCartButton').click();
+          }
+        },
+      },
+    ],
     buttonOpenClose: [
       {
         type: "click",
