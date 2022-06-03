@@ -232,6 +232,11 @@ export const renderAndUpdateURN = (urn, storeUpdate = false) => {
     urn = `/${urn}`;
   }
 
+  if (urn !== '/orderHistory') {
+    sessionStorage.removeItem('openedAdditionalOrderInfo');
+  }
+
+
   if (sessionStorage.getItem("page") === "orderHistory") {
     store.actions.clearUpdateTimeout();
   } else {
