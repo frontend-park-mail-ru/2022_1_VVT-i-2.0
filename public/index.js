@@ -90,6 +90,9 @@ const handleOnload = () => {
   if (decodedPathname === "/confirmCode") {
     decodedPathname = "/login";
   }
+  if (decodedPathname.startsWith("/createComment")) {
+    decodedPathname = "/orderHistory";
+  }
 
   localStorage.removeItem("cart");
   localStorage.removeItem("currentRestName");
