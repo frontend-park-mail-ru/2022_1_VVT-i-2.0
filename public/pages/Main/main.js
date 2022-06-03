@@ -23,8 +23,6 @@ const mainPage = (app, store) => {
     return category;
   });
 
-  console.log(sessionStorage.getItem("getRestBySearchRequest"));
-
   if (store.getters.restaurants().length === 0 && !sessionStorage.getItem("getRestBySearchRequest")) {
     if (categories.some((category) => category.title === params)) {
       store.actions.getRestaurants({ category: params });
