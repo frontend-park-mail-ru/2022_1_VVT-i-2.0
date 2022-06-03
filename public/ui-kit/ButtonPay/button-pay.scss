@@ -9,40 +9,27 @@
 .button-pay {
   @include flex-center();
 
-  @media screen and (orientation: portrait) and (max-width: 920px) {
-    width: 343px;
-    height: 45px;
-    margin-bottom: 20px;
-    @media screen and (min-width: 438px) {
-      margin-left: calc((100% - 343px)/2);
-    }
-  }
-
-  @media screen and (orientation: landscape) and (min-width: 920px) {
-    height: 63px;
-  }
-
-  background: #000000;
-  border-radius: 5px;
+  height: 45px;
+  min-width: 343px;
+  min-height: 45px;
 
   margin-top: 40px;
+  margin-bottom: 20px;
 
+  border: none;
+  border-radius: 14px;
+  font-weight: bold;
   cursor: pointer;
-}
+  background: theme.getColor('primary');
+  color: theme.getColor('black');
+  transition-duration: 0.25s;
 
-.button-pay__block-img {
-  display: inline-flex;
-}
-
-.button-pay__img {
-  margin-top: 5px;
-  width: 80%;
-  height: 80%;
-}
-
-.button-pay__payment-separator {
-  margin: auto 5px;
-  background: theme.getColor("warm");
-  width: 2px;
-  height: 32px;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  &__text {
+    text-align: center;
+    margin: auto;
+  }
 }

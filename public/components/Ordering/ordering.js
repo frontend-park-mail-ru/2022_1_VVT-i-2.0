@@ -92,7 +92,7 @@ const ordering = (props, promoCodeApplied, promoCode) => {
       return paymentChoice();
     },
     buttonPay() {
-      return UIKIT.buttonPay();
+      return UIKIT.buttonPay(100);
     },
     summaryCheck() {
       return UIKIT.orderCheck(props, true, true, promoCodeApplied, promoCode);
