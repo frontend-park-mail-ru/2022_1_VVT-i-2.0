@@ -23,7 +23,7 @@ const shoppingCartPage = (app, store) => {
   }
 
   const properties = store.getters.cart().order
-    .filter(({ id }) => dishObj.dishes.findIndex((orderPoint) => orderPoint.id === id) > 0)
+    .filter(({ id }) => dishObj.dishes.findIndex((orderPoint) => orderPoint.id === id) >= 0)
     .map(({ id, price, count }) => {
       const index = dishObj.dishes.findIndex((orderPoint) => orderPoint.id === id);
       return { ...dishObj.dishes[index], price, count };
