@@ -78,6 +78,18 @@ const handleOnload = () => {
   const restId = Number(localStorage.getItem("restId"));
   const appliedPromoCode = JSON.parse(localStorage.getItem("appliedPromoCode"));
 
+  const root = localStorage.getItem("root");
+  if (root !== null) {
+    sessionStorage.setItem("root", root);
+    localStorage.removeItem("root");
+  }
+
+  const params = localStorage.getItem("params");
+  if (params !== null) {
+    sessionStorage.setItem("params", params);
+    localStorage.removeItem("params");
+  }
+
   const error = localStorage.getItem("error");
   if (error !== null) {
     localStorage.removeItem("error");
@@ -131,6 +143,16 @@ window.onbeforeunload = () => {
   const error = sessionStorage.getItem("error");
   if (error !== null) {
     localStorage.setItem("error", error);
+  }
+
+  const root = sessionStorage.getItem("root");
+  if (root !== null) {
+    localStorage.setItem("root", root);
+  }
+
+  const params = sessionStorage.getItem("params");
+  if (params !== null) {
+    localStorage.setItem("params", params);
   }
 
   sessionStorage.clear();
