@@ -101,15 +101,21 @@ export const render = (urn, storeUpdate = false) => {
   let section = path.replace("/", "");
   section = section === "" ? "main" : section;
 
+  const currentPage = sessionStorage.getItem("page");
+
   if (
     !storeUpdate &&
     section === "suggests" &&
-    sessionStorage.getItem("page") === "suggests"
+    currentPage === "suggests"
   ) {
     return;
   }
 
-  if (section === "suggests" && sessionStorage.getItem("page") !== "suggests") {
+  if (section === "main" && currentPage !== section && !sessionStorage.getItem("getRestBySearchRequest")) {
+    store.actions.clearRestaurants();
+  }
+
+  if (section === "suggests" && currentPage !== "suggests") {
     const address = localStorage.getItem("address");
     localStorage.setItem("lastAddress", address);
 
@@ -120,7 +126,7 @@ export const render = (urn, storeUpdate = false) => {
 
   if (
     !storeUpdate &&
-    section === sessionStorage.getItem("page") &&
+    section === currentPage &&
     CLOSED_PAGES.includes(section)
   ) {
     section = sessionStorage.getItem("root") || "main";
@@ -165,7 +171,6 @@ export const render = (urn, storeUpdate = false) => {
 
     setModalPosition(page);
   } else {
-    const currentPage = sessionStorage.getItem("page");
     const root = sessionStorage.getItem("root");
     if (section !== currentPage && section !== root) {
       window.scrollTo(0, 0);

@@ -13,14 +13,6 @@ export const getFrameEvents = () => {
          * @param {Event} e - Событие.
          */
         listener(app, store, e) {
-          if (e.target.classList.contains("block-img__image")) {
-            store.actions.setSearchStatus(false);
-            store.actions.clearRestaurants();
-            renderAndUpdateURN("/");
-
-            return;
-          }
-
           const root = sessionStorage.getItem("root") || "main";
           const params = sessionStorage.getItem("params");
 
@@ -39,10 +31,13 @@ export const getFrameEvents = () => {
         listener(app, store, e) {
           sessionStorage.removeItem('getRestBySearchRequest');
           store.actions.setSearchStatus(false);
-          store.actions.clearRestaurants();
 
           const root = sessionStorage.getItem("root") || "main";
           const params = sessionStorage.getItem("params");
+
+          if (root === "main") {
+            store.actions.clearRestaurants();
+          }
 
           if (params) {
             renderAndUpdateURN(`/${root}/${params}`);
