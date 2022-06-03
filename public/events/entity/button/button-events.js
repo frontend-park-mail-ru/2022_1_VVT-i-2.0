@@ -135,6 +135,11 @@ export const getButtonEvents = () => {
         listener(app, store, e) {
           store.actions.logout().then(() => {
             const root = sessionStorage.getItem("root") || "main";
+            if (!["profilePreview", "profile", "shoppingCart", "ordering", "orderHistory"].includes(root)) {
+              renderAndUpdateURN("/");
+              return;
+            }
+
             const params = sessionStorage.getItem("params");
 
             if (params) {
