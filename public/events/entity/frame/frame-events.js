@@ -39,8 +39,17 @@ export const getFrameEvents = () => {
         listener(app, store, e) {
           sessionStorage.removeItem('getRestBySearchRequest');
           store.actions.setSearchStatus(false);
-          const page = sessionStorage.getItem('page');
-          renderAndUpdateURN(page);
+          store.actions.clearRestaurants();
+
+          const root = sessionStorage.getItem("root") || "main";
+          const params = sessionStorage.getItem("params");
+
+          if (params) {
+            renderAndUpdateURN(`/${root}/${params}`);
+          } else {
+            renderAndUpdateURN(root);
+          }
+
           if (page === 'shoppingCart') {
             document.getElementById('shoppingCartButton').click();
           }
